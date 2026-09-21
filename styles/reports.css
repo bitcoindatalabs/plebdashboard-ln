@@ -1,0 +1,418 @@
+/* ==========================================================================
+   plebdashboard-ln: reports.css
+   Warm Editorial Newspaper Styling for Lightning Weekly & Monthly Reports
+   Brand Palette: #F1F2DC (Bg), #E5E7CC (Card), #E8916B (Accent), #1A1D24 (Text)
+   Typography: Newsreader (Headlines), Inter (Stats & UI)
+   ========================================================================== */
+
+:root {
+    --bg-color: #F1F2DC;
+    --card-bg: #E5E7CC;
+    --card-border: #D8DAB8;
+    --accent-color: #E8916B;
+    --accent-light: #FCEFE9;
+    --text-primary: #1A1D24;
+    --text-secondary: #555B66;
+    --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --success-green: #2E7559;
+    --danger-red: #A93E3B;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #DFE2C8;
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Page Container */
+.reports-container {
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+/* Unlisted Header Utility */
+.reports-utility-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px;
+    background-color: var(--bg-color);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.utility-badge {
+    background-color: var(--accent-light);
+    color: var(--accent-color);
+    font-weight: 700;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.archive-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.archive-select {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--card-border);
+    background-color: #FFF;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    color: var(--text-primary);
+}
+
+/* Social Slide Canvas (1200x675) */
+.social-slide {
+    width: 1200px;
+    height: 675px;
+    background-color: var(--bg-color);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 44px 54px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Slide Header */
+.slide-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1.5px solid var(--card-border);
+    padding-bottom: 18px;
+}
+
+.header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.header-tag {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent-color);
+}
+
+.slide-title {
+    font-family: var(--font-serif);
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+}
+
+.slide-subtitle {
+    font-family: var(--font-sans);
+    font-size: 18px;
+    color: var(--text-secondary);
+    margin-top: 2px;
+}
+
+.logo-box img {
+    height: 44px;
+    width: auto;
+}
+
+/* Slide Footer */
+.slide-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--card-border);
+    padding-top: 14px;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+/* 2x2 Grid for Slide 1 */
+.grid-2x2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+    margin: 18px 0;
+    flex-grow: 1;
+}
+
+.metric-card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.metric-label {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+}
+
+.metric-value-row {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+}
+
+.metric-value {
+    font-family: var(--font-sans);
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1;
+}
+
+.metric-delta {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+.delta-pos {
+    background-color: #E2F0E7;
+    color: var(--success-green);
+}
+
+.delta-neg {
+    background-color: #F8E5E5;
+    color: var(--danger-red);
+}
+
+.delta-neu {
+    background-color: #EBECE0;
+    color: var(--text-secondary);
+}
+
+.metric-sub {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-top: 6px;
+}
+
+/* 7-Day Matrix for Slide 2 */
+.growth-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.8fr;
+    gap: 24px;
+    margin: 18px 0;
+    flex-grow: 1;
+}
+
+.growth-summary-box {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 24px 26px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.growth-daily-table {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.daily-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--card-border);
+    font-size: 15px;
+}
+
+.daily-row:last-child {
+    border-bottom: none;
+}
+
+.daily-row-date {
+    font-weight: 600;
+    color: var(--text-primary);
+    width: 90px;
+}
+
+.daily-bar-container {
+    flex-grow: 1;
+    margin: 0 16px;
+    background: #F1F2DC;
+    border-radius: 4px;
+    height: 14px;
+    overflow: hidden;
+    display: flex;
+}
+
+.daily-bar-fill {
+    background-color: var(--accent-color);
+    height: 100%;
+}
+
+.daily-stats-text {
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-size: 13px;
+    width: 140px;
+    text-align: right;
+}
+
+/* Velocity Slide 3 */
+.velocity-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    margin: 18px 0;
+    flex-grow: 1;
+}
+
+.velocity-card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 24px 26px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.velocity-card.highlight {
+    background-color: #E2E5C4;
+    border: 1px solid var(--accent-color);
+}
+
+/* Top Channels Slide 4 */
+.top-channels-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 18px 0;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.channel-row {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 14px 20px;
+    display: grid;
+    grid-template-columns: 40px 1.4fr 120px 1fr;
+    align-items: center;
+    font-size: 15px;
+}
+
+.channel-rank {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+.channel-peers {
+    font-weight: 600;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.channel-cap {
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--text-primary);
+    text-align: right;
+}
+
+.channel-meta {
+    font-size: 13px;
+    color: var(--text-secondary);
+    text-align: right;
+}
+
+/* Slide 5 Topology */
+.topology-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 18px 0;
+    flex-grow: 1;
+}
+
+.topology-box {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 26px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.donut-bar-wrap {
+    margin: 16px 0;
+}
+
+.segmented-bar {
+    height: 28px;
+    width: 100%;
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+}
+
+.bar-tor {
+    background-color: #8C5BAE;
+    height: 100%;
+}
+
+.bar-clearnet {
+    background-color: var(--accent-color);
+    height: 100%;
+}
+
+.legend-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 600;
+}

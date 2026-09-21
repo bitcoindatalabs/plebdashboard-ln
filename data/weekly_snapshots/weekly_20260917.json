@@ -1,0 +1,123 @@
+{
+  "target_date": "2026-09-17",
+  "date_range": {
+    "start": "2026-09-11",
+    "end": "2026-09-17",
+    "start_formatted": "Sep 11",
+    "end_formatted": "Sep 17, 2026"
+  },
+  "metrics": {
+    "active_nodes": 10063,
+    "delta_nodes_7d": 26,
+    "active_channels": 350510,
+    "delta_channels_7d": 575,
+    "total_capacity_sats": 5064109452600,
+    "delta_capacity_btc_7d": 252.61,
+    "median_channel_capacity_sats": 1270246,
+    "new_nodes_7d": 40,
+    "new_channels_7d": 1045,
+    "new_capacity_sats_7d": 40743932181,
+    "closed_channels_7d": 470,
+    "closed_capacity_sats_7d": 15482694228,
+    "tor_pct": 46.3,
+    "bridge_nodes_count": 1420
+  },
+  "daily_breakdown": [
+    {
+      "date": "2026-09-11",
+      "date_formatted": "Sep 11",
+      "new_nodes": 10,
+      "new_channels": 206,
+      "capacity_added_btc": 73.39
+    },
+    {
+      "date": "2026-09-12",
+      "date_formatted": "Sep 12",
+      "new_nodes": 6,
+      "new_channels": 147,
+      "capacity_added_btc": 62.66
+    },
+    {
+      "date": "2026-09-13",
+      "date_formatted": "Sep 13",
+      "new_nodes": 7,
+      "new_channels": 135,
+      "capacity_added_btc": 72.18
+    },
+    {
+      "date": "2026-09-14",
+      "date_formatted": "Sep 14",
+      "new_nodes": 2,
+      "new_channels": 189,
+      "capacity_added_btc": 74.41
+    },
+    {
+      "date": "2026-09-15",
+      "date_formatted": "Sep 15",
+      "new_nodes": 6,
+      "new_channels": 157,
+      "capacity_added_btc": 57.23
+    },
+    {
+      "date": "2026-09-16",
+      "date_formatted": "Sep 16",
+      "new_nodes": 9,
+      "new_channels": 174,
+      "capacity_added_btc": 48.82
+    },
+    {
+      "date": "2026-09-17",
+      "date_formatted": "Sep 17",
+      "new_nodes": 0,
+      "new_channels": 37,
+      "capacity_added_btc": 18.75
+    }
+  ],
+  "top_5_channels": [
+    {
+      "node1_pub": "02b21730bc36061609cc1fe1bd7f5d3068e0a5e511aaf210a82c046b58020c4aa8",
+      "node2_pub": "034ea80f8b148c750463546bd999bf7321a0e6dfc60aaf84bd0400a2e8d376c0d5",
+      "node1_alias": "Tachyon",
+      "node2_alias": "LNBiG [Hub-1]",
+      "capacity": 500000000,
+      "channel_id": "1062945169685086210",
+      "block_tx_output_short_id": "966743x1740x2"
+    },
+    {
+      "node1_pub": "02e4971e61a3f55718ae31e2eed19aaf2e32caf3eb5ef5ff03e01aa3ada8907e78",
+      "node2_pub": "037f990e61acee8a7697966afd29dd88f3b1f8a7b14d625c4f8742bd952003a590",
+      "node1_alias": "1sats.com\u26a1\ufe0flsp.flashsats.xyz",
+      "node2_alias": "fixedfloat.com",
+      "capacity": 500000000,
+      "channel_id": "1062967159966662657",
+      "block_tx_output_short_id": "966763x2488x1"
+    },
+    {
+      "node1_pub": "02e4971e61a3f55718ae31e2eed19aaf2e32caf3eb5ef5ff03e01aa3ada8907e78",
+      "node2_pub": "03864ef025fde8fb587d989186ce6a4a186895ee44a926bfc370e2c366597a3f8f",
+      "node1_alias": "1sats.com\u26a1\ufe0flsp.flashsats.xyz",
+      "node2_alias": "ACINQ",
+      "capacity": 483829525,
+      "channel_id": "1062914383448440833",
+      "block_tx_output_short_id": "966715x3097x1"
+    },
+    {
+      "node1_pub": "02b21730bc36061609cc1fe1bd7f5d3068e0a5e511aaf210a82c046b58020c4aa8",
+      "node2_pub": "034ea80f8b148c750463546bd999bf7321a0e6dfc60aaf84bd0400a2e8d376c0d5",
+      "node1_alias": "Tachyon",
+      "node2_alias": "LNBiG [Hub-1]",
+      "capacity": 481000000,
+      "channel_id": "1062945169685086209",
+      "block_tx_output_short_id": "966743x1740x1"
+    },
+    {
+      "node1_pub": "02b21730bc36061609cc1fe1bd7f5d3068e0a5e511aaf210a82c046b58020c4aa8",
+      "node2_pub": "03864ef025fde8fb587d989186ce6a4a186895ee44a926bfc370e2c366597a3f8f",
+      "node1_alias": "Tachyon",
+      "node2_alias": "ACINQ",
+      "capacity": 469387642,
+      "channel_id": "1063328899186819072",
+      "block_tx_output_short_id": "967092x880x0"
+    }
+  ]
+}

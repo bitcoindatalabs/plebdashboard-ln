@@ -1,0 +1,124 @@
+{
+  "target_date": "2026-09-20",
+  "date_range": {
+    "start": "2026-09-14",
+    "end": "2026-09-20",
+    "start_formatted": "Sep 14",
+    "end_formatted": "Sep 20, 2026"
+  },
+  "metrics": {
+    "active_nodes": 10047,
+    "delta_nodes_7d": 31,
+    "active_channels": 42900,
+    "delta_channels_7d": 1040,
+    "total_capacity_sats": 488840625303,
+    "delta_capacity_btc_7d": 375.71,
+    "median_channel_capacity_sats": 2100000,
+    "new_nodes_7d": 31,
+    "new_channels_7d": 1040,
+    "new_capacity_sats_7d": 37570524298,
+    "closed_channels_7d": 0,
+    "closed_capacity_sats_7d": 0,
+    "has_closed_data": false,
+    "tor_pct": 46.4,
+    "bridge_nodes_count": 1930
+  },
+  "daily_breakdown": [
+    {
+      "date": "2026-09-14",
+      "date_formatted": "Sep 14",
+      "new_nodes": 2,
+      "new_channels": 189,
+      "capacity_added_btc": 74.41
+    },
+    {
+      "date": "2026-09-15",
+      "date_formatted": "Sep 15",
+      "new_nodes": 6,
+      "new_channels": 157,
+      "capacity_added_btc": 57.23
+    },
+    {
+      "date": "2026-09-16",
+      "date_formatted": "Sep 16",
+      "new_nodes": 9,
+      "new_channels": 175,
+      "capacity_added_btc": 48.87
+    },
+    {
+      "date": "2026-09-17",
+      "date_formatted": "Sep 17",
+      "new_nodes": 3,
+      "new_channels": 230,
+      "capacity_added_btc": 91.31
+    },
+    {
+      "date": "2026-09-18",
+      "date_formatted": "Sep 18",
+      "new_nodes": 6,
+      "new_channels": 171,
+      "capacity_added_btc": 53.27
+    },
+    {
+      "date": "2026-09-19",
+      "date_formatted": "Sep 19",
+      "new_nodes": 5,
+      "new_channels": 101,
+      "capacity_added_btc": 45.35
+    },
+    {
+      "date": "2026-09-20",
+      "date_formatted": "Sep 20",
+      "new_nodes": 0,
+      "new_channels": 17,
+      "capacity_added_btc": 5.26
+    }
+  ],
+  "top_5_channels": [
+    {
+      "node1_pub": "03864ef025fde8fb587d989186ce6a4a186895ee44a926bfc370e2c366597a3f8f",
+      "node2_pub": "03a1f3afd646d77bdaf545cceaf079bab6057eae52c6319b63b5803d0989d6a72f",
+      "node1_alias": "ACINQ",
+      "node2_alias": "Binance",
+      "capacity": 500000000,
+      "channel_id": "1063698335072976897",
+      "block_tx_output_short_id": "967428x563x1"
+    },
+    {
+      "node1_pub": "02b21730bc36061609cc1fe1bd7f5d3068e0a5e511aaf210a82c046b58020c4aa8",
+      "node2_pub": "03864ef025fde8fb587d989186ce6a4a186895ee44a926bfc370e2c366597a3f8f",
+      "node1_alias": "Tachyon",
+      "node2_alias": "ACINQ",
+      "capacity": 469387642,
+      "channel_id": "1063328899186819072",
+      "block_tx_output_short_id": "967092x880x0"
+    },
+    {
+      "node1_pub": "02b21730bc36061609cc1fe1bd7f5d3068e0a5e511aaf210a82c046b58020c4aa8",
+      "node2_pub": "03864ef025fde8fb587d989186ce6a4a186895ee44a926bfc370e2c366597a3f8f",
+      "node1_alias": "Tachyon",
+      "node2_alias": "ACINQ",
+      "capacity": 469387642,
+      "channel_id": "1063625767309934593",
+      "block_tx_output_short_id": "967362x630x1"
+    },
+    {
+      "node1_pub": "021c97a90a411ff2b10dc2a8e32de2f29d2fa49d41bfbb52bd416e460db0747d0d",
+      "node2_pub": "03c8e5f583585cac1de2b7503a6ccd3c12ba477cfd139cd4905be504c2f48e86bd",
+      "node1_alias": "LOOP",
+      "node2_alias": "Strike",
+      "capacity": 400000000,
+      "channel_id": "1063747813233721345",
+      "block_tx_output_short_id": "967473x2661x1"
+    },
+    {
+      "node1_pub": "02a98e8c590a1b5602049d6b21d8f4c8861970aa310762f42eae1b2be88372e924",
+      "node2_pub": "03864ef025fde8fb587d989186ce6a4a186895ee44a926bfc370e2c366597a3f8f",
+      "node1_alias": "ed528ad49bedd1f7a638a",
+      "node2_alias": "ACINQ",
+      "capacity": 360034527,
+      "channel_id": "1063832475513389056",
+      "block_tx_output_short_id": "967550x896x0"
+    }
+  ]
+}

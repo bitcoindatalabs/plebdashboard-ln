@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lightning Network Weekly Wrap | Plebdashboard LN</title>
+
+    <meta property="og:title" content="Lightning Network Weekly Wrap — Plebdashboard LN">
+    <meta property="og:description" content="Weekly macroeconomic intelligence, routing topology growth, and channel velocity on the Bitcoin Lightning Network.">
+
+    <!-- Google Fonts: Newsreader (Editorial Serif) & Inter (Modern Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Report Styles -->
+    <link rel="stylesheet" href="styles/reports.css">
+</head>
+
+<body>
+
+    <div class="reports-container">
+        <!-- Unlisted Utility / Archive Bar -->
+        <div class="reports-utility-bar">
+            <div>
+                <span class="utility-badge">Unlisted Archive</span>
+                <span style="margin-left: 10px; font-weight: 600; color: var(--text-secondary);">Lightning Network Weekly Wrap</span>
+            </div>
+            <div class="archive-selector">
+                <span style="color: var(--text-secondary);">Report Window:</span>
+                <span class="date-range-text" style="font-weight: 700; color: var(--text-primary);">Loading dates...</span>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             SLIDE 1: COVER & VITAL SIGNS
+             ========================================== -->
+        <div class="social-slide wrap-slide-1" id="wrap-slide-1">
+            <div class="slide-header">
+                <div class="header-left">
+                    <div class="header-tag">BITCOIN DATA LABS • WEEKLY INTELLIGENCE</div>
+                    <h1 class="slide-title">LIGHTNING NETWORK WEEKLY WRAP</h1>
+                    <div class="slide-subtitle date-range-text">Loading date range...</div>
+                </div>
+                <div class="logo-box">
+                    <img src="https://bitcoindatalabs.org/favicon.png" onerror="this.src='../this-week-in-bitcoin/docs/images/favicon.png'" alt="BDL Logo">
+                </div>
+            </div>
+
+            <div class="grid-2x2">
+                <div class="metric-card">
+                    <div class="metric-label">Active Routed Channels</div>
+                    <div class="metric-value-row">
+                        <div class="metric-value" id="s1-active-chans">--</div>
+                        <div id="s1-delta-chans"></div>
+                    </div>
+                    <div class="metric-sub">Confirmed live routing edges</div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-label">Network Capacity</div>
+                    <div class="metric-value-row">
+                        <div class="metric-value" id="s1-total-cap">--</div>
+                        <div id="s1-delta-cap"></div>
+                    </div>
+                    <div class="metric-sub">Total Bitcoin liquidity locked</div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-label">Active Nodes</div>
+                    <div class="metric-value-row">
+                        <div class="metric-value" id="s1-active-nodes">--</div>
+                        <div id="s1-delta-nodes"></div>
+                    </div>
+                    <div class="metric-sub">Discovered in network gossip</div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-label">Median Channel Capacity</div>
+                    <div class="metric-value-row">
+                        <div class="metric-value" id="s1-med-chan">--</div>
+                    </div>
+                    <div class="metric-sub">Standard payment route unit</div>
+                </div>
+            </div>
+
+            <div class="slide-footer">
+                <span>Macroeconomic Network Health • plebdashboard-ln</span>
+                <span>bitcoindatalabs.org</span>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             SLIDE 2: 7-DAY NET GROWTH & VELOCITY
+             ========================================== -->
+        <div class="social-slide wrap-slide-2" id="wrap-slide-2">
+            <div class="slide-header">
+                <div class="header-left">
+                    <div class="header-tag">NETWORK VELOCITY</div>
+                    <h2 class="slide-title">7-DAY GROWTH DYNAMICS</h2>
+                    <div class="slide-subtitle date-range-text">Loading date range...</div>
+                </div>
+                <div class="logo-box">
+                    <img src="https://bitcoindatalabs.org/favicon.png" onerror="this.src='../this-week-in-bitcoin/docs/images/favicon.png'" alt="BDL Logo">
+                </div>
+            </div>
+
+            <div class="growth-grid">
+                <div class="growth-summary-box">
+                    <div>
+                        <div class="metric-label">New Nodes Joined</div>
+                        <div class="metric-value" id="s2-new-nodes" style="color: var(--success-green);">--</div>
+                        <div class="metric-sub">First seen in 7-day window</div>
+                    </div>
+                    <div style="border-top: 1px solid var(--card-border); padding-top: 16px;">
+                        <div class="metric-label">New Channels Funded</div>
+                        <div class="metric-value" id="s2-new-chans" style="color: var(--accent-color);">--</div>
+                        <div class="metric-sub">New payment paths created</div>
+                    </div>
+                    <div style="border-top: 1px solid var(--card-border); padding-top: 16px;">
+                        <div class="metric-label">Gross Capacity Added</div>
+                        <div class="metric-value" id="s2-new-cap" style="font-size: 32px;">--</div>
+                        <div class="metric-sub">Fresh on-chain capital locked</div>
+                    </div>
+                </div>
+
+                <div class="growth-daily-table">
+                    <div class="metric-label" style="margin-bottom: 8px;">Daily Channel Velocity (Trailing 7 Days)</div>
+                    <div id="s2-daily-rows">
+                        <!-- Populated dynamically by reports.js -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide-footer">
+                <span>Trailing 7-day velocity metrics</span>
+                <span>plebdashboard-ln</span>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             SLIDE 3: CHANNEL VELOCITY (OPEN VS CLOSED)
+             ========================================== -->
+        <div class="social-slide wrap-slide-3" id="wrap-slide-3">
+            <div class="slide-header">
+                <div class="header-left">
+                    <div class="header-tag">LIQUIDITY CHURN</div>
+                    <h2 class="slide-title">CHANNEL OPENINGS VS CLOSURES</h2>
+                    <div class="slide-subtitle date-range-text">Loading date range...</div>
+                </div>
+                <div class="logo-box">
+                    <img src="https://bitcoindatalabs.org/favicon.png" onerror="this.src='../this-week-in-bitcoin/docs/images/favicon.png'" alt="BDL Logo">
+                </div>
+            </div>
+
+            <div class="velocity-grid">
+                <div class="velocity-card">
+                    <div>
+                        <div class="metric-label" style="color: var(--success-green);">🟢 Channels Opened</div>
+                        <div class="metric-value" id="s3-open-count" style="margin: 12px 0;">--</div>
+                        <div class="metric-sub">Total paths established</div>
+                    </div>
+                    <div style="border-top: 1px solid var(--card-border); padding-top: 14px;">
+                        <div class="metric-label">Funded Capacity</div>
+                        <div style="font-size: 26px; font-weight: 700; color: var(--text-primary);" id="s3-open-cap">--</div>
+                    </div>
+                </div>
+
+                <div class="velocity-card">
+                    <div>
+                        <div class="metric-label" style="color: var(--danger-red);">🔴 Channels Closed</div>
+                        <div class="metric-value" id="s3-close-count" style="margin: 12px 0;">--</div>
+                        <div class="metric-sub">Mutual, force, and expired</div>
+                    </div>
+                    <div style="border-top: 1px solid var(--card-border); padding-top: 14px;">
+                        <div class="metric-label">Settled Capacity</div>
+                        <div style="font-size: 26px; font-weight: 700; color: var(--text-primary);" id="s3-close-cap">--</div>
+                    </div>
+                </div>
+
+                <div class="velocity-card highlight">
+                    <div>
+                        <div class="metric-label">⚡ Net Network Flow</div>
+                        <div class="metric-value" id="s3-net-count" style="margin: 12px 0;">--</div>
+                        <div class="metric-sub">Net change in channel count</div>
+                    </div>
+                    <div style="border-top: 1px solid var(--card-border); padding-top: 14px;">
+                        <div class="metric-label">Net Liquidity Delta</div>
+                        <div style="font-size: 26px; font-weight: 700; color: var(--accent-color);" id="s3-net-cap">--</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide-footer">
+                <span>On-chain channel lifecycle analysis • Closures verified via gossip indexing</span>
+                <span>Bitcoin Data Labs</span>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             SLIDE 4: TOP 5 BIGGEST CHANNELS
+             ========================================== -->
+        <div class="social-slide wrap-slide-4" id="wrap-slide-4">
+            <div class="slide-header">
+                <div class="header-left">
+                    <div class="header-tag">HIGH-CAPACITY BACKBONES</div>
+                    <h2 class="slide-title">TOP 5 BIGGEST CHANNELS OF THE WEEK</h2>
+                    <div class="slide-subtitle date-range-text">Loading date range...</div>
+                </div>
+                <div class="logo-box">
+                    <img src="https://bitcoindatalabs.org/favicon.png" onerror="this.src='../this-week-in-bitcoin/docs/images/favicon.png'" alt="BDL Logo">
+                </div>
+            </div>
+
+            <div class="top-channels-list" id="s4-channels-list">
+                <!-- Populated dynamically by reports.js -->
+            </div>
+
+            <div class="slide-footer">
+                <span>Major liquidity corridors established this week</span>
+                <span>plebdashboard-ln</span>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             SLIDE 5: TOPOLOGY & PRIVACY RESILIENCE
+             ========================================== -->
+        <div class="social-slide wrap-slide-5" id="wrap-slide-5">
+            <div class="slide-header">
+                <div class="header-left">
+                    <div class="header-tag">NETWORK TOPOLOGY & PRIVACY</div>
+                    <h2 class="slide-title">RESILIENCE & EXPLORE THE DATA</h2>
+                    <div class="slide-subtitle date-range-text">Loading date range...</div>
+                </div>
+                <div class="logo-box">
+                    <img src="https://bitcoindatalabs.org/favicon.png" onerror="this.src='../this-week-in-bitcoin/docs/images/favicon.png'" alt="BDL Logo">
+                </div>
+            </div>
+
+            <div class="topology-grid">
+                <div class="topology-box">
+                    <div>
+                        <div class="metric-label">Transport Protocol Distribution</div>
+                        <div class="donut-bar-wrap">
+                            <div class="segmented-bar">
+                                <div class="bar-tor" id="s5-tor-bar" style="width: 46%;"></div>
+                                <div class="bar-clearnet" id="s5-clearnet-bar" style="width: 54%;"></div>
+                            </div>
+                            <div class="legend-row">
+                                <span style="color: #8C5BAE;" id="s5-tor-label">Tor Privacy: 46.3%</span>
+                                <span style="color: var(--accent-color);" id="s5-clearnet-label">Clearnet: 53.7%</span>
+                            </div>
+                        </div>
+                        <div class="metric-sub" style="margin-top: 10px; line-height: 1.4;">
+                            A healthy, balanced split between anonymous Tor routing and low-latency Clearnet propagation ensures censorship resistance across global nodes.
+                        </div>
+                    </div>
+
+                    <div style="border-top: 1px solid var(--card-border); padding-top: 14px;">
+                        <div class="metric-label">Dual-Stack Bridge Nodes</div>
+                        <div class="metric-value" id="s5-bridge-count" style="font-size: 32px;">--</div>
+                        <div class="metric-sub">Routers interconnecting Tor and Clearnet clusters</div>
+                    </div>
+                </div>
+
+                <div class="topology-box" style="justify-content: center; text-align: center; padding: 40px 30px;">
+                    <div class="header-tag" style="margin-bottom: 12px;">INDEPENDENT LIGHTNING RESEARCH</div>
+                    <div style="font-family: var(--font-serif); font-size: 28px; font-weight: 700; margin-bottom: 14px; color: var(--text-primary);">
+                        Explore 10,000+ Nodes & Real-Time Topology
+                    </div>
+                    <div style="font-size: 16px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 24px;">
+                        Discover custom node analytics, PlebRank leaderboards, 3D network visualizations, and channel health audits.
+                    </div>
+                    <div style="background: var(--bg-color); border: 1px solid var(--card-border); border-radius: 8px; padding: 14px; font-weight: 700; font-size: 17px; color: var(--accent-color);">
+                        plebdashboard-ln • bitcoindatalabs.org
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide-footer">
+                <span>Published every Monday • Follow @BitcoinDataLabs</span>
+                <span>bitcoindatalabs.org</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/reports.js"></script>
+</body>
+</html>
