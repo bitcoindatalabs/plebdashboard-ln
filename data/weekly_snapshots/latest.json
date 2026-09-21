@@ -1,36 +1,29 @@
 {
-  "target_date": "2026-09-20",
+  "target_date": "2026-09-21",
   "date_range": {
-    "start": "2026-09-14",
-    "end": "2026-09-20",
-    "start_formatted": "Sep 14",
-    "end_formatted": "Sep 20, 2026"
+    "start": "2026-09-15",
+    "end": "2026-09-21",
+    "start_formatted": "Sep 15",
+    "end_formatted": "Sep 21, 2026"
   },
   "metrics": {
-    "active_nodes": 10047,
-    "delta_nodes_7d": 31,
-    "active_channels": 42900,
-    "delta_channels_7d": 1040,
-    "total_capacity_sats": 488840625303,
-    "delta_capacity_btc_7d": 375.71,
+    "active_nodes": 10044,
+    "delta_nodes_7d": 37,
+    "active_channels": 42864,
+    "delta_channels_7d": 1029,
+    "total_capacity_sats": 493418680139,
+    "delta_capacity_btc_7d": 376.72,
     "median_channel_capacity_sats": 2100000,
-    "new_nodes_7d": 31,
-    "new_channels_7d": 1040,
-    "new_capacity_sats_7d": 37570524298,
+    "new_nodes_7d": 37,
+    "new_channels_7d": 1029,
+    "new_capacity_sats_7d": 37672400980,
     "closed_channels_7d": 0,
     "closed_capacity_sats_7d": 0,
     "has_closed_data": false,
     "tor_pct": 46.4,
-    "bridge_nodes_count": 1930
+    "bridge_nodes_count": 1931
   },
   "daily_breakdown": [
-    {
-      "date": "2026-09-14",
-      "date_formatted": "Sep 14",
-      "new_nodes": 2,
-      "new_channels": 189,
-      "capacity_added_btc": 74.41
-    },
     {
       "date": "2026-09-15",
       "date_formatted": "Sep 15",
@@ -69,9 +62,16 @@
     {
       "date": "2026-09-20",
       "date_formatted": "Sep 20",
-      "new_nodes": 0,
-      "new_channels": 17,
-      "capacity_added_btc": 5.26
+      "new_nodes": 4,
+      "new_channels": 117,
+      "capacity_added_btc": 46.83
+    },
+    {
+      "date": "2026-09-21",
+      "date_formatted": "Sep 21",
+      "new_nodes": 4,
+      "new_channels": 78,
+      "capacity_added_btc": 33.86
     }
   ],
   "top_5_channels": [
@@ -83,6 +83,15 @@
       "capacity": 500000000,
       "channel_id": "1063698335072976897",
       "block_tx_output_short_id": "967428x563x1"
+    },
+    {
+      "node1_pub": "02e4971e61a3f55718ae31e2eed19aaf2e32caf3eb5ef5ff03e01aa3ada8907e78",
+      "node2_pub": "037f990e61acee8a7697966afd29dd88f3b1f8a7b14d625c4f8742bd952003a590",
+      "node1_alias": "1sats.com\u26a1\ufe0flsp.flashsats.xyz",
+      "node2_alias": "fixedfloat.com",
+      "capacity": 480000000,
+      "channel_id": "1064307464696496129",
+      "block_tx_output_short_id": "967982x3336x1"
     },
     {
       "node1_pub": "02b21730bc36061609cc1fe1bd7f5d3068e0a5e511aaf210a82c046b58020c4aa8",
@@ -110,15 +119,6 @@
       "capacity": 400000000,
       "channel_id": "1063747813233721345",
       "block_tx_output_short_id": "967473x2661x1"
-    },
-    {
-      "node1_pub": "02a98e8c590a1b5602049d6b21d8f4c8861970aa310762f42eae1b2be88372e924",
-      "node2_pub": "03864ef025fde8fb587d989186ce6a4a186895ee44a926bfc370e2c366597a3f8f",
-      "node1_alias": "ed528ad49bedd1f7a638a",
-      "node2_alias": "ACINQ",
-      "capacity": 360034527,
-      "channel_id": "1063832475513389056",
-      "block_tx_output_short_id": "967550x896x0"
     }
   ]
 }
