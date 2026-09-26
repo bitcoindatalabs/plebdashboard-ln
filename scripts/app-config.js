@@ -4,13 +4,14 @@ document.addEventListener('DOMContentLoaded', () => {
         BitcoinLabsApp.init({
             isApp: true,
             appName: "plebdashboard-ln",
-            appHomeUrl: "https://sorukumar.github.io/plebdashboard-ln/",
+            appHomeUrl: "https://lightning.bitcoindatalabs.org/",
             navLinks: [
                 { name: 'Home', url: 'index.html' },
                 { name: 'Node Rankings', url: 'prank.html' },
                 { name: 'Node Explorer', url: 'node-explorer.html' },
                 { name: 'Channel Explorer', url: 'channel-explorer.html' },
-                { name: 'Comparison', url: 'node-comparison.html' }
+                { name: 'Comparison', url: 'node-comparison.html' },
+                { name: 'Graph Viz', url: 'graph.html' }
             ]
         });
     } else {
