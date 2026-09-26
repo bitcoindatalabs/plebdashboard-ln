@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lightning Network Intelligence – Node & Channel Explorer</title>
+    <meta name="description" content="Discover high-capacity routing partners, inspect active liquidity corridors, and audit fee policies across the Lightning Network.">
+
+    <!-- Bitcoin Data Labs styles -->
+    <link rel="stylesheet" href="https://bitcoindatalabs.org/styles/styles.css" onerror="this.onerror=null;this.href='https://sorukumar.github.io/Bitcoin-Data-Labs/styles/styles.css'">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Local styles -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/explorer.css?v=3.3">
+</head>
+
+<body class="has-fixed-header">
+    <!-- Bitcoin Data Labs Header -->
+    <div id="header"></div>
+
+    <div class="main-content">
+        <!-- Compact Page Header with Mode Switcher -->
+        <div class="page-header-compact">
+            <div class="page-header-main">
+                <div class="page-title-group">
+                    <h1 id="explorerH1">Node & Channel Explorer</h1>
+                    <p id="explorerSubtitle">Discover high-capacity routing partners and audit fee policies across the network</p>
+                </div>
+
+                <!-- Segmented Switcher: Nodes vs Channels -->
+                <div class="explorer-tab-switcher" role="tablist" aria-label="Explorer Mode">
+                    <button type="button" class="tab-pill active" id="tabBtnNodes" data-tab="nodes" role="tab" aria-selected="true">
+                        <i class="fas fa-server"></i> Nodes <span class="tab-count-pill" id="tabCountNodes">9,979</span>
+                    </button>
+                    <button type="button" class="tab-pill" id="tabBtnChannels" data-tab="channels" role="tab" aria-selected="false">
+                        <i class="fas fa-bolt"></i> Channels <span class="tab-count-pill" id="tabCountChannels">33k+</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="explorer-container">
+
+            <!-- ============================================================ -->
+            <!-- 1. NODES EXPLORER SECTION (Partner Discovery)               -->
+            <!-- ============================================================ -->
+            <div id="nodesSection" class="explorer-section">
+                <!-- Controls Panel -->
+                <div class="explorer-controls-panel">
+                    <!-- 5 Quick Filter Presets Strip -->
+                    <div class="filter-presets-strip">
+                        <span class="presets-label"><i class="fas fa-filter"></i> Quick Filters:</span>
+                        <div class="filter-presets-chips" id="nodePresetsContainer">
+                            <button type="button" class="filter-preset-btn active" data-preset="all">
+                                All Nodes
+                            </button>
+                            <button type="button" class="filter-preset-btn" data-preset="top_routing">
+                                <i class="fas fa-route"></i> Top Routing Nodes
+                            </button>
+                            <button type="button" class="filter-preset-btn" data-preset="high_capacity">
+                                <i class="fas fa-coins"></i> High Capacity (&ge;1 BTC)
+                            </button>
+                            <button type="button" class="filter-preset-btn" data-preset="well_connected">
+                                <i class="fas fa-network-wired"></i> Well Connected (&ge;50 ch)
+                            </button>
+                            <button type="button" class="filter-preset-btn" data-preset="low_fees">
+                                <i class="fas fa-percentage"></i> Low Fees (&le;100 ppm)
+                            </button>
+                            <button type="button" class="filter-preset-btn" data-preset="emerging">
+                                <i class="fas fa-seedling"></i> Emerging Nodes
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Search and View Toolbar -->
+                    <div class="toolbar-row">
+                        <div class="search-container">
+                            <input type="text" id="nodeSearchInput" placeholder="Search by node alias, pubkey, or operator entity..."
+                                class="search-input">
+                            <i class="fas fa-search search-icon"></i>
+                            <button type="button" class="search-clear-btn" id="nodeSearchClearBtn" aria-label="Clear search">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+
+                        <div class="toolbar-actions">
+                            <select id="nodeSortBy" class="filter-select" aria-label="Sort nodes by">
+                                <option value="pleb_rank:asc">PlebRank: Best to Worst</option>
+                                <option value="total_capacity:desc">Capacity: High to Low</option>
+                                <option value="total_channels:desc">Channels: Most First</option>
+                                <option value="avg_fee_rate:asc">Fee Rate: Lowest First</option>
+                                <option value="betweenness_centrality_rank:asc">Betweenness Centrality</option>
+                                <option value="eigenvector_centrality_rank:asc">Eigenvector Influence</option>
+                                <option value="custom_pagerank_rank:asc">PageRank Authority</option>
+                            </select>
+
+                            <div class="view-toggle">
+                                <button type="button" class="view-btn active" id="viewBtnGrid" data-view="grid" title="Grid View" aria-label="Grid view">
+                                    <i class="fas fa-th-large"></i>
+                                </button>
+                                <button type="button" class="view-btn" id="viewBtnList" data-view="list" title="List View" aria-label="List view">
+                                    <i class="fas fa-list"></i>
+                                </button>
+                            </div>
+
+                            <button type="button" id="nodeResetFiltersBtn" class="reset-btn" title="Reset all filters" aria-label="Reset filters">
+                                <i class="fas fa-undo"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Loading State -->
+                <div id="nodesLoading" class="loading-state">
+                    <div class="loading-content">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Loading Lightning node profiles &amp; topology...</p>
+                    </div>
+                </div>
+
+                <!-- Nodes Results Display (Grid or List) -->
+                <div id="nodesContainer" class="nodes-grid" style="display: none;"></div>
+
+                <!-- Nodes Pagination -->
+                <div id="nodesPagination" class="pagination-container" style="display: none;">
+                    <div class="pagination-info">
+                        <span id="nodesPaginationInfo">Showing 1–50 of 9,979 nodes</span>
+                    </div>
+                    <div class="pagination-controls">
+                        <button type="button" id="nodesPrevBtn" class="pagination-btn" disabled>
+                            <i class="fas fa-chevron-left"></i> Previous
+                        </button>
+                        <span id="nodesPageNumbers" class="page-numbers"></span>
+                        <button type="button" id="nodesNextBtn" class="pagination-btn" disabled>
+                            Next <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================================ -->
+            <!-- 2. CHANNELS EXPLORER SECTION (Liquidity Links Inspection)   -->
+            <!-- ============================================================ -->
+            <div id="channelsSection" class="explorer-section" style="display: none;">
+
+                <!-- Channel Search Controls -->
+                <div class="explorer-controls-panel">
+                    <div class="dual-search-row">
+                        <div class="search-container">
+                            <input type="text" id="channelNode1Input" placeholder="Node 1: Alias or 66-hex Pubkey..." class="search-input">
+                            <i class="fas fa-search search-icon"></i>
+                        </div>
+
+                        <div class="dual-search-divider" title="Bidirectional Channels">
+                            <i class="fas fa-arrows-alt-h"></i>
+                        </div>
+
+                        <div class="search-container">
+                            <input type="text" id="channelNode2Input" placeholder="Node 2 (Optional): Search link between two nodes..." class="search-input">
+                            <i class="fas fa-search search-icon"></i>
+                        </div>
+
+                        <button type="button" id="channelResetBtn" class="reset-btn" title="Reset channel search" aria-label="Reset search">
+                            <i class="fas fa-undo"></i>
+                        </button>
+                    </div>
+
+                    <div class="filter-presets-strip">
+                        <span class="presets-label"><i class="fas fa-road"></i> Category:</span>
+                        <div class="filter-presets-chips" id="channelCategoryChips">
+                            <button type="button" class="filter-preset-btn active" data-category="all">All Channels</button>
+                            <button type="button" class="filter-preset-btn" data-category="freeway">
+                                <i class="fas fa-bolt"></i> Freeway (&ge;1 BTC)
+                            </button>
+                            <button type="button" class="filter-preset-btn" data-category="highway">
+                                <i class="fas fa-road"></i> Highway (1M–100M sats)
+                            </button>
+                            <button type="button" class="filter-preset-btn" data-category="myway">
+                                <i class="fas fa-bicycle"></i> My Way (&lt;1M sats)
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="channel-search-hint">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Enter one node to inspect all its channel counterparties, or enter both nodes to find direct channels between them.</span>
+                    </div>
+                </div>
+
+                <!-- Loading State -->
+                <div id="channelsLoading" class="loading-state" style="display: none;">
+                    <div class="loading-content">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Loading channel topology &amp; fee policies...</p>
+                    </div>
+                </div>
+
+                <!-- Channels Table Container -->
+                <div id="channelsTableContainer" class="table-container" style="display: none;">
+                    <table id="channelTable" class="channel-table">
+                        <thead id="channelThead">
+                            <tr>
+                                <th class="sortable" data-sort="capacity">CAPACITY</th>
+                                <th>CATEGORY</th>
+                                <th>NODE 1 &amp; OUTBOUND FEE</th>
+                                <th style="text-align: center;">DIRECTION</th>
+                                <th>NODE 2 &amp; OUTBOUND FEE</th>
+                                <th>CHANNEL ID</th>
+                            </tr>
+                        </thead>
+                        <tbody id="channelTbody"></tbody>
+                    </table>
+                </div>
+
+                <!-- Channels Pagination -->
+                <div id="channelsPagination" class="pagination-container" style="display: none;">
+                    <div class="pagination-info">
+                        <span id="channelsPaginationInfo">Showing 1–50 of channels</span>
+                    </div>
+                    <div class="pagination-controls">
+                        <button type="button" id="channelsPrevBtn" class="pagination-btn" disabled>
+                            <i class="fas fa-chevron-left"></i> Previous
+                        </button>
+                        <span id="channelsPageNumbers" class="page-numbers"></span>
+                        <button type="button" id="channelsNextBtn" class="pagination-btn" disabled>
+                            Next <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Bitcoin Data Labs Footer -->
+    <div id="footer"></div>
+
+    <!-- Bitcoin Data Labs App Components -->
+    <script src="https://bitcoindatalabs.org/components/app-components.js" onerror="this.onerror=null;this.src='https://sorukumar.github.io/Bitcoin-Data-Labs/components/app-components.js'"></script>
+    <!-- App Configuration -->
+    <script src="scripts/app-config.js?v=3.7"></script>
+
+    <!-- Unified Explorer ES Module -->
+    <script type="module" src="scripts/explorer.js?v=3.3"></script>
+</body>
+
+</html>

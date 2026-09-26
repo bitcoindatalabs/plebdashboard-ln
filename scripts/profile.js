@@ -4,11 +4,12 @@ class NodeProfileManager {
     constructor() {
         this.nodeData = null;
         this.nodeId = this.getNodeIdFromUrl();
-        this.activeTab = 'overview';
         this.chartManager = null;
         this.channelsTableManager = null;
         this.connectAddress = null;
         this.nodeTypes = [];
+        this.channelsTableLoaded = false;
+        this.channelsTreemapLoaded = false;
         this.init();
     }
 
@@ -25,7 +26,7 @@ class NodeProfileManager {
 
         await this.loadNodeData();
         this.setupEventListeners();
-        this.setupTabNavigation();
+        this.setupChannelSwitcher();
     }
 
     async loadNodeData() {
@@ -132,44 +133,82 @@ class NodeProfileManager {
     getProfileColumns() {
         return [
             'pub_key', 'alias', 'address_1', 'address_2', 'last_seen', 'source', 'snapshot_date', 'update_dt', 
-            'closed_channels_count', 'node_type', 'birth_tx', 
-            'birth_chan', 'birth_tx_active', 'birth_chan_active', 'first_seen_week', 'in_latest_gossip', 'total_channels', 'channel_segment', 'category_counts', 'total_capacity', 
+            'closed_channels_count', 'node_type', 'entity', 'role', 'birth_tx', 
+            'birth_chan', 'birth_tx_active', 'birth_chan_active', 'first_seen_week', 'in_latest_gossip', 
+            'total_channels', 'channel_segment', 'category_counts', 'total_capacity', 
             'node_cap_tier', 'capacity_segment', 'avg_chnl_size', 'med_chnl_size', 'mode_chnl_size', 'min_chnl_size', 'max_chnl_size', 
             'betweenness_centrality_rank', 'eigenvector_centrality_rank', 'custom_pagerank_rank', 'capacity_weighted_degree_rank', 
-            'total_channels_rank', 'total_capacity_rank', 'pleb_rank', 'ftotal_capacity', 'avg_base_fee', 'med_base_fee', 'max_base_fee',
-            'min_base_fee', 'avg_fee_rate', 'med_fee_rate', 'max_fee_rate', 'min_fee_rate'
+            'total_channels_rank', 'total_capacity_rank', 'pleb_rank', 'ftotal_capacity', 
+            'avg_base_fee', 'med_base_fee', 'max_base_fee', 'min_base_fee', 
+            'avg_fee_rate', 'med_fee_rate', 'max_fee_rate', 'min_fee_rate'
         ];
     }
 
     populateProfile() {
         const node = this.nodeData;
+        const TOTAL_NODES = 10000;
 
         function safeSet(id, value) {
             const el = document.getElementById(id);
             if (el) el.textContent = value;
         }
 
-        // Log all column values for the selected node
-        console.log('Profile for node:', node);
         // Basic info
         safeSet('nodeAlias', node.alias || 'Unknown Node');
         safeSet('nodePubkey', node.pub_key || 'Unknown');
-        safeSet('nodeType', node.node_type || 'Unknown');
+        
+        // Node Type Badges
+        const nodeTypeBadgeEl = document.getElementById('nodeTypeBadge');
+        if (nodeTypeBadgeEl) {
+            nodeTypeBadgeEl.innerHTML = this.renderNodeTypePills(node.node_type);
+        } else {
+            safeSet('nodeType', node.node_type || 'Unknown');
+        }
 
-        // Link View in Graph button
+        // Entity badge & Role description (Step 3.4 Requirement)
+        const entityBadge = document.getElementById('nodeEntityBadge');
+        if (entityBadge) {
+            if (node.entity) {
+                entityBadge.innerHTML = `<i class="fas fa-building"></i> ${node.entity}`;
+                entityBadge.style.display = 'inline-flex';
+            } else {
+                entityBadge.style.display = 'none';
+            }
+        }
+
+        const roleDesc = document.getElementById('nodeRoleDesc');
+        if (roleDesc) {
+            if (node.role) {
+                roleDesc.textContent = node.role;
+                roleDesc.style.display = 'block';
+            } else {
+                roleDesc.style.display = 'none';
+            }
+        }
+
+        // Contextual Action Buttons (Step 3.4 Requirement)
+        const compareBtn = document.getElementById('compareNodeBtn');
+        if (compareBtn) {
+            const compareQuery = node.alias ? encodeURIComponent(node.alias) : encodeURIComponent(node.pub_key);
+            compareBtn.href = `node-comparison.html?nodes=${compareQuery}`;
+        }
+
         const viewInGraphBtn = document.getElementById('viewInGraphBtn');
         if (viewInGraphBtn && node.pub_key) {
             viewInGraphBtn.href = `graph.html?highlight=${encodeURIComponent(node.pub_key)}`;
+        }
+
+        const viewAllChannelsBtn = document.getElementById('viewAllChannelsBtn');
+        if (viewAllChannelsBtn && node.pub_key) {
+            viewAllChannelsBtn.href = `explorer.html?tab=channels&node1=${encodeURIComponent(node.pub_key)}`;
         }
 
         // Build full connect address: pubkey@host:port
         let connectAddress = null;
         const addr1 = node.address_1;
         const addr2 = node.address_2;
-        // Prefer a non-null address, onion or IP
         let rawAddr = addr1 || addr2 || null;
         if (rawAddr && typeof rawAddr === 'string') {
-            // If it already contains '@', assume it's already full
             if (rawAddr.includes('@')) {
                 connectAddress = rawAddr;
             } else {
@@ -186,8 +225,9 @@ class NodeProfileManager {
         safeSet('overallRank', this.formatRank(node.pleb_rank));
         safeSet('totalCapacity', node.ftotal_capacity || 'Unknown');
         safeSet('channelCount', this.formatNumber(node.total_channels));
-        safeSet('lastSeen', node.last_seen || 'Unknown');
-        // Overview tab
+        safeSet('medianChannelSize', this.formatCapacity(node.med_chnl_size));
+
+        // Infrastructure & Specs
         const birthTxEl = document.getElementById('birthTx');
         if (birthTxEl) {
             if (node.birth_chan) {
@@ -199,52 +239,95 @@ class NodeProfileManager {
         }
         safeSet('address1', node.address_1 || '-');
         safeSet('address2', node.address_2 || '-');
-        // Rankings tab
-        safeSet('plebRank', this.formatRank(node.pleb_rank));
-        safeSet('capacityRank', this.formatRank(node.total_capacity_rank));
-        safeSet('channelsRank', this.formatRank(node.total_channels_rank));
-        safeSet('betweennessRank', this.formatRank(node.betweenness_centrality_rank));
-        safeSet('weightedDegreeRank', this.formatRank(node.capacity_weighted_degree_rank));
-        safeSet('eigenvectorRank', this.formatRank(node.eigenvector_centrality_rank));
-        // Metrics tab
-        safeSet('pagerankScore', this.formatPagerank(node.custom_pagerank));
-        safeSet('metricsNodeType', node.node_type || 'Unknown');
-        // Removed capacity segment assignment
+        safeSet('connectAddress', this.connectAddress || '-');
         safeSet('nodeCapTier', node.node_cap_tier || '-');
-        // Category Counts formatting (multi-line)
-        const categoryDescriptions = {
-            Freeway: "> 1BTC",
-            Highway: "> 5M sats",
-            "My Way": "all other"
-        };
+
+        // Copy buttons visibility under Network Diagnostics
+        const copyAddr1 = document.getElementById('copyAddress1Btn');
+        if (copyAddr1) copyAddr1.style.display = (node.address_1 && node.address_1 !== '-') ? 'inline-flex' : 'none';
+
+        const copyAddr2 = document.getElementById('copyAddress2Btn');
+        if (copyAddr2) copyAddr2.style.display = (node.address_2 && node.address_2 !== '-') ? 'inline-flex' : 'none';
+
+        const copyConn = document.getElementById('copyConnectAddrBtn');
+        if (copyConn) copyConn.style.display = this.connectAddress ? 'inline-flex' : 'none';
+
+        // Category Counts formatting with colored badges
         const categoryCountsEl = document.getElementById('categoryCounts');
         if (categoryCountsEl) {
-            let formatted = '-';
-            if (node.category_counts && typeof node.category_counts === 'object') {
-                let obj = node.category_counts;
-                if (typeof obj === 'string') {
+            let catObj = null;
+            if (node.category_counts) {
+                if (typeof node.category_counts === 'object') {
+                    catObj = node.category_counts;
+                } else if (typeof node.category_counts === 'string') {
                     try {
-                        obj = JSON.parse(obj);
+                        catObj = JSON.parse(node.category_counts.replace(/'/g, '"'));
                     } catch (e) {
-                        obj = null;
+                        catObj = null;
                     }
                 }
-                if (obj && typeof obj === 'object') {
-                    formatted = Object.entries(obj)
-                        .map(([k, v]) => `${k}: ${v} <small>(${categoryDescriptions[k]})</small>`)
-                        .join('<br>');
-                }
             }
-            categoryCountsEl.innerHTML = formatted;
+
+            if (catObj && typeof catObj === 'object') {
+                const freeway = catObj['Freeway'] || 0;
+                const highway = catObj['Highway'] || 0;
+                const myway = catObj['My Way'] || catObj['MyWay'] || 0;
+
+                categoryCountsEl.innerHTML = `
+                    <div class="category-badges-group">
+                        <span class="cat-badge cat-freeway" title="Freeway: > 1 BTC capacity"><i class="fas fa-road"></i> Freeway: <strong>${Number(freeway).toLocaleString()}</strong></span>
+                        <span class="cat-badge cat-highway" title="Highway: 1M - 100M sats"><i class="fas fa-car-side"></i> Highway: <strong>${Number(highway).toLocaleString()}</strong></span>
+                        <span class="cat-badge cat-myway" title="My Way: < 1M sats"><i class="fas fa-bicycle"></i> My Way: <strong>${Number(myway).toLocaleString()}</strong></span>
+                    </div>
+                `;
+            } else {
+                categoryCountsEl.textContent = '-';
+            }
         }
-        // Channel Size metrics (min, median, avg, max)
-        const min = this.formatCapacity(node.min_chnl_size);
-        const median = this.formatCapacity(node.med_chnl_size);
-        const avg = this.formatCapacity(node.avg_chnl_size);
-        const max = this.formatCapacity(node.max_chnl_size);
-        const formatted = [min, median, avg, max].join(', ');
-        const channelSizeEl = document.getElementById('channelSizeMetrics');
-        if (channelSizeEl) channelSizeEl.textContent = formatted;
+
+        // Render Command Center Visualizations
+        this.renderTopologicalRadar(node);
+        this.renderCentralityProgress(node);
+        this.renderDiagnosticsAndFees(node);
+    }
+
+    renderNodeTypePills(nodeTypeString) {
+        if (!nodeTypeString || typeof nodeTypeString !== 'string' || !nodeTypeString.trim()) {
+            return `<span class="type-pill pill-pleb" title="Community / Pleb routing node"><i class="fas fa-user-astronaut"></i> Pleb</span>`;
+        }
+
+        const types = nodeTypeString.split(',').map(s => s.trim()).filter(Boolean);
+        if (types.length === 0) {
+            return `<span class="type-pill pill-pleb" title="Community / Pleb routing node"><i class="fas fa-user-astronaut"></i> Pleb</span>`;
+        }
+
+        return types.map(type => {
+            const lower = type.toLowerCase();
+            let pillClass = 'pill-pleb';
+            let icon = 'fa-user-astronaut';
+
+            if (lower.includes('exchange')) {
+                pillClass = 'pill-exchange';
+                icon = 'fa-building-columns';
+            } else if (lower.includes('lsp')) {
+                pillClass = 'pill-lsp';
+                icon = 'fa-bolt';
+            } else if (lower.includes('routing')) {
+                pillClass = 'pill-routing';
+                icon = 'fa-route';
+            } else if (lower.includes('wallet')) {
+                pillClass = 'pill-wallet';
+                icon = 'fa-wallet';
+            } else if (lower.includes('payment')) {
+                pillClass = 'pill-payment';
+                icon = 'fa-credit-card';
+            } else if (lower.includes('defi')) {
+                pillClass = 'pill-defi';
+                icon = 'fa-coins';
+            }
+
+            return `<span class="type-pill ${pillClass}" title="${type} Node"><i class="fas ${icon}"></i> ${type}</span>`;
+        }).join(' ');
     }
 
     formatRank(rank) {
@@ -308,6 +391,34 @@ class NodeProfileManager {
                 this.copyToClipboard(this.connectAddress, wrapperBtn, 'Copy public key', 'Copy connect address');
             });
         }
+
+        // Network Diagnostics copy buttons
+        const copyAddr1Btn = document.getElementById('copyAddress1Btn');
+        if (copyAddr1Btn) {
+            copyAddr1Btn.addEventListener('click', () => {
+                if (this.nodeData && this.nodeData.address_1) {
+                    this.copyToClipboard(this.nodeData.address_1, copyAddr1Btn, 'Copy Clearnet address');
+                }
+            });
+        }
+
+        const copyAddr2Btn = document.getElementById('copyAddress2Btn');
+        if (copyAddr2Btn) {
+            copyAddr2Btn.addEventListener('click', () => {
+                if (this.nodeData && this.nodeData.address_2) {
+                    this.copyToClipboard(this.nodeData.address_2, copyAddr2Btn, 'Copy Tor address');
+                }
+            });
+        }
+
+        const copyConnectAddrBtn = document.getElementById('copyConnectAddrBtn');
+        if (copyConnectAddrBtn) {
+            copyConnectAddrBtn.addEventListener('click', () => {
+                if (this.connectAddress) {
+                    this.copyToClipboard(this.connectAddress, copyConnectAddrBtn, 'Copy connect address');
+                }
+            });
+        }
     }
 
     copyToClipboard(text, buttonEl, defaultTitle, successTitleOverride) {
@@ -330,135 +441,327 @@ class NodeProfileManager {
         });
     }
 
-    setupTabNavigation() {
-        const tabButtons = document.querySelectorAll('.tab-btn');
-        const tabPanes = document.querySelectorAll('.tab-pane');
+    setupChannelSwitcher() {
+        const btnTable = document.getElementById('btnViewTable');
+        const btnTreemap = document.getElementById('btnViewTreemap');
+        const paneTable = document.getElementById('channelsTablePane');
+        const paneTreemap = document.getElementById('channelsTreemapPane');
 
-        tabButtons.forEach(button => {
-            button.addEventListener('click', async () => {
-                const targetTab = button.getAttribute('data-tab');
-                
-                // Don't do anything if already on this tab
-                if (this.activeTab === targetTab) return;
-                
-                // Cleanup current tab
-                await this.cleanupTab(this.activeTab);
-                
-                // Remove active class from all buttons and panes
-                tabButtons.forEach(btn => btn.classList.remove('active'));
-                tabPanes.forEach(pane => pane.classList.remove('active'));
-                
-                // Add active class to clicked button and corresponding pane
-                button.classList.add('active');
-                const targetPane = document.getElementById(targetTab);
-                if (targetPane) {
-                    targetPane.classList.add('active');
-                }
-                
-                // Update active tab
-                this.activeTab = targetTab;
-                
-                // Initialize new tab
-                await this.initializeTab(targetTab);
+        if (btnTable && btnTreemap && paneTable && paneTreemap) {
+            btnTable.addEventListener('click', () => {
+                btnTable.classList.add('active');
+                btnTreemap.classList.remove('active');
+                paneTable.style.display = 'block';
+                paneTreemap.style.display = 'none';
             });
+
+            btnTreemap.addEventListener('click', async () => {
+                btnTreemap.classList.add('active');
+                btnTable.classList.remove('active');
+                paneTable.style.display = 'none';
+                paneTreemap.style.display = 'block';
+                await this.initializeChannelsTreemap();
+            });
+        }
+    }
+
+    async initializeChannelsTable() {
+        const container = document.getElementById('channelsTableContainer');
+        if (!container) return;
+
+        if (!this.channelsTableManager) {
+            this.channelsTableManager = await this.loadChannelsTableManager();
+        }
+
+        if (this.channelsTableManager && this.channelsTableManager.loadAndRenderTable) {
+            try {
+                const targetKey = this.nodeData ? this.nodeData.pub_key : this.nodeId;
+                await this.channelsTableManager.loadAndRenderTable(targetKey);
+            } catch (error) {
+                console.error('Failed to load channels table:', error);
+            }
+        }
+    }
+
+    async initializeChannelsTreemap() {
+        const chartContainer = document.getElementById('channelsTreemap');
+        if (!chartContainer) return;
+
+        if (!this.chartManager) {
+            this.chartManager = await this.loadChannelsManager();
+        }
+
+        if (this.chartManager && this.chartManager.loadAndRenderChannelsTreemap) {
+            try {
+                const targetKey = this.nodeData ? this.nodeData.pub_key : this.nodeId;
+                await this.chartManager.loadAndRenderChannelsTreemap(targetKey);
+                setTimeout(() => {
+                    if (this.chartManager && this.chartManager.chartInstance) {
+                        this.chartManager.chartInstance.resize();
+                    }
+                    if (window.echarts) {
+                        const chartInstance = window.echarts.getInstanceByDom(chartContainer);
+                        if (chartInstance) chartInstance.resize();
+                    }
+                }, 80);
+            } catch (error) {
+                console.error('Failed to load channels treemap:', error);
+            }
+        }
+    }
+
+    renderTopologicalRadar(node) {
+        const svg = document.getElementById('radarSvg');
+        const tooltip = document.getElementById('radarTooltip');
+        if (!svg) return;
+
+        const cx = 160;
+        const cy = 125;
+        const radius = 80;
+
+        // 4 concentric polygon rings
+        let gridHtml = '';
+        [0.25, 0.5, 0.75, 1.0].forEach(factor => {
+            const pts = [];
+            for (let i = 0; i < 6; i++) {
+                const angle = -Math.PI / 2 + (i * Math.PI / 3);
+                const x = cx + radius * factor * Math.cos(angle);
+                const y = cy + radius * factor * Math.sin(angle);
+                pts.push(`${x.toFixed(1)},${y.toFixed(1)}`);
+            }
+            gridHtml += `<polygon points="${pts.join(' ')}" class="radar-grid-polygon" />`;
         });
+
+        // 6 spokes
+        let spokesHtml = '';
+        for (let i = 0; i < 6; i++) {
+            const angle = -Math.PI / 2 + (i * Math.PI / 3);
+            const x = cx + radius * Math.cos(angle);
+            const y = cy + radius * Math.sin(angle);
+            spokesHtml += `<line x1="${cx}" y1="${cy}" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}" class="radar-spoke" />`;
+        }
+
+        // Labels
+        const labelsData = [
+            { text: 'PlebRank', ox: 0, oy: -12 },
+            { text: 'Capacity', ox: 14, oy: -4 },
+            { text: 'Channels', ox: 14, oy: 12 },
+            { text: 'Betweenness', ox: 0, oy: 18 },
+            { text: 'W-Degree', ox: -14, oy: 12 },
+            { text: 'Eigenvector', ox: -14, oy: -4 }
+        ];
+
+        let labelsHtml = '';
+        labelsData.forEach((lbl, i) => {
+            const angle = -Math.PI / 2 + (i * Math.PI / 3);
+            const lx = cx + (radius + 14) * Math.cos(angle) + lbl.ox;
+            const ly = cy + (radius + 14) * Math.sin(angle) + lbl.oy;
+            labelsHtml += `<text x="${lx.toFixed(1)}" y="${ly.toFixed(1)}" class="radar-label">${lbl.text}</text>`;
+        });
+
+        // Data Polygon & Dots
+        const axes = [
+            { name: 'PlebRank Power', rank: node.pleb_rank },
+            { name: 'Capacity Weight', rank: node.total_capacity_rank },
+            { name: 'Active Channels', rank: node.total_channels_rank },
+            { name: 'Betweenness Routing', rank: node.betweenness_centrality_rank },
+            { name: 'Weighted Degree', rank: node.capacity_weighted_degree_rank },
+            { name: 'Eigenvector Hub Authority', rank: node.eigenvector_centrality_rank }
+        ];
+
+        const dataPts = [];
+        const dots = [];
+
+        axes.forEach((axis, i) => {
+            const angle = -Math.PI / 2 + (i * Math.PI / 3);
+            let score = 0.08;
+            const rankNum = Number(axis.rank);
+            if (axis.rank && !isNaN(rankNum) && rankNum > 0) {
+                // Rank 1 -> 0.98, Rank 10000 -> 0.08
+                score = Math.max(0.08, Math.min(0.98, 1 - (rankNum - 1) / 10000));
+            }
+            const px = cx + radius * score * Math.cos(angle);
+            const py = cy + radius * score * Math.sin(angle);
+            dataPts.push(`${px.toFixed(1)},${py.toFixed(1)}`);
+            const rankStr = axis.rank ? `#${Number(axis.rank).toLocaleString()}` : 'Unranked';
+            const pctStr = axis.rank ? `Top ${Math.max(0.1, (rankNum / 100)).toFixed(1)}%` : 'N/A';
+            dots.push(`
+                <circle class="radar-dot" cx="${px.toFixed(1)}" cy="${py.toFixed(1)}" r="4.5"
+                    data-metric="${axis.name}" data-rank="${rankStr}" data-pct="${pctStr}">
+                </circle>
+            `);
+        });
+
+        svg.innerHTML = `
+            ${gridHtml}
+            ${spokesHtml}
+            <polygon points="${dataPts.join(' ')}" class="radar-polygon" />
+            ${dots.join('')}
+            ${labelsHtml}
+        `;
+
+        // Tooltip interaction
+        if (tooltip) {
+            const container = document.getElementById('topologicalRadarContainer');
+            svg.querySelectorAll('.radar-dot').forEach(dot => {
+                dot.addEventListener('mouseenter', () => {
+                    const metric = dot.getAttribute('data-metric');
+                    const rank = dot.getAttribute('data-rank');
+                    const pct = dot.getAttribute('data-pct');
+                    tooltip.innerHTML = `<strong>${metric}</strong>: ${rank} (${pct})`;
+                    tooltip.style.opacity = '1';
+
+                    if (container) {
+                        const rect = container.getBoundingClientRect();
+                        const dotRect = dot.getBoundingClientRect();
+                        const left = dotRect.left - rect.left + dotRect.width / 2;
+                        const top = dotRect.top - rect.top;
+                        tooltip.style.left = `${left}px`;
+                        tooltip.style.top = `${top}px`;
+                    }
+                });
+
+                dot.addEventListener('mouseleave', () => {
+                    tooltip.style.opacity = '0';
+                });
+            });
+        }
     }
 
-    async cleanupTab(tabName) {
-        if (tabName === 'channels' && this.chartManager) {
-            // Dispose of ECharts instance
-            const chartDom = document.getElementById('channelsTreemap');
-            if (chartDom && window.echarts) {
-                const chartInstance = window.echarts.getInstanceByDom(chartDom);
-                if (chartInstance) {
-                    chartInstance.dispose();
-                }
-            }
-        }
-        
-        if (tabName === 'channels-table' && this.channelsTableManager) {
-            // Cleanup table resources
-            this.channelsTableManager.cleanup();
-        }
-    }
+    renderCentralityProgress(node) {
+        const container = document.getElementById('centralityProgressList');
+        if (!container) return;
 
-    async initializeTab(tabName) {
-        console.log('NodeProfileManager: Initializing tab:', tabName);
-        
-        if (tabName === 'channels') {
-            // Clear the chart container
-            const chartContainer = document.getElementById('channelsTreemap');
-            if (chartContainer) {
-                chartContainer.innerHTML = '';
-            }
+        const dimensions = [
+            { label: 'PlebRank Power', rank: node.pleb_rank, icon: 'fa-trophy' },
+            { label: 'Capacity Weight', rank: node.total_capacity_rank, icon: 'fa-coins' },
+            { label: 'Active Channels', rank: node.total_channels_rank, icon: 'fa-network-wired' },
+            { label: 'Betweenness Routing', rank: node.betweenness_centrality_rank, icon: 'fa-project-diagram' },
+            { label: 'Weighted Degree', rank: node.capacity_weighted_degree_rank, icon: 'fa-share-alt' },
+            { label: 'Eigenvector Hub Authority', rank: node.eigenvector_centrality_rank, icon: 'fa-star' }
+        ];
+
+        container.innerHTML = dimensions.map(d => {
+            const rankNum = Number(d.rank);
+            const hasRank = d.rank && !isNaN(rankNum) && rankNum > 0;
+            const rankStr = hasRank ? `#${rankNum.toLocaleString()}` : 'N/A';
             
-            // Load the channels chart
-            if (!this.chartManager) {
-                this.chartManager = await this.loadChannelsManager();
-            }
-            
-            if (this.chartManager && this.chartManager.loadAndRenderChannelsTreemap) {
-                try {
-                    await this.chartManager.loadAndRenderChannelsTreemap(this.nodeId);
-                    
-                    // Ensure proper resize after a brief delay
-                    setTimeout(() => {
-                        if (window.echarts) {
-                            const chartDom = document.getElementById('channelsTreemap');
-                            const chartInstance = window.echarts.getInstanceByDom(chartDom);
-                            if (chartInstance) {
-                                chartInstance.resize();
-                            }
-                        }
-                    }, 100);
-                } catch (error) {
-                    console.error('Failed to load channels treemap:', error);
+            let pctLabel = 'Standard';
+            let pctClass = 'pct-standard';
+            let fillWidth = 5;
+
+            if (hasRank) {
+                const pct = Math.max(0.1, (rankNum / 100)).toFixed(1);
+                fillWidth = Math.max(5, Math.min(100, 100 - (rankNum / 100)));
+                if (rankNum <= 100) {
+                    pctLabel = `Elite Top ${pct}%`;
+                    pctClass = 'pct-elite';
+                } else if (rankNum <= 500) {
+                    pctLabel = `Top ${pct}%`;
+                    pctClass = 'pct-top';
+                } else if (rankNum <= 2000) {
+                    pctLabel = `Core Top ${pct}%`;
+                    pctClass = 'pct-core';
+                } else {
+                    pctLabel = `Pleb Tier (${pct}%)`;
+                    pctClass = 'pct-standard';
                 }
             }
-        }
-        
-        if (tabName === 'channels-table') {
-            console.log('NodeProfileManager: Initializing channels-table tab for node:', this.nodeId);
-            
-            // Check if container exists
-            const container = document.getElementById('channelsTableContainer');
-            if (!container) {
-                console.error('NodeProfileManager: channelsTableContainer not found in DOM');
-                return;
-            }
-            
-            // Load the channels table
-            if (!this.channelsTableManager) {
-                console.log('NodeProfileManager: Loading channels table manager...');
-                this.channelsTableManager = await this.loadChannelsTableManager();
-                console.log('NodeProfileManager: Channels table manager loaded:', !!this.channelsTableManager);
-            }
-            
-            if (this.channelsTableManager && this.channelsTableManager.loadAndRenderTable) {
-                try {
-                    console.log('NodeProfileManager: Calling loadAndRenderTable...');
-                    await this.channelsTableManager.loadAndRenderTable(this.nodeId);
-                    console.log('NodeProfileManager: Table loaded successfully');
-                } catch (error) {
-                    console.error('NodeProfileManager: Failed to load channels table:', error);
-                    // Show error in the container
-                    container.innerHTML = `
-                        <div class="error-message">
-                            <i class="fas fa-exclamation-triangle"></i>
-                            <p>Failed to load channel data: ${error.message}</p>
-                            <small>Check browser console for details</small>
+
+            return `
+                <div class="centrality-progress-row">
+                    <div class="progress-label-row">
+                        <span class="metric-name"><i class="fas ${d.icon}"></i> ${d.label}</span>
+                        <div class="metric-rank-group">
+                            <span class="metric-rank-val">${rankStr}</span>
+                            <span class="metric-pct-pill ${pctClass}">${pctLabel}</span>
                         </div>
-                    `;
-                }
-            } else {
-                console.error('NodeProfileManager: channelsTableManager or loadAndRenderTable method not available');
-                container.innerHTML = `
-                    <div class="error-message">
-                        <i class="fas fa-exclamation-triangle"></i>
-                        <p>Channel table manager failed to load</p>
-                        <small>Check browser console for details</small>
                     </div>
-                `;
+                    <div class="progress-track">
+                        <div class="progress-fill" style="width: ${fillWidth}%;"></div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+    }
+
+    renderDiagnosticsAndFees(node) {
+        const betwRank = Number(node.betweenness_centrality_rank) || 99999;
+        const capRank = Number(node.total_capacity_rank) || 99999;
+        const plebRank = Number(node.pleb_rank) || 99999;
+        const nodeType = (node.node_type || '').toLowerCase();
+
+        let title = 'Sovereign Pleb Router';
+        let desc = 'Autonomous node operator strengthening network decentralization and alternative peer routing path resilience.';
+        let badgeText = '🧑‍🚀 Pleb Router';
+
+        if (betwRank <= 150 && capRank <= 150) {
+            title = '⚡ Tier-1 Routing Backbone';
+            desc = 'Critical liquidity artery and short-path transit bridge with exceptional betweenness and capital weight across the global Lightning graph.';
+            badgeText = '⚡ Tier-1 Backbone';
+        } else if (betwRank <= 250) {
+            title = '🌉 Centrality Bridge';
+            desc = 'High betweenness routing hub facilitating cross-cluster multi-hop payment routing between disparate sub-networks.';
+            badgeText = '🌉 Centrality Bridge';
+        } else if (capRank <= 200) {
+            title = '🐋 Liquidity Reservoir';
+            desc = 'Massive capital sink providing high-volume channel depth and absorption capacity for large-value payments.';
+            badgeText = '🐋 Liquidity Whale';
+        } else if (nodeType.includes('lsp')) {
+            title = '⚡ Lightning Service Provider (LSP)';
+            desc = 'Specialized client onboarding provider optimizing just-in-time inbound liquidity and end-user routing channels.';
+            badgeText = '⚡ LSP Gateway';
+        } else if (nodeType.includes('exchange')) {
+            title = '🏦 Institutional Gateway';
+            desc = 'High-throughput custodial terminal connecting exchange deposit/withdrawal liquidity to public routing channels.';
+            badgeText = '🏦 Exchange Gateway';
+        } else if (plebRank <= 500) {
+            title = '⭐ Core Network Router';
+            desc = 'High-reliability routing node with balanced liquidity distribution and consistent gossip presence.';
+            badgeText = '⭐ Core Router';
+        }
+
+        const personaTitleEl = document.getElementById('personaTitle');
+        const personaDescEl = document.getElementById('personaDesc');
+        const personaBadgeEl = document.getElementById('nodePersonaBadge');
+
+        if (personaTitleEl) personaTitleEl.textContent = title;
+        if (personaDescEl) personaDescEl.textContent = desc;
+        if (personaBadgeEl) {
+            personaBadgeEl.textContent = badgeText;
+            personaBadgeEl.style.display = 'inline-flex';
+        }
+
+        // Fee Policy Benchmark
+        const medFeeRateEl = document.getElementById('medFeeRateVal');
+        const baseFeeEl = document.getElementById('baseFeeVal');
+        const feePillEl = document.getElementById('feeBenchmarkPill');
+
+        const medFee = node.med_fee_rate !== null && node.med_fee_rate !== undefined ? Number(node.med_fee_rate) : null;
+        const baseFee = node.med_base_fee !== null && node.med_base_fee !== undefined ? Number(node.med_base_fee) : null;
+
+        if (medFee !== null && !isNaN(medFee)) {
+            if (medFeeRateEl) medFeeRateEl.textContent = `${medFee.toLocaleString()} ppm`;
+            if (baseFeeEl) baseFeeEl.textContent = `${(baseFee || 0).toLocaleString()} msat`;
+
+            if (feePillEl) {
+                if (medFee < 150) {
+                    feePillEl.className = 'fee-benchmark-pill fee-low';
+                    feePillEl.textContent = 'Low Fee Router';
+                } else if (medFee <= 500) {
+                    feePillEl.className = 'fee-benchmark-pill fee-comp';
+                    feePillEl.textContent = 'Competitive Policy';
+                } else {
+                    feePillEl.className = 'fee-benchmark-pill fee-high';
+                    feePillEl.textContent = 'Premium Fee Margin';
+                }
+            }
+        } else {
+            if (medFeeRateEl) medFeeRateEl.textContent = 'N/A';
+            if (baseFeeEl) baseFeeEl.textContent = 'N/A';
+            if (feePillEl) {
+                feePillEl.className = 'fee-benchmark-pill fee-comp';
+                feePillEl.textContent = 'Standard Policy';
             }
         }
     }
@@ -491,6 +794,10 @@ class NodeProfileManager {
         document.getElementById('loading').style.display = 'none';
         document.getElementById('error').style.display = 'none';
         document.getElementById('profileContent').style.display = 'block';
+        if (!this.channelsTableLoaded) {
+            this.channelsTableLoaded = true;
+            this.initializeChannelsTable();
+        }
     }
 
     showError(message) {

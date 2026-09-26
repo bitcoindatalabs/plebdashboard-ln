@@ -99,11 +99,11 @@
 }
 
 .example-chip:hover {
-    background: var(--primary);
-    color: white;
-    border-color: var(--primary);
+    background: var(--primary-light, #FBF2ED);
+    color: var(--primary-dark, #A95137);
+    border-color: var(--primary-border, #ECCDC1);
     transform: translateY(-1px);
-    box-shadow: 0 2px 8px rgba(255, 152, 0, 0.25);
+    box-shadow: 0 2px 6px rgba(42, 51, 66, 0.06);
 }
 
 .example-chip:active {
@@ -165,7 +165,7 @@
 }
 
 .try-example-link:hover {
-    color: var(--primary-dark, #e68900);
+    color: var(--primary-dark, #A95137);
     border-bottom-style: solid;
 }
 
@@ -179,7 +179,7 @@
 }
 
 .try-example-link-small:hover {
-    color: var(--primary-dark, #e68900);
+    color: var(--primary-dark, #A95137);
     border-bottom-style: solid;
 }
 

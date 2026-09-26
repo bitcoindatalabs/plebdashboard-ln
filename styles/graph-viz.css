@@ -1,7 +1,10 @@
 /* Override or define local variables extending Bitcoin Data Labs CSS */
 :root {
-    --primary-dark: #d67e54;
-    --border: #E5E1DC;
+    --primary: #D47355;
+    --primary-dark: #A95137;
+    --primary-light: #FBF2ED;
+    --primary-border: #ECCDC1;
+    --border: #E5DFD5;
 }
 
 /* Base styles for all pages */
@@ -314,17 +317,17 @@ body.visualization-page .app-header {
     color: var(--primary);
 }
 
-/* Make layout button match Load Dataset button style */
+/* Layout button matching graph workbench style */
 #toggle-layout {
-    background: var(--primary);
-    color: white;
+    background: var(--surface);
+    color: var(--text-primary);
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 600;
     padding: 10px 16px;
-    border: none;
-    border-radius: 6px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
     min-width: 160px;
-    box-shadow: 0 2px 8px rgba(232, 145, 107, 0.3);
+    box-shadow: 0 1px 3px rgba(42, 51, 66, 0.06);
     font-family: inherit;
     display: flex;
     align-items: center;
@@ -334,13 +337,15 @@ body.visualization-page .app-header {
 }
 
 #toggle-layout:hover {
-    background: var(--primary-dark);
+    background: var(--primary-light);
+    border-color: var(--primary-border);
+    color: var(--primary-dark);
     transform: translateY(-1px);
-    box-shadow: 0 2px 8px rgba(232, 145, 107, 0.3);
+    box-shadow: 0 2px 6px rgba(212, 115, 85, 0.12);
 }
 
 #toggle-layout i {
-    color: white;
+    color: var(--primary);
     margin-right: 8px;
 }
 
@@ -575,29 +580,33 @@ body.visualization-page .app-header {
 .dataset-switcher button {
     width: 100%;
     padding: 10px 16px;
-    background: var(--primary);
-    color: white;
-    border: none;
-    border-radius: 6px;
+    background: var(--surface);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
     font-family: inherit;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
     transition: all 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
+    box-shadow: 0 1px 3px rgba(42, 51, 66, 0.05);
 }
 
 .dataset-switcher button:hover {
-    background: var(--primary-dark);
+    background: var(--primary-light);
+    border-color: var(--primary-border);
+    color: var(--primary-dark);
     transform: translateY(-1px);
-    box-shadow: 0 2px 8px rgba(232, 145, 107, 0.3);
+    box-shadow: 0 2px 6px rgba(212, 115, 85, 0.12);
 }
 
 .dataset-switcher button i {
     font-size: 13px;
+    color: var(--primary);
 }
 
 /* Filters Section */

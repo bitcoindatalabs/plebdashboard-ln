@@ -1,0 +1,44 @@
+[
+  {
+    "date": "2026-09-26",
+    "day": "Saturday",
+    "criterion": "Hidden Gem",
+    "alias": "hqq",
+    "pub_key": "023668d1fd35d0736b24a80ced02410e9a61365de695664017aa9417c500ddfb19",
+    "pleb_rank": 168,
+    "total_capacity_sats": 202682460,
+    "total_channels": 51,
+    "node_type": "Routing Hub",
+    "entity": "Community Router",
+    "role": "Resilient Mid-Tier Community Routing",
+    "rationale": "High-performing mid-tier router providing resilient community connectivity and diversified channel balance."
+  },
+  {
+    "date": "2026-09-25",
+    "day": "Friday",
+    "criterion": "Capacity Whale",
+    "alias": "bfx-lnd0",
+    "pub_key": "033d8656219478701227199cbd6f670335c8d408a92ae88b962c49d4dc0e83e025",
+    "pleb_rank": 3,
+    "total_capacity_sats": 37776801470,
+    "total_channels": 578,
+    "node_type": "Exchange,Payment",
+    "entity": "Bitfinex",
+    "role": "High-Throughput Exchange Settlement",
+    "rationale": "Largest institutional liquidity deployment on Lightning, locking over 377 BTC in capital across 570+ channels."
+  },
+  {
+    "date": "2026-09-24",
+    "day": "Thursday",
+    "criterion": "Centrality Bridge",
+    "alias": "1ML.com node ALPHA",
+    "pub_key": "0217890e3aad8d35bc054f43acc00084b25229ecff0ab68debd82883ad65ee8266",
+    "pleb_rank": 35,
+    "total_capacity_sats": 758792773,
+    "total_channels": 1662,
+    "node_type": "Infrastructure",
+    "entity": "1ML",
+    "role": "Historic Network Centrality Bridge",
+    "rationale": "Vital routing junction maintaining top-tier betweenness centrality and interconnecting over 1,600 peers across the network."
+  }
+]

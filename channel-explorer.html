@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plebdashboard – Channel Explorer</title>
+    <title>Lightning Network Intelligence – Channel Explorer</title>
 
     <!-- Bitcoin Data Labs styles -->
     <link rel="stylesheet" href="https://bitcoindatalabs.org/styles/styles.css" onerror="this.onerror=null;this.href='https://sorukumar.github.io/Bitcoin-Data-Labs/styles/styles.css'">
@@ -15,6 +15,11 @@
     <link rel="stylesheet" href="styles/components.css">
     <link rel="stylesheet" href="styles/node-explorer.css">
     <link rel="stylesheet" href="styles/node-rank.css">
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        params.set('tab', 'channels');
+        window.location.replace('explorer.html?' + params.toString());
+    </script>
 </head>
 
 <body class="has-fixed-header">
@@ -122,7 +127,7 @@
     <!-- Bitcoin Data Labs App Components -->
     <script src="https://bitcoindatalabs.org/components/app-components.js" onerror="this.onerror=null;this.src='https://sorukumar.github.io/Bitcoin-Data-Labs/components/app-components.js'"></script>
     <!-- App Configuration -->
-    <script src="scripts/app-config.js"></script>
+    <script src="scripts/app-config.js?v=3.7"></script>
 
     <!-- Channel Explorer functionality -->
     <script type="module" src="scripts/channel-explorer.js"></script>

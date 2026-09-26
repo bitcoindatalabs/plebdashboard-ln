@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRank – Plebdashboard</title>
+    <title>PlebRank — Lightning Node Power Leaderboard | Plebdashboard</title>
+    <meta name="description" content="Official PlebRank leaderboard ranking 10,000+ active Lightning Network nodes by routing betweenness, eigenvector centrality, channel topology, and committed capacity.">
 
     <!-- Bitcoin Data Labs styles -->
     <link rel="stylesheet" href="https://bitcoindatalabs.org/styles/styles.css" onerror="this.onerror=null;this.href='https://sorukumar.github.io/Bitcoin-Data-Labs/styles/styles.css'">
@@ -12,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Local styles -->
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/node-rank.css">
+    <link rel="stylesheet" href="styles/node-rank.css?v=3.1">
     <link rel="stylesheet" href="styles/components.css">
 
 </head>
@@ -22,41 +23,67 @@
     <div id="header"></div>
 
     <div class="main-content">
-        <!-- Compact Page Header -->
+        <!-- Page Header -->
         <div class="page-header-compact">
             <div class="page-header-main">
                 <div class="page-title-group">
-                    <h1>PRank</h1>
-                    <p>Comprehensive Lightning Network node rankings by Pleb Rank score</p>
+                    <h1>PlebRank Power Leaderboard</h1>
+                    <p id="summaryHeaderTitle">Comprehensive ranking of 10,000+ active Lightning nodes evaluated by routing betweenness, eigenvector hub authority, channel topology, and committed capital weight.</p>
                 </div>
             </div>
         </div>
 
-        <!-- Table Controls (moved closer to reduce space) -->
-        <div class="table-controls">
-            <div class="search-container">
-                <input type="text" id="searchInput" placeholder="Search by node alias or pubkey..."
-                    class="search-input">
-                <i class="fas fa-search search-icon"></i>
-                <button type="button" class="search-clear-btn" aria-label="Clear search">
-                    <i class="fas fa-times"></i>
-                </button>
+        <!-- Table Controls & Quick Filter Strip -->
+        <div class="table-controls-panel">
+            <div class="quick-filter-strip">
+                <span class="quick-filter-label"><i class="fas fa-layer-group"></i> Quick Filters:</span>
+                <div class="quick-filter-chips" id="quickFilterChips">
+                    <button type="button" class="filter-chip active" data-filter="all">All Nodes</button>
+                    <button type="button" class="filter-chip chip-gold" data-filter="top100">
+                        <i class="fas fa-crown"></i> Top 100
+                    </button>
+                    <button type="button" class="filter-chip chip-green" data-filter="lsp">
+                        <i class="fas fa-bolt"></i> LSPs
+                    </button>
+                    <button type="button" class="filter-chip chip-amber" data-filter="gateway">
+                        <i class="fas fa-building-columns"></i> Gateways & Exchanges
+                    </button>
+                    <button type="button" class="filter-chip chip-pleb" data-filter="pleb">
+                        <i class="fas fa-user-astronaut"></i> Pleb Nodes
+                    </button>
+                </div>
+            </div>
+
+            <div class="search-and-meta-row">
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search by node alias, pubkey, operator entity, or role..."
+                        class="search-input">
+                    <i class="fas fa-search search-icon"></i>
+                    <button type="button" class="search-clear-btn" id="searchClearBtn" aria-label="Clear search">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="table-status-pill" id="tableStatusPill">
+                    <span id="filteredCountBadge">Loading...</span>
+                </div>
             </div>
         </div>
 
+        <!-- Leaderboard Table Container -->
         <div class="table-container">
             <div id="loading" class="loading-state">
                 <div class="loading-content">
                     <i class="fas fa-spinner fa-spin"></i>
-                    <p>Loading node ranking data...</p>
+                    <p>Loading node ranking and entity topology...</p>
                 </div>
             </div>
-            <table id="dataTable" class="data-table" style="display: none;">
+            <table id="dataTable" class="data-table leaderboard-table" style="display: none;">
                 <thead id="tableHead"></thead>
                 <tbody id="tableBody"></tbody>
             </table>
         </div>
 
+        <!-- Pagination -->
         <div class="pagination-container">
             <div class="pagination-info">
                 <span id="paginationInfo">Loading...</span>
@@ -79,10 +106,10 @@
     <!-- Bitcoin Data Labs App Components -->
     <script src="https://bitcoindatalabs.org/components/app-components.js" onerror="this.onerror=null;this.src='https://sorukumar.github.io/Bitcoin-Data-Labs/components/app-components.js'"></script>
     <!-- App Configuration -->
-    <script src="scripts/app-config.js"></script>
+    <script src="scripts/app-config.js?v=3.7"></script>
     
     <!-- Table functionality as ES module -->
-    <script type="module" src="scripts/node-rank.js"></script>
+    <script type="module" src="scripts/node-rank.js?v=3.1"></script>
 </body>
 
 </html>

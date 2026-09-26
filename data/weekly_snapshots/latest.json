@@ -1,50 +1,29 @@
 {
-  "target_date": "2026-09-22",
+  "target_date": "2026-09-25",
   "date_range": {
-    "start": "2026-09-16",
-    "end": "2026-09-22",
-    "start_formatted": "Sep 16",
-    "end_formatted": "Sep 22, 2026"
+    "start": "2026-09-19",
+    "end": "2026-09-25",
+    "start_formatted": "Sep 19",
+    "end_formatted": "Sep 25, 2026"
   },
   "metrics": {
-    "active_nodes": 10049,
-    "delta_nodes_7d": 42,
-    "active_channels": 42596,
-    "delta_channels_7d": 1045,
-    "total_capacity_sats": 489587379677,
-    "delta_capacity_btc_7d": 386.11,
-    "median_channel_capacity_sats": 2100000,
-    "new_nodes_7d": 42,
-    "new_channels_7d": 1045,
-    "new_capacity_sats_7d": 38611351224,
+    "active_nodes": 12534,
+    "delta_nodes_7d": 52,
+    "active_channels": 33561,
+    "delta_channels_7d": 994,
+    "total_capacity_sats": 372148915851,
+    "delta_capacity_btc_7d": 412.44,
+    "median_channel_capacity_sats": 2000000,
+    "new_nodes_7d": 52,
+    "new_channels_7d": 994,
+    "new_capacity_sats_7d": 41243782883,
     "closed_channels_7d": 0,
     "closed_capacity_sats_7d": 0,
     "has_closed_data": false,
     "tor_pct": 46.4,
-    "bridge_nodes_count": 1934
+    "bridge_nodes_count": 1941
   },
   "daily_breakdown": [
-    {
-      "date": "2026-09-16",
-      "date_formatted": "Sep 16",
-      "new_nodes": 9,
-      "new_channels": 175,
-      "capacity_added_btc": 48.87
-    },
-    {
-      "date": "2026-09-17",
-      "date_formatted": "Sep 17",
-      "new_nodes": 3,
-      "new_channels": 230,
-      "capacity_added_btc": 91.31
-    },
-    {
-      "date": "2026-09-18",
-      "date_formatted": "Sep 18",
-      "new_nodes": 6,
-      "new_channels": 171,
-      "capacity_added_btc": 53.27
-    },
     {
       "date": "2026-09-19",
       "date_formatted": "Sep 19",
@@ -70,19 +49,67 @@
       "date": "2026-09-22",
       "date_formatted": "Sep 22",
       "new_nodes": 8,
-      "new_channels": 114,
-      "capacity_added_btc": 39.33
+      "new_channels": 129,
+      "capacity_added_btc": 48.48
+    },
+    {
+      "date": "2026-09-23",
+      "date_formatted": "Sep 23",
+      "new_nodes": 13,
+      "new_channels": 148,
+      "capacity_added_btc": 59.6
+    },
+    {
+      "date": "2026-09-24",
+      "date_formatted": "Sep 24",
+      "new_nodes": 8,
+      "new_channels": 172,
+      "capacity_added_btc": 68.87
+    },
+    {
+      "date": "2026-09-25",
+      "date_formatted": "Sep 25",
+      "new_nodes": 7,
+      "new_channels": 190,
+      "capacity_added_btc": 82.15
     }
   ],
   "top_5_channels": [
     {
-      "node1_pub": "03864ef025fde8fb587d989186ce6a4a186895ee44a926bfc370e2c366597a3f8f",
-      "node2_pub": "03a1f3afd646d77bdaf545cceaf079bab6057eae52c6319b63b5803d0989d6a72f",
-      "node1_alias": "ACINQ",
-      "node2_alias": "Binance",
+      "node1_pub": "02e4971e61a3f55718ae31e2eed19aaf2e32caf3eb5ef5ff03e01aa3ada8907e78",
+      "node2_pub": "033e9ce4e8f0e68f7db49ffb6b9eecc10605f3f3fcb3c630545887749ab515b9c7",
+      "node1_alias": "1sats.com\u26a1\ufe0flsp.flashsats.xyz",
+      "node2_alias": "LNBiG [Hub-2]",
       "capacity": 500000000,
-      "channel_id": "1063698335072976897",
-      "block_tx_output_short_id": "967428x563x1"
+      "channel_id": "1064730776668930049",
+      "block_tx_output_short_id": "968367x3271x1"
+    },
+    {
+      "node1_pub": "02437c00ef5de2686a6bd60f8acb5c83d17010916010a15f479d5ef84c04f04485",
+      "node2_pub": "03864ef025fde8fb587d989186ce6a4a186895ee44a926bfc370e2c366597a3f8f",
+      "node1_alias": "Kraken \ud83d\udc19\u26a1",
+      "node2_alias": "ACINQ",
+      "capacity": 500000000,
+      "channel_id": "1064665905519656961",
+      "block_tx_output_short_id": "968308x3832x1"
+    },
+    {
+      "node1_pub": "033e9ce4e8f0e68f7db49ffb6b9eecc10605f3f3fcb3c630545887749ab515b9c7",
+      "node2_pub": "03a93b87bf9f052b8e862d51ebbac4ce5e97b5f4137563cd5128548d7f5978dda9",
+      "node1_alias": "LNBiG [Hub-2]",
+      "node2_alias": "cyberdyne.sh",
+      "capacity": 500000000,
+      "channel_id": "1064878111086739457",
+      "block_tx_output_short_id": "968501x1130x1"
+    },
+    {
+      "node1_pub": "02a98e8c590a1b5602049d6b21d8f4c8861970aa310762f42eae1b2be88372e924",
+      "node2_pub": "03864ef025fde8fb587d989186ce6a4a186895ee44a926bfc370e2c366597a3f8f",
+      "node1_alias": "ed528ad49bedd1f7a638a",
+      "node2_alias": "ACINQ",
+      "capacity": 500000000,
+      "channel_id": "1064547158162931712",
+      "block_tx_output_short_id": "968200x2292x0"
     },
     {
       "node1_pub": "02e4971e61a3f55718ae31e2eed19aaf2e32caf3eb5ef5ff03e01aa3ada8907e78",
@@ -92,33 +119,6 @@
       "capacity": 480000000,
       "channel_id": "1064307464696496129",
       "block_tx_output_short_id": "967982x3336x1"
-    },
-    {
-      "node1_pub": "02b21730bc36061609cc1fe1bd7f5d3068e0a5e511aaf210a82c046b58020c4aa8",
-      "node2_pub": "03864ef025fde8fb587d989186ce6a4a186895ee44a926bfc370e2c366597a3f8f",
-      "node1_alias": "Tachyon",
-      "node2_alias": "ACINQ",
-      "capacity": 469387642,
-      "channel_id": "1063625767309934593",
-      "block_tx_output_short_id": "967362x630x1"
-    },
-    {
-      "node1_pub": "021c97a90a411ff2b10dc2a8e32de2f29d2fa49d41bfbb52bd416e460db0747d0d",
-      "node2_pub": "03c8e5f583585cac1de2b7503a6ccd3c12ba477cfd139cd4905be504c2f48e86bd",
-      "node1_alias": "LOOP",
-      "node2_alias": "Strike",
-      "capacity": 400000000,
-      "channel_id": "1063747813233721345",
-      "block_tx_output_short_id": "967473x2661x1"
-    },
-    {
-      "node1_pub": "02e4971e61a3f55718ae31e2eed19aaf2e32caf3eb5ef5ff03e01aa3ada8907e78",
-      "node2_pub": "034ea80f8b148c750463546bd999bf7321a0e6dfc60aaf84bd0400a2e8d376c0d5",
-      "node1_alias": "1sats.com\u26a1\ufe0flsp.flashsats.xyz",
-      "node2_alias": "LNBiG [Hub-1]",
-      "capacity": 364000000,
-      "channel_id": "1064337151343984641",
-      "block_tx_output_short_id": "968009x796x1"
     }
   ]
 }

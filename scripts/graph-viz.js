@@ -411,35 +411,56 @@ function applyUrlParams(graph, renderer, sidebarManager) {
             }
         }
         
-        // Apply node selection (?highlight= or ?node=)
-        const targetNodeParam = urlParams.get('highlight') || urlParams.get('node');
+        // Apply node selection (?highlight= or ?pubkey= or ?pub_key= or ?node=)
+        const targetNodeParam = urlParams.get('highlight') || urlParams.get('pubkey') || urlParams.get('pub_key') || urlParams.get('node');
         if (targetNodeParam) {
-            const nodeId = targetNodeParam;
-            if (graph.hasNode(nodeId)) {
-                selectedNode = nodeId;
+            const cleanTarget = targetNodeParam.trim();
+            const cleanTargetLower = cleanTarget.toLowerCase();
+            
+            // Locate node in graph by ID, pubKey, or alias
+            let matchedNodeId = null;
+            if (graph.hasNode(cleanTarget)) {
+                matchedNodeId = cleanTarget;
+            } else {
+                graph.forEachNode((node, attributes) => {
+                    if (matchedNodeId) return;
+                    const attrs = attributes.attributes || {};
+                    const pk = (attrs.pubKey || '').toLowerCase();
+                    const alias = (attrs.alias || attributes.label || '').toLowerCase();
+                    if (pk === cleanTargetLower || node.toLowerCase() === cleanTargetLower) {
+                        matchedNodeId = node;
+                    } else if (alias && alias === cleanTargetLower) {
+                        matchedNodeId = node;
+                    }
+                });
+            }
+
+            if (matchedNodeId) {
+                selectedNode = matchedNodeId;
                 
-                // Update sidebar
-                const nodeAttributes = graph.getNodeAttributes(nodeId);
-                sidebarManager.updateNodeInfo({ node: nodeId, attributes: nodeAttributes });
+                // Update sidebar with node info
+                const nodeAttributes = graph.getNodeAttributes(matchedNodeId);
+                sidebarManager.updateNodeInfo({ node: matchedNodeId, attributes: nodeAttributes });
                 
                 // Refresh renderer to apply visual reducers (graying out non-connected)
                 renderer.refresh();
                 
                 // Animate camera to center on the selected node
-                const nodePosition = renderer.getNodeDisplayData(nodeId);
-                if (nodePosition) {
-                    renderer.getCamera().animate(
-                        { x: nodePosition.x, y: nodePosition.y, ratio: 0.3 }, 
-                        { duration: TIMING.ZOOM_ANIMATION }
-                    );
-                }
+                const focusCamera = () => {
+                    const nodePosition = renderer.getNodeDisplayData(matchedNodeId);
+                    if (nodePosition) {
+                        renderer.getCamera().animate(
+                            { x: nodePosition.x, y: nodePosition.y, ratio: 0.25 }, 
+                            { duration: TIMING.ZOOM_ANIMATION || 800 }
+                        );
+                    }
+                };
+                focusCamera();
+                setTimeout(focusCamera, 150);
+                
+                console.log(`🎯 Highlighted node in graph: ${nodeAttributes.label || matchedNodeId}`);
             } else {
-                // If node is not in currently loaded dataset (e.g. gfree), populate search box
-                const searchInput = document.getElementById('search-input');
-                if (searchInput) {
-                    searchInput.value = nodeId;
-                    searchInput.dispatchEvent(new Event('input', { bubbles: true }));
-                }
+                console.warn(`Target node "${cleanTarget}" not found in current dataset.`);
             }
         }
     } catch (error) {

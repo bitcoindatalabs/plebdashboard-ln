@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plebdashboard – Node Comparison</title>
+    <title>Node Topology Comparison | Plebdashboard</title>
+    <meta name="description" content="Side-by-side benchmark of Lightning Network nodes across routing centrality, channel topology, capacity, and fee efficiency.">
 
     <!-- Bitcoin Data Labs styles -->
     <link rel="stylesheet" href="https://bitcoindatalabs.org/styles/styles.css" onerror="this.onerror=null;this.href='https://sorukumar.github.io/Bitcoin-Data-Labs/styles/styles.css'">
@@ -19,6 +20,29 @@
 <body class="has-fixed-header">
     <!-- Bitcoin Data Labs Header -->
     <div id="header"></div>
+    <script>
+        (function() {
+            function sanitizeNav() {
+                const appNav = document.getElementById('appNavLinks');
+                const mobileNav = document.getElementById('mobileNavContent');
+                if (appNav && (appNav.innerHTML.includes('node-explorer') || appNav.innerHTML.includes('channel-explorer') || appNav.innerHTML.includes('Node Explorer') || appNav.innerHTML.includes('Channel Explorer') || !appNav.innerHTML.includes('explorer.html'))) {
+                    const current = window.location.pathname.split('/').pop() || 'index.html';
+                    const links = [
+                        { name: 'Home', url: 'index.html' },
+                        { name: 'Rankings', url: 'prank.html' },
+                        { name: 'Explorer', url: 'explorer.html' },
+                        { name: 'Comparison', url: 'node-comparison.html' },
+                        { name: 'Graph Viz', url: 'graph.html' }
+                    ];
+                    const html = links.map(l => `<a href="${l.url}" class="nav-link ${current === l.url ? 'active' : ''}">${l.name}</a>`).join('');
+                    appNav.innerHTML = html;
+                    if (mobileNav) mobileNav.innerHTML = html;
+                }
+            }
+            new MutationObserver(sanitizeNav).observe(document.documentElement, { childList: true, subtree: true });
+            [50, 150, 300, 600, 1200].forEach(t => setTimeout(sanitizeNav, t));
+        })();
+    </script>
 
     <div class="main-content">
         <div class="explorer-container">
@@ -26,7 +50,8 @@
             <div class="page-header-compact">
                 <div class="page-header-main">
                     <div class="page-title-group">
-                        <h1>Node Comparison</h1>
+                        <h1>Node Topology Comparison</h1>
+                        <p class="section-header-sub">Side-by-side benchmark of routing centrality, channel topology, committed capacity, and fee efficiency</p>
                     </div>
                 </div>
             </div>
@@ -156,7 +181,7 @@
     <!-- Bitcoin Data Labs App Components -->
     <script src="https://bitcoindatalabs.org/components/app-components.js" onerror="this.onerror=null;this.src='https://sorukumar.github.io/Bitcoin-Data-Labs/components/app-components.js'"></script>
     <!-- App Configuration -->
-    <script src="scripts/app-config.js"></script>
+    <script src="scripts/app-config.js?v=3.7"></script>
 
     <!-- ECharts for radar chart -->
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>

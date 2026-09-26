@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plebdashboard – Lightning Node Analytics & Rankings</title>
+    <title>Lightning Network Intelligence — PlebRank, Centrality, & Liquidity Velocity | Plebdashboard</title>
 
     <!-- Bitcoin Data Labs styles -->
     <link rel="stylesheet" href="https://bitcoindatalabs.org/styles/styles.css" onerror="this.onerror=null;this.href='https://sorukumar.github.io/Bitcoin-Data-Labs/styles/styles.css'">
@@ -21,99 +21,158 @@
     <div id="header"></div>
 
     <div class="main-content">
-        <!-- Hero Search Section -->
+        <!-- Hero Search Section (High-density, terminal style) -->
         <div class="hero-search-section">
             <div class="search-box-wrapper">
-                <h1>Find Lightning Network Nodes</h1>
-                <p class="search-description">Search by node alias or public key to explore detailed profiles and
-                    rankings</p>
+                <h1>Lightning Network Intelligence</h1>
+                <p class="search-description">PlebRank scores, graph centrality metrics, and on-chain intelligence for 10,000+ nodes.</p>
+
                 <div class="search-input-container">
-                    <input type="text" id="nodeSearchInput" placeholder="Search by node alias or pubkey..."
+                    <i class="fas fa-search search-leading-icon"></i>
+                    <input type="text" id="nodeSearchInput" placeholder="Search 10,000+ nodes by alias or pubkey..."
                         class="search-input-hero" autocomplete="off" autocorrect="off" autocapitalize="off"
                         spellcheck="false">
-                    <button id="searchButton" class="search-button">
-                        <i class="fas fa-search"></i>
-                    </button>
+                    <span class="search-shortcut-hint"><kbd>/</kbd></span>
                     <button type="button" class="search-clear-btn hero-clear-btn" aria-label="Clear search" style="display: none;">
                         <i class="fas fa-times"></i>
                     </button>
+                    <button id="searchButton" class="search-button" aria-label="Search">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
                     <div id="searchSuggestions" class="search-suggestions"></div>
                 </div>
-            </div>
-            <!-- Feature Links Row -->
-            <div class="feature-links-row">
-                <a href="prank.html" class="feature-link">
-                    <span class="feature-icon"><i class="fas fa-chart-bar"></i></span>
-                    <span class="feature-content">
-                        <span class="feature-title">Node Rankings</span>
-                        <span class="feature-desc">Browse Lightning node rankings and stats</span>
-                    </span>
-                </a>
-                <a href="graph.html" class="feature-link">
-                    <span class="feature-icon"><i class="fas fa-project-diagram"></i></span>
-                    <span class="feature-content">
-                        <span class="feature-title">Lightning Graph Viz</span>
-                        <span class="feature-desc">Visualize the Lightning Network graph</span>
-                    </span>
-                </a>
-                <a href="node-explorer.html" class="feature-link">
-                    <span class="feature-icon"><i class="fas fa-compass"></i></span>
-                    <span class="feature-content">
-                        <span class="feature-title">Node Explorer</span>
-                        <span class="feature-desc">Explore and filter Lightning nodes</span>
-                    </span>
-                </a>
-                <a href="channel-explorer.html" class="feature-link">
-                    <span class="feature-icon"><i class="fas fa-link"></i></span>
-                    <span class="feature-content">
-                        <span class="feature-title">Channel Explorer</span>
-                        <span class="feature-desc">Explore and filter Lightning channels</span>
-                    </span>
-                </a>
+
+                <!-- Quick Jump Chips -->
+                <div class="search-quick-tags">
+                    <span class="quick-tags-label"><i class="fas fa-bolt"></i> Popular:</span>
+                    <button type="button" class="quick-tag-chip" data-alias="River">River</button>
+                    <button type="button" class="quick-tag-chip" data-alias="Kraken">Kraken</button>
+                    <button type="button" class="quick-tag-chip" data-alias="Wallet of Satoshi">Wallet of Satoshi</button>
+                    <button type="button" class="quick-tag-chip" data-alias="Flash">Flash LSP</button>
+                    <button type="button" class="quick-tag-chip" data-alias="ACINQ">ACINQ</button>
+                    <button type="button" class="quick-tag-chip" data-alias="LNBiG">LNBiG</button>
+                </div>
             </div>
         </div>
 
-        <!-- Featured Nodes Section -->
-        <section class="featured-nodes-section">
-            <div class="section-header">
-                <h2>Featured Nodes</h2>
-                <p>Handpicked Lightning Network nodes showcasing excellence in routing, reliability, and network
-                    contribution</p>
-            </div>
+        <!-- Live Macro Network Telemetry Ribbon (Docked above Command Grid) -->
+        <div class="command-grid-telemetry-wrapper">
+            <div id="networkPulse" class="network-pulse-strip"></div>
+        </div>
 
-            <div id="loadingState" class="loading-state">
-                <div class="loading-content">
-                    <i class="fas fa-spinner fa-spin"></i>
-                    <p>Loading featured nodes...</p>
-                </div>
-            </div>
-
-            <div id="featuredNodesContainer" class="featured-nodes-container" style="display: none;">
-                <div id="featuredNodesGrid" class="featured-nodes-grid">
-                    <!-- Featured nodes will be populated here -->
-                </div>
-
-                <!-- Standardized Pagination -->
-                <div id="featuredNodesPagination" class="pagination-container" style="display: none;">
-                    <div class="pagination-info">
-                        <span id="featuredPaginationInfo">Showing featured nodes</span>
+        <!-- Main Command Grid: 65% Leaderboard Preview + 35% Dispatch Sidebar -->
+        <div class="home-command-grid">
+            <!-- Left Column: PlebRank Network Leaderboard Preview (65%) -->
+            <section class="home-card home-leaderboard-card">
+                <div class="card-section-header">
+                    <div class="section-title-wrap">
+                        <span class="card-eyebrow"><i class="fas fa-trophy"></i> ROUTING AUTHORITY & CENTRALITY</span>
+                        <h2>PlebRank Leaderboard</h2>
                     </div>
-                    <div class="pagination-controls">
-                        <button id="featuredPrevBtn" class="pagination-btn" disabled>
-                            <i class="fas fa-chevron-left"></i>
-                            Previous
-                        </button>
-                        <div id="featuredPageNumbers" class="page-numbers">
-                            <!-- Page numbers will be populated here -->
+                    <a href="prank.html" class="card-action-link" title="Explore all 10,000+ ranked nodes">
+                        <span>Full Rankings (10,000+)</span> <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Leaderboard Category Filter Tabs -->
+                <div class="leaderboard-tabs-bar">
+                    <button type="button" class="lead-tab-btn active" data-filter="all">Top Overall</button>
+                    <button type="button" class="lead-tab-btn" data-filter="lsp">LSPs</button>
+                    <button type="button" class="lead-tab-btn" data-filter="exchange">Exchanges</button>
+                    <button type="button" class="lead-tab-btn" data-filter="routing">Routing Hubs</button>
+                </div>
+
+                <!-- Leaderboard Table Container -->
+                <div class="home-leaderboard-table-wrap">
+                    <table class="home-leaderboard-table" id="homeLeaderboardTable">
+                        <thead>
+                            <tr>
+                                <th style="width: 50px;">Rank</th>
+                                <th>Node Alias & Entity</th>
+                                <th style="text-align: right;">Capacity</th>
+                                <th style="text-align: right;">Channels</th>
+                                <th style="text-align: center; width: 85px;">Centrality</th>
+                            </tr>
+                        </thead>
+                        <tbody id="homeLeaderboardBody">
+                            <tr>
+                                <td colspan="5" class="lead-table-loading">
+                                    <i class="fas fa-spinner fa-spin"></i> Loading PlebRank leaders...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Right Sidebar: Network Dispatch & Companion Intelligence (35%) -->
+            <div class="home-dispatch-col">
+                <!-- Daily Spotlight Node -->
+                <section class="home-card daily-spotlight-card">
+                    <div class="card-section-header">
+                        <div class="section-title-wrap">
+                            <span class="card-eyebrow spotlight-eyebrow"><i class="fas fa-bolt"></i> DAILY SPOTLIGHT NODE</span>
+                            <h2 id="spotlightCriterionTitle">Spotlight of the Day</h2>
                         </div>
-                        <button id="featuredNextBtn" class="pagination-btn">
-                            Next
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
+                        <span class="spotlight-date-pill" id="spotlightDatePill">Today</span>
                     </div>
-                </div>
+
+                    <div id="spotlightLoading" class="spotlight-loading">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Loading spotlight node...</p>
+                    </div>
+
+                    <div id="spotlightNodeBody" class="spotlight-body" style="display: none;">
+                        <!-- Populated dynamically by homepage.js -->
+                    </div>
+
+                    <!-- Recent Spotlights Ticker -->
+                    <div class="recent-spotlights-container">
+                        <div class="recent-spotlights-label"><i class="fas fa-history"></i> Recent:</div>
+                        <div class="recent-spotlights-chips" id="recentSpotlightsChips">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Weekly Liquidity Velocity -->
+                <section class="home-card macro-velocity-card">
+                    <div class="card-section-header">
+                        <div class="section-title-wrap">
+                            <span class="card-eyebrow"><i class="fas fa-chart-line"></i> WEEKLY INTELLIGENCE</span>
+                            <h2>Liquidity Velocity</h2>
+                        </div>
+                        <a href="reports.html" target="_blank" class="card-action-link" title="Open Weekly Wrap Slides">
+                            <span>Weekly Wrap</span> <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+
+                    <!-- 7-Day Velocity Interactive SVG Chart -->
+                    <div class="velocity-chart-wrapper">
+                        <div class="chart-header-row">
+                            <span class="chart-title"><i class="fas fa-signal"></i> 7-Day Velocity Breakdown</span>
+                            <div class="chart-legend">
+                                <span class="legend-chip"><span class="legend-color legend-bar"></span> Channels (<strong id="velNewChannels">+994</strong>)</span>
+                                <span class="legend-chip"><span class="legend-color legend-dot"></span> Added BTC (<strong id="velNewCapacity">+412 BTC</strong>)</span>
+                                <span class="legend-chip-sub">Median: <strong id="velMedianCap">2.0M sats</strong></span>
+                            </div>
+                        </div>
+                        <div id="velocitySvgChart" class="velocity-svg-container">
+                            <!-- Populated by JS -->
+                        </div>
+                        <div id="velocityTooltip" class="velocity-tooltip" style="display: none;"></div>
+                    </div>
+
+                    <!-- Corridor of the Week Highlight -->
+                    <div class="corridor-highlight-box" id="corridorHighlightBox">
+                        <div class="corridor-badge"><i class="fas fa-crown"></i> Week's Largest Backbone Corridor</div>
+                        <div class="corridor-content" id="corridorContent">
+                            Loading corridor highlight...
+                        </div>
+                    </div>
+                </section>
             </div>
-        </section>
+        </div>
     </div>
 
     <!-- Bitcoin Data Labs Footer -->
@@ -122,7 +181,7 @@
     <!-- Bitcoin Data Labs App Components -->
     <script src="https://bitcoindatalabs.org/components/app-components.js" onerror="this.onerror=null;this.src='https://sorukumar.github.io/Bitcoin-Data-Labs/components/app-components.js'"></script>
     <!-- App Configuration -->
-    <script src="scripts/app-config.js"></script>
+    <script src="scripts/app-config.js?v=3.7"></script>
 
     <!-- Homepage functionality -->
     <script type="module" src="scripts/homepage.js"></script>

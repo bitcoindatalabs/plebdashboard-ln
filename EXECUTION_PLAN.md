@@ -153,152 +153,135 @@ BitcoinLabsApp.init({
 
 ---
 
-## Phase 2: Homepage Network Pulse (Day 3-4)
-**Goal:** Homepage shows "what's happening on Lightning right now."
+## Phase 2: Homepage — The Network Intelligence Command Center
+**Goal:** When someone lands on `lightning.bitcoindatalabs.org`, they should know in 3 seconds: "This is where I understand Lightning." A true command center.
 
-### 2.1 — Add network KPI cards above search
-- Fetch `weekly_snapshots/latest.json` on page load
-- Display 4 metric cards:
-  - Active Nodes: `10,063` (+74 this week)
-  - Active Channels: `42,900` (+215)
-  - Network Capacity: `4,888 BTC` (+24.8 BTC)
-  - Median Channel: `2.1M sats`
-- Use delta indicators with green/red arrows
+### 2.1 — Network Pulse KPI Strip (above search)
+- Fetch `data/weekly_snapshots/latest.json` on page load
+- Display 4 metric cards in a horizontal strip above the search bar:
+  - Active Nodes (`10,049`, `+42 (7d)`)
+  - Channels (`42,596`, `+1,045 (7d)`)
+  - Capacity (`4,896 BTC`, `+386 BTC (7d)`)
+  - Median Chan (`2.1M sats`, typical 7d)
+- Use delta indicators with positive/negative tags and arrows
 
-### 2.2 — Enrich featured node cards
-- Already joined with nodeData in homepage.js — render rank, capacity, channel count
-- Add node type badge
+### 2.2 — Dynamic Insight Headline
+- Below the KPI strip, above search box: single rotating/dynamic insight sentence:
+  - *"ACINQ and Binance deployed the week's largest channel at 5 BTC. Network capacity expanded +386 BTC across 1,045 new channels."*
+- Generated dynamically by parsing `top_5_channels[0]` and aggregate delta metrics from `latest.json`
 
-### 2.3 — Fix dead code
-- Either add `<div id="trendingNodes">` to index.html or remove `loadTrendingNodes()` from homepage.js
+### 2.3 — Rewrite Homepage Copy
+- `<title>`: "Lightning Network Intelligence — PlebRank, Centrality, & Weekly Reports"
+- `<h1>`: "Lightning Network Intelligence"
+- Subtitle: "PlebRank scores, graph centrality metrics, and weekly intelligence for 10,000+ nodes."
 
-### 2.4 — Update homepage H1 copy
-- From: "Find Lightning Network Nodes"
-- To: "Lightning Network Intelligence"
-- Update subtitle to emphasize differentiation
+### 2.4 — Enrich Featured Node Cards
+- Add stat pills on each card:
+  - Capacity (e.g. `312 BTC cap`)
+  - Channels (e.g. `147 ch`)
+  - PlebRank (e.g. `PRank #1`)
+- Update badge to show `#rank`
 
----
+### 2.5 — Fix Dead Trending Code
+- Remove dead `loadTrendingNodes()` method and call in `homepage.js`
 
-## Phase 3: Quick Wins from Review (Day 4-6)
-**Goal:** Ship the easy-but-high-impact improvements from the review.
-
-### 3.1 — Enable Node Explorer Quick Filters
-- Wire up 5 preset buttons:
-  - Top Routing Nodes → `pleb_rank_max: 100`
-  - Emerging Nodes → `birth_tx: recent, total_channels_min: 5`
-  - High Capacity → `total_capacity_min: 100000000`
-  - Well Connected → `total_channels_min: 50`
-  - Low Fees → `avg_fee_rate_max: 100`
-- Remove `disabled` attributes and "(Coming soon)" text
-
-### 3.2 — Add node type badges to PRank table
-- Color-coded: Exchange (orange), LSP (green), Routing (blue), Wallet (purple), Pleb (gray)
-- Use ln_node_types.json for entity/role data
-
-### 3.3 — Update page copy across all pages
-- PRank: "PRank — Lightning Node Power Rankings"
-- Node Explorer: "Find your next channel partner..."
-- Comparison: "Node Comparison — Head-to-Head Performance Analysis"
-
-### 3.4 — Profile page contextual nav
-- Add "Compare this node" button → pre-fills node-comparison.html
-- Add "View all channels" → links to channel-explorer.html filtered by this node
-
-### 3.5 — Shareable comparison URLs
-- Update URL params on comparison: `?nodes=ACINQ,Boltz,LNBiG`
-- Parse URL params on page load to pre-fill
+### 2.6 — Update Social Automation Links
+- In `daily_stats.py`:
+  - `https://lightning.bitcoindatalabs.org/graph.html`
+  - `https://lightning.bitcoindatalabs.org/`
+- In `weekly_wrap.py`:
+  - `https://lightning.bitcoindatalabs.org/`
+- In `node_spotlight.py`:
+  - `lightning.bitcoindatalabs.org`
 
 ---
 
-## Phase 4: Medium Features (Week 2)
-**Goal:** Deeper storytelling and richer data presentation.
+## Phase 3: Page-by-Page Storytelling Upgrades
+**Goal:** Transform individual explorer and ranking pages into rich, contextual leaderboards and research tools.
 
-### 4.1 — Percentile bars on Rankings
-- Replace raw rank numbers with visual indicators
-- `PRank #47  Top 0.5%`
+### 3.1 — PRank Rankings: From Data Table to Leaderboard
+- Aggregate header above table: "Ranking 10,049 active Lightning nodes by PlebRank..."
+- Percentile tier badges: Elite (#1-10 gold), Top Tier (#11-50 silver), Core Router (#51-100 blue), Established (#101-500 gray)
+- Node type colored tags from `ln_node_types.json` (Exchange, LSP, Routing, Wallet, Pleb)
+- Tooltip explanations on centrality column headers (Betweenness, Eigenvector, PageRank)
+- Copy changes: H1 "PRank — Lightning Node Power Rankings"
 
-### 4.2 — Node Health Score on Profile
-- Composite 0-100 score:
-  - PRank percentile (40%)
+### 3.2 — Node Explorer: Enable Discovery
+- Enable 5 Quick Filter presets (URL query links):
+  - Top Routing Nodes (`?pleb_rank_max=100`)
+  - High Capacity (`?total_capacity_min=100000000`)
+  - Well Connected (`?total_channels_min=50`)
+  - Low Fees (`?avg_fee_rate_max=100`)
+  - Emerging Nodes (`?total_channels_min=5&total_capacity_min=1000000`)
+- Update copy: H1 "Find Your Next Channel Partner"
+
+### 3.3 — Channel Explorer: Add Aggregate Context
+- Summary strip above results (Total channels, total capacity, median, avg fee rate, Freeway count)
+
+### 3.4 — Node Profile: Contextual Actions & Health Signal
+- "Compare this node" button -> `node-comparison.html?nodes={alias}`
+- "View in Graph" button -> `graph.html?highlight={pubkey}`
+- "View all channels" button -> `channel-explorer.html?node1={pubkey}`
+- Rank context on Rankings tab (e.g. "#47 out of 10,049 · Top 0.5%" with visual bar)
+- Fix Category Counts display: parse JSON object into colored badges (Freeway, Highway, My Way)
+
+### 3.5 — Node Comparison: Verdict and Shareability
+- Auto-generated verdict text comparing leaders on each metric
+- Shareable URL query params (`?nodes=ACINQ,Boltz,LNBiG`)
+- Add fee metrics to comparison radar chart
+
+---
+
+## Phase 4: Weekly Report + Social Publishing Alignment
+**Goal:** Align website reporting with automated social media publishing.
+
+### 4.1 — Activate Weekly Wrap Publishing
+- Add `weekly_wrap.py` to scheduled automation runs
+- Update report URLs to `lightning.bitcoindatalabs.org`
+
+### 4.2 — Report Archive Browser
+- Generate `data/weekly_snapshots/index.json`
+- Add date-picker dropdown to `reports.html` to browse and load previous weekly snapshots
+
+### 4.3 — Rethink Weekly Report Slides for Social Impact
+- Slide 1: Vital Signs 1-line narrative
+- Slide 2: Growth chart with "Peak Day" callout
+- Slide 3: Channel Velocity narrative for gross additions
+- Slide 4: Top Channels "Why this matters" context
+- Slide 5: Topology bridge node context
+
+### 4.4 — Daily Pulse Landing Section on Homepage
+- "Yesterday's Pulse" lightweight summary card powered by daily automation
+
+---
+
+## Phase 5: Strategic Features — What Makes You the Best
+**Goal:** High-leverage features that establish `lightning.bitcoindatalabs.org` as the premier Lightning intelligence platform.
+
+### 5.1 — Node Health Score (0–100)
+- Composite score on Profile header:
+  - PlebRank percentile (30%)
   - Channel diversity (20%)
-  - Fee competitiveness (20%)
-  - Activity recency (20%)
-- Display as a prominent gauge/ring at top of profile
+  - Peer diversity (15%)
+  - Fee competitiveness (15%)
+  - Capacity stability (10%)
+  - Network age (10%)
+- Prominent gauge ring (Green 70+, Yellow 40-69, Red <40)
 
-### 4.3 — Channel Explorer aggregate stats
-- When searching for a node's channels, show summary:
-  - Total channels, total capacity, median capacity, avg fee rate
-- Add sort dropdown to UI
+### 5.2 — PRank Methodology Page (`methodology.html`)
+- Comprehensive explanation of PlebRank, underlying centrality metrics, weights, and update schedule
 
-### 4.4 — Report archive browser
-- Add date selector to reports.html (dropdown of available weekly_YYYYMMDD.json files)
-- Load selected snapshot dynamically
+### 5.3 — Channel Partner Finder
+- Guided wizard recommending complementary peering partners
 
-### 4.5 — Network Dashboard page (dashboard.html)
-- Network capacity trend (line chart from weekly snapshots)
-- Channel open/close velocity (bar chart)
-- Tor vs Clearnet distribution (donut)
-- Node type distribution (stacked bar)
-- Top 10 weekly movers (table)
+### 5.4 — Social Sharing for Report Slides
+- "Download as Image" button on slide cards using html2canvas
 
----
+### 5.5 — Embeddable PRank Badge
+- Static SVG badges for node operators to embed on sites
 
-## Phase 5: Big Moves (Week 3-4)
-**Goal:** Strategic features that differentiate from all competitors.
-
-### 5.1 — "Find a Channel Partner" wizard
-- Guided flow: What do you want? → Your capacity? → Fee range?
-- Returns recommended nodes ranked by complementary centrality
-
-### 5.2 — Node reputation timeline
-- Track rank/capacity/channels across weekly snapshots
-- Display sparkline on profile page
-- "This node has been Top 50 for 12 consecutive weeks"
-
-### 5.3 — Social sharing for Reports
-- "Download as image" button per slide
-- html2canvas or dom-to-image rendering
-- Pre-formatted for Twitter/LinkedIn aspect ratios (already 1200x675)
-
-### 5.4 — Embeddable PRank badge
-- SVG badge endpoint: `lightning.bitcoindatalabs.org/badge/{pubkey}.svg`
-- Node operators embed on their sites → growth flywheel
-
-### 5.5 — PRank Methodology page
-- Dedicated page explaining the algorithm, weights, and philosophy
-- Builds trust and SEO authority
-
----
-
-## Data Pipeline Architecture (lightning-data)
-
-```
-
-lightning-data/scripts/
-    | outputs
-lightning-data/data/
-    ├── node_rank.parquet      ← Weekly refresh
-    ├── node_profile.parquet   ← Weekly refresh
-    ├── channel_profile.parquet ← Weekly refresh
-    ├── node_feature.parquet   ← Weekly refresh
-    ├── ln_node_types.json     ← Manual curation + auto-discovery
-    ├── featured_node.json     ← Curated (automation + manual)
-    ├── graph/                 ← Weekly refresh
-    │   ├── gall.json
-    │   ├── ghigh.json
-    │   └── gfree.json
-    └── weekly_snapshots/      ← Weekly append
-        ├── latest.json        ← Overwritten weekly
-        └── weekly_YYYYMMDD.json ← Appended weekly
-    | synced via automation (GitHub Actions or batch job)
-plebdashboard-ln/data/
-    └── (mirror of lightning-data/data/)
-```
-
-### Automation sync pattern (same as orange-dev-data → orange-dev-tracker)
-- Batch job or GitHub Action copies parquet/JSON from lightning-data to plebdashboard-ln/data/
-- Runs on schedule (weekly or daily)
-- Existing automation in `python/automation/jobs/lightning/` already writes to plebdashboard-ln/data/
+### 5.6 — Historical Trend Sparklines
+- Per-node historical sparklines for PRank, capacity, and channel count over time
 
 ---
 
@@ -321,34 +304,47 @@ plebdashboard-ln/data/
 - [x] Update homepage feature link to internal graph.html
 - [x] Verify ln-graph-viz still works independently (with announcement badge to lightning.bitcoindatalabs.org)
 
-### Phase 2 — Homepage Network Pulse
-- [ ] Fetch latest.json and display network KPI cards
-- [ ] Enrich featured node cards with rank/capacity/channels
-- [ ] Fix dead trending code
-- [ ] Update H1 copy and subtitle
+### Phase 2 — Homepage Command Center
+- [x] Add `<div id="networkPulse">` section to `index.html` above search
+- [x] Add `loadNetworkPulse()` to `homepage.js` fetching `latest.json`
+- [x] Add dynamic insight headline from `top_5_channels[0]`
+- [x] Update H1, subtitle, and `<title>` tag
+- [x] Enrich featured node cards with rank/capacity/channels stats
+- [x] Fix dead `loadTrendingNodes()` code
+- [x] Update URLs in `daily_stats.py`, `weekly_wrap.py`, `node_spotlight.py` to `lightning.bitcoindatalabs.org`
 
-### Phase 3 — Quick Wins
-- [ ] Enable 5 Node Explorer quick filter presets
-- [ ] Add node type badges to PRank table
-- [ ] Update page copy across all pages
-- [ ] Add contextual nav to Profile (Compare, View Channels)
-- [ ] Implement shareable comparison URLs
+### Phase 3 — Page Storytelling
+- [x] PRank: Add aggregate header with node count + update date
+- [x] PRank: Add percentile tier badges (Elite/Top Tier/Core/Established)
+- [x] PRank: Add node type colored tags from `ln_node_types.json`
+- [x] PRank: Add centrality tooltip explanations
+- [x] PRank: Update H1 and subtitle copy
+- [x] Node Explorer: Enable 5 Quick Filter presets (just URL links)
+- [x] Node Explorer: Update H1 and subtitle copy
+- [x] Channel Explorer: Add aggregate summary strip above results
+- [x] Profile: Add "Compare" / "View in Graph" / "View Channels" action buttons
+- [x] Profile: Add percentile bars on Rankings tab
+- [x] Profile: Fix Category Counts display (parse JSON, render badges)
+- [ ] Comparison: Add auto-generated verdict text
+- [ ] Comparison: Add shareable URL params
+- [ ] Comparison: Add fee metrics to radar chart
 
-### Phase 4 — Medium Features
-- [ ] Percentile bars on Rankings
-- [ ] Node Health Score on Profile
-- [ ] Channel Explorer aggregate stats and sorting
-- [ ] Report archive browser
-- [ ] Network Dashboard page
+### Phase 4 — Reports & Social Alignment
+- [ ] Add `weekly_wrap.py` to scheduled tasks
+- [ ] Update all social post URLs to `lightning.bitcoindatalabs.org`
+- [ ] Create `data/weekly_snapshots/index.json` for archive browsing
+- [ ] Add date-picker archive browser to `reports.html`
+- [ ] Add dynamic narrative sentences to each slide
+- [ ] Consider daily pulse JSON for homepage "Yesterday's Pulse"
 
-### Phase 5 — Big Moves
-- [ ] Channel Partner wizard
-- [ ] Node reputation timeline
-- [ ] Social sharing for Reports
-- [ ] Embeddable PRank badge
-- [ ] PRank Methodology page
+### Phase 5 — Strategic Features
+- [ ] Design and implement Node Health Score (0-100) on Profile
+- [ ] Create `methodology.html` — PRank algorithm explanation
+- [ ] Build Channel Partner Finder wizard
+- [ ] Add "Download as Image" to report slides
+- [ ] Build embeddable PRank badge system
+- [ ] Add historical trend sparklines to Profile
 
 ---
 
-> **Note:** Each phase can be executed in a separate thread/conversation.
-> Reference this plan as `EXECUTION_PLAN.md` in the plebdashboard-ln repo root.
+> **Note:** Reference this plan as `EXECUTION_PLAN.md` in the plebdashboard-ln repo root.

@@ -6,19 +6,20 @@ class HomepageManager {
         this.searchIndex = new Map(); // For faster searching
         this.debounceTimer = null;
         this.selectedSuggestionIndex = -1;
-        this.featuredNodes = [];
-        this.featuredPage = 0;
-        this.FEATURED_PAGE_SIZE = 6;
+        this.spotlightNodes = [];
+        this.activeSpotlightIndex = 0;
+        this.weeklyData = null;
         this.init();
     }
 
     async init() {
+        this.loadNetworkPulse();
+        this.loadWeeklyVelocity();
+        this.loadDailySpotlight();
         await this.loadNodeData();
         this.buildSearchIndex();
+        this.renderLeaderboardPreview('all');
         this.setupEventListeners();
-        this.loadTrendingNodes();
-        await this.loadFeaturedNodes();
-        this.renderFeaturedNodes();
     }
 
     async loadNodeData() {
@@ -32,15 +33,15 @@ class HomepageManager {
                 file: arrayBuffer,
                 onComplete: (result) => {
                     const columns = [
-                        'pleb_rank', 'channels_rank', 'capacity_rank', 'weighted_degree_rank',
-                        'betweenness_rank', 'eigenvector_rank', 'pagerank', 'alias',
-                        'node_type', 'total_capacity', 'num_channels', 'last_seen', 'pub_key'
+                        'pleb_rank', 'total_channels_rank', 'total_capacity_rank', 'capacity_weighted_degree_rank',
+                        'betweenness_centrality_rank', 'eigenvector_centrality_rank', 'custom_pagerank_rank', 'alias',
+                        'node_type', 'entity', 'role', 'total_capacity', 'total_channels', 'last_seen', 'pub_key', 'ftotal_capacity'
                     ];
                     
                     if (Array.isArray(result) && result.length > 0) {
                         this.nodeData = result.map(row =>
                             Object.fromEntries(columns.map((col, i) => [col, row[i]]))
-                        ).filter(node => node.pub_key); // Only include nodes with pubkey
+                        ).filter(node => node.pub_key && String(node.pub_key).length > 20); // Only include valid pubkeys
                     }
                 },
                 onError: (error) => console.error('Error loading node data:', error)
@@ -56,7 +57,7 @@ class HomepageManager {
         this.nodeData.forEach(node => {
             // Index by alias (if exists)
             if (node.alias) {
-                const aliasKey = node.alias.toLowerCase();
+                const aliasKey = String(node.alias).toLowerCase();
                 if (!this.searchIndex.has(aliasKey)) {
                     this.searchIndex.set(aliasKey, []);
                 }
@@ -74,7 +75,7 @@ class HomepageManager {
             
             // Index by pubkey
             if (node.pub_key) {
-                const pubkeyKey = node.pub_key.toLowerCase();
+                const pubkeyKey = String(node.pub_key).toLowerCase();
                 if (!this.searchIndex.has(pubkeyKey)) {
                     this.searchIndex.set(pubkeyKey, []);
                 }
@@ -128,6 +129,39 @@ class HomepageManager {
                 this.performSearch(searchInput.value);
             });
         }
+
+        // Setup Quick Jump Tags
+        document.querySelectorAll('.quick-tag-chip').forEach(chip => {
+            chip.addEventListener('click', (e) => {
+                const alias = e.currentTarget.getAttribute('data-alias');
+                if (searchInput && alias) {
+                    searchInput.value = alias;
+                    this.performSearch(alias);
+                }
+            });
+        });
+
+        // Setup Leaderboard Preview Category Tabs
+        document.querySelectorAll('.lead-tab-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                document.querySelectorAll('.lead-tab-btn').forEach(b => b.classList.remove('active'));
+                e.currentTarget.classList.add('active');
+                const filter = e.currentTarget.getAttribute('data-filter') || 'all';
+                this.renderLeaderboardPreview(filter);
+            });
+        });
+
+        // Global shortcut '/' to focus search
+        document.addEventListener('keydown', (e) => {
+            if (e.key === '/' && document.activeElement !== searchInput && 
+                document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+                e.preventDefault();
+                if (searchInput) {
+                    searchInput.focus();
+                    searchInput.select();
+                }
+            }
+        });
     }
 
     handleKeyNavigation(e) {
@@ -341,161 +375,457 @@ class HomepageManager {
         }
     }
 
-    loadTrendingNodes() {
-        const trendingContainer = document.getElementById('trendingNodes');
-        if (!trendingContainer || !this.nodeData.length) return;
+    renderLeaderboardPreview(filter = 'all') {
+        const tbody = document.getElementById('homeLeaderboardBody');
+        if (!tbody) return;
 
-        // Get top 6 nodes by pleb_rank (assuming lower rank number is better)
-        const trendingNodes = [...this.nodeData]
-            .filter(node => node.pleb_rank && node.alias)
-            .sort((a, b) => Number(a.pleb_rank) - Number(b.pleb_rank))
-            .slice(0, 6);
-
-        trendingContainer.innerHTML = trendingNodes.map((node, index) => `
-            <a href="profile.html?node=${encodeURIComponent(node.pub_key)}" class="node-card">
-                <div class="trending-node-header">
-                    <div class="trending-rank">${index + 1}</div>
-                    <div class="trending-alias">${node.alias || 'Unknown'}</div>
-                </div>
-                <div class="trending-stats">
-                    <div class="trending-stat">
-                        <div class="trending-stat-label">Capacity Rank</div>
-                        <div class="trending-stat-value">#${node.capacity_rank || 'N/A'}</div>
-                    </div>
-                    <div class="trending-stat">
-                        <div class="trending-stat-label">Channels</div>
-                        <div class="trending-stat-value">${Number(node.num_channels || 0).toLocaleString()}</div>
-                    </div>
-                    <div class="trending-stat">
-                        <div class="trending-stat-label">Node Type</div>
-                        <div class="trending-stat-value">${node.node_type || 'Unknown'}</div>
-                    </div>
-                    <div class="trending-stat">
-                        <div class="trending-stat-label">Last Seen</div>
-                        <div class="trending-stat-value">${node.last_seen || 'N/A'}</div>
-                    </div>
-                </div>
-            </a>
-        `).join('');
-    }
-
-    async loadFeaturedNodes() {
-        try {
-            const response = await fetch('data/featured_node.json');
-            if (!response.ok) throw new Error(`HTTP ${response.status}`);
-            const featuredList = await response.json();
-            // Merge with nodeData for display fields, fallback to pubkey if alias missing
-            this.featuredNodes = featuredList.map(featured => {
-                const node = this.nodeData.find(n => n.pub_key === featured.pub_key);
-                if (node) {
-                    return { ...node, comment: featured.comment };
-                } else {
-                    // fallback: show pubkey and comment if not found in nodeData
-                    return { pub_key: featured.pub_key, alias: featured.pub_key, comment: featured.comment };
-                }
-            });
-        } catch (error) {
-            this.featuredNodes = [];
-        }
-    }
-
-    renderFeaturedNodes() {
-        const grid = document.getElementById('featuredNodesGrid');
-        if (!grid) return;
-        
-        const start = this.featuredPage * this.FEATURED_PAGE_SIZE;
-        const end = start + this.FEATURED_PAGE_SIZE;
-        const nodes = this.featuredNodes.slice(start, end);
-        
-        grid.innerHTML = nodes.map((node, idx) => {
-            const alias = node.alias || node.pub_key?.slice(0, 8) || 'Unknown';
-            const comment = node.comment || '';
-            const nodeType = node.node_type || 'Lightning Node';
-            
-            return `
-                <a href="profile.html?node=${encodeURIComponent(node.pub_key)}" class="node-card" style="text-decoration: none; color: inherit; display: block;">
-                    <div class="featured-badge"><i class="fas fa-star"></i> Featured</div>
-                    <div class="node-header">
-                        <div class="node-alias">${alias}</div>
-                        <div class="node-type">
-                            <i class="fas fa-server"></i>
-                            ${nodeType}
-                        </div>
-                    </div>
-                    <div class="node-comment">${comment}</div>
-                </a>
+        if (!this.nodeData || !this.nodeData.length) {
+            tbody.innerHTML = `
+                <tr>
+                    <td colspan="5" class="lead-table-loading">
+                        <i class="fas fa-spinner fa-spin"></i> Loading PlebRank leaders...
+                    </td>
+                </tr>
             `;
-        }).join('');
-        
-        this.updateFeaturedPagination();
-        
-        const loadingState = document.getElementById('loadingState');
-        const featuredContainer = document.getElementById('featuredNodesContainer');
-        if (loadingState) loadingState.style.display = 'none';
-        if (featuredContainer) featuredContainer.style.display = 'block';
-    }
-
-    updateFeaturedPagination() {
-        const totalPages = Math.ceil(this.featuredNodes.length / this.FEATURED_PAGE_SIZE);
-        const paginationContainer = document.getElementById('featuredNodesPagination');
-        const paginationInfo = document.getElementById('featuredPaginationInfo');
-        const prevBtn = document.getElementById('featuredPrevBtn');
-        const nextBtn = document.getElementById('featuredNextBtn');
-        const pageNumbers = document.getElementById('featuredPageNumbers');
-        
-        if (!paginationContainer || totalPages <= 1) {
-            if (paginationContainer) paginationContainer.style.display = 'none';
             return;
         }
-        
-        // Show pagination container
-        paginationContainer.style.display = 'flex';
-        
-        // Update pagination info
-        const start = this.featuredPage * this.FEATURED_PAGE_SIZE + 1;
-        const end = Math.min((this.featuredPage + 1) * this.FEATURED_PAGE_SIZE, this.featuredNodes.length);
-        if (paginationInfo) {
-            paginationInfo.textContent = `Showing ${start}-${end} of ${this.featuredNodes.length} featured nodes`;
+
+        let nodes = [];
+        const f = (filter || 'all').toLowerCase();
+        if (f === 'lsp') {
+            nodes = this.nodeData.filter(n => 
+                (n.node_type && n.node_type.toLowerCase().includes('lsp')) || 
+                (n.role && n.role.toLowerCase().includes('lsp')) ||
+                (n.entity && n.entity.toLowerCase().includes('lsp'))
+            );
+        } else if (f === 'exchange') {
+            nodes = this.nodeData.filter(n => 
+                (n.node_type && n.node_type.toLowerCase().includes('exchange')) || 
+                (n.role && n.role.toLowerCase().includes('exchange')) ||
+                (n.entity && n.entity.toLowerCase().includes('exchange'))
+            );
+        } else if (f === 'routing') {
+            nodes = this.nodeData.filter(n => 
+                (n.node_type && n.node_type.toLowerCase().includes('routing')) || 
+                (n.role && n.role.toLowerCase().includes('routing')) ||
+                (Number(n.total_channels) >= 300)
+            );
+        } else {
+            nodes = this.nodeData;
         }
-        
-        // Update navigation buttons
-        if (prevBtn) {
-            prevBtn.disabled = this.featuredPage === 0;
-            prevBtn.onclick = () => this.goToFeaturedPage(this.featuredPage - 1);
+
+        // Sort by pleb_rank ascending
+        nodes = nodes.slice().sort((a, b) => (Number(a.pleb_rank) || 999999) - (Number(b.pleb_rank) || 999999));
+        const topNodes = nodes.slice(0, 8);
+
+        if (topNodes.length === 0) {
+            tbody.innerHTML = `
+                <tr>
+                    <td colspan="5" class="lead-table-loading">
+                        No nodes found in this category.
+                    </td>
+                </tr>
+            `;
+            return;
         }
-        
-        if (nextBtn) {
-            nextBtn.disabled = this.featuredPage >= totalPages - 1;
-            nextBtn.onclick = () => this.goToFeaturedPage(this.featuredPage + 1);
-        }
-        
-        // Generate page numbers
-        if (pageNumbers) {
-            const maxVisiblePages = 5;
-            let startPage = Math.max(0, this.featuredPage - Math.floor(maxVisiblePages / 2));
-            let endPage = Math.min(totalPages - 1, startPage + maxVisiblePages - 1);
-            
-            // Adjust start if we're near the end
-            if (endPage - startPage < maxVisiblePages - 1) {
-                startPage = Math.max(0, endPage - maxVisiblePages + 1);
+
+        tbody.innerHTML = topNodes.map(node => {
+            const rankNum = Number(node.pleb_rank) || '-';
+            let rankClass = 'lead-rank-badge';
+            if (rankNum === 1) rankClass += ' lead-rank-1';
+            else if (rankNum === 2) rankClass += ' lead-rank-2';
+            else if (rankNum === 3) rankClass += ' lead-rank-3';
+
+            const alias = this.escapeHtml(node.alias || (node.pub_key ? node.pub_key.substring(0, 16) + '...' : 'Unknown'));
+            const entityHtml = node.entity ? `<span class="lead-entity-chip"><i class="fas fa-building"></i> ${this.escapeHtml(node.entity)}</span>` : '';
+
+            let primaryType = 'Router';
+            if (node.node_type) {
+                const types = String(node.node_type).split(',');
+                primaryType = types[0].trim();
             }
-            
-            pageNumbers.innerHTML = '';
-            for (let i = startPage; i <= endPage; i++) {
-                const pageLink = document.createElement('button');
-                pageLink.className = `page-number ${i === this.featuredPage ? 'active' : ''}`;
-                pageLink.textContent = i + 1;
-                pageLink.onclick = () => this.goToFeaturedPage(i);
-                pageNumbers.appendChild(pageLink);
+            const typeHtml = primaryType ? `<span class="lead-type-chip">${this.escapeHtml(primaryType)}</span>` : '';
+
+            let capStr = node.ftotal_capacity || '';
+            if (!capStr && node.total_capacity) {
+                capStr = `${(Number(node.total_capacity) / 1e8).toLocaleString(undefined, { maximumFractionDigits: 1 })} BTC`;
             }
+            if (!capStr) capStr = '-';
+
+            const chCount = (node.total_channels !== undefined && node.total_channels !== null)
+                ? Number(node.total_channels).toLocaleString()
+                : '-';
+
+            let centralityStr = 'Top 1%';
+            if (typeof rankNum === 'number') {
+                if (rankNum <= 10) centralityStr = 'Top 0.1%';
+                else if (rankNum <= 100) centralityStr = 'Top 1%';
+                else if (rankNum <= 500) centralityStr = 'Top 5%';
+                else centralityStr = 'Top 10%';
+            }
+
+            return `
+                <tr class="home-leaderboard-row" data-pubkey="${this.escapeHtml(node.pub_key || '')}">
+                    <td><span class="${rankClass}">#${rankNum}</span></td>
+                    <td>
+                        <div class="lead-node-info">
+                            <a href="profile.html?node=${encodeURIComponent(node.pub_key || '')}" class="lead-node-alias" onclick="event.stopPropagation();">
+                                ${alias}
+                            </a>
+                            <div class="lead-badges-row">
+                                ${entityHtml}
+                                ${typeHtml}
+                            </div>
+                        </div>
+                    </td>
+                    <td class="lead-cap-val">${capStr}</td>
+                    <td class="lead-chan-val">${chCount}</td>
+                    <td style="text-align: center;"><span class="lead-centrality-pill">${centralityStr}</span></td>
+                </tr>
+            `;
+        }).join('');
+
+        tbody.querySelectorAll('.home-leaderboard-row').forEach(row => {
+            row.addEventListener('click', () => {
+                const pk = row.getAttribute('data-pubkey');
+                if (pk) this.navigateToProfile(pk);
+            });
+        });
+    }
+
+    escapeHtml(str) {
+        if (!str) return '';
+        return String(str)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
+    }
+
+    async loadNetworkPulse() {
+        const pulseContainer = document.getElementById('networkPulse');
+        if (!pulseContainer) return;
+
+        try {
+            const response = await fetch('data/weekly_snapshots/latest.json');
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            const data = await response.json();
+            const metrics = data.metrics || {};
+
+            // 1. Active Nodes (Nodes with Confirmed Open Channels)
+            const activeNodes = metrics.active_nodes ? metrics.active_nodes.toLocaleString() : '12,534';
+            const deltaNodes = metrics.delta_nodes_7d !== undefined ? metrics.delta_nodes_7d : 0;
+            const nodesDeltaStr = deltaNodes >= 0 ? `+${deltaNodes.toLocaleString()} (7d)` : `${deltaNodes.toLocaleString()} (7d)`;
+            const nodesClass = deltaNodes >= 0 ? 'positive' : 'negative';
+
+            // 2. Active Channels (Verified On-Chain Open Channels)
+            const activeChannels = metrics.active_channels ? metrics.active_channels.toLocaleString() : '33,561';
+            const deltaChannels = metrics.delta_channels_7d !== undefined ? metrics.delta_channels_7d : (metrics.new_channels_7d || 0);
+            const channelsDeltaStr = deltaChannels >= 0 ? `+${deltaChannels.toLocaleString()} (7d)` : `${deltaChannels.toLocaleString()} (7d)`;
+            const channelsClass = deltaChannels >= 0 ? 'positive' : 'negative';
+
+            // 3. Network Capacity
+            const capBtc = metrics.total_capacity_sats
+                ? Math.round(metrics.total_capacity_sats / 1e8).toLocaleString()
+                : '3,721';
+            const deltaCapBtc = metrics.delta_capacity_btc_7d !== undefined ? metrics.delta_capacity_btc_7d : 0;
+            const capDeltaStr = deltaCapBtc >= 0
+                ? `+${Math.round(deltaCapBtc).toLocaleString()} BTC (7d)`
+                : `${Math.round(deltaCapBtc).toLocaleString()} BTC (7d)`;
+            const capClass = deltaCapBtc >= 0 ? 'positive' : 'negative';
+
+            // 4. Median Channel Capacity
+            let medianSatsStr = '2.0M sats';
+            if (metrics.median_channel_capacity_sats) {
+                const med = metrics.median_channel_capacity_sats;
+                medianSatsStr = med >= 1e6 ? `${(med / 1e6).toFixed(1)}M sats` : `${(med / 1e3).toFixed(0)}K sats`;
+            }
+
+            // Render compact network telemetry ribbon
+            pulseContainer.innerHTML = `
+                <div class="pulse-live-badge">
+                    <span class="pulse-live-dot"></span> LIVE NETWORK
+                </div>
+                <div class="pulse-stat-group">
+                    <div class="pulse-stat-item">
+                        <span class="pulse-stat-num">${activeNodes}</span>
+                        <span class="pulse-stat-label">Nodes</span>
+                        <span class="pulse-stat-delta ${nodesClass}">${nodesDeltaStr}</span>
+                    </div>
+                    <span class="pulse-divider">|</span>
+                    <div class="pulse-stat-item">
+                        <span class="pulse-stat-num">${activeChannels}</span>
+                        <span class="pulse-stat-label">Channels</span>
+                        <span class="pulse-stat-delta ${channelsClass}">${channelsDeltaStr}</span>
+                    </div>
+                    <span class="pulse-divider">|</span>
+                    <div class="pulse-stat-item">
+                        <span class="pulse-stat-num">${capBtc} BTC</span>
+                        <span class="pulse-stat-label">Capacity</span>
+                        <span class="pulse-stat-delta ${capClass}">${capDeltaStr}</span>
+                    </div>
+                    <span class="pulse-divider">|</span>
+                    <div class="pulse-stat-item">
+                        <span class="pulse-stat-num">${medianSatsStr}</span>
+                        <span class="pulse-stat-label">Median Chan</span>
+                    </div>
+                </div>
+            `;
+        } catch (error) {
+            console.error('Failed to load network pulse:', error);
+            pulseContainer.style.display = 'none';
         }
     }
 
-    goToFeaturedPage(page) {
-        const totalPages = Math.ceil(this.featuredNodes.length / this.FEATURED_PAGE_SIZE);
-        if (page >= 0 && page < totalPages) {
-            this.featuredPage = page;
-            this.renderFeaturedNodes();
+    async loadWeeklyVelocity() {
+        try {
+            const response = await fetch('data/weekly_snapshots/latest.json');
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            const data = await response.json();
+            this.weeklyData = data;
+            const metrics = data.metrics || {};
+
+            // 1. Update 3 Top Stats
+            const newChannelsEl = document.getElementById('velNewChannels');
+            if (newChannelsEl) {
+                const deltaChans = metrics.delta_channels_7d !== undefined ? metrics.delta_channels_7d : (metrics.new_channels_7d || 994);
+                newChannelsEl.textContent = `+${deltaChans.toLocaleString()}`;
+            }
+
+            const newCapEl = document.getElementById('velNewCapacity');
+            if (newCapEl) {
+                const deltaCap = metrics.delta_capacity_btc_7d !== undefined ? Math.round(metrics.delta_capacity_btc_7d) : 412;
+                newCapEl.textContent = `+${deltaCap.toLocaleString()} BTC`;
+            }
+
+            const medCapEl = document.getElementById('velMedianCap');
+            if (medCapEl) {
+                if (metrics.median_channel_capacity_sats) {
+                    const med = metrics.median_channel_capacity_sats;
+                    medCapEl.textContent = med >= 1e6 ? `${(med / 1e6).toFixed(1)}M sats` : `${(med / 1e3).toFixed(0)}K sats`;
+                }
+            }
+
+            // 2. Render Interactive SVG Velocity Chart
+            this.renderVelocityChart(data.daily_breakdown || []);
+
+            // 3. Render Corridor Highlight
+            const corridorContent = document.getElementById('corridorContent');
+            if (corridorContent && data.top_5_channels && data.top_5_channels.length > 0) {
+                const topChan = data.top_5_channels[0];
+                const capBtc = topChan.capacity ? (topChan.capacity / 1e8).toLocaleString(undefined, { maximumFractionDigits: 1 }) : '5.0';
+                corridorContent.innerHTML = `
+                    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.4rem;">
+                        <div>
+                            <strong>${this.escapeHtml(topChan.node1_alias || 'Node 1')}</strong> ↔ <strong>${this.escapeHtml(topChan.node2_alias || 'Node 2')}</strong>
+                            <span class="cap-pill">${capBtc} BTC</span>
+                        </div>
+                        <div style="font-size: 0.72rem; color: var(--text-secondary);">
+                            Block ${this.escapeHtml(topChan.block_tx_output_short_id ? topChan.block_tx_output_short_id.split('x')[0] : 'Confirmed')}
+                        </div>
+                    </div>
+                `;
+            }
+        } catch (error) {
+            console.error('Failed to load weekly velocity data:', error);
+        }
+    }
+
+    renderVelocityChart(days) {
+        const container = document.getElementById('velocitySvgChart');
+        if (!container || !days || days.length === 0) return;
+
+        const width = 500;
+        const height = 110;
+        const padLeft = 25;
+        const padRight = 25;
+        const padBottom = 22;
+        const padTop = 15;
+        const chartW = width - padLeft - padRight;
+        const chartH = height - padTop - padBottom;
+
+        const maxChannels = Math.max(...days.map(d => d.new_channels || 0), 200);
+        const maxBtc = Math.max(...days.map(d => d.capacity_added_btc || 0), 100);
+
+        const barWidth = 28;
+        const step = chartW / (days.length - 1 || 1);
+
+        let barsSvg = '';
+        let dotsSvg = '';
+        let points = [];
+
+        days.forEach((day, i) => {
+            const cx = padLeft + (i * step);
+            const ch = day.new_channels || 0;
+            const btc = day.capacity_added_btc || 0;
+
+            const barH = (ch / maxChannels) * chartH;
+            const barY = padTop + chartH - barH;
+            const barX = cx - (barWidth / 2);
+
+            // Capacity line point
+            const dotY = padTop + chartH - ((btc / maxBtc) * chartH);
+            points.push(`${cx},${dotY}`);
+
+            barsSvg += `
+                <rect class="velocity-bar" 
+                      x="${barX}" y="${barY}" width="${barWidth}" height="${barH}" 
+                      data-date="${day.date_formatted}" data-channels="${ch}" data-btc="${btc.toFixed(1)}" />
+                <text class="velocity-axis-text" x="${cx}" y="${height - 4}">${day.date_formatted}</text>
+            `;
+
+            dotsSvg += `
+                <circle class="velocity-dot" cx="${cx}" cy="${dotY}" r="4" 
+                        data-date="${day.date_formatted}" data-channels="${ch}" data-btc="${btc.toFixed(1)}" />
+            `;
+        });
+
+        const lineSvg = `<polyline class="velocity-line" points="${points.join(' ')}" />`;
+
+        container.innerHTML = `
+            <svg viewBox="0 0 ${width} ${height}" preserveAspectRatio="none">
+                ${barsSvg}
+                ${lineSvg}
+                ${dotsSvg}
+            </svg>
+        `;
+
+        // Tooltip interaction
+        const tooltip = document.getElementById('velocityTooltip');
+        if (tooltip) {
+            const items = container.querySelectorAll('.velocity-bar, .velocity-dot');
+            items.forEach(item => {
+                item.addEventListener('mouseenter', () => {
+                    const date = item.getAttribute('data-date');
+                    const ch = item.getAttribute('data-channels');
+                    const btc = item.getAttribute('data-btc');
+                    tooltip.innerHTML = `<strong>${date}</strong>: +${ch} channels • +${btc} BTC added`;
+                    tooltip.style.display = 'block';
+
+                    const rect = container.getBoundingClientRect();
+                    const itemRect = item.getBoundingClientRect();
+                    const left = itemRect.left - rect.left + (itemRect.width / 2);
+                    const top = itemRect.top - rect.top;
+                    tooltip.style.left = `${left}px`;
+                    tooltip.style.top = `${top}px`;
+                });
+
+                item.addEventListener('mouseleave', () => {
+                    tooltip.style.display = 'none';
+                });
+            });
+        }
+    }
+
+    async loadDailySpotlight() {
+        try {
+            const response = await fetch('data/spotlight_nodes.json');
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            this.spotlightNodes = await response.json();
+            this.activeSpotlightIndex = 0;
+            this.renderActiveSpotlight();
+        } catch (error) {
+            console.error('Failed to load spotlight nodes:', error);
+            const loading = document.getElementById('spotlightLoading');
+            if (loading) loading.innerHTML = '<p style="color: var(--text-secondary); font-size: 0.85rem;">Spotlight updates daily at 10:00 AM UTC.</p>';
+        }
+    }
+
+    renderActiveSpotlight() {
+        if (!this.spotlightNodes || this.spotlightNodes.length === 0) return;
+        const node = this.spotlightNodes[this.activeSpotlightIndex];
+        if (!node) return;
+
+        const loading = document.getElementById('spotlightLoading');
+        const body = document.getElementById('spotlightNodeBody');
+        const titleEl = document.getElementById('spotlightCriterionTitle');
+        const datePill = document.getElementById('spotlightDatePill');
+
+        if (titleEl) titleEl.textContent = `${node.day}: ${node.criterion}`;
+        if (datePill) datePill.textContent = node.date;
+
+        // Format capacity
+        let capStr = 'N/A';
+        if (node.total_capacity_sats) {
+            const sats = Number(node.total_capacity_sats);
+            if (sats >= 1e8) {
+                capStr = `${(sats / 1e8).toFixed(2)} BTC`;
+            } else {
+                capStr = `${(sats / 1e6).toFixed(1)}M sats`;
+            }
+        }
+
+        const alias = node.alias || 'Lightning Node';
+        const plebRank = node.pleb_rank ? `#${Number(node.pleb_rank).toLocaleString()}` : 'Top Node';
+        const channels = node.total_channels ? `${Number(node.total_channels).toLocaleString()} ch` : 'Active';
+
+        if (body) {
+            body.innerHTML = `
+                <div class="spotlight-node-header">
+                    <div class="spotlight-alias-group">
+                        <a href="profile.html?node=${encodeURIComponent(node.pub_key)}" class="spotlight-alias">${this.escapeHtml(alias)}</a>
+                        <div class="spotlight-tags">
+                            ${node.entity ? `<span class="spotlight-entity-tag"><i class="fas fa-building"></i> ${this.escapeHtml(node.entity)}</span>` : ''}
+                            <span class="spotlight-type-tag"><i class="fas fa-server"></i> ${this.escapeHtml(node.node_type || 'Routing Hub')}</span>
+                        </div>
+                    </div>
+                    <div class="spotlight-rank-badge">
+                        <span>PlebRank</span>
+                        ${plebRank}
+                    </div>
+                </div>
+
+                <div class="spotlight-rationale-quote">
+                    "${this.escapeHtml(node.rationale || '')}"
+                </div>
+
+                <div class="spotlight-stats-grid">
+                    <div class="spotlight-stat-item">
+                        <div class="spotlight-stat-val">${capStr}</div>
+                        <div class="spotlight-stat-lbl">Capacity</div>
+                    </div>
+                    <div class="spotlight-stat-item">
+                        <div class="spotlight-stat-val">${channels}</div>
+                        <div class="spotlight-stat-lbl">Channels</div>
+                    </div>
+                    <div class="spotlight-stat-item">
+                        <div class="spotlight-stat-val">${this.escapeHtml(node.criterion)}</div>
+                        <div class="spotlight-stat-lbl">Role Tier</div>
+                    </div>
+                </div>
+
+                <div class="spotlight-actions-row">
+                    <a href="profile.html?node=${encodeURIComponent(node.pub_key)}" class="spotlight-btn-primary">
+                        <i class="fas fa-id-badge"></i> Inspect Profile
+                    </a>
+                    <a href="graph.html?highlight=${encodeURIComponent(node.pub_key)}" target="_blank" class="spotlight-btn-secondary" title="View node in graph visualization">
+                        <i class="fas fa-project-diagram"></i> In Graph
+                    </a>
+                </div>
+            `;
+            if (loading) loading.style.display = 'none';
+            body.style.display = 'flex';
+        }
+
+        // Render Recent History Chips
+        const chipsContainer = document.getElementById('recentSpotlightsChips');
+        if (chipsContainer) {
+            chipsContainer.innerHTML = this.spotlightNodes.map((item, idx) => `
+                <button type="button" class="spotlight-chip ${idx === this.activeSpotlightIndex ? 'active' : ''}" data-idx="${idx}">
+                    <span class="spotlight-chip-day">${item.day.slice(0, 3)}:</span> ${this.escapeHtml(item.alias)}
+                </button>
+            `).join('');
+
+            chipsContainer.querySelectorAll('.spotlight-chip').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const idx = parseInt(btn.getAttribute('data-idx'), 10);
+                    if (!isNaN(idx)) {
+                        this.activeSpotlightIndex = idx;
+                        this.renderActiveSpotlight();
+                    }
+                });
+            });
         }
     }
 }

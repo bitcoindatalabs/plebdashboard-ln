@@ -4,17 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plebdashboard – Node Profile</title>
+    <title>Lightning Network Intelligence – Node Profile</title>
 
     <!-- Bitcoin Data Labs styles -->
     <link rel="stylesheet" href="https://bitcoindatalabs.org/styles/styles.css" onerror="this.onerror=null;this.href='https://sorukumar.github.io/Bitcoin-Data-Labs/styles/styles.css'">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Apache ECharts -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
     <!-- Local styles -->
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/profile.css">
-    <link rel="stylesheet" href="styles/node-rank.css">
     <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/node-rank.css">
+    <link rel="stylesheet" href="styles/profile.css?v=3.8">
 </head>
 
 <body class="has-fixed-header">
@@ -49,7 +51,13 @@
             <!-- Node Header -->
             <div class="profile-header">
                 <div class="profile-basic-info">
-                    <h1 id="nodeAlias" class="node-alias">Loading...</h1>
+                    <div class="node-title-row">
+                        <h1 id="nodeAlias" class="node-alias">Loading...</h1>
+                        <span class="node-entity-badge" id="nodeEntityBadge" style="display: none;"></span>
+                        <span class="profile-persona-badge" id="nodePersonaBadge" style="display: none;"></span>
+                    </div>
+                    <p class="node-role-desc" id="nodeRoleDesc" style="display: none;"></p>
+
                     <div class="node-pubkey-container">
                         <span class="node-pubkey" id="nodePubkey">Loading...</span>
                         <div class="copy-pubkey-wrapper">
@@ -58,194 +66,191 @@
                             </button>
                             <div class="copy-tooltip" id="copyTooltip">
                                 <button id="copyPubkeyAction" class="copy-tooltip-item">Copy pubkey</button>
-                                <button id="copyConnectAddressAction" class="copy-tooltip-item">Copy connect
-                                    address</button>
+                                <button id="copyConnectAddressAction" class="copy-tooltip-item">Copy connect address</button>
                                 <div class="copy-tooltip-hint">pubkey@host:port for adding as peer</div>
                             </div>
                         </div>
                     </div>
-                    <div class="node-meta-row" style="display: flex; gap: 10px; align-items: center; margin-top: 0.75rem; flex-wrap: wrap;">
-                        <div class="node-type-badge" id="nodeTypeBadge" style="margin-top: 0;">
+
+                    <!-- Contextual Actions Bar -->
+                    <div class="profile-actions-bar">
+                        <div class="node-type-badge" id="nodeTypeBadge">
                             <i class="fas fa-server"></i>
                             <span id="nodeType">Loading...</span>
                         </div>
-                        <a id="viewInGraphBtn" href="graph.html" class="btn-view-graph" target="_blank" title="View this node in the interactive graph visualization">
+                        <a id="compareNodeBtn" href="#" class="profile-action-btn" title="Compare this node against other routers">
+                            <i class="fas fa-balance-scale"></i> Compare Node
+                        </a>
+                        <a id="viewInGraphBtn" href="graph.html" class="profile-action-btn" target="_blank" title="View this node in the interactive graph visualization">
                             <i class="fas fa-project-diagram"></i> View in Graph
+                        </a>
+                        <a id="viewAllChannelsBtn" href="#" class="profile-action-btn" title="Inspect this node's channels in the Explorer">
+                            <i class="fas fa-bolt"></i> View All Channels
                         </a>
                     </div>
                 </div>
-            </div>
 
-            <!-- Quick Stats -->
-            <div class="quick-stats-grid">
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-trophy"></i>
+                <!-- Right Side: Dedicated Node Vitals Telemetry Cockpit -->
+                <div class="profile-vitals-cockpit">
+                    <div class="vitals-header">
+                        <span class="vitals-title"><i class="fas fa-satellite-dish"></i> Node Vitals</span>
+                        <span class="vitals-live-status"><span class="status-dot"></span> Active</span>
                     </div>
-                    <div class="stat-content">
-                        <div class="stat-label">Overall Rank</div>
-                        <div class="stat-value" id="overallRank">-</div>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-coins"></i>
-                    </div>
-                    <div class="stat-content">
-                        <div class="stat-label">Total Capacity</div>
-                        <div class="stat-value" id="totalCapacity">-</div>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-network-wired"></i>
-                    </div>
-                    <div class="stat-content">
-                        <div class="stat-label">Channel Count</div>
-                        <div class="stat-value" id="channelCount">-</div>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <div class="stat-content">
-                        <div class="stat-label">Last Seen</div>
-                        <div class="stat-value" id="lastSeen">-</div>
+                    <div class="vitals-grid">
+                        <div class="vital-card vital-rank">
+                            <div class="vital-lbl"><i class="fas fa-trophy"></i> PlebRank</div>
+                            <div class="vital-val highlight" id="overallRank">-</div>
+                            <div class="vital-sub">Network Centrality</div>
+                        </div>
+                        <div class="vital-card">
+                            <div class="vital-lbl"><i class="fas fa-coins"></i> Total Capacity</div>
+                            <div class="vital-val" id="totalCapacity">-</div>
+                            <div class="vital-sub">Committed Capital</div>
+                        </div>
+                        <div class="vital-card">
+                            <div class="vital-lbl"><i class="fas fa-network-wired"></i> Active Channels</div>
+                            <div class="vital-val" id="channelCount">-</div>
+                            <div class="vital-sub">Routing Edges</div>
+                        </div>
+                        <div class="vital-card">
+                            <div class="vital-lbl"><i class="fas fa-chart-pie"></i> Median Channel</div>
+                            <div class="vital-val" id="medianChannelSize">-</div>
+                            <div class="vital-sub">Standard Route Unit</div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Tab Navigation -->
-            <div class="tab-navigation">
-                <button class="tab-btn active" data-tab="overview">
-                    <i class="fas fa-info-circle"></i> Overview
-                </button>
-                <button class="tab-btn" data-tab="rankings">
-                    <i class="fas fa-chart-line"></i> Rankings
-                </button>
-                <button class="tab-btn" data-tab="channels">
-                    <i class="fas fa-link"></i> Channels
-                </button>
-                <button class="tab-btn" data-tab="channels-table">
-                    <i class="fas fa-table"></i> Channel Details
-                </button>
+            <!-- Profile Command Center: Centrality Fingerprint & Routing Persona -->
+            <div class="profile-command-grid">
+                <!-- Left: Topological Radar & Centrality Fingerprint -->
+                <div class="profile-card">
+                    <div class="profile-card-header">
+                        <div class="profile-card-eyebrow"><i class="fas fa-fingerprint"></i> Centrality Fingerprint</div>
+                        <h3>Topological Radar</h3>
+                        <div class="profile-card-sub">Multi-axis benchmark across graph centrality, routing authority, and liquidity depth</div>
+                    </div>
+                    <div class="radar-layout-wrapper">
+                        <div class="radar-svg-container" id="topologicalRadarContainer">
+                            <div class="radar-tooltip" id="radarTooltip" style="opacity: 0;"></div>
+                            <svg id="radarSvg" viewBox="0 0 320 250"></svg>
+                        </div>
+                        <div class="centrality-progress-list" id="centralityProgressList">
+                            <!-- Populated dynamically: 6 centrality dimensions with percentiles and progress bars -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Routing Persona, Fee Benchmark & Infrastructure -->
+                <div class="profile-card">
+                    <div class="profile-card-header">
+                        <div class="profile-card-eyebrow"><i class="fas fa-robot"></i> Network Diagnostics</div>
+                        <h3>Routing Persona & Fees</h3>
+                        <div class="profile-card-sub">Algorithmic classification based on betweenness, capacity tier, and fee policies</div>
+                    </div>
+                    <div class="diagnostics-wrapper">
+                        <!-- Persona Card -->
+                        <div class="persona-diagnosis-card" id="personaDiagnosisCard">
+                            <div class="persona-title-row">
+                                <i class="fas fa-bolt"></i>
+                                <span id="personaTitle">Analyzing Node Persona...</span>
+                            </div>
+                            <p class="persona-desc-text" id="personaDesc">Evaluating centrality and peering distribution across the gossip network.</p>
+                        </div>
+
+                        <!-- Fee Benchmark Card -->
+                        <div class="fee-benchmark-card">
+                            <div class="fee-header-row">
+                                <span class="fee-title"><i class="fas fa-tag"></i> Fee Policy Benchmark</span>
+                                <span class="fee-benchmark-pill" id="feeBenchmarkPill">Assessing...</span>
+                            </div>
+                            <div class="fee-metrics-grid">
+                                <div class="fee-stat-box">
+                                    <div class="fee-stat-lbl">Median Fee Rate</div>
+                                    <div class="fee-stat-val" id="medFeeRateVal">-</div>
+                                </div>
+                                <div class="fee-stat-box">
+                                    <div class="fee-stat-lbl">Median Base Fee</div>
+                                    <div class="fee-stat-val" id="baseFeeVal">-</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Infrastructure & Specs -->
+                        <div class="specs-meta-list">
+                            <div class="spec-row">
+                                <span class="spec-lbl"><i class="fas fa-layer-group"></i> Capacity Tier</span>
+                                <span class="spec-val" id="nodeCapTier">-</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-lbl"><i class="fas fa-cube"></i> Birth Channel / Tx</span>
+                                <div class="spec-val-group">
+                                    <span class="spec-val" id="birthTx">-</span>
+                                </div>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-lbl"><i class="fas fa-globe"></i> Clearnet</span>
+                                <div class="spec-val-group">
+                                    <span class="spec-val" id="address1">-</span>
+                                    <button type="button" class="spec-copy-btn" id="copyAddress1Btn" title="Copy Clearnet address" style="display: none;">
+                                        <i class="fas fa-copy"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-lbl"><i class="fas fa-user-secret"></i> Tor (v3)</span>
+                                <div class="spec-val-group">
+                                    <span class="spec-val" id="address2">-</span>
+                                    <button type="button" class="spec-copy-btn" id="copyAddress2Btn" title="Copy Tor address" style="display: none;">
+                                        <i class="fas fa-copy"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="spec-row" id="connectAddrRow">
+                                <span class="spec-lbl"><i class="fas fa-plug"></i> Connect Address</span>
+                                <div class="spec-val-group">
+                                    <span class="spec-val" id="connectAddress">-</span>
+                                    <button type="button" class="spec-copy-btn" id="copyConnectAddrBtn" title="Copy connect address" style="display: none;">
+                                        <i class="fas fa-copy"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-lbl"><i class="fas fa-chart-pie"></i> Channel Categories</span>
+                                <div class="spec-val" id="categoryCounts">-</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <!-- Tab Content -->
-            <div class="tab-content">
-                <!-- Overview Tab -->
-                <div id="overview" class="tab-pane active">
-                    <div class="overview-grid">
-                        <div class="overview-section">
-                            <h3><i class="fas fa-info-circle"></i> Node Information</h3>
-                            <div class="info-grid">
-                                <div class="info-item">
-                                    <span class="info-label">Birth Transaction</span>
-                                    <span class="info-value" id="birthTx">-</span>
-                                </div>
-                                <div class="info-item">
-                                    <span class="info-label">Clearnet</span>
-                                    <span class="info-value" id="address1">-</span>
-                                </div>
-                                <div class="info-item">
-                                    <span class="info-label">Tor Address</span>
-                                    <span class="info-value" id="address2">-</span>
-                                </div>
-                                <div class="info-item">
-                                    <span class="info-label">Connect address</span>
-                                    <span class="info-value" id="connectAddress">-</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="overview-section">
-                            <h3><i class="fas fa-network-wired"></i> Node Statistics</h3>
-                            <div class="info-grid">
-                                <div class="info-item">
-                                    <span class="info-label">Node Capacity Tier</span>
-                                    <span class="info-value" id="nodeCapTier">-</span>
-                                </div>
-                                <div class="info-item">
-                                    <span class="info-label">Category Counts</span>
-                                    <div class="info-value" id="categoryCounts">-</div>
-                                </div>
-                                <div class="info-item">
-                                    <span class="info-label">Channel Size (min, median, avg, max)</span>
-                                    <span class="info-value" id="channelSizeMetrics">-</span>
-                                </div>
-                            </div>
-                        </div>
+            <!-- Peering Topology & Channels Card -->
+            <div class="channels-section-card">
+                <div class="channels-header-row">
+                    <h3><i class="fas fa-network-wired"></i> Peering Topology & Channels</h3>
+                    <div class="channels-switcher">
+                        <button class="channel-view-btn active" id="btnViewTable" title="View interactive channels table">
+                            <i class="fas fa-table"></i> Channels Table
+                        </button>
+                        <button class="channel-view-btn" id="btnViewTreemap" title="View proportional liquidity treemap">
+                            <i class="fas fa-th-large"></i> Liquidity Treemap
+                        </button>
                     </div>
                 </div>
 
-                <!-- Rankings Tab -->
-                <div id="rankings" class="tab-pane">
-                    <div class="rankings-grid">
-                        <div class="ranking-card">
-                            <div class="ranking-header">
-                                <i class="fas fa-medal"></i>
-                                <h4>Pleb Rank</h4>
-                            </div>
-                            <div class="ranking-value" id="plebRank">-</div>
-                            <div class="ranking-description">Overall community ranking</div>
-                        </div>
-                        <div class="ranking-card">
-                            <div class="ranking-header">
-                                <i class="fas fa-coins"></i>
-                                <h4>Capacity Rank</h4>
-                            </div>
-                            <div class="ranking-value" id="capacityRank">-</div>
-                            <div class="ranking-description">Ranked by total capacity</div>
-                        </div>
-                        <div class="ranking-card">
-                            <div class="ranking-header">
-                                <i class="fas fa-network-wired"></i>
-                                <h4>Channels Rank</h4>
-                            </div>
-                            <div class="ranking-value" id="channelsRank">-</div>
-                            <div class="ranking-description">Ranked by channel count</div>
-                        </div>
-                        <div class="ranking-card">
-                            <div class="ranking-header">
-                                <i class="fas fa-project-diagram"></i>
-                                <h4>Betweenness Rank</h4>
-                            </div>
-                            <div class="ranking-value" id="betweennessRank">-</div>
-                            <div class="ranking-description">Network centrality ranking</div>
-                        </div>
-                        <div class="ranking-card">
-                            <div class="ranking-header">
-                                <i class="fas fa-share-alt"></i>
-                                <h4>Weighted Degree Rank</h4>
-                            </div>
-                            <div class="ranking-value" id="weightedDegreeRank">-</div>
-                            <div class="ranking-description">Connection strength ranking</div>
-                        </div>
-                        <div class="ranking-card">
-                            <div class="ranking-header">
-                                <i class="fas fa-star"></i>
-                                <h4>Eigenvector Rank</h4>
-                            </div>
-                            <div class="ranking-value" id="eigenvectorRank">-</div>
-                            <div class="ranking-description">Influence ranking</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Channels Tab -->
-                <div id="channels" class="tab-pane">
-                    <div id="channelsTreemap" style="width:100%;height:500px;"></div>
-                </div>
-
-                <!-- Channel Details Tab -->
-                <div id="channels-table" class="tab-pane">
+                <!-- Channels Table Pane -->
+                <div id="channelsTablePane">
                     <div id="channelsTableContainer">
                         <div class="loading-spinner">
                             <i class="fas fa-spinner fa-spin"></i>
                             <p>Loading channel details...</p>
                         </div>
                     </div>
+                </div>
+
+                <!-- Channels Treemap Pane -->
+                <div id="channelsTreemapPane" style="display: none;">
+                    <div id="channelsTreemap" style="width: 100%; height: 520px;"></div>
                 </div>
             </div>
         </div>
@@ -257,10 +262,10 @@
     <!-- Bitcoin Data Labs App Components -->
     <script src="https://bitcoindatalabs.org/components/app-components.js" onerror="this.onerror=null;this.src='https://sorukumar.github.io/Bitcoin-Data-Labs/components/app-components.js'"></script>
     <!-- App Configuration -->
-    <script src="scripts/app-config.js"></script>
+    <script src="scripts/app-config.js?v=3.7"></script>
 
     <!-- Profile functionality -->
-    <script type="module" src="scripts/profile.js"></script>
+    <script type="module" src="scripts/profile.js?v=3.8"></script>
 </body>
 
 </html>

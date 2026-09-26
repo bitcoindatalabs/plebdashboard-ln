@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lightning Graph Viz – Plebdashboard</title>
+    <title>Interactive Topology Graph | Plebdashboard</title>
+    <meta name="description" content="Interactive WebGL force-directed graph visualization of Lightning Network nodes, channel connections, and liquidity clusters.">
     
     <!-- Bitcoin Data Labs styles -->
     <link rel="stylesheet" href="https://bitcoindatalabs.org/styles/styles.css" onerror="this.onerror=null; this.href='https://sorukumar.github.io/Bitcoin-Data-Labs/styles/styles.css'">
@@ -23,13 +24,36 @@
 <body class="has-fixed-header visualization-page">
     <!-- Bitcoin Data Labs Header -->
     <div id="header"></div>
+    <script>
+        (function() {
+            function sanitizeNav() {
+                const appNav = document.getElementById('appNavLinks');
+                const mobileNav = document.getElementById('mobileNavContent');
+                if (appNav && (appNav.innerHTML.includes('node-explorer') || appNav.innerHTML.includes('channel-explorer') || appNav.innerHTML.includes('Node Explorer') || appNav.innerHTML.includes('Channel Explorer') || !appNav.innerHTML.includes('explorer.html'))) {
+                    const current = window.location.pathname.split('/').pop() || 'index.html';
+                    const links = [
+                        { name: 'Home', url: 'index.html' },
+                        { name: 'Rankings', url: 'prank.html' },
+                        { name: 'Explorer', url: 'explorer.html' },
+                        { name: 'Comparison', url: 'node-comparison.html' },
+                        { name: 'Graph Viz', url: 'graph.html' }
+                    ];
+                    const html = links.map(l => `<a href="${l.url}" class="nav-link ${current === l.url ? 'active' : ''}">${l.name}</a>`).join('');
+                    appNav.innerHTML = html;
+                    if (mobileNav) mobileNav.innerHTML = html;
+                }
+            }
+            new MutationObserver(sanitizeNav).observe(document.documentElement, { childList: true, subtree: true });
+            [50, 150, 300, 600, 1200].forEach(t => setTimeout(sanitizeNav, t));
+        })();
+    </script>
     
     <div id="container">
         <div id="graph-container">
             <!-- Network Summary Title -->
             <div id="network-summary" class="network-summary">
                 <h2 class="summary-title">
-                    <i class="fas fa-bolt"></i> Lightning Network Graph Visualization
+                    <i class="fas fa-bolt"></i> Interactive Topology Graph
                 </h2>
                 <div class="summary-subtitle">
                     <span id="summary-nodes-count">0</span> nodes, <span id="summary-channels-count">0</span> channels
@@ -160,7 +184,7 @@
     <!-- Bitcoin Data Labs App Components -->
     <script src="https://bitcoindatalabs.org/components/app-components.js" onerror="this.onerror=null;this.src='https://sorukumar.github.io/Bitcoin-Data-Labs/components/app-components.js'"></script>
     <!-- App Configuration -->
-    <script src="scripts/app-config.js"></script>
+    <script src="scripts/app-config.js?v=3.7"></script>
 
     <!-- Load visualization engine -->
     <script src="scripts/graph-viz.js"></script>
@@ -183,11 +207,56 @@
             return 'data/graph/gfree.json';
         }
 
-        // Get initial dataset from URL parameter or use default
-        function getInitialDataset() {
+        // Resolve initial dataset intelligently:
+        // If fileParam is given, use it.
+        // If a target node (pubkey, highlight, etc.) is given without fileParam:
+        // Check gfree.json -> ghigh.json -> gall.json so any requested node is found!
+        async function resolveInitialDataset() {
             const urlParams = new URLSearchParams(window.location.search);
             const fileParam = urlParams.get('file');
-            return normalizeDatasetPath(fileParam);
+            if (fileParam) {
+                return normalizeDatasetPath(fileParam);
+            }
+
+            const target = (urlParams.get('highlight') || urlParams.get('pubkey') || urlParams.get('pub_key') || urlParams.get('node') || '').trim().toLowerCase();
+            if (!target) {
+                return 'data/graph/gfree.json';
+            }
+
+            // Check if node is in gfree.json (fastest: 100 nodes)
+            try {
+                const resFree = await fetch('data/graph/gfree.json');
+                if (resFree.ok) {
+                    const dataFree = await resFree.json();
+                    const hasFree = dataFree.nodes && dataFree.nodes.some(n => 
+                        (n.pk && n.pk.toLowerCase() === target) || 
+                        (n.id && n.id.toLowerCase() === target) ||
+                        (n.alias && n.alias.toLowerCase() === target)
+                    );
+                    if (hasFree) return 'data/graph/gfree.json';
+                }
+            } catch (e) {
+                console.warn('Could not check gfree.json:', e);
+            }
+
+            // Check if node is in ghigh.json (Highway Network: ~1,400 nodes)
+            try {
+                const resHigh = await fetch('data/graph/ghigh.json');
+                if (resHigh.ok) {
+                    const dataHigh = await resHigh.json();
+                    const hasHigh = dataHigh.nodes && dataHigh.nodes.some(n => 
+                        (n.pk && n.pk.toLowerCase() === target) || 
+                        (n.id && n.id.toLowerCase() === target) ||
+                        (n.alias && n.alias.toLowerCase() === target)
+                    );
+                    if (hasHigh) return 'data/graph/ghigh.json';
+                }
+            } catch (e) {
+                console.warn('Could not check ghigh.json:', e);
+            }
+
+            // Fallback to Complete Network (~10,000 nodes)
+            return 'data/graph/gall.json';
         }
 
         // Update URL using History API (no page reload)
@@ -248,11 +317,11 @@
         }
 
         // Initialize on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            const initialDataset = getInitialDataset();
+        document.addEventListener('DOMContentLoaded', async () => {
+            const datasetSelect = document.getElementById('dataset-select');
+            const initialDataset = await resolveInitialDataset();
             
             // Set the dropdown to match the initial dataset
-            const datasetSelect = document.getElementById('dataset-select');
             if (datasetSelect) {
                 datasetSelect.value = initialDataset;
             }
