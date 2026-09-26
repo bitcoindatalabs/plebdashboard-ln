@@ -273,8 +273,7 @@ BitcoinLabsApp.init({
 ## Data Pipeline Architecture (lightning-data)
 
 ```
-LightningDS (Python lib)
-    | generates
+
 lightning-data/scripts/
     | outputs
 lightning-data/data/
@@ -315,12 +314,12 @@ plebdashboard-ln/data/
 - [x] Update app-config.js (domain URL, add Graph Viz to nav)
 
 ### Phase 1 — Graph Viz Integration
-- [ ] Copy graph viz files into plebdashboard-ln (graph.html, scripts, styles)
-- [ ] Adapt to shared BDL header/footer pattern
-- [ ] Update data paths for graph datasets
-- [ ] Cross-link: Graph node click → profile, profile → graph
-- [ ] Update homepage feature link to internal graph.html
-- [ ] Verify ln-graph-viz still works independently
+- [x] Copy graph viz files into plebdashboard-ln (graph.html, scripts/graph-viz.js, styles/graph-viz.css)
+- [x] Adapt to shared BDL header/footer pattern (app-components.js + app-config.js)
+- [x] Update data paths for graph datasets (data/graph/gfree.json, ghigh.json, gall.json)
+- [x] Cross-link: Graph node click → profile, profile → graph (?highlight= & ?node= supported)
+- [x] Update homepage feature link to internal graph.html
+- [x] Verify ln-graph-viz still works independently (with announcement badge to lightning.bitcoindatalabs.org)
 
 ### Phase 2 — Homepage Network Pulse
 - [ ] Fetch latest.json and display network KPI cards

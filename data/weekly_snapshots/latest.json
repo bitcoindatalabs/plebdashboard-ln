@@ -1,36 +1,29 @@
 {
-  "target_date": "2026-09-21",
+  "target_date": "2026-09-22",
   "date_range": {
-    "start": "2026-09-15",
-    "end": "2026-09-21",
-    "start_formatted": "Sep 15",
-    "end_formatted": "Sep 21, 2026"
+    "start": "2026-09-16",
+    "end": "2026-09-22",
+    "start_formatted": "Sep 16",
+    "end_formatted": "Sep 22, 2026"
   },
   "metrics": {
-    "active_nodes": 10044,
-    "delta_nodes_7d": 37,
-    "active_channels": 42864,
-    "delta_channels_7d": 1029,
-    "total_capacity_sats": 493418680139,
-    "delta_capacity_btc_7d": 376.72,
+    "active_nodes": 10049,
+    "delta_nodes_7d": 42,
+    "active_channels": 42596,
+    "delta_channels_7d": 1045,
+    "total_capacity_sats": 489587379677,
+    "delta_capacity_btc_7d": 386.11,
     "median_channel_capacity_sats": 2100000,
-    "new_nodes_7d": 37,
-    "new_channels_7d": 1029,
-    "new_capacity_sats_7d": 37672400980,
+    "new_nodes_7d": 42,
+    "new_channels_7d": 1045,
+    "new_capacity_sats_7d": 38611351224,
     "closed_channels_7d": 0,
     "closed_capacity_sats_7d": 0,
     "has_closed_data": false,
     "tor_pct": 46.4,
-    "bridge_nodes_count": 1931
+    "bridge_nodes_count": 1934
   },
   "daily_breakdown": [
-    {
-      "date": "2026-09-15",
-      "date_formatted": "Sep 15",
-      "new_nodes": 6,
-      "new_channels": 157,
-      "capacity_added_btc": 57.23
-    },
     {
       "date": "2026-09-16",
       "date_formatted": "Sep 16",
@@ -69,9 +62,16 @@
     {
       "date": "2026-09-21",
       "date_formatted": "Sep 21",
-      "new_nodes": 4,
-      "new_channels": 78,
-      "capacity_added_btc": 33.86
+      "new_nodes": 7,
+      "new_channels": 137,
+      "capacity_added_btc": 61.15
+    },
+    {
+      "date": "2026-09-22",
+      "date_formatted": "Sep 22",
+      "new_nodes": 8,
+      "new_channels": 114,
+      "capacity_added_btc": 39.33
     }
   ],
   "top_5_channels": [
@@ -99,15 +99,6 @@
       "node1_alias": "Tachyon",
       "node2_alias": "ACINQ",
       "capacity": 469387642,
-      "channel_id": "1063328899186819072",
-      "block_tx_output_short_id": "967092x880x0"
-    },
-    {
-      "node1_pub": "02b21730bc36061609cc1fe1bd7f5d3068e0a5e511aaf210a82c046b58020c4aa8",
-      "node2_pub": "03864ef025fde8fb587d989186ce6a4a186895ee44a926bfc370e2c366597a3f8f",
-      "node1_alias": "Tachyon",
-      "node2_alias": "ACINQ",
-      "capacity": 469387642,
       "channel_id": "1063625767309934593",
       "block_tx_output_short_id": "967362x630x1"
     },
@@ -119,6 +110,15 @@
       "capacity": 400000000,
       "channel_id": "1063747813233721345",
       "block_tx_output_short_id": "967473x2661x1"
+    },
+    {
+      "node1_pub": "02e4971e61a3f55718ae31e2eed19aaf2e32caf3eb5ef5ff03e01aa3ada8907e78",
+      "node2_pub": "034ea80f8b148c750463546bd999bf7321a0e6dfc60aaf84bd0400a2e8d376c0d5",
+      "node1_alias": "1sats.com\u26a1\ufe0flsp.flashsats.xyz",
+      "node2_alias": "LNBiG [Hub-1]",
+      "capacity": 364000000,
+      "channel_id": "1064337151343984641",
+      "block_tx_output_short_id": "968009x796x1"
     }
   ]
 }

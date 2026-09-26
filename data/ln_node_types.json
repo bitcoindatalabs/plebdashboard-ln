@@ -1,427 +1,4090 @@
 [
     {
-        "pub_key":"03d06758583bb5154774a6eb221b1276c9e82d65bbaceca806d90e20c108f4b1c7",
-        "alias":"yalls.org yalls-tor",
-        "node_type":"Routing"
+        "pub_key": "03d06758583bb5154774a6eb221b1276c9e82d65bbaceca806d90e20c108f4b1c7",
+        "alias": "yalls.org yalls-tor",
+        "node_type": "Routing",
+        "entity": "yalls.org yalls-tor",
+        "role": "High-Capacity Routing Infrastructure"
     },
     {
-        "pub_key":"03cde60a6323f7122d5178255766e38114b4722ede08f7c9e0c5df9b912cc201d6",
-        "alias":"bfx-lnd1",
-        "node_type":"Exchange"
+        "pub_key": "03cde60a6323f7122d5178255766e38114b4722ede08f7c9e0c5df9b912cc201d6",
+        "alias": "bfx-lnd1",
+        "node_type": "Exchange",
+        "entity": "Bitfinex",
+        "role": "High-Throughput Exchange Settlement"
     },
     {
-        "pub_key":"03c8e5f583585cac1de2b7503a6ccd3c12ba477cfd139cd4905be504c2f48e86bd",
-        "alias":"Strike",
-        "node_type":"Wallet,Exchange,Payment"
+        "pub_key": "03c8e5f583585cac1de2b7503a6ccd3c12ba477cfd139cd4905be504c2f48e86bd",
+        "alias": "Strike",
+        "node_type": "Wallet,Exchange,Payment",
+        "entity": "Strike",
+        "role": "Consumer Payments & Global Remittance"
     },
     {
-        "pub_key":"03e4f3d7ccf98bdbf24085b948f204a6c0c0b4464a7572cbac85c746085b14bbc9",
-        "alias":"LQwD-Australia",
-        "node_type":"LSP"
+        "pub_key": "03e4f3d7ccf98bdbf24085b948f204a6c0c0b4464a7572cbac85c746085b14bbc9",
+        "alias": "LQwD-Australia",
+        "node_type": "LSP",
+        "entity": "LQwD",
+        "role": "Corporate Treasury & Commercial Routing"
     },
     {
-        "pub_key":"03fbd735260269ace46d9a2e958d6a92cfe4495057018d11a637608a10ebf222e6",
-        "alias":"bitnob-lnd-3",
-        "node_type":"LSP,Exchange,Payment"
+        "pub_key": "03fbd735260269ace46d9a2e958d6a92cfe4495057018d11a637608a10ebf222e6",
+        "alias": "bitnob-lnd-3",
+        "node_type": "LSP,Exchange,Payment",
+        "entity": "bitnob-lnd-3",
+        "role": "Exchange Gateway & Liquidity"
     },
     {
-        "pub_key":"03d607f3e69fd032524a867b288216bfab263b6eaee4e07783799a6fe69bb84fac",
-        "alias":"Bitrefill",
-        "node_type":"LSP,Payment"
+        "pub_key": "03d607f3e69fd032524a867b288216bfab263b6eaee4e07783799a6fe69bb84fac",
+        "alias": "Bitrefill",
+        "node_type": "LSP,Payment",
+        "entity": "Bitrefill",
+        "role": "Gift Card & Mobile Airtime Settlement"
     },
     {
-        "pub_key":"03d35779ff612c574b92494d74300ce467e0eb510181a6ae3eb74d8ada891d82aa",
-        "alias":"IBEX_Routing",
-        "node_type":"LSP,Payment"
+        "pub_key": "03d35779ff612c574b92494d74300ce467e0eb510181a6ae3eb74d8ada891d82aa",
+        "alias": "IBEX_Routing",
+        "node_type": "LSP,Payment",
+        "entity": "IBEX",
+        "role": "Fintech & Enterprise Payment Infrastructure"
     },
     {
-        "pub_key":"0326e692c455dd554c709bbb470b0ca7e0bb04152f777d1445fd0bf3709a2833a3",
-        "alias":"allNice | torq.co",
-        "node_type":"LSP"
+        "pub_key": "0326e692c455dd554c709bbb470b0ca7e0bb04152f777d1445fd0bf3709a2833a3",
+        "alias": "allNice | torq.co",
+        "node_type": "LSP",
+        "entity": "Torq / allNice",
+        "role": "Node Automation & Liquidity Rebalancing"
     },
     {
-        "pub_key":"0325bb9bda523a85dc834b190289b7e25e8d92615ab2f2abffbe97983f0bb12ffb",
-        "alias":"lnd1.blink.sv",
-        "node_type":"Wallet,Payment"
+        "pub_key": "0325bb9bda523a85dc834b190289b7e25e8d92615ab2f2abffbe97983f0bb12ffb",
+        "alias": "lnd1.blink.sv",
+        "node_type": "Wallet,Payment",
+        "entity": "Blink",
+        "role": "El Salvador & Global Retail Wallet"
     },
     {
-        "pub_key":"03da1c27ca77872ac5b3e568af30673e599a47a5e4497f85c7b5da42048807b3ed",
-        "alias":"LNBϟG [Edge-3]",
-        "node_type":"LSP"
+        "pub_key": "03da1c27ca77872ac5b3e568af30673e599a47a5e4497f85c7b5da42048807b3ed",
+        "alias": "LNB\u03dfG [Edge-3]",
+        "node_type": "LSP",
+        "entity": "LNBIG",
+        "role": "High-Capacity Foundational Routing Cluster"
     },
     {
-        "pub_key":"03d92d6fac82b1aef7c974ee400dcc64aef3ee12723a01bdc0c269edb4f11c5924",
-        "alias":"LQwD-US-East",
-        "node_type":"LSP"
+        "pub_key": "03d92d6fac82b1aef7c974ee400dcc64aef3ee12723a01bdc0c269edb4f11c5924",
+        "alias": "LQwD-US-East",
+        "node_type": "LSP",
+        "entity": "LQwD",
+        "role": "Corporate Treasury & Commercial Routing"
     },
     {
-        "pub_key":"03a1f3afd646d77bdaf545cceaf079bab6057eae52c6319b63b5803d0989d6a72f",
-        "alias":"Binance",
-        "node_type":"Exchange,Payment"
+        "pub_key": "03a1f3afd646d77bdaf545cceaf079bab6057eae52c6319b63b5803d0989d6a72f",
+        "alias": "Binance",
+        "node_type": "Exchange,Payment",
+        "entity": "Binance",
+        "role": "Exchange Custodial Liquidity Gateway"
     },
     {
-        "pub_key":"0390b5d4492dc2f5318e5233ab2cebf6d48914881a33ef6a9c6bcdbb433ad986d0",
-        "alias":"LNBϟG [Edge-1]",
-        "node_type":"LSP"
+        "pub_key": "0390b5d4492dc2f5318e5233ab2cebf6d48914881a33ef6a9c6bcdbb433ad986d0",
+        "alias": "LNB\u03dfG [Edge-1]",
+        "node_type": "LSP",
+        "entity": "LNBIG",
+        "role": "High-Capacity Foundational Routing Cluster"
     },
     {
-        "pub_key":"0390b3d73a0e40a1a4d91d486f422bcb232868000a05cf4d88d74b62a6e7421f18",
-        "alias":"LQwD-Bahrain",
-        "node_type":"LSP"
+        "pub_key": "0390b3d73a0e40a1a4d91d486f422bcb232868000a05cf4d88d74b62a6e7421f18",
+        "alias": "LQwD-Bahrain",
+        "node_type": "LSP",
+        "entity": "LQwD",
+        "role": "Corporate Treasury & Commercial Routing"
     },
     {
-        "pub_key":"03eb6028196aec563d55a632417426b53f072d7206e1a35c7ccdd68a8d9050db21",
-        "alias":"LQWD-Breez-2",
-        "node_type":"LSP"
+        "pub_key": "03eb6028196aec563d55a632417426b53f072d7206e1a35c7ccdd68a8d9050db21",
+        "alias": "LQWD-Breez-2",
+        "node_type": "LSP",
+        "entity": "LQwD",
+        "role": "Corporate Treasury & Commercial Routing"
     },
     {
-        "pub_key":"03820714a3f891c7c3ae5e00dbdd77f06ceccc24ddd8c99fadef13ec2eec462cce",
-        "alias":"LQwD-US-West",
-        "node_type":"LSP"
+        "pub_key": "03820714a3f891c7c3ae5e00dbdd77f06ceccc24ddd8c99fadef13ec2eec462cce",
+        "alias": "LQwD-US-West",
+        "node_type": "LSP",
+        "entity": "LQwD",
+        "role": "Corporate Treasury & Commercial Routing"
     },
     {
-        "pub_key":"039edc94987c8f3adc28dab455efc00dea876089a120f573bd0b03c40d9d3fb1e1",
-        "alias":"LNBϟG [Edge-4]",
-        "node_type":"LSP"
+        "pub_key": "039edc94987c8f3adc28dab455efc00dea876089a120f573bd0b03c40d9d3fb1e1",
+        "alias": "LNB\u03dfG [Edge-4]",
+        "node_type": "LSP",
+        "entity": "LNBIG",
+        "role": "High-Capacity Foundational Routing Cluster"
     },
     {
-        "pub_key":"03864ef025fde8fb587d989186ce6a4a186895ee44a926bfc370e2c366597a3f8f",
-        "alias":"ACINQ",
-        "node_type":"LSP,Wallet"
+        "pub_key": "03864ef025fde8fb587d989186ce6a4a186895ee44a926bfc370e2c366597a3f8f",
+        "alias": "ACINQ",
+        "node_type": "LSP,Wallet",
+        "entity": "ACINQ",
+        "role": "Phoenix Core Routing & Mobile LSP"
     },
     {
-        "pub_key":"0378a5312ca36773971df43f833b571d024fd7d5d216fbdf7e241b710714ef1be1",
-        "alias":"OneKey",
-        "node_type":"Wallet,Exchange"
+        "pub_key": "0378a5312ca36773971df43f833b571d024fd7d5d216fbdf7e241b710714ef1be1",
+        "alias": "OneKey",
+        "node_type": "Wallet,Exchange",
+        "entity": "OneKey",
+        "role": "Hardware Wallet Ecosystem Hub"
     },
     {
-        "pub_key":"037659a0ac8eb3b8d0a720114efc861d3a940382dcfa1403746b4f8f6b2e8810ba",
-        "alias":"nicehash-ln1",
-        "node_type":"Payment"
+        "pub_key": "037659a0ac8eb3b8d0a720114efc861d3a940382dcfa1403746b4f8f6b2e8810ba",
+        "alias": "nicehash-ln1",
+        "node_type": "Payment",
+        "entity": "nicehash-ln1",
+        "role": "Merchant & Commerce Payment Gateway"
     },
     {
-        "pub_key":"03423790614f023e3c0cdaa654a3578e919947e4c3a14bf5044e7c787ebd11af1a",
-        "alias":"Sunny Sarah ☀️",
-        "node_type":"Routing"
+        "pub_key": "03423790614f023e3c0cdaa654a3578e919947e4c3a14bf5044e7c787ebd11af1a",
+        "alias": "Sunny Sarah \u2600\ufe0f",
+        "node_type": "Routing",
+        "entity": "Sunny Sarah \u2600\ufe0f",
+        "role": "High-Capacity Routing Infrastructure"
     },
     {
-        "pub_key":"03501a74753e0f6ae270a1e4e2ffbbc37f7a796360e650c1121c18e116b22ac106",
-        "alias":"IBEX_Ops1",
-        "node_type":"LSP,Payment"
+        "pub_key": "03501a74753e0f6ae270a1e4e2ffbbc37f7a796360e650c1121c18e116b22ac106",
+        "alias": "IBEX_Ops1",
+        "node_type": "LSP,Payment",
+        "entity": "IBEX",
+        "role": "Fintech & Enterprise Payment Infrastructure"
     },
     {
-        "pub_key":"034f580779cb7d8fe4759af29a04a58c3dbe9c49f40bfa6a8c6d35c507e97053c6",
-        "alias":"LQwD-Japan-Osaka",
-        "node_type":"LSP"
+        "pub_key": "034f580779cb7d8fe4759af29a04a58c3dbe9c49f40bfa6a8c6d35c507e97053c6",
+        "alias": "LQwD-Japan-Osaka",
+        "node_type": "LSP",
+        "entity": "LQwD",
+        "role": "Corporate Treasury & Commercial Routing"
     },
     {
-        "pub_key":"034ea80f8b148c750463546bd999bf7321a0e6dfc60aaf84bd0400a2e8d376c0d5",
-        "alias":"LNBϟG [Hub-1]",
-        "node_type":"LSP"
+        "pub_key": "034ea80f8b148c750463546bd999bf7321a0e6dfc60aaf84bd0400a2e8d376c0d5",
+        "alias": "LNB\u03dfG [Hub-1]",
+        "node_type": "LSP",
+        "entity": "LNBIG",
+        "role": "High-Capacity Foundational Routing Cluster"
     },
     {
-        "pub_key":"036982a2b2398b9835a9d6cd2371a08c6e221f9e1b879008959dae28413af78067",
-        "alias":"LQwD-SouthKorea",
-        "node_type":"LSP"
+        "pub_key": "036982a2b2398b9835a9d6cd2371a08c6e221f9e1b879008959dae28413af78067",
+        "alias": "LQwD-SouthKorea",
+        "node_type": "LSP",
+        "entity": "LQwD",
+        "role": "Corporate Treasury & Commercial Routing"
     },
     {
-        "pub_key":"037f990e61acee8a7697966afd29dd88f3b1f8a7b14d625c4f8742bd952003a590",
-        "alias":"fixedfloat.com",
-        "node_type":"Exchange"
+        "pub_key": "037f990e61acee8a7697966afd29dd88f3b1f8a7b14d625c4f8742bd952003a590",
+        "alias": "fixedfloat.com",
+        "node_type": "Exchange",
+        "entity": "fixedfloat.com",
+        "role": "Exchange Gateway & Liquidity"
     },
     {
-        "pub_key":"035e4ff418fc8b5554c5d9eea66396c227bd429a3251c8cbc711002ba215bfc226",
-        "alias":"WalletOfSatoshi.com",
-        "node_type":"Wallet"
+        "pub_key": "035e4ff418fc8b5554c5d9eea66396c227bd429a3251c8cbc711002ba215bfc226",
+        "alias": "WalletOfSatoshi.com",
+        "node_type": "Wallet",
+        "entity": "Wallet of Satoshi",
+        "role": "Retail Custodial Mobile Wallet Hub"
     },
     {
-        "pub_key":"031015a7839468a3c266d662d5bb21ea4cea24226936e2864a7ca4f2c3939836e0",
-        "alias":"031015a7839468a3c",
-        "node_type":"LSP,Wallet"
+        "pub_key": "031015a7839468a3c266d662d5bb21ea4cea24226936e2864a7ca4f2c3939836e0",
+        "alias": "031015a7839468a3c",
+        "node_type": "LSP,Wallet",
+        "entity": "031015a7839468a3c",
+        "role": "Lightning Service Provider & Inbound Liquidity"
     },
     {
-        "pub_key":"030c3f19d742ca294a55c00376b3b355c3c90d61c6b6b39554dbc7ac19b141c14f",
-        "alias":"Bitrefill Routing",
-        "node_type":"LSP,Payment"
+        "pub_key": "030c3f19d742ca294a55c00376b3b355c3c90d61c6b6b39554dbc7ac19b141c14f",
+        "alias": "Bitrefill Routing",
+        "node_type": "LSP,Payment",
+        "entity": "Bitrefill",
+        "role": "Gift Card & Mobile Airtime Settlement"
     },
     {
-        "pub_key":"0313827390afcae8876dc7d56c417d5698effb237e6eab45a364ac71e9e2044c9a",
-        "alias":"LQwD-Italy",
-        "node_type":"LSP"
+        "pub_key": "0313827390afcae8876dc7d56c417d5698effb237e6eab45a364ac71e9e2044c9a",
+        "alias": "LQwD-Italy",
+        "node_type": "LSP",
+        "entity": "LQwD",
+        "role": "Corporate Treasury & Commercial Routing"
     },
     {
-        "pub_key":"03271338633d2d37b285dae4df40b413d8c6c791fbee7797bc5dc70812196d7d5c",
-        "alias":"lnmarkets.com",
-        "node_type":"Wallet,Exchange"
+        "pub_key": "03271338633d2d37b285dae4df40b413d8c6c791fbee7797bc5dc70812196d7d5c",
+        "alias": "lnmarkets.com",
+        "node_type": "Wallet,Exchange",
+        "entity": "lnmarkets.com",
+        "role": "Exchange Gateway & Liquidity"
     },
     {
-        "pub_key":"033d8656219478701227199cbd6f670335c8d408a92ae88b962c49d4dc0e83e025",
-        "alias":"bfx-lnd0",
-        "node_type":"Exchange,Payment"
+        "pub_key": "033d8656219478701227199cbd6f670335c8d408a92ae88b962c49d4dc0e83e025",
+        "alias": "bfx-lnd0",
+        "node_type": "Exchange,Payment",
+        "entity": "Bitfinex",
+        "role": "High-Throughput Exchange Settlement"
     },
     {
-        "pub_key":"032ae3168ba52314da581d6b6693c562b437a9cf805933d4d69e7801547e07302e",
-        "alias":"LQwD-France",
-        "node_type":"LSP"
+        "pub_key": "032ae3168ba52314da581d6b6693c562b437a9cf805933d4d69e7801547e07302e",
+        "alias": "LQwD-France",
+        "node_type": "LSP",
+        "entity": "LQwD",
+        "role": "Corporate Treasury & Commercial Routing"
     },
     {
-        "pub_key":"031a01e29587952eda0ed5d10c4e79bf0fc88d61aeae89e8a7ea7c036badb8c793",
-        "alias":"LQwD-Japan",
-        "node_type":"LSP"
+        "pub_key": "031a01e29587952eda0ed5d10c4e79bf0fc88d61aeae89e8a7ea7c036badb8c793",
+        "alias": "LQwD-Japan",
+        "node_type": "LSP",
+        "entity": "LQwD",
+        "role": "Corporate Treasury & Commercial Routing"
     },
     {
-        "pub_key":"031b301307574bbe9b9ac7b79cbe1700e31e544513eae0b5d7497483083f99e581",
-        "alias":"Olympus by ZEUS",
-        "node_type":"LSP"
+        "pub_key": "031b301307574bbe9b9ac7b79cbe1700e31e544513eae0b5d7497483083f99e581",
+        "alias": "Olympus by ZEUS",
+        "node_type": "LSP",
+        "entity": "Olympus by ZEUS",
+        "role": "Zeus Non-Custodial Embedded LSP"
     },
     {
-        "pub_key":"036fc6041f67b673e9357118eb2b74cb71aebf7e1e3535edcdba3b808b2a790c0a",
-        "alias":"LQwD-SouthAfrica",
-        "node_type":"LSP"
+        "pub_key": "036fc6041f67b673e9357118eb2b74cb71aebf7e1e3535edcdba3b808b2a790c0a",
+        "alias": "LQwD-SouthAfrica",
+        "node_type": "LSP",
+        "entity": "LQwD",
+        "role": "Corporate Treasury & Commercial Routing"
     },
     {
-        "pub_key":"0364913d18a19c671bb36dd04d6ad5be0fe8f2894314c36a9db3f03c2d414907e1",
-        "alias":"LQwD-Canada",
-        "node_type":"LSP"
+        "pub_key": "0364913d18a19c671bb36dd04d6ad5be0fe8f2894314c36a9db3f03c2d414907e1",
+        "alias": "LQwD-Canada",
+        "node_type": "LSP",
+        "entity": "LQwD",
+        "role": "Corporate Treasury & Commercial Routing"
     },
     {
-        "pub_key":"0370a5392cd7c81ff5128fa656ee6db0c4d11c778fcd6cb98cb6ba3b48394f5705",
-        "alias":"LQwD-Lspd-ldk",
-        "node_type":"LSP"
+        "pub_key": "0370a5392cd7c81ff5128fa656ee6db0c4d11c778fcd6cb98cb6ba3b48394f5705",
+        "alias": "LQwD-Lspd-ldk",
+        "node_type": "LSP",
+        "entity": "LQwD",
+        "role": "Corporate Treasury & Commercial Routing"
     },
     {
-        "pub_key":"0371ccb71e3838984f6903b40b76581c4fceda54e22cb9c6a7d20681c036de0571",
-        "alias":"cwallet.com",
-        "node_type":"Wallet,Exchange"
+        "pub_key": "0371ccb71e3838984f6903b40b76581c4fceda54e22cb9c6a7d20681c036de0571",
+        "alias": "cwallet.com",
+        "node_type": "Wallet,Exchange",
+        "entity": "cwallet.com",
+        "role": "Exchange Gateway & Liquidity"
     },
     {
-        "pub_key":"030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3",
-        "alias":"getalby.com",
-        "node_type":"Payment"
+        "pub_key": "030a58b8653d32b99200a2334cfe913e51dc7d155aa0116c176657a4f1722677a3",
+        "alias": "getalby.com",
+        "node_type": "Payment",
+        "entity": "getalby.com",
+        "role": "Merchant & Commerce Payment Gateway"
     },
     {
-        "pub_key":"0322d0e43b3d92d30ed187f4e101a9a9605c3ee5fc9721e6dac3ce3d7732fbb13e",
-        "alias":"Megalithic.me",
-        "node_type":"LSP,Routing"
+        "pub_key": "0322d0e43b3d92d30ed187f4e101a9a9605c3ee5fc9721e6dac3ce3d7732fbb13e",
+        "alias": "Megalithic.me",
+        "node_type": "LSP,Routing",
+        "entity": "Megalithic.me",
+        "role": "Lightning Service Provider & Inbound Liquidity"
     },
     {
-        "pub_key":"032312e5e15e89211df36e473d76af60672e3efebfe42a9b2113acbb456050b502",
-        "alias":"LQwD-Sweden",
-        "node_type":"LSP"
+        "pub_key": "032312e5e15e89211df36e473d76af60672e3efebfe42a9b2113acbb456050b502",
+        "alias": "LQwD-Sweden",
+        "node_type": "LSP",
+        "entity": "LQwD",
+        "role": "Corporate Treasury & Commercial Routing"
     },
     {
-        "pub_key":"02fcc5bfc48e83f06c04483a2985e1c390cb0f35058baa875ad2053858b8e80dbd",
-        "alias":"lnd2.blink.sv",
-        "node_type":"Wallet,Payment"
+        "pub_key": "02fcc5bfc48e83f06c04483a2985e1c390cb0f35058baa875ad2053858b8e80dbd",
+        "alias": "lnd2.blink.sv",
+        "node_type": "Wallet,Payment",
+        "entity": "Blink",
+        "role": "El Salvador & Global Retail Wallet"
     },
     {
-        "pub_key":"03037dc08e9ac63b82581f79b662a4d0ceca8a8ca162b1af3551595b8f2d97b70a",
-        "alias":"River Financial 1",
-        "node_type":"Wallet,Exchange"
+        "pub_key": "03037dc08e9ac63b82581f79b662a4d0ceca8a8ca162b1af3551595b8f2d97b70a",
+        "alias": "River Financial 1",
+        "node_type": "Wallet,Exchange",
+        "entity": "River Financial",
+        "role": "Bitcoin Financial Services & Client Liquidity"
     },
     {
-        "pub_key":"02f1a8c87607f415c8f22c00593002775941dea48869ce23096af27b0cfdcc0b69",
-        "alias":"Kraken 🐙⚡",
-        "node_type":"Exchange,Payment"
+        "pub_key": "02f1a8c87607f415c8f22c00593002775941dea48869ce23096af27b0cfdcc0b69",
+        "alias": "Kraken \ud83d\udc19\u26a1",
+        "node_type": "Exchange,Payment",
+        "entity": "Kraken",
+        "role": "Exchange Gateway & Institutional Liquidity"
     },
     {
-        "pub_key":"02fe6a27ddcb2dd9fa8479fe1d52549b5932079a493b51f1409fa2c5878f1bc07c",
-        "alias":"borsche(.Y.)cln0",
-        "node_type":"Routing"
+        "pub_key": "02fe6a27ddcb2dd9fa8479fe1d52549b5932079a493b51f1409fa2c5878f1bc07c",
+        "alias": "borsche(.Y.)cln0",
+        "node_type": "Routing",
+        "entity": "borsche(.Y.)cln0",
+        "role": "High-Capacity Routing Infrastructure"
     },
     {
-        "pub_key":"02eb9dfcbe445ea0366635e932db3bf78e95eb5241ba9bd3f1c72b48fa9f3fc234",
-        "alias":"LQwD-HongKong",
-        "node_type":"LSP"
+        "pub_key": "02eb9dfcbe445ea0366635e932db3bf78e95eb5241ba9bd3f1c72b48fa9f3fc234",
+        "alias": "LQwD-HongKong",
+        "node_type": "LSP",
+        "entity": "LQwD",
+        "role": "Corporate Treasury & Commercial Routing"
     },
     {
-        "pub_key":"02e4971e61a3f55718ae31e2eed19aaf2e32caf3eb5ef5ff03e01aa3ada8907e78",
-        "alias":"1sats.com⚡️lsp.flashsats.xyz",
-        "node_type":"LSP"
+        "pub_key": "02e4971e61a3f55718ae31e2eed19aaf2e32caf3eb5ef5ff03e01aa3ada8907e78",
+        "alias": "1sats.com\u26a1\ufe0flsp.flashsats.xyz",
+        "node_type": "LSP",
+        "entity": "1sats.com\u26a1\ufe0flsp.flashsats.xyz",
+        "role": "Lightning Service Provider & Inbound Liquidity"
     },
     {
-        "pub_key":"02e880b95c737bbe110c5ef4f5e70d0d4d04253503e42c4de2760d519f9cb9a81e",
-        "alias":"bitnob-lnd-2",
-        "node_type":"LSP,Exchange,Payment"
+        "pub_key": "02e880b95c737bbe110c5ef4f5e70d0d4d04253503e42c4de2760d519f9cb9a81e",
+        "alias": "bitnob-lnd-2",
+        "node_type": "LSP,Exchange,Payment",
+        "entity": "bitnob-lnd-2",
+        "role": "Exchange Gateway & Liquidity"
     },
     {
-        "pub_key":"02d96eadea3d780104449aca5c93461ce67c1564e2e1d73225fa67dd3b997a6018",
-        "alias":"Boltz|CLN",
-        "node_type":"Exchange"
+        "pub_key": "02d96eadea3d780104449aca5c93461ce67c1564e2e1d73225fa67dd3b997a6018",
+        "alias": "Boltz|CLN",
+        "node_type": "Exchange",
+        "entity": "Boltz|CLN",
+        "role": "Exchange Gateway & Liquidity"
     },
     {
-        "pub_key":"02c73c8ac3f37bb28d9fc3819dc17baecdf24b137d476a2a9e22395d490d842bec",
-        "alias":"Neutronpay.com",
-        "node_type":"Wallet,Payment"
+        "pub_key": "02c73c8ac3f37bb28d9fc3819dc17baecdf24b137d476a2a9e22395d490d842bec",
+        "alias": "Neutronpay.com",
+        "node_type": "Wallet,Payment",
+        "entity": "Neutronpay.com",
+        "role": "Merchant & Commerce Payment Gateway"
     },
     {
-        "pub_key":"02c4ad243f18d8ed3a40e98725bc6a795b941d7e3d64be9f7dab38144f1eb09cb8",
-        "alias":"LQwD-Brazil",
-        "node_type":"LSP"
+        "pub_key": "02c4ad243f18d8ed3a40e98725bc6a795b941d7e3d64be9f7dab38144f1eb09cb8",
+        "alias": "LQwD-Brazil",
+        "node_type": "LSP",
+        "entity": "LQwD",
+        "role": "Corporate Treasury & Commercial Routing"
     },
     {
-        "pub_key":"02be8a325c61af50aebc2004e3a3db0dc8d255f2fb95036738392172f739fa1c3a",
-        "alias":"LQwD-England",
-        "node_type":"LSP"
+        "pub_key": "02be8a325c61af50aebc2004e3a3db0dc8d255f2fb95036738392172f739fa1c3a",
+        "alias": "LQwD-England",
+        "node_type": "LSP",
+        "entity": "LQwD",
+        "role": "Corporate Treasury & Commercial Routing"
     },
     {
-        "pub_key":"028d98b9969fbed53784a36617eb489a59ab6dc9b9d77fcdca9ff55307cd98e3c4",
-        "alias":"OpenNode.com",
-        "node_type":"LSP,Payment"
+        "pub_key": "028d98b9969fbed53784a36617eb489a59ab6dc9b9d77fcdca9ff55307cd98e3c4",
+        "alias": "OpenNode.com",
+        "node_type": "LSP,Payment",
+        "entity": "OpenNode.com",
+        "role": "Lightning Service Provider & Inbound Liquidity"
     },
     {
-        "pub_key":"02b20c736785ce8e801d50ae0bb6f6daa534a992445b44f4b6255ebedebd84c037",
-        "alias":"LQwD-India",
-        "node_type":"LSP"
+        "pub_key": "02b20c736785ce8e801d50ae0bb6f6daa534a992445b44f4b6255ebedebd84c037",
+        "alias": "LQwD-India",
+        "node_type": "LSP",
+        "entity": "LQwD",
+        "role": "Corporate Treasury & Commercial Routing"
     },
     {
-        "pub_key":"02b1afba6153f9668ea0be12f4dbfc396a782a52d3eccf868732a1088eb2cc5d69",
-        "alias":"LQwD-Indonesia",
-        "node_type":"LSP"
+        "pub_key": "02b1afba6153f9668ea0be12f4dbfc396a782a52d3eccf868732a1088eb2cc5d69",
+        "alias": "LQwD-Indonesia",
+        "node_type": "LSP",
+        "entity": "LQwD",
+        "role": "Corporate Treasury & Commercial Routing"
     },
     {
-        "pub_key":"02abfbe63425b1ba4f245af72a0a85ba16cd13365704655b2abfc13e53ad338e02",
-        "alias":"Azteco",
-        "node_type":"Payment"
+        "pub_key": "02abfbe63425b1ba4f245af72a0a85ba16cd13365704655b2abfc13e53ad338e02",
+        "alias": "Azteco",
+        "node_type": "Payment",
+        "entity": "Azteco",
+        "role": "Merchant & Commerce Payment Gateway"
     },
     {
-        "pub_key":"0296b2db342fcf87ea94d981757fdf4d3e545bd5cef4919f58b5d38dfdd73bf5c9",
-        "alias":"Blocktank",
-        "node_type":"LSP"
+        "pub_key": "0296b2db342fcf87ea94d981757fdf4d3e545bd5cef4919f58b5d38dfdd73bf5c9",
+        "alias": "Blocktank",
+        "node_type": "LSP",
+        "entity": "Blocktank",
+        "role": "Lightning Service Provider & Inbound Liquidity"
     },
     {
-        "pub_key":"0294ac3e099def03c12a37e30fe5364b1223fd60069869142ef96580c8439c2e0a",
-        "alias":"okx",
-        "node_type":"Exchange,Payment"
+        "pub_key": "0294ac3e099def03c12a37e30fe5364b1223fd60069869142ef96580c8439c2e0a",
+        "alias": "okx",
+        "node_type": "Exchange,Payment",
+        "entity": "OKX",
+        "role": "Exchange Liquidity Gateway"
     },
     {
-        "pub_key":"0288be11d147e1525f7f234f304b094d6627d2c70f3313d7ba3696887b261c4447",
-        "alias":"yalls.org clearnet-yalls",
-        "node_type":"Routing"
+        "pub_key": "0288be11d147e1525f7f234f304b094d6627d2c70f3313d7ba3696887b261c4447",
+        "alias": "yalls.org clearnet-yalls",
+        "node_type": "Routing",
+        "entity": "yalls.org clearnet-yalls",
+        "role": "High-Capacity Routing Infrastructure"
     },
     {
-        "pub_key":"026165850492521f4ac8abd9bd8088123446d126f648ca35e60f88177dc149ceb2",
-        "alias":"Boltz",
-        "node_type":"Exchange"
+        "pub_key": "026165850492521f4ac8abd9bd8088123446d126f648ca35e60f88177dc149ceb2",
+        "alias": "Boltz",
+        "node_type": "Exchange",
+        "entity": "Boltz",
+        "role": "Non-Custodial Submarine Swap Exchange"
     },
     {
-        "pub_key":"026ec3e3438308519a75ca4496822a6c1e229174fbcaadeeb174704c377112c331",
-        "alias":"The Bitcoin Company",
-        "node_type":"Payment"
+        "pub_key": "026ec3e3438308519a75ca4496822a6c1e229174fbcaadeeb174704c377112c331",
+        "alias": "The Bitcoin Company",
+        "node_type": "Payment",
+        "entity": "The Bitcoin Company",
+        "role": "Merchant & Commerce Payment Gateway"
     },
     {
-        "pub_key":"027ce055380348d7812d2ae7745701c9f93e70c1adeb2657f053f91df4f2843c71",
-        "alias":"c-otto.de",
-        "node_type":"Routing"
+        "pub_key": "027ce055380348d7812d2ae7745701c9f93e70c1adeb2657f053f91df4f2843c71",
+        "alias": "c-otto.de",
+        "node_type": "Routing",
+        "entity": "c-otto.de",
+        "role": "High-Capacity Routing Infrastructure"
     },
     {
-        "pub_key":"026756a68c3437bdcdff8f43585db665fdd9585d082f4624d51bd0346bc396a73e",
-        "alias":"LQwD-Singapore",
-        "node_type":"LSP"
+        "pub_key": "026756a68c3437bdcdff8f43585db665fdd9585d082f4624d51bd0346bc396a73e",
+        "alias": "LQwD-Singapore",
+        "node_type": "LSP",
+        "entity": "LQwD",
+        "role": "Corporate Treasury & Commercial Routing"
     },
     {
-        "pub_key":"03a93b87bf9f052b8e862d51ebbac4ce5e97b5f4137563cd5128548d7f5978dda9",
-        "alias":"cyberdyne.sh",
-        "node_type":"Routing"
+        "pub_key": "03a93b87bf9f052b8e862d51ebbac4ce5e97b5f4137563cd5128548d7f5978dda9",
+        "alias": "cyberdyne.sh",
+        "node_type": "Routing",
+        "entity": "cyberdyne.sh",
+        "role": "High-Capacity Routing Infrastructure"
     },
     {
-        "pub_key":"03abf6f44c355dec0d5aa155bdbdd6e0c8fefe318eff402de65c6eb2e1be55dc3e",
-        "alias":"OpenNode.com",
-        "node_type":"LSP,Payment"
+        "pub_key": "03abf6f44c355dec0d5aa155bdbdd6e0c8fefe318eff402de65c6eb2e1be55dc3e",
+        "alias": "OpenNode.com",
+        "node_type": "LSP,Payment",
+        "entity": "OpenNode.com",
+        "role": "Lightning Service Provider & Inbound Liquidity"
     },
     {
-        "pub_key":"03aab7e9327716ee946b8fbfae039b0db85356549e72c5cca113ea67893d0821e5",
-        "alias":"River Financial 2",
-        "node_type":"Wallet,Exchange"
+        "pub_key": "03aab7e9327716ee946b8fbfae039b0db85356549e72c5cca113ea67893d0821e5",
+        "alias": "River Financial 2",
+        "node_type": "Wallet,Exchange",
+        "entity": "River Financial",
+        "role": "Bitcoin Financial Services & Client Liquidity"
     },
     {
-        "pub_key":"0242a4ae0c5bef18048fbecf995094b74bfb0f7391418d71ed394784373f41e4f3",
-        "alias":"CoinGate",
-        "node_type":"Payment"
+        "pub_key": "0242a4ae0c5bef18048fbecf995094b74bfb0f7391418d71ed394784373f41e4f3",
+        "alias": "CoinGate",
+        "node_type": "Payment",
+        "entity": "CoinGate",
+        "role": "E-Commerce Crypto Payment Gateway"
     },
     {
-        "pub_key":"02603672d5481411bc6c79693adb828d874677e9fb1383bae70baaa618e0984e76",
-        "alias":"IBEX_Ops2",
-        "node_type":"LSP,Payment"
+        "pub_key": "02603672d5481411bc6c79693adb828d874677e9fb1383bae70baaa618e0984e76",
+        "alias": "IBEX_Ops2",
+        "node_type": "LSP,Payment",
+        "entity": "IBEX",
+        "role": "Fintech & Enterprise Payment Infrastructure"
     },
     {
-        "pub_key":"025f1456582e70c4c06b61d5c8ed3ce229e6d0db538be337a2dc6d163b0ebc05a5",
-        "alias":"Moon (paywithmoon.com)",
-        "node_type":"Payment"
+        "pub_key": "025f1456582e70c4c06b61d5c8ed3ce229e6d0db538be337a2dc6d163b0ebc05a5",
+        "alias": "Moon (paywithmoon.com)",
+        "node_type": "Payment",
+        "entity": "Moon (paywithmoon.com)",
+        "role": "Merchant & Commerce Payment Gateway"
     },
     {
-        "pub_key":"0230b207b3385feddb1ed18d5c7a808015aeb668aaf9bf980bee62465a382112c1",
-        "alias":"LQwD-Ireland",
-        "node_type":"LSP"
+        "pub_key": "0230b207b3385feddb1ed18d5c7a808015aeb668aaf9bf980bee62465a382112c1",
+        "alias": "LQwD-Ireland",
+        "node_type": "LSP",
+        "entity": "LQwD",
+        "role": "Corporate Treasury & Commercial Routing"
     },
     {
-        "pub_key":"0230a5bca558e6741460c13dd34e636da28e52afd91cf93db87ed1b0392a7466eb",
-        "alias":"Blixt Wallet 🟡",
-        "node_type":"LSP"
+        "pub_key": "0230a5bca558e6741460c13dd34e636da28e52afd91cf93db87ed1b0392a7466eb",
+        "alias": "Blixt Wallet \ud83d\udfe1",
+        "node_type": "LSP",
+        "entity": "Blixt Wallet \ud83d\udfe1",
+        "role": "Lightning Service Provider & Inbound Liquidity"
     },
     {
-        "pub_key":"026af41af0e3861ba170cc0eef8f45a1015125dac57c28df53752dcaeea793b28f",
-        "alias":"BitcoinVN 22",
-        "node_type":"Exchange"
+        "pub_key": "026af41af0e3861ba170cc0eef8f45a1015125dac57c28df53752dcaeea793b28f",
+        "alias": "BitcoinVN 22",
+        "node_type": "Exchange,LSP",
+        "entity": "BitcoinVN",
+        "role": "Vietnam Bitcoin Exchange & Lightning Gateway"
     },
     {
-        "pub_key":"0214ec5397050f7eec8e574d1d6feaa0c992169ed107056e6bd57aed1e94714851",
-        "alias":"deezy prime ⚡ ✨",
-        "node_type":"LSP"
+        "pub_key": "0214ec5397050f7eec8e574d1d6feaa0c992169ed107056e6bd57aed1e94714851",
+        "alias": "deezy prime \u26a1 \u2728",
+        "node_type": "LSP",
+        "entity": "deezy prime \u26a1 \u2728",
+        "role": "Lightning Service Provider & Inbound Liquidity"
     },
     {
-        "pub_key":"0202e7727ee46d943a44c7bf0dce14220a839630dee67d03446bf935178b55a0df",
-        "alias":"The Captain [Coincept.com]",
-        "node_type":"LSP,Routing"
+        "pub_key": "0202e7727ee46d943a44c7bf0dce14220a839630dee67d03446bf935178b55a0df",
+        "alias": "The Captain [Coincept.com]",
+        "node_type": "LSP,Routing",
+        "entity": "The Captain [Coincept.com]",
+        "role": "Lightning Service Provider & Inbound Liquidity"
     },
     {
-        "pub_key":"020d06a56bcc6428b48b02c8e514b73c4bddceba844570abda2bcc46bc474425ab",
-        "alias":"Bitnob",
-        "node_type":"LSP,Exchange,Payment"
+        "pub_key": "020d06a56bcc6428b48b02c8e514b73c4bddceba844570abda2bcc46bc474425ab",
+        "alias": "Bitnob",
+        "node_type": "LSP,Exchange,Payment",
+        "entity": "Bitnob",
+        "role": "African Cross-Border Remittance & API"
     },
     {
-        "pub_key":"02bd87b47c03654eeda9d8ba96ae2f1a73543ce703721326801d2945e5ef173475",
-        "alias":"LQwD-Germany",
-        "node_type":"LSP"
+        "pub_key": "02bd87b47c03654eeda9d8ba96ae2f1a73543ce703721326801d2945e5ef173475",
+        "alias": "LQwD-Germany",
+        "node_type": "LSP",
+        "entity": "LQwD",
+        "role": "Corporate Treasury & Commercial Routing"
     },
     {
-        "pub_key":"03b65c19de2da9d35895b37e6fa263cefbf8d184e6b61c0713747ebf12409d219f",
-        "alias":"Alby 🐝 routing ⚡ 1",
-        "node_type":"Payment"
+        "pub_key": "03b65c19de2da9d35895b37e6fa263cefbf8d184e6b61c0713747ebf12409d219f",
+        "alias": "Alby \ud83d\udc1d routing \u26a1 1",
+        "node_type": "Payment",
+        "entity": "Alby \ud83d\udc1d routing \u26a1 1",
+        "role": "Merchant & Commerce Payment Gateway"
     },
     {
-        "pub_key":"03aefa43fbb4009b21a4129d05953974b7dbabbbfb511921410080860fca8ee1f0",
-        "alias":"Voltage Flow 2.0",
-        "node_type":"LSP"
+        "pub_key": "03aefa43fbb4009b21a4129d05953974b7dbabbbfb511921410080860fca8ee1f0",
+        "alias": "Voltage Flow 2.0",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
     },
     {
-        "pub_key":"035b1ff29e8db1ba8f2a4f4f95db239b54069cb949b8cde329418e2a83da4f1b30",
-        "alias":"DiamondHands💎🙌",
-        "node_type":"LSP"
+        "pub_key": "035b1ff29e8db1ba8f2a4f4f95db239b54069cb949b8cde329418e2a83da4f1b30",
+        "alias": "DiamondHands\ud83d\udc8e\ud83d\ude4c",
+        "node_type": "LSP",
+        "entity": "DiamondHands\ud83d\udc8e\ud83d\ude4c",
+        "role": "Lightning Service Provider & Inbound Liquidity"
     },
     {
-        "pub_key":"024bfaf0cabe7f874fd33ebf7c6f4e5385971fc504ef3f492432e9e3ec77e1b5cf",
-        "alias":"deezy.io ⚡✨",
-        "node_type":"LSP"
+        "pub_key": "024bfaf0cabe7f874fd33ebf7c6f4e5385971fc504ef3f492432e9e3ec77e1b5cf",
+        "alias": "deezy.io \u26a1\u2728",
+        "node_type": "LSP",
+        "entity": "deezy.io \u26a1\u2728",
+        "role": "Lightning Service Provider & Inbound Liquidity"
     },
     {
-        "pub_key":"0385b81d9661adf36c086be5217a03c29a4276c0b5c9e607c745a239bba430d63f",
-        "alias":"borsche(.Y.)cln1",
-        "node_type":"Routing"
+        "pub_key": "0385b81d9661adf36c086be5217a03c29a4276c0b5c9e607c745a239bba430d63f",
+        "alias": "borsche(.Y.)cln1",
+        "node_type": "Routing",
+        "entity": "borsche(.Y.)cln1",
+        "role": "High-Capacity Routing Infrastructure"
     },
     {
-        "pub_key":"03232432128398d8cb31e67921ffd4d4cfb10b42dc72529a45dba6f105adfb83d4",
-        "alias":"LQWD-Breez",
-        "node_type":"LSP"
+        "pub_key": "03232432128398d8cb31e67921ffd4d4cfb10b42dc72529a45dba6f105adfb83d4",
+        "alias": "LQWD-Breez",
+        "node_type": "LSP",
+        "entity": "LQwD",
+        "role": "Corporate Treasury & Commercial Routing"
     },
     {
-        "pub_key":"034d7f4bbbd6c1c1d8fbe0a42dd1f59e10b66540c6872dfcaa095d8d5cffebcf46",
-        "alias":"strike [migrating to Strike]",
-        "node_type":"Wallet,Exchange,Payment"
+        "pub_key": "034d7f4bbbd6c1c1d8fbe0a42dd1f59e10b66540c6872dfcaa095d8d5cffebcf46",
+        "alias": "strike [migrating to Strike]",
+        "node_type": "Wallet,Exchange,Payment",
+        "entity": "Strike",
+        "role": "Consumer Payments & Global Remittance"
     },
     {
-        "pub_key":"026f46207fd290a33cbd86e29b3ad0a47cdd44ab9aa5267cde66483e10aa9d3180",
-        "alias":"Authenticity",
-        "node_type":"Routing"
+        "pub_key": "026f46207fd290a33cbd86e29b3ad0a47cdd44ab9aa5267cde66483e10aa9d3180",
+        "alias": "Authenticity",
+        "node_type": "Routing",
+        "entity": "Authenticity",
+        "role": "High-Capacity Routing Infrastructure"
+    },
+    {
+        "pub_key": "02004d8933df4f002fa95d8c37ca43eb9c175d310aad55cc6d442e4accc3740029",
+        "alias": "IBEX_SB",
+        "node_type": "LSP,Payment",
+        "entity": "IBEX",
+        "role": "Fintech & Enterprise Payment Infrastructure"
+    },
+    {
+        "pub_key": "02067fe4eed983ca9136c498b754fb97c4d7d6b52090ac5993d9e2abe8b145200a",
+        "alias": "loopi-node",
+        "node_type": "LSP",
+        "entity": "Lightning Labs (Loop)",
+        "role": "Submarine Swaps & Liquidity Pool Provider"
+    },
+    {
+        "pub_key": "02105b7dd93aaef3265319c85e2b8da5ae9f361d93837abad987680e5dce1dace2",
+        "alias": "LQwD-Alby",
+        "node_type": "LSP",
+        "entity": "LQwD",
+        "role": "Corporate Treasury & Commercial Routing"
+    },
+    {
+        "pub_key": "021951105c32e5bbc9781b90a03e8b3dd4c7f6ae424b2c9e4a6dded4512c721bff",
+        "alias": "River Chief",
+        "node_type": "Exchange,LSP",
+        "entity": "River Financial",
+        "role": "Bitcoin Financial Services & Client Liquidity"
+    },
+    {
+        "pub_key": "021c97a90a411ff2b10dc2a8e32de2f29d2fa49d41bfbb52bd416e460db0747d0d",
+        "alias": "LOOP",
+        "node_type": "LSP",
+        "entity": "Lightning Labs (Loop)",
+        "role": "Submarine Swaps & Liquidity Pool Provider"
+    },
+    {
+        "pub_key": "02247d9db0dfafea745ef8c9e161eb322f73ac3f8858d8730b6fd97254747ce76b",
+        "alias": "LNBiG\ud83c\uddfa\ud83c\udde6[lnd-34/old-lnd-43]",
+        "node_type": "LSP",
+        "entity": "LNBIG",
+        "role": "High-Capacity Foundational Routing Cluster"
+    },
+    {
+        "pub_key": "022755c3ff4e5a1d71f573cda4b315887fc00a9e5c9ea9a847d939f3e517e69a70",
+        "alias": "LNBiG\ud83c\uddfa\ud83c\udde6[lnd-06/old-lnd-34]",
+        "node_type": "LSP",
+        "entity": "LNBIG",
+        "role": "High-Capacity Foundational Routing Cluster"
+    },
+    {
+        "pub_key": "022bb3c7c8ff8dadacf35b8cdcc2ebc8d0b8a8459b2cd4dbad2421a14207d9be8f",
+        "alias": "WalletofSatoshi1",
+        "node_type": "Wallet,LSP",
+        "entity": "Wallet of Satoshi",
+        "role": "Retail Custodial Mobile Wallet Hub"
+    },
+    {
+        "pub_key": "022c260f9ad58196af280c80a96ec9eabf6404df59ff1a7553b0f381c875a29ba0",
+        "alias": "LNBiG\ud83c\uddfa\ud83c\udde6[lnd-07/old-lnd-37]",
+        "node_type": "LSP",
+        "entity": "LNBIG",
+        "role": "High-Capacity Foundational Routing Cluster"
+    },
+    {
+        "pub_key": "02437c00ef5de2686a6bd60f8acb5c83d17010916010a15f479d5ef84c04f04485",
+        "alias": "Kraken \ud83d\udc19\u26a1",
+        "node_type": "Exchange",
+        "entity": "Kraken",
+        "role": "Exchange Gateway & Institutional Liquidity"
+    },
+    {
+        "pub_key": "024a2e265cd66066b78a788ae615acdc84b5b0dec9efac36d7ac87513015eaf6ed",
+        "alias": "Bitrefill",
+        "node_type": "LSP,Payment",
+        "entity": "Bitrefill",
+        "role": "Gift Card & Mobile Airtime Settlement"
+    },
+    {
+        "pub_key": "024d2387409269f3b79e2708bb39b895c9f4b6a8322153af54eba487d4993bf60f",
+        "alias": "LNBiG\ud83c\uddfa\ud83c\udde6[lnd-31/old-lnd-38]",
+        "node_type": "LSP",
+        "entity": "LNBIG",
+        "role": "High-Capacity Foundational Routing Cluster"
+    },
+    {
+        "pub_key": "025d9a6b5c8b4e62c3f299e2e423fa189435f4412712f00d11e695b43ed42fed6c",
+        "alias": "block-iad-8",
+        "node_type": "LSP,Routing",
+        "entity": "Block / Spiral",
+        "role": "Block / Spiral Lightning Hub"
+    },
+    {
+        "pub_key": "0263a3919c46bcc268bb7a7fa44e6e9576ea9e141bb5e5ea39626a5132e9e8322a",
+        "alias": "KrakenWallet",
+        "node_type": "Exchange",
+        "entity": "Kraken",
+        "role": "Exchange Gateway & Institutional Liquidity"
+    },
+    {
+        "pub_key": "0264a62a4307d701c04a46994ce5f5323b1ca28c80c66b73c631dbcb0990d6e835",
+        "alias": "breez.diem.lsp",
+        "node_type": "Wallet,LSP",
+        "entity": "Breez",
+        "role": "Non-Custodial Mobile Wallet & SDK Hub"
+    },
+    {
+        "pub_key": "026c7d28784791a4b31a64eb34d9ab01552055b795919165e6ae886de637632efb",
+        "alias": "WalletOfSatoshi.com_OLD",
+        "node_type": "Wallet,LSP",
+        "entity": "Wallet of Satoshi",
+        "role": "Retail Custodial Mobile Wallet Hub"
+    },
+    {
+        "pub_key": "02705598082adf9846e47272493846bb568ca0f070ddac180e350527be5e76a339",
+        "alias": "Riverside Durii",
+        "node_type": "Exchange,LSP",
+        "entity": "River Financial",
+        "role": "Bitcoin Financial Services & Client Liquidity"
+    },
+    {
+        "pub_key": "027100442c3b79f606f80f322d98d499eefcb060599efc5d4ecb00209c2cb54190",
+        "alias": "block-iad-1",
+        "node_type": "LSP,Routing",
+        "entity": "Block / Spiral",
+        "role": "Block / Spiral Lightning Hub"
+    },
+    {
+        "pub_key": "0272a1e614e1f476704d75f60419e68890ffabf6b12b48e0a19715fa4770bb781f",
+        "alias": "loopy",
+        "node_type": "LSP",
+        "entity": "Lightning Labs (Loop)",
+        "role": "Submarine Swaps & Liquidity Pool Provider"
+    },
+    {
+        "pub_key": "02805bceb32e6bf4968a61b2f3532ced46e18ef95c623b44cc31904339d32a5081",
+        "alias": "LNB\u03dfG [Hub-100]",
+        "node_type": "LSP",
+        "entity": "LNBIG",
+        "role": "High-Capacity Foundational Routing Cluster"
+    },
+    {
+        "pub_key": "0283ca0b7eca022bcf8f32aa418e5ff2bd375806faba40409cdc8e48c2b32ef725",
+        "alias": "LNBiG Billing",
+        "node_type": "LSP",
+        "entity": "LNBIG",
+        "role": "High-Capacity Foundational Routing Cluster"
+    },
+    {
+        "pub_key": "028a8e53d70bc0eb7b5660943582f10b7fd6c727a78ad819ba8d45d6a638432c49",
+        "alias": "LNBIG.com [lnd-15/old-lnd-33]",
+        "node_type": "LSP",
+        "entity": "LNBIG",
+        "role": "High-Capacity Foundational Routing Cluster"
+    },
+    {
+        "pub_key": "028e75b9726f1bb0013df16544b83561d66442a19ca71105ce574e10ada65629f7",
+        "alias": "KrakenPay",
+        "node_type": "Exchange",
+        "entity": "Kraken",
+        "role": "Exchange Gateway & Institutional Liquidity"
+    },
+    {
+        "pub_key": "029707c0881747e9a359eddc62a50c71e7640f89aa8aa3992b8c809dc32ae675f9",
+        "alias": "WalletOfSatoshi.com 3",
+        "node_type": "Wallet,LSP",
+        "entity": "Wallet of Satoshi",
+        "role": "Retail Custodial Mobile Wallet Hub"
+    },
+    {
+        "pub_key": "029fc6217803748cc8fb6b041acbe81e6e295a914487dcea7e5d7e141b64883826",
+        "alias": "lnd2.blink.sv",
+        "node_type": "Wallet,Payment",
+        "entity": "Blink",
+        "role": "El Salvador & Global Retail Wallet"
+    },
+    {
+        "pub_key": "02a66d75d785b666eaa2f12d501e2f810496097cf0a756b8c54fd2c098662a7d78",
+        "alias": "Voltage Credit",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "02ab61eaca9d2f89a867e322c844ab95649f47babb5cfeac5de5eda45e55973966",
+        "alias": "LQWD-Rails",
+        "node_type": "LSP",
+        "entity": "LQwD",
+        "role": "Corporate Treasury & Commercial Routing"
+    },
+    {
+        "pub_key": "02b7f84db54d9e1d31ed0cfc1fb5f8f06607569fff836ea2c827b409e53c8777c7",
+        "alias": "PHOENIXNODE",
+        "node_type": "LSP",
+        "entity": "ACINQ",
+        "role": "Phoenix Core Routing & Mobile LSP"
+    },
+    {
+        "pub_key": "02bb24da3d0fb0793f4918c7599f973cc402f0912ec3fb530470f1fc08bdd6ecb5",
+        "alias": "LNBiG\ud83c\uddfa\ud83c\udde6[lnd-37/old-lnd-10]",
+        "node_type": "LSP",
+        "entity": "LNBIG",
+        "role": "High-Capacity Foundational Routing Cluster"
+    },
+    {
+        "pub_key": "02bba49d7f9c57b9c05f7eb33bf4dc69b2aa37cb63caff93f13bfa88135e7f7a46",
+        "alias": "Breez2s",
+        "node_type": "Wallet,LSP",
+        "entity": "Breez",
+        "role": "Non-Custodial Mobile Wallet & SDK Hub"
+    },
+    {
+        "pub_key": "02c91d6aa51aa940608b497b6beebcb1aec05be3c47704b682b3889424679ca490",
+        "alias": "LNBiG [Hub-3]",
+        "node_type": "LSP",
+        "entity": "LNBIG",
+        "role": "High-Capacity Foundational Routing Cluster"
+    },
+    {
+        "pub_key": "02cc611df622184f8c23639cf51b75001c07af0731f5569e87474ba3cc44f079ee",
+        "alias": "LQWD-BTCPay",
+        "node_type": "LSP",
+        "entity": "LQwD",
+        "role": "Corporate Treasury & Commercial Routing"
+    },
+    {
+        "pub_key": "02cc79b8d771cc79d323bd71e54ef1780cab50e7c0ef2a4beb625fc9dcbbcc6d24",
+        "alias": "Voltage-c1",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "02cfdc6b60e5931d174a342b20b50d6a2a17c6e4ef8e077ea54069a3541ad50eb0",
+        "alias": "Voltage-C2",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "02de11c748f5b25cfd2ce801176d3926bfde4de23b1ff43e692a5b76cf06805e4a",
+        "alias": "LNBiG\ud83c\uddfa\ud83c\udde6[lnd-02/old-lnd-09]",
+        "node_type": "LSP",
+        "entity": "LNBIG",
+        "role": "High-Capacity Foundational Routing Cluster"
+    },
+    {
+        "pub_key": "02f0f0b71caf4292f4c097ad0e59b1fda3f32a5db0943b9d6e2a88b316387e15b5",
+        "alias": "voltagepino",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "0303a518845db99994783f606e6629e705cfaf072e5ce9a4d8bf9e249de4fbd019",
+        "alias": "LNBiG\ud83c\uddfa\ud83c\udde6[lnd-42/old-lnd-40]",
+        "node_type": "LSP",
+        "entity": "LNBIG",
+        "role": "High-Capacity Foundational Routing Cluster"
+    },
+    {
+        "pub_key": "030995c0c0217d763c2274aa6ed69a0bb85fa2f7d118f93631550f3b6219a577f5",
+        "alias": "LNBiG\ud83c\uddfa\ud83c\udde6[lnd-17/old-lnd-28]",
+        "node_type": "LSP",
+        "entity": "LNBIG",
+        "role": "High-Capacity Foundational Routing Cluster"
+    },
+    {
+        "pub_key": "030b04c5d37b8cb3acd324edefed38e170d355c8f0953718307b894321d576615f",
+        "alias": "Striker",
+        "node_type": "Wallet,Exchange,Payment",
+        "entity": "Strike",
+        "role": "Consumer Payments & Global Remittance"
+    },
+    {
+        "pub_key": "030bd936b47a53af5eba629529dff8b2222aa9ae0ed2c12476b2bcf28bc996b8a6",
+        "alias": "Bitrefill A",
+        "node_type": "LSP,Payment",
+        "entity": "Bitrefill",
+        "role": "Gift Card & Mobile Airtime Settlement"
+    },
+    {
+        "pub_key": "0311cad0edf4ac67298805cf4407d94358ca60cd44f2e360856f3b1c088bcd4782",
+        "alias": "LNBiG\ud83c\uddfa\ud83c\udde6[lnd-32/old-lnd-42]",
+        "node_type": "LSP",
+        "entity": "LNBIG",
+        "role": "High-Capacity Foundational Routing Cluster"
+    },
+    {
+        "pub_key": "031816dc832217cca3326053ca9073909b0f1a673209826fc0ed0fd87971e21682",
+        "alias": "Phoenix138",
+        "node_type": "LSP",
+        "entity": "ACINQ",
+        "role": "Phoenix Core Routing & Mobile LSP"
+    },
+    {
+        "pub_key": "031ce29116eab7edd66148f5169f1fb658fad62bdc5091221ab895fe5d36db00b2",
+        "alias": "LNBiG.com\ud83c\uddfa\ud83c\udde6[lnd-21]",
+        "node_type": "LSP",
+        "entity": "LNBIG",
+        "role": "High-Capacity Foundational Routing Cluster"
+    },
+    {
+        "pub_key": "031f2669adab71548fad4432277a0d90233e3bc07ac29cfb0b3e01bd3fb26cb9fa",
+        "alias": "Voltage",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "03206ac25dd4d5b94202133fedbe89b784d56f04774350f19dfa6804fc70539835",
+        "alias": "LNBridge",
+        "node_type": "LSP",
+        "entity": "LNBIG",
+        "role": "High-Capacity Foundational Routing Cluster"
+    },
+    {
+        "pub_key": "032679fec1213e5b0a23e066c019d7b991b95c6e4d28806b9ebd1362f9e32775cf",
+        "alias": "LNBiG\ud83c\uddfa\ud83c\udde6[lnd-01/old-lnd-16]",
+        "node_type": "LSP",
+        "entity": "LNBIG",
+        "role": "High-Capacity Foundational Routing Cluster"
+    },
+    {
+        "pub_key": "032c9c7648e471befa2dc2d093e0854dd138f2718c0ad93bd4411328b33d072918",
+        "alias": "LQWD-Germany",
+        "node_type": "LSP",
+        "entity": "LQwD",
+        "role": "Corporate Treasury & Commercial Routing"
+    },
+    {
+        "pub_key": "0333f929cf5913e9db100865ba7fdfe05e84f1ba182eaf1ea1863f0962b79a6bb8",
+        "alias": "Phoenix_Rising",
+        "node_type": "LSP",
+        "entity": "ACINQ",
+        "role": "Phoenix Core Routing & Mobile LSP"
+    },
+    {
+        "pub_key": "033e9ce4e8f0e68f7db49ffb6b9eecc10605f3f3fcb3c630545887749ab515b9c7",
+        "alias": "LNBiG [Hub-2]",
+        "node_type": "LSP",
+        "entity": "LNBIG",
+        "role": "High-Capacity Foundational Routing Cluster"
+    },
+    {
+        "pub_key": "034660651be3b640eea0f89a2ba1d1419a7ef95a852edc10c24d3aaac642791392",
+        "alias": "binancechain",
+        "node_type": "Exchange,Payment",
+        "entity": "Binance",
+        "role": "Exchange Custodial Liquidity Gateway"
+    },
+    {
+        "pub_key": "0349569c32a8f15dcee7583d11abf11a4f0ca45a58ec4c7faa9d412e7d6e4e1b02",
+        "alias": "bitrefill",
+        "node_type": "LSP,Payment",
+        "entity": "Bitrefill",
+        "role": "Gift Card & Mobile Airtime Settlement"
+    },
+    {
+        "pub_key": "034a3e2733e5a4582b1be6aac5e0e3ec932101dd1f5724a624edb54beb2c1b38a7",
+        "alias": "LQwD-Zavior",
+        "node_type": "LSP",
+        "entity": "LQwD",
+        "role": "Corporate Treasury & Commercial Routing"
+    },
+    {
+        "pub_key": "034cbd9991cbb5c97f8a99fba4ba3e772b433f7217cc76193044119297617d3be3",
+        "alias": "Strike Eagle",
+        "node_type": "Wallet,Exchange,Payment",
+        "entity": "Strike",
+        "role": "Consumer Payments & Global Remittance"
+    },
+    {
+        "pub_key": "034d2d996107ea9a62d63ca9cf5bf3ca5f9977a5abe5e3def4a9a3b683cc25c467",
+        "alias": "striker",
+        "node_type": "Wallet,Exchange,Payment",
+        "entity": "Strike",
+        "role": "Consumer Payments & Global Remittance"
+    },
+    {
+        "pub_key": "03534c8e9a5ae623a6190b78a7e292d92b7359fcbcc38452e1d6eee4bb08bb3870",
+        "alias": "lnboard-lightning",
+        "node_type": "LSP",
+        "entity": "LNBIG",
+        "role": "High-Capacity Foundational Routing Cluster"
+    },
+    {
+        "pub_key": "0357c32faf42c97302cb27c50cd30b0327882a27e1762603d7e6328386728c8eaf",
+        "alias": "riverside",
+        "node_type": "Exchange,LSP",
+        "entity": "River Financial",
+        "role": "Bitcoin Financial Services & Client Liquidity"
+    },
+    {
+        "pub_key": "035bef4a347ea64a7dd83c04cd1f6125a7dcbe80d198b744680ca4b5a52d5396a4",
+        "alias": "okx.com",
+        "node_type": "Exchange",
+        "entity": "OKX",
+        "role": "Exchange Liquidity Gateway"
+    },
+    {
+        "pub_key": "035e5d976af6d155c67698fb08062894a230eab1b7ec1e7810d54834aa01669f72",
+        "alias": "voltage-jerry",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "035f5236d7e6c6d16107c1f86e4514e6ccdd6b2c13c2abc1d7a83cd26ecb4c1d0e",
+        "alias": "LNBIG.com [lnd-49/old-lnd-13]",
+        "node_type": "LSP",
+        "entity": "LNBIG",
+        "role": "High-Capacity Foundational Routing Cluster"
+    },
+    {
+        "pub_key": "03683cdb57591430a24ce0fe86c966b2cc396cf3025a7bbac6683a23873f24758c",
+        "alias": "LQWD-AI-Launchpad",
+        "node_type": "LSP",
+        "entity": "LQwD",
+        "role": "Corporate Treasury & Commercial Routing"
+    },
+    {
+        "pub_key": "036afe432cad4fd5a5671d9d95d3d3671e315825efdc10f734dba1f47a711a276b",
+        "alias": "LQWD-USA",
+        "node_type": "LSP",
+        "entity": "LQwD",
+        "role": "Corporate Treasury & Commercial Routing"
+    },
+    {
+        "pub_key": "036be767ebd50844a06b7abc003129eff27eb3191a255fd658ca95a363fb707186",
+        "alias": "voltage718",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "037e152b41de84ce743fb1c32308cc407917bcb7fcabba7fca6130a423498ef67a",
+        "alias": "lnbtcdotorg",
+        "node_type": "LSP",
+        "entity": "LNBIG",
+        "role": "High-Capacity Foundational Routing Cluster"
+    },
+    {
+        "pub_key": "0386a1a497916c515924676757c762928114f7217990ed2765cdb68fe882e7c0c4",
+        "alias": "lnbright.com",
+        "node_type": "LSP",
+        "entity": "LNBIG",
+        "role": "High-Capacity Foundational Routing Cluster"
+    },
+    {
+        "pub_key": "038f685a9f420cf794155df3f1a97ab71b871758478cdd12bbdf8e6b18e9c3697a",
+        "alias": "Blinky",
+        "node_type": "Wallet,Payment",
+        "entity": "Blink",
+        "role": "El Salvador & Global Retail Wallet"
+    },
+    {
+        "pub_key": "03938f10b2bd7b693f1a2205d06081f778a5a540e8b2273b9b7f5e45938cc9cb97",
+        "alias": "Phoenix_Risen",
+        "node_type": "LSP",
+        "entity": "ACINQ",
+        "role": "Phoenix Core Routing & Mobile LSP"
+    },
+    {
+        "pub_key": "039c5b142d27e307ea2bd7bda281626417ee9f72068379f8d8164dc444e61dbe16",
+        "alias": "bitrefill",
+        "node_type": "LSP,Payment",
+        "entity": "Bitrefill",
+        "role": "Gift Card & Mobile Airtime Settlement"
+    },
+    {
+        "pub_key": "03a9e90aa313e4425ce3070fb5033b1d6465f159f9ab105b60a5e75f3eb1cc9f99",
+        "alias": "KrakenWallet",
+        "node_type": "Exchange",
+        "entity": "Kraken",
+        "role": "Exchange Gateway & Institutional Liquidity"
+    },
+    {
+        "pub_key": "03adea7a20c1130b09d18ca6c83e1701562228f069f53e83e8b351d284e2f55302",
+        "alias": "BreezNodeTae5eogh",
+        "node_type": "Wallet,LSP",
+        "entity": "Breez",
+        "role": "Non-Custodial Mobile Wallet & SDK Hub"
+    },
+    {
+        "pub_key": "03aef71a80b1f0bfdaa9457e46b24a048a4dc2c3d285f6368c5815c26e35b8232c",
+        "alias": "KrakenBlitz",
+        "node_type": "Exchange",
+        "entity": "Kraken",
+        "role": "Exchange Gateway & Institutional Liquidity"
+    },
+    {
+        "pub_key": "03b525cfe298296cc8aca7ec0ee7b7b51543d78cca08228875252e3ee5ec3219f4",
+        "alias": "VoltageNodeTrial",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "03b588b4d4e913b8bcecab1c6b0f22ef964c03c618064643c55dd94c7af99ec82c",
+        "alias": "voltage-passe-lnd-node",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "03b7412fcc1de3b5eff441f713c8146a4874a4f72a42167c5d485cc442ab0e621f",
+        "alias": "voltageserkan",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "03bc9337c7a28bb784d67742ebedd30a93bacdf7e4ca16436ef3798000242b2251",
+        "alias": "LNBiG [Edge-2]",
+        "node_type": "LSP",
+        "entity": "LNBIG",
+        "role": "High-Capacity Foundational Routing Cluster"
+    },
+    {
+        "pub_key": "03bd8b14d454c14307215d2ce64f508dc6bbdeef8ec8892ee287a4c1ef85e75260",
+        "alias": "voltage-test-bb-korea",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "03c913d061dfe0adbfd87c0e98e66033be0dbbb2413de26bd363c63970480a9a80",
+        "alias": "Bitrefill B",
+        "node_type": "LSP,Payment",
+        "entity": "Bitrefill",
+        "role": "Gift Card & Mobile Airtime Settlement"
+    },
+    {
+        "pub_key": "03d37fca0656558de4fd86bbe490a38d84a46228e7ec1361801f54f9437a18d618",
+        "alias": "LNBiG.com\ud83c\uddfa\ud83c\udde6[lnd-25/lnd-02]",
+        "node_type": "LSP",
+        "entity": "LNBIG",
+        "role": "High-Capacity Foundational Routing Cluster"
+    },
+    {
+        "pub_key": "03d74a559bb3841a11a882d7f93b4bdd3610eaf430bb468a67af3d9cfa0e96e2bf",
+        "alias": "IBEX_TEST",
+        "node_type": "LSP,Payment",
+        "entity": "IBEX",
+        "role": "Fintech & Enterprise Payment Infrastructure"
+    },
+    {
+        "pub_key": "03da5fae318191db58bfae02d2d633ec8b33edd2a451e79b076eb09f33caf44845",
+        "alias": "Voltage776544",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "03dab87ff8635982815c4567eb58af48f9944d11c56beb12b91e1049aaea06e187",
+        "alias": "LNBiG\ud83c\uddfa\ud83c\udde6[lnd-33/old-lnd-41]",
+        "node_type": "LSP",
+        "entity": "LNBIG",
+        "role": "High-Capacity Foundational Routing Cluster"
+    },
+    {
+        "pub_key": "03db5f498bb03e78f716704d87387cda7726048b9af25217833364831facce11f8",
+        "alias": "voltage-lightning-node-gfpkelly",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "03e5ea100e6b1ef3959f79627cb575606b19071235c48b3e7f9808ebcd6d12e87d",
+        "alias": "LNBIG.com [lnd-51/old-lnd-31]",
+        "node_type": "LSP",
+        "entity": "LNBIG",
+        "role": "High-Capacity Foundational Routing Cluster"
+    },
+    {
+        "pub_key": "03e7f2c757844828f46afad7eccd3e6797eb8c56f523b3f11c555e2aaf46fc3490",
+        "alias": "LQWD-hub",
+        "node_type": "LSP",
+        "entity": "LQwD",
+        "role": "Corporate Treasury & Commercial Routing"
+    },
+    {
+        "pub_key": "03e8e7604e0cb0ba643a084a6e965e8272a323b97f5bf7a7837cb8fe62e3a5250a",
+        "alias": "lnbitsgame",
+        "node_type": "LSP",
+        "entity": "LNBIG",
+        "role": "High-Capacity Foundational Routing Cluster"
+    },
+    {
+        "pub_key": "03fb822818be083e0a954db85257a2911a3d55458b8c1ea4124b157e865a836d12",
+        "alias": "LNBiG.com\ud83c\uddfa\ud83c\udde6[lnd-20]",
+        "node_type": "LSP",
+        "entity": "LNBIG",
+        "role": "High-Capacity Foundational Routing Cluster"
+    },
+    {
+        "pub_key": "03fc96e4e90cbc3f3b57548b0693b77c34ac696a125fe1158aaa9cf3752498fe63",
+        "alias": "WalletOfSatoshi.com [7]",
+        "node_type": "Wallet,LSP",
+        "entity": "Wallet of Satoshi",
+        "role": "Retail Custodial Mobile Wallet Hub"
+    },
+    {
+        "pub_key": "03fce165537aea120bffe8505876b44d5119354f825b3eac329b761fc5636bf334",
+        "alias": "LNBiG\ud83c\uddfa\ud83c\udde6[lnd-41/old-lnd-27]",
+        "node_type": "LSP",
+        "entity": "LNBIG",
+        "role": "High-Capacity Foundational Routing Cluster"
+    },
+    {
+        "pub_key": "03fcf9e53678d18e51f0e2da4515caa64c517e3f8cc804809b44ecc165d214b3fd",
+        "alias": "kraken_not_the_shitcoin_exchange",
+        "node_type": "Exchange",
+        "entity": "Kraken",
+        "role": "Exchange Gateway & Institutional Liquidity"
+    },
+    {
+        "pub_key": "03fea25187149a0d7e16bb5655816c2a57b2ffda8b723c5e2cc43366c9640f3300",
+        "alias": "voltage-staging-mainnet",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "020003b9499a97c8dfbbab6b196319db37ba9c37bccb60477f3c867175f417988e",
+        "alias": "BJCR_BTCPayServer",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "020080a6a379cbf6f2d6a0231b274f311899b1f6568d73d7ff4032536b394df3b0",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "020264e03b6f39c23b8fc4ae9a6adf30776fa4affa40db6741feaa2148cf38b11b",
+        "alias": "amboss_0087dae6",
+        "node_type": "LSP,Routing",
+        "entity": "Amboss (Magma)",
+        "role": "Lightning Liquidity Marketplace"
+    },
+    {
+        "pub_key": "0205d522c694b2eef9aee8cd7bbeda6884d7fe0ddf201a4e9c4f3e0f6d1c1360a4",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "02096c79199759276338709ed2f94329a8a5f92614c507b2ead14cc63ca1d696c4",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "0209bae0c833282bd1f507bccaa8a604acd532ae602981456aed2195ad6490a688",
+        "alias": "deezy",
+        "node_type": "LSP,Payment",
+        "entity": "Deezy",
+        "role": "Submarine Swaps & Liquid Bridge"
+    },
+    {
+        "pub_key": "020a76783d92ee3124ebfc14415138dac1a4892fccbf3a8c778302f119483d2357",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "020bd12a0a573611560aabf99b8ef09c97b1c3c64127362b04d2d43b088e0ab6d1",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "020c51d7e64c15a9b0a5cd83d67a8feb37cae6ca3bf90af678726c1ebd0baca67b",
+        "alias": "alby-main-net",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "020ce3c7a4516ae35d76c49990da4f727012f20c49127fed46000c6d5dc4908a97",
+        "alias": "Ula-loop",
+        "node_type": "LSP",
+        "entity": "Lightning Labs (Loop)",
+        "role": "Submarine Swaps & Pool Routing"
+    },
+    {
+        "pub_key": "021294fff596e497ad2902cd5f19673e9020953d90625d68c22e91b51a45c032d3",
+        "alias": "ln.coinos.io",
+        "node_type": "Wallet,Payment",
+        "entity": "CoinOS",
+        "role": "Web-Based Bitcoin & LN Wallet"
+    },
+    {
+        "pub_key": "0212a407aa2b75b37ea243d7ef4f7ecd80f2f5f25e0ff847401446a66adeea9f35",
+        "alias": "BTCPayBRH",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "021d78896887670b0b206c232b6f42e2e35f8ada047fe1340233de7387c2c8e161",
+        "alias": "my-voltage-lightning-node21",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "021e035fa717fc7bc8e8fe2e54dc15018d6952890cf49bb3da493e4111d394370c",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "021f814e0837c28ea26de9d53e4c6f44ea0582e68b39feea477c50ec986f5c1e12",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "0221293d43180728bd0f67f0ab980430ecc810215b7a718011779836b7ce78a00e",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "02245cd8982e257398decd7f76a28e9b23faecf64bc97cb1696a619dab5f1b492b",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "02254f26976d6487f7664aa941e006642ac3f3974d20c19f4117069e5803418dbe",
+        "alias": "ln1.generalbytes.com",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "022651022fa95a4248d60a5a95b37bd690c2ff353311d1f5204ad3dc3ac908c93b",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "0227ad918c0c936da08cfbb3809a3bbd9c29875bf94e97e361597ba5fd12ca91a5",
+        "alias": "BTCPayNode",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "022ed2953b2ebdcdc8f3806d5e1bc07eec0b231319aca718857a85a9e15b08e2da",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "022ffd6ce42820e62e1c97ed044a9c42792025103124e6138f5f3ea0aada13a872",
+        "alias": "ZTGnodeAlby",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "02322e2f216e7633c56f008b849c3f3566212a17f6f3f19027ef60d39825bbb997",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "02324936a19ff162f5a5809db9e4d26037f21ff5b076728b9ba483ea21f8ec5d15",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "0233101552673a63f548ee41c21efbd6b5e4630c2a6c517409fda55159c2cee7e0",
+        "alias": "btcpay-ln",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "02343c19a39dd11cfc6f7571f36213dd52fb70ee45ee4074913d43891fb59579b5",
+        "alias": "Pouch.ph",
+        "node_type": "Payment,Wallet",
+        "entity": "Pouch.ph",
+        "role": "Philippine Cross-Border Remittance"
+    },
+    {
+        "pub_key": "023a02fd6a49c71e4c3d9a40dd0d1493af3e80465dcc498bb930e9349fac3652fd",
+        "alias": "Mutiny",
+        "node_type": "Wallet",
+        "entity": "Mutiny",
+        "role": "Privacy-Focused Web Lightning Wallet"
+    },
+    {
+        "pub_key": "023aad9b1522da994063ec96e045bf15ecfa8227364199198be35a539053da2b79",
+        "alias": "State48-Phoenix",
+        "node_type": "LSP",
+        "entity": "ACINQ",
+        "role": "Phoenix Core Routing & Infrastructure"
+    },
+    {
+        "pub_key": "023b207a58df3ca28d52444e37c7e767b10ec900cfceca878c478884b6fccc5699",
+        "alias": "CoinPulse-BTC-Phoenix",
+        "node_type": "LSP",
+        "entity": "ACINQ",
+        "role": "Phoenix Core Routing & Infrastructure"
+    },
+    {
+        "pub_key": "023bbfba1b36be9d7b3409d58e1e065c73a4cb5d06283be67d6c3a8af739540240",
+        "alias": "freedom.btcpayserver.it",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "023c3cc2b500155b2ef03999e35dca2c112c87751250bf2aea3bc13bd3edc9f98f",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "023cfbf7ca404e69c4c3571f17b348dcc09d53d142f33dfd67253cf0c650a0c6d1",
+        "alias": "FromTheRiver2TheSea",
+        "node_type": "Exchange,LSP",
+        "entity": "River Financial",
+        "role": "Bitcoin Financial Services & Client Hub"
+    },
+    {
+        "pub_key": "023f30b455d7a2fb53fa4d66cecb41c26fadbf4b6f1db56e79a10861f91dd8e562",
+        "alias": "btcpay.coldbit.com",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "024096debaac318f5c671ee67dee0a8fe94ef0ad3fe86e2e6e825567637f89a968",
+        "alias": "ZEBEDEE",
+        "node_type": "Gaming,Wallet,Payment",
+        "entity": "ZEBEDEE",
+        "role": "Gaming Rewards & Nanopayments Engine"
+    },
+    {
+        "pub_key": "02421e1fdf46c8586125ca1e2a14ad399e1507c9ea258e994776f777cd65c549c7",
+        "alias": "albydemojp",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "024357f94113989d75c146d07b3ce3b24b7533283f61abf4fb888efdcaf16cdc31",
+        "alias": "skybladephoenix",
+        "node_type": "LSP",
+        "entity": "ACINQ",
+        "role": "Phoenix Core Routing & Infrastructure"
+    },
+    {
+        "pub_key": "0248841dd4a94e902ede85285e67b5527afe5c46d6a3ff27955d63d18c70035757",
+        "alias": "OpenNode.com 3",
+        "node_type": "Payment,LSP",
+        "entity": "OpenNode",
+        "role": "Enterprise Lightning Payment Processor"
+    },
+    {
+        "pub_key": "024ac8eb2fdca28c8b3a1487476bbc2812249396aab5160e752941b84a5ff2faa0",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "024c08d7cded0993167094b1b941ec58ff594951c94094e916220f26dc2055f5ea",
+        "alias": "Coinduit",
+        "node_type": "Routing,LSP",
+        "entity": "Coinduit",
+        "role": "Enterprise Routing & Liquidity Pool"
+    },
+    {
+        "pub_key": "024c2804815582a504c466a90e11f30ff800e108fd691274faf6f026a12d0ab976",
+        "alias": "lndeu1.zaphq.io",
+        "node_type": "LSP,Payment",
+        "entity": "Zap / Strike",
+        "role": "Zap HQ Settlement Infrastructure"
+    },
+    {
+        "pub_key": "024cd5f07949d6595535894241fecac97896f1834e319a823b6997a974863f0fb7",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "024cea2ba511f423523c1ff863841bd411e6c7eab8758b230eafa6f4dd951afe6b",
+        "alias": "1voltage",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "024e699cb9b3bff54162d3cbf64030f56427daa17e2c5353bcb1d9e58016e71bc6",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "024ff0d07634390efb131904b10a64cf2e3300574b51902d493a360fb522f486fc",
+        "alias": "Ingwie Phoenix LN",
+        "node_type": "LSP",
+        "entity": "ACINQ",
+        "role": "Phoenix Core Routing & Infrastructure"
+    },
+    {
+        "pub_key": "0250370618809ebd6cce2f9da1a7647bcd6cf10ac839083553c307f6a2feba779e",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "0250eab9406160ff2e3eb8206c7f3364034acc890d5c4cb3449ec8fd2f30224bb8",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "025104175dea50fd0a74f04a1a52cca6b1de356220f5647fc3d5bcf57012f0e0c2",
+        "alias": "BTCPay.no",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "025143035e06fd7ac5f29e18ac58ed1d569fc4b7a97f58caf00bb523fa8842299f",
+        "alias": "CloudRiver",
+        "node_type": "Exchange,LSP",
+        "entity": "River Financial",
+        "role": "Bitcoin Financial Services & Client Hub"
+    },
+    {
+        "pub_key": "025332c7bc7d0f1fad436612026538427b651bd6b04261badce568504e768f6724",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "02535215135eb832df0f9858ff775bd4ae0b8911c59e2828ff7d03b535b333e149",
+        "alias": "lndwr2.zaphq.io",
+        "node_type": "LSP,Payment",
+        "entity": "Zap / Strike",
+        "role": "Zap HQ Settlement Infrastructure"
+    },
+    {
+        "pub_key": "02542b74385b4965bf6b5616a0eaafee06b58ac62e3d441fdb2380a92ded3cf124",
+        "alias": "nicehash-ln2",
+        "node_type": "Exchange,Payment",
+        "entity": "NiceHash",
+        "role": "Mining Hashpower Marketplace"
+    },
+    {
+        "pub_key": "0254f92b634f92fcab82385e613bd442aab48c6c27e225a42b48fda5bbc7408d5a",
+        "alias": "speed11",
+        "node_type": "Payment,LSP",
+        "entity": "Speed",
+        "role": "Speed Payments Processor & LSP"
+    },
+    {
+        "pub_key": "02551c2c66888ce990cf01822b9f5258f2f96de25a86828d1c0d18a894b2217411",
+        "alias": "bloope",
+        "node_type": "LSP",
+        "entity": "Lightning Labs (Loop)",
+        "role": "Submarine Swaps & Pool Routing"
+    },
+    {
+        "pub_key": "02557e11b4d955ee940ddf5b5432abf36d0f3d68c6b4fed67c46b51c31297b835f",
+        "alias": "LighteningStrike",
+        "node_type": "Wallet,Exchange,Payment",
+        "entity": "Strike",
+        "role": "Global Payments & Remittance"
+    },
+    {
+        "pub_key": "02562755b419670ef2b3b76c3319acb6de647f4433b96afc25212c2a581f7ca8c1",
+        "alias": "BTC_Loop_21",
+        "node_type": "LSP",
+        "entity": "Lightning Labs (Loop)",
+        "role": "Submarine Swaps & Pool Routing"
+    },
+    {
+        "pub_key": "0256978982f85682c4182e887a3d865237048fe66b37bf464d155edc2f4b02d38c",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "0257333a9d17d30bc7f7783bab28f629d62049ec60257d99135670a8489aafd06d",
+        "alias": "Speed1",
+        "node_type": "Payment,LSP",
+        "entity": "Speed",
+        "role": "Speed Payments Processor & LSP"
+    },
+    {
+        "pub_key": "02583949bb10b10bac3ca8340e7e9e9ffcd50f608f1f2b5afef9658538f2c667b9",
+        "alias": "testbtcpay",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "025843a1003ad858702313b9435f00b8996a9b6e078bb7365e54f4537e944d3be4",
+        "alias": "LightningStrike\u26a1",
+        "node_type": "Wallet,Exchange,Payment",
+        "entity": "Strike",
+        "role": "Global Payments & Remittance"
+    },
+    {
+        "pub_key": "02591ad07975526c7e8ee63362ca524a6b3fd7a55b18b652891c8b0d4a50cf6e7e",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "025a2dde453df4f3cc5a4cdfd76e5b0badaf2caea8e225f34e83b7a6d650d04186",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "025b4fcc56beb735219eb55f2aebc9758b5f260d72c58790dae12128c5cf51a377",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "025b72df1e428ba9eb116b0134f3f2df51e9b4806eae722576ba73dc548ad4cfd8",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "025b9e65557c2914454ed9e4f42378111f289eeb03202082291892b60e6baae944",
+        "alias": "LiveFreeBTC-Voltage",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "025c3da8ff07d6703b95d02f0058c464b8e762e3f295f13b87d114ceae42f49379",
+        "alias": "ImperiumManifold",
+        "node_type": "Payment,Wallet",
+        "entity": "Fold",
+        "role": "Bitcoin Cashback & Financial Services"
+    },
+    {
+        "pub_key": "025efae12feccb6f7e97f3ef1e364cea0785ceb654944b107a832a6f5e5c61fb08",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "025f3c4d50f7a657a993105307bcd09ccb009f9c447f6dfe95fe5791ed6361be4f",
+        "alias": "btcpay.zechendorf.com",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "02605a46fb7c98ae5b6f2d0165d09dfc9676fedb4d222f70d12f5369e869a97ed3",
+        "alias": "my-voltage-node2",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "026236496fde9e9afec3e35ca557e93137421161450d0d090057ace52ebe0afccc",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "02631f7b6cdfe47203686dd3ddff3460c78d1a2f4b56bebd5df5ecba35603f7b15",
+        "alias": "magrini.btcpayserver.it",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "0265791d3c9e14c69ebc2ea0f2b40c35c1a46b8db3c971bd51d1966206a42215af",
+        "alias": "Alby \ud83d\udc1d user \u26a1 2",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "0266634e978a48a5a52ed30cf54f8719ec643ba3a368e23c6497d8af2731dd5750",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "02687fa7193b6a38ec4839b35d70c321c0b823e73a7f1b4ede5586a257316002a8",
+        "alias": "loovi-voltage",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "0269ddea4ab7066b0928804c8473cbdd3bd7cf454f083bde54ab748a4b00f60bad",
+        "alias": "cryptoconomy.btcpay",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "026c77105de8d726b4a771eefc55e67555cf1d67cb332baccd0145ab01df932cc4",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "026cfe2b821572fb860e8e89d66093126882a3ed235314e2821ec7948463acd3bf",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "026e0b9ca312dfa04a7f1dbbcf82c33069ff05823abd796553dc1e900a548f41f0",
+        "alias": "manuel.btcpayserver.it",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "027079cac2dab4e4e1d9ea9b9a2f3c5cd0b19c2fc35b6e8d092ef67dac59920682",
+        "alias": "ip2torQANode",
+        "node_type": "LSP,Routing",
+        "entity": "Torq / allNice",
+        "role": "Lightning Node Automation & Operations"
+    },
+    {
+        "pub_key": "02749c2bd034cfbb591b8b19d7f4ed6c7b90a143f7df03dbc129c79cafe878c363",
+        "alias": "The Toms River Connection",
+        "node_type": "Exchange,LSP",
+        "entity": "River Financial",
+        "role": "Bitcoin Financial Services & Client Hub"
+    },
+    {
+        "pub_key": "02757afbc23eafd8c8ffb02fbf92c8ee6bcceb29fbff4d12087f8191a49dc57ef4",
+        "alias": "BitGo Routing Node",
+        "node_type": "Exchange,Payment",
+        "entity": "BitGo",
+        "role": "Institutional Custodial Settlement"
+    },
+    {
+        "pub_key": "02782e43475d5762eb18b369c5c625d682f9c72417e781f90bf95acec2da039323",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "0278d677b0a7738127c9c3b432f89818100f6b9e58c07fbecbc0d30f5445d14776",
+        "alias": "Alby \ud83d\udc1d routing \u26a1 2",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "027a36c4e2542f232ef8713118422b92ea1ebb8c41ebf82812e66e048742999374",
+        "alias": "btcpay",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "027cd974e47086291bb8a5b0160a889c738f2712a703b8ea939985fd16f3aae67e",
+        "alias": "lndus0.zaphq.io",
+        "node_type": "LSP,Payment",
+        "entity": "Zap / Strike",
+        "role": "Zap HQ Settlement Infrastructure"
+    },
+    {
+        "pub_key": "027f443344a5533462d83ed298297eb5064683274798fd5ff565db67f9e40111ff",
+        "alias": "payments.lnmarkets.com",
+        "node_type": "Exchange,Payment",
+        "entity": "LN Markets",
+        "role": "Bitcoin Derivatives & Trading Platform"
+    },
+    {
+        "pub_key": "028116bb258c7604009cedbb01899621271bd874935fa7eba3843350c8b47c8388",
+        "alias": "routing.lightning.lnmarkets.com",
+        "node_type": "Exchange,Payment",
+        "entity": "LN Markets",
+        "role": "Bitcoin Derivatives & Trading Platform"
+    },
+    {
+        "pub_key": "028123811f3e954b92b79dcb6cfb510e4787f0b8e6f77aded4557585cc9dad3e03",
+        "alias": "host.btcpayserver.it",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "02816caed43171d3c9854e3b0ab2cf0c42be086ff1bd4005acc2a5f7db70d83774",
+        "alias": "Fold",
+        "node_type": "Payment,Wallet",
+        "entity": "Fold",
+        "role": "Bitcoin Cashback & Financial Services"
+    },
+    {
+        "pub_key": "02819e0a3298f19a81a624011ec5b1e4a4541c3c8b045870cdde5a47d4fdf36a33",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "0282ccffe2f7fd63b0d68528dab9cd6cff8f64733d2d730c3eb8fa81e011da930e",
+        "alias": "speed2",
+        "node_type": "Payment,LSP",
+        "entity": "Speed",
+        "role": "Speed Payments Processor & LSP"
+    },
+    {
+        "pub_key": "028399983d49e63c0034936dec36c495bd40a20eca4234eac4e3cadb08f885a106",
+        "alias": "testing-deezy",
+        "node_type": "LSP,Payment",
+        "entity": "Deezy",
+        "role": "Submarine Swaps & Liquid Bridge"
+    },
+    {
+        "pub_key": "0283eb1e7f70b94a22dce0af13032fbbf5d5034379696632456108461ccdcfd4b4",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "028673e3ce5c52814e0976a197e4569d36b61e24952a921828d2d0f405be263a13",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "02868e12f320073cad0c2959c42559fbcfd1aa326fcb943492ed7f02c9820aa399",
+        "alias": "lnd.coinos.io",
+        "node_type": "Wallet,Payment",
+        "entity": "CoinOS",
+        "role": "Web-Based Bitcoin & LN Wallet"
+    },
+    {
+        "pub_key": "02871d80f477d48a7552ba2dd4aa501ac9fc25306c1c9cc55328d888d2f2464955",
+        "alias": "arefvoltage",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "028a33a72ecb09967e67b08a04179fce74730bbc4cb2544c7d6876d20c6450c5eb",
+        "alias": "block-pdx-1",
+        "node_type": "LSP,Routing",
+        "entity": "Block / Spiral",
+        "role": "Block / Spiral Lightning Hub"
+    },
+    {
+        "pub_key": "028a4fae55019bd8922d6b0d093ff2bbe2412d56475a032e90bbb10cdcac8e7968",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "028b10be90ddfb4ef158c252163e4f340c8a093beee20427d39a0986abac58a55e",
+        "alias": "paxful",
+        "node_type": "Exchange,Payment",
+        "entity": "Paxful",
+        "role": "P2P Financial Marketplace"
+    },
+    {
+        "pub_key": "028fd658af0da085d8db39437d8e5d116b585e9a8468a61868b987127be2335bb8",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "02913c2e9ed32a800fc0f5b164d8abe3f8dcee50163545a5e97a751889d1e99abc",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "029a2b438ba613d02cdb0024cc1a96bf34d309b6e33df5d4c95f6a0b11d5aef643",
+        "alias": "Another_Phoenix_Risen",
+        "node_type": "LSP",
+        "entity": "ACINQ",
+        "role": "Phoenix Core Routing & Infrastructure"
+    },
+    {
+        "pub_key": "029b5694bdce8dec3ee25168485932d5275963633d7f897dadfea1f0ab682d9e36",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "029c533cbf1c264142e88fc4638fd627bc1541f7c17805a767a12287d2ba105ee6",
+        "alias": "btcpayserve1",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "029ca15ad2ea3077f5f0524c4c9bc266854c14b9fc81b9cc3d6b48e2460af13f65",
+        "alias": "Alby \ud83d\udc1d plebs \u26a1 1",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "029daf6925ead3d3934890b565978a93f28337d12ee3b7943072e47662488f2942",
+        "alias": "btcpayserver.anycolo.net",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "029f56cbc6c7b0f72a13c765352af4b543fbb121684d6d600a8aab584704679195",
+        "alias": "mischa@primal.net",
+        "node_type": "Wallet,Social",
+        "entity": "Primal",
+        "role": "Nostr Client & Lightning Wallet Hub"
+    },
+    {
+        "pub_key": "029fdbeb25df5e5e6db4d61744347703af1af5bc3e9d56a30ae6233c21a7a67cbd",
+        "alias": "BitDriver ESA",
+        "node_type": "Exchange,LSP",
+        "entity": "River Financial",
+        "role": "Bitcoin Financial Services & Client Hub"
+    },
+    {
+        "pub_key": "02a143b1a47bc8ef1a0c85ab04f89f37a4372bf7fcfa3212e59589b707d1292e4f",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "02a296baf14470898ddf8e733520d8dc221b3dbb0193a97ffab28d6923918ae084",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "02a3886e53b0a8fe44cafc05f4107466a3a97aab13450bb1a3d460037dbfcfa0d1",
+        "alias": "node1voltage",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "02a96e580071f2dc5a065e75da3f77c272babc4004c85988622f9d434e4069c5b4",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "02a987b2152ffdc4ccb50663902a7b818f9e96aa998c0429c84f6d97762ee33a94",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "02a98c86ef366ce226aad6e7706959456e1701058915c3cbf527b37da143bb1441",
+        "alias": "Megalithic.me [small channels]",
+        "node_type": "Routing,LSP",
+        "entity": "Megalithic",
+        "role": "Independent High-Capacity Routing Node"
+    },
+    {
+        "pub_key": "02ac28d532ddc11a41bcb7ac9c30ebe45f094c64cabff5d5751471d13319749fea",
+        "alias": "btcpayserver",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "02ac599d69c06b75b90dc8cc111aa9ee40562ec742c8524a3fb67c2a0179b6a724",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "02ac9f25cd08e745d1992504a57c075f683a6f8df66d0428fdc1d1b387bcf0f18a",
+        "alias": "21BTCPay",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "02aec695d421caf751d0aadf70c3bf765d2ce51de80e1dedd62e60accdcd908b2e",
+        "alias": "BTCpayRWF",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "02b00f142396f973a5e4a55946fbbf324dcb9d83933e948faa4fd6f3c6579b03ad",
+        "alias": "bitnob-lnd-0-outflow",
+        "node_type": "Payment,Exchange",
+        "entity": "Bitnob",
+        "role": "African Cross-Border Remittance & API"
+    },
+    {
+        "pub_key": "02b0fbde4af918187ffe74590e6cca8a44b96614f33f5144c5fc54e9ed5d018157",
+        "alias": "SunnyVoltage",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "02b2ae15001601b74eee8ddbd036315c5fbd415b24f88f24d5266820169dfd13de",
+        "alias": "lndwr3.zaphq.io",
+        "node_type": "LSP,Payment",
+        "entity": "Zap / Strike",
+        "role": "Zap HQ Settlement Infrastructure"
+    },
+    {
+        "pub_key": "02b3574eb067bb270b76308ca3c7febede0c4de5333cad9683a27b2e572e18e044",
+        "alias": "LightningStrike \u26a1\ud83d\udca5",
+        "node_type": "Wallet,Exchange,Payment",
+        "entity": "Strike",
+        "role": "Global Payments & Remittance"
+    },
+    {
+        "pub_key": "02b90590b90b84fc90be35a4183e3fd24a3047dbcafb41e66ca90fd5496e030e62",
+        "alias": "btcpay-lnd",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "02b9a6b4a30969fe9cf91a31ddb0f5082b23a8baff614d71882d437ecf194d4dd2",
+        "alias": "Alby \ud83d\udc1d routing \u26a1 2",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "02ba001a2f916ebeacf4546d35cbc9f3c7db4516e37b975e73d119b39258797603",
+        "alias": "TheBlitzyFlashStrike",
+        "node_type": "Wallet,Exchange,Payment",
+        "entity": "Strike",
+        "role": "Global Payments & Remittance"
+    },
+    {
+        "pub_key": "02ba0c09d94698745ebbda922c6d19d54437a89aab333f1539d8cfafb819173feb",
+        "alias": "PaidlyInteractive\u26a1",
+        "node_type": "Payment,LSP",
+        "entity": "Paidly",
+        "role": "Point-of-Sale & Commerce Payments"
+    },
+    {
+        "pub_key": "02baa9e4de19e3a072f484e674b728219e1700e422c4374b9fc65ac445cb698c4b",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "02bbabee2da3fb2a9a243640aaa154cb8f10f721acb3f318cf95bdf5e868de3ece",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "02bdd29ec1684d8765456faafdb4d383f0e923afb8a9dde569d0780315fd0805ef",
+        "alias": "roca-voltage",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "02bf11204edb1b7e0ccf614911410520503cb95da58d104b817740f68ec4de9a47",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "02c197ffa4c2aa4105dd4c4b7279ba1b9061b22910ebbfa759b0001bed9ee48a16",
+        "alias": "BC.GAME",
+        "node_type": "Gaming,Payment",
+        "entity": "BC.GAME",
+        "role": "Crypto Gaming & Sportsbook Gateway"
+    },
+    {
+        "pub_key": "02c22b1585b99eeeda53068a7011f8851c08cef4699fa0b0abfbf10f140395ced0",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "02c2cc6212ea3b464b470e0269c1f1ecd6cf7f424d4cd06e085a5969f30780a39f",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "02c4118d814524255aaf15569404ad0374325ff77d60a0783e3ba3f74adfbc19a1",
+        "alias": "BasedBoltz",
+        "node_type": "LSP,Payment",
+        "entity": "Boltz",
+        "role": "Non-Custodial Submarine Swap Exchange"
+    },
+    {
+        "pub_key": "02c609bf934324ff35649726ac7ffa7da0be8dcec11f24ed5ca97eccd23732fd97",
+        "alias": "phileucis-voltage",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "02c7bb6f29f09d92d40d62d64443b688891259dea324406b4678df6235794f24bf",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "02d005f082a55302448b1d46c1a0b33f4599c786d2be395ccd0122a675bbd9c4cc",
+        "alias": "The Fountainhead",
+        "node_type": "Podcasting,Payment",
+        "entity": "Fountain",
+        "role": "Value-for-Value Audio & Podcasting"
+    },
+    {
+        "pub_key": "02d0fd6c2ec89fbbed6c94bd86e695b3d3086f3ecb7767da3123e519ee36d7bca2",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "02d105d66357a05b6f856f3a0c5c63f33f5dd1ebbe5569bc42bb486e9a67cf4603",
+        "alias": "btcpay.swisslayer.com",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "02d1567647ddff8b96f72f0b5cdf6a91d6fea09c6103d24992878c37e3ad59294d",
+        "alias": "yellowcard-collection",
+        "node_type": "Exchange,Payment",
+        "entity": "Yellow Card",
+        "role": "Pan-African Crypto Exchange & Onramp"
+    },
+    {
+        "pub_key": "02d256a6f93e3d4f95db0d9b3e85bc49f8c61a15b6e9c59e946d1b2806a87f6eb7",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "02d646c694046bb2f54bc824acb4a7130f8ac5ec4d51faea2c1c65cb3a8d02e09a",
+        "alias": "iFloatOnTheBreeze",
+        "node_type": "Wallet,LSP",
+        "entity": "Breez",
+        "role": "Non-Custodial Mobile Wallet & SDK Hub"
+    },
+    {
+        "pub_key": "02d66b49731bff629f6f0f7a611b049a023d967f6acb7a0aa968f40f9d476ec533",
+        "alias": "alby-benchmark-eclair-1",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "02d8e2d662dafd6f155b59174b1f8a747bf101d3baaf341ca196e1242f5c1edb9c",
+        "alias": "TOBG-LNBig",
+        "node_type": "LSP",
+        "entity": "LNBIG",
+        "role": "Foundational High-Capacity Routing Cluster"
+    },
+    {
+        "pub_key": "02dbb315fcd23727e5b5de2caa89e6739b06966737ad46991ad7ad080cfdd52f5f",
+        "alias": "btcpaylove",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "02dc5bd7f44ae9f3875b46ee22cff30c1aff749fac2e73b65321c4c0d40fd89114",
+        "alias": "mandeezy",
+        "node_type": "LSP,Payment",
+        "entity": "Deezy",
+        "role": "Submarine Swaps & Liquid Bridge"
+    },
+    {
+        "pub_key": "02de30bd1a5e91e0fafdea56ec67684c9f3164826ce8c2e739191b00d05d71cc36",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "02de45a55fc7f1dd208c904fde42a7ac3c746e166e997981855256d77d0a7bbb8b",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "02dea09ea21c9d8786ebcf11668ce51ecdb0c368ad013d9caafe2e7566833f3e1a",
+        "alias": "BTCPay_Cryptoduke",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "02dfb4c1dd59216fa6a28d0f012e188516f63517db68c4e4b82c3af41343a05bc4",
+        "alias": "routing.blinkbtc.com",
+        "node_type": "Wallet,Payment",
+        "entity": "Blink",
+        "role": "El Salvador & Global Retail Wallet"
+    },
+    {
+        "pub_key": "02e264502cf68714e0750a912110d851ac64e1289bec85a922c71ee0464793d743",
+        "alias": "my-node-voltage",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "02e6722bb5e10c8f17ee2171e428352d1a14ab51b18605166a4ea1b131ef740b5f",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "02e74c09ca720c891221164424651f62176a4737a4b2fd4f75a5befee127e90b9e",
+        "alias": "btcpay.davidcoen.it",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "02e76d6b452362edf22d705dce3bb3789acbbd5b6001c7ccf8961913b7971ff5e8",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "02e9a27ea6343240b2d979c9342e01c58069724200ee599cc90952f3e058d60311",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "02ed1d5bb7cb4b877f4c642d9f091a1ee7fe2f7e15509fda8e0b53cc8ac458bd98",
+        "alias": "Amboss Internal - Two",
+        "node_type": "LSP,Routing",
+        "entity": "Amboss (Magma)",
+        "role": "Lightning Liquidity Marketplace"
+    },
+    {
+        "pub_key": "02ee1b5295b4d191ef0b9783b8565824435628fceb72fa939a7563af823bfb0712",
+        "alias": "hoopliloop",
+        "node_type": "LSP",
+        "entity": "Lightning Labs (Loop)",
+        "role": "Submarine Swaps & Pool Routing"
+    },
+    {
+        "pub_key": "02ef269b91bf7079c8b98c14b7875c806ced0abd534ff7812ec6b8e4206861ef9d",
+        "alias": "LightningStrikes",
+        "node_type": "Wallet,Exchange,Payment",
+        "entity": "Strike",
+        "role": "Global Payments & Remittance"
+    },
+    {
+        "pub_key": "02f3db1406207ec2a41319b5c02ffeb9eaf16e4c32636c1ca5826a0500788d68c1",
+        "alias": "Senna-Voltage",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "02f43ef88ad2473a1aeb39c79bbb2d3c37669aaf198ed9309499ad21982adfdfa3",
+        "alias": "Borsche\u26a1HFSP",
+        "node_type": "Routing",
+        "entity": "Borsche",
+        "role": "High-Centrality Community Routing Node"
+    },
+    {
+        "pub_key": "02f5c8ac0223220047e8117f1e0aba4993b61f9507d0f4ae765609a5ce961177e3",
+        "alias": "Rising_phoenix",
+        "node_type": "LSP",
+        "entity": "ACINQ",
+        "role": "Phoenix Core Routing & Infrastructure"
+    },
+    {
+        "pub_key": "02f820f08f6808c5b9ddde6bfbc51c66c25208e1fd219db99a9f68922e7b963a8a",
+        "alias": "btcpay-global-persian-lnd",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "02f96fff064becf94113accb3243ee1760af778e6c995c778c5da1aa3d0ec19001",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "02fa797156b0ea34757bad50cd8525a28dfb4f9f8f183c6c3955f7f8d0fa55d262",
+        "alias": "alby-mainnet-cln1",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "02fa9a48979e7327655b5c8a31b358ef536620e7cb49ba6ab0bf12e44fefbc3e40",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "02fb19087ba8d967fede0ddccd838929d3ad3cc05ae6ece3b37e93d1589b4e9688",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "02fc0a4691a8aebb4f24db7dc26d12379e2b4d8e50457e0a419c11ccbccb86f904",
+        "alias": "alby-blp",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "02fc22cb2dd9c71b39ad246ae206259376e0127cce2192d4061abd0172b53f391b",
+        "alias": "NumeraireSwissKnife",
+        "node_type": "LSP,Routing",
+        "entity": "SwissKnife",
+        "role": "High-Throughput Liquidity Provider"
+    },
+    {
+        "pub_key": "02fed6c495383abf57e1742bd6ef3a966fba62a0014278d89dc65d078f4e38bb3c",
+        "alias": "btcpay.host",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "030035ea59d3fc1b6f598dfb835260dc03ea3955207086b43273f4f7966e7e7381",
+        "alias": "btcp-srl-voltage",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "03006fcf3312dae8d068ea297f58e2bd00ec1ffe214b793eda46966b6294a53ce6",
+        "alias": "Amboss.Space",
+        "node_type": "LSP,Routing",
+        "entity": "Amboss (Magma)",
+        "role": "Lightning Liquidity Marketplace"
+    },
+    {
+        "pub_key": "0300c2e19d31ce40ced34618a8bb591656de76b369ebf3c2cbbd4feba5a68f3de2",
+        "alias": "rgavoltagenode",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "03019f1d0c2f5e27e7e1d4886c65353e5f2d34cff0d8b8888e2b197034207998eb",
+        "alias": "HODLRodeoVoltage1",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "030343045e9c2cf4e8da72e2d3f11a103457e70c97f833a4e44836498b99f5f733",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "0309de1dcfe75b5e710fe3da834d50b7cdc262f7ead1a2cd8b224a82aa7a8f344e",
+        "alias": "btcpaylove",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "030b6ec038e34bd3e6304ba608a995e38f2f9f8da8400d95679be2caef6e97c26a",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "030b6f4facd8fc2cae7ccaf13b7ee06b93642b6bda1f455af2af54e4e2dc005068",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "030d51d06028d551972656b10689d98118195f69c4e82d5d5ffc573ed3c467dde3",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "030d98a1d3f824e316d31e74a743c852547e9d100f5b1a9aa9e23ca6a24879233b",
+        "alias": "DFXVoltage1",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "030decc6e71e47717d7364d0cad95da29692b75583aa33ec3e74b646401d8ae7da",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "030dfc5361c7ad357393e5b88d88365b1f7dc98437d485c2ad1ed3b8d866b545e8",
+        "alias": "swap.coinos.io",
+        "node_type": "Wallet,Payment",
+        "entity": "CoinOS",
+        "role": "Web-Based Bitcoin & LN Wallet"
+    },
+    {
+        "pub_key": "030f0b8e9b8b047df76db393dcd9278994020dda10cc909ac294aa4aca778f25b3",
+        "alias": "walloop",
+        "node_type": "LSP",
+        "entity": "Lightning Labs (Loop)",
+        "role": "Submarine Swaps & Pool Routing"
+    },
+    {
+        "pub_key": "030f191bed439f9e54e8458dc0629aeae66342709478703539d58af09a25efd9ef",
+        "alias": "\ud83e\udd91 Release the Kraken \ud83e\udd91",
+        "node_type": "Exchange",
+        "entity": "Kraken",
+        "role": "Institutional Exchange Gateway"
+    },
+    {
+        "pub_key": "030fabcf1218082019f581693108ec92a5665bb6a891e948bfe9049b19d7c8edbb",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "030fc40ca26e8113b0192e062d457570fd98bab43428d06a3b7b1cd8be90709372",
+        "alias": "staging.coinos.io",
+        "node_type": "Wallet,Payment",
+        "entity": "CoinOS",
+        "role": "Web-Based Bitcoin & LN Wallet"
+    },
+    {
+        "pub_key": "03101d496a429fb222bda517db48596d142bf226d5a2d7878e34580adc537e35f1",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "03105841b1bf5f0fb00de35eca66dc070b1a952b373e5c6f4ba0b28f65cedec5e4",
+        "alias": "alby-node",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "0310d7c091f2d697a71b3aefee9ce5f4547161d4990a65cb68700f71f223bdaad1",
+        "alias": "coindipity.btcpayserver.it",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "03137d6651ef558171b1ec3ffae6117224f88e4d5184e237b73971335eb30d2c75",
+        "alias": "lnstrikede",
+        "node_type": "Wallet,Exchange,Payment",
+        "entity": "Strike",
+        "role": "Global Payments & Remittance"
+    },
+    {
+        "pub_key": "0315ac3a399387057d569bbbe13a15f2205590a3a6e90f2047069cafdd2d7be77a",
+        "alias": "bm-btcpay",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "03169e6367b648f13b4f3aaa786913dfc8f054fc445c78276286e3fe6509939fde",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "0316f69073e64c698b7b7742666684b72963a3a10429cba9849214c1b598221465",
+        "alias": "mainnet3-lnd.zaphq.io",
+        "node_type": "LSP,Payment",
+        "entity": "Zap / Strike",
+        "role": "Zap HQ Settlement Infrastructure"
+    },
+    {
+        "pub_key": "0317b5d505a70651c1d246b71aa99ea8cb019a7a8f983253cb59fba421fbef85ba",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "03180e62f89e223ad602805db1328085426842e3f9364c492bed66c088ac1c670b",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "031995631357d83e3b52c72d80941090d79d002ec7f1f6efedc039c4d7f2d4c30a",
+        "alias": "bitnob-lnd-0-inflow",
+        "node_type": "Payment,Exchange",
+        "entity": "Bitnob",
+        "role": "African Cross-Border Remittance & API"
+    },
+    {
+        "pub_key": "031a08a8dc83aab97760f972fa4b4670a2c10f3ca9100f9982e09ac2de9eae0b0b",
+        "alias": "my_voltage_node",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "031a5b68b9ce7b9db5cf3ceeae69626cdd5b25eec35de4b2ca85c8ac245fbb0e87",
+        "alias": "TOBG-LnBigHub",
+        "node_type": "LSP",
+        "entity": "LNBIG",
+        "role": "Foundational High-Capacity Routing Cluster"
+    },
+    {
+        "pub_key": "031a732d64d07ff432c5b8bbd3f99afd79cb50a71be6e908bf0a66654f0a702eda",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "031aa0189cbfcac924b56fbe0f0096d4076471956bda1ed6b142755d455701514d",
+        "alias": "my-voltage-lighting-node",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "031b0820781abb7c839bdf697ef566b36dbac9da1b18535f700aca3f132aed8fa5",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "031b8276d8660453708ee0eeb239eab958d11643e3732dab8e2f8e39f39ce388c8",
+        "alias": "getalby.com",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "031c8b305dadc9556f7c24ecfa02ee9d6890ae9bb0e243643417508ffa973ff27b",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "031d49ea984bfef0be80f2c0206ff508882a912ff7914d03dfc60e3f712e0be8f7",
+        "alias": "BTCPay_Gianlock",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "031df8ea711416b52d33c2f4a9b2a41d82f1da3c7672ffef2c24b0751cbdb75404",
+        "alias": "speed1",
+        "node_type": "Payment,LSP",
+        "entity": "Speed",
+        "role": "Speed Payments Processor & LSP"
+    },
+    {
+        "pub_key": "0320e145e234a879deaf22ded358ad88b686493175a862635257ceda07019277e7",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "0321fd65d0e9d1435e36f1a25c7d15e9ca294ff0fab7cb2fabe454c544a94b3d31",
+        "alias": "yellowcard-sends",
+        "node_type": "Exchange,Payment",
+        "entity": "Yellow Card",
+        "role": "Pan-African Crypto Exchange & Onramp"
+    },
+    {
+        "pub_key": "032524ea24509744163c15ce33908f346103ad53565ecbf3ee5e417af1749a3d39",
+        "alias": "btcpay-lnd",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "032581eb9c5cb92e05149edb8e29afe08d0645f5d6c4b6f02c2809b371a6ab6fa1",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "0325fe4800837b5d608e5da294e3c90a5ee4206fb55363546787636b40a4499b30",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "032fde22b64e8a659ea7a015d6067877cef3e367d7781ff35095549b88c333e2cc",
+        "alias": "imperviousVoltage",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "03328f2dda1268260feae33cc7774775a7e81484a3b8200d1b0b6119233ec0db15",
+        "alias": "\u26a1\ufe0fStriketheLightning\u26a1\ufe0f",
+        "node_type": "Wallet,Exchange,Payment",
+        "entity": "Strike",
+        "role": "Global Payments & Remittance"
+    },
+    {
+        "pub_key": "0332d57355d673e217238ce3e4be8491aa6b2a13f95494133ee243e57df1653ace",
+        "alias": "Fountain.fm",
+        "node_type": "Podcasting,Payment",
+        "entity": "Fountain",
+        "role": "Value-for-Value Audio & Podcasting"
+    },
+    {
+        "pub_key": "033323c3b00f142cff4fd2e20e125112d0c58ae4a3cc135f4e57512652050a4c05",
+        "alias": "swissKnife",
+        "node_type": "LSP,Routing",
+        "entity": "SwissKnife",
+        "role": "High-Throughput Liquidity Provider"
+    },
+    {
+        "pub_key": "0334346507fbd9c36742122414e3fb9b5b4db4e432e137633bb225b1926327b51c",
+        "alias": "lnb.coinos.io",
+        "node_type": "Wallet,Payment",
+        "entity": "CoinOS",
+        "role": "Web-Based Bitcoin & LN Wallet"
+    },
+    {
+        "pub_key": "033435e26071495b898234efcbdb3970448411d94e8c0b725fca0f4c8cac019ada",
+        "alias": "my-amboss-node",
+        "node_type": "LSP,Routing",
+        "entity": "Amboss (Magma)",
+        "role": "Lightning Liquidity Marketplace"
+    },
+    {
+        "pub_key": "0334b33a780ebf17c38ae0f5d3e4696043d50086bf69d5be05f86dd285c4de8b2f",
+        "alias": "st.coinos.io",
+        "node_type": "Wallet,Payment",
+        "entity": "CoinOS",
+        "role": "Web-Based Bitcoin & LN Wallet"
+    },
+    {
+        "pub_key": "0335e4265f783f37378e969c6a123557cf5d22cc97ec42ea3abff5dfaa64afea83",
+        "alias": "lndeu0.zaphq.io",
+        "node_type": "LSP,Payment",
+        "entity": "Zap / Strike",
+        "role": "Zap HQ Settlement Infrastructure"
+    },
+    {
+        "pub_key": "033614c5e446decd5ed11bb30c40efb12d8e3eb54634fcc649ac5d4702867afae4",
+        "alias": "BTCAlbyHubLNDNode",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "03363e1038939b5d37251b3e51d24637b8fffdee1a5b73351e139049f8c7f87958",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "03390c79737f525a07e229a4c50cb6259d687859ad2622707565bd3881e4355736",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "033a7cde65ca1cc50daaf8781d65a6e9bdaf404d7249ba76e31f66e2ecb42fe3ab",
+        "alias": "amboss-node-2",
+        "node_type": "LSP,Routing",
+        "entity": "Amboss (Magma)",
+        "role": "Lightning Liquidity Marketplace"
+    },
+    {
+        "pub_key": "033b21893e1cbe11dce804d215b6028cb10f1037a968bbc06107cad2b5aaefc4d9",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "033bc6bfec1d65312cb330db5754ad33a14292e348b0113d624a9928775c30a555",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "033c125335bb7d1f75a0085cb9b72670f3bf96a8a9563dee0721231a01308d05cd",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "033c37d3ffc3c6c261a7e65a3a97b16474459fb39c1f42090a27b3359af3e7a8ff",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "034015789b177465344935163a1897a938b3c159cb3d86be3decf14644a17eaac4",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "03409f317416148d7e82f4b71f3d142b8d69af8c7997e3d0dc01df3884c863db4d",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "03420dc9c504f6dbad0c8c6c3c1fc97becd2e1999db02b90581ba695066b8beb3e",
+        "alias": "btcpayserver.cz",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "03449f7a53a92501b0ed80da24d530d525b0d08121a7bb97c370251780b75e11a4",
+        "alias": "btcpay.nisaba-solutions.com",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "0346428aeca67be14ef6d21538a0fcb421dd1e8955b5a0add95c892168df2cc2ff",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "0348546ee5812be2c42a27c6b1fcf6027c9facc05ce06291b151e47a6aa8ccc1b2",
+        "alias": "Lightning Always Strikes Twice",
+        "node_type": "Wallet,Exchange,Payment",
+        "entity": "Strike",
+        "role": "Global Payments & Remittance"
+    },
+    {
+        "pub_key": "0348eb55a7cd2332c3bcf5cf1bd81732d96d99caa56290de57eb02fac3c997d217",
+        "alias": "btcpay.coldbit.com",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "034b3ecd8d87edf1e13aa23cb34c4f719d2faeeeae10010d44d91f5e432c8e4b5e",
+        "alias": "PaidlyInteractive2\u26a1",
+        "node_type": "Payment,LSP",
+        "entity": "Paidly",
+        "role": "Point-of-Sale & Commerce Payments"
+    },
+    {
+        "pub_key": "034d658902af81e5947f62c186ad249724f718395e0d03ef9a9b96f82e13f6f0fd",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "034f52c20dd3a64a17baeda73e73d2b0f67425f556eb046d688454a0439995dfec",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "035022195d9b9a11c36f96086016e2f1fc211f0f2a9025685064bb2e5070302f00",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "0351b5baac71074cdc401b37293731069008d7f74289b5aa447f6935b79e2e3d47",
+        "alias": "lvb2303-voltage-node-blw",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "0351f4fdba0020a18cfe0f0260c065a4e2aabdfb693f690db111f11c323c20234a",
+        "alias": "JaimeLoopz | CLN",
+        "node_type": "LSP",
+        "entity": "Lightning Labs (Loop)",
+        "role": "Submarine Swaps & Pool Routing"
+    },
+    {
+        "pub_key": "0352a951023ee35a34f02f176b9b452fb15bb7d39c5c2b1f1c2a369aac441dcca7",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "0357d9de9caab281d82742cdea478e4310f49e70b7d2ee8a3d6f3ebbddc127f0ee",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "035800b63b41fbca2fed0a01501ee2019036b05510f63b90ed1579a4f4ca2c561f",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "035ad2c954e264004986da2d9499e1732e5175e1dcef2453c921c6cdcc3536e9d8",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "035c2823f8d1bfade1a30828a60bd7cc4384f991929be791cae39c4877f8652355",
+        "alias": "CoinGate",
+        "node_type": "Payment",
+        "entity": "CoinGate",
+        "role": "E-Commerce Crypto Payment Gateway"
+    },
+    {
+        "pub_key": "035c42ea716c7ffa3c380a73f1de7ba82a61f0c8af710b175d6ecbdb6b64edda6a",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "035d422a3d9e1f9611dc6d208b860bd421772ba387ab518be0d6aa73553ebfa048",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "036280ce2a8346991c39fd616d2c8693017f073709f38f3c5eaa39891e40cb2ab9",
+        "alias": "speed3",
+        "node_type": "Payment,LSP",
+        "entity": "Speed",
+        "role": "Speed Payments Processor & LSP"
+    },
+    {
+        "pub_key": "0364c90f2edcc5c225c3313f0074ed6cff0efb0e3617891746d823c16d023ea018",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "03652ec1ab854059b7fa203b946c1b610c6dee46b3d6e09c4d8969b4e48ed2e080",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "036902961705888f6f8897ffa99d1fe66dd539e2be8bac59dedb9b8ca717031428",
+        "alias": "LigthningPhoenix2063",
+        "node_type": "LSP",
+        "entity": "ACINQ",
+        "role": "Phoenix Core Routing & Infrastructure"
+    },
+    {
+        "pub_key": "036a366167ab6b133670172a8cb3cfecce5bd14d0bfb8bc0c5323c471b61f00209",
+        "alias": "Another_Phoenix_Risen",
+        "node_type": "LSP",
+        "entity": "ACINQ",
+        "role": "Phoenix Core Routing & Infrastructure"
+    },
+    {
+        "pub_key": "036afa5617d9aff9ad9950738642c583c01882840fe79b000862e0b9d6799671d9",
+        "alias": "kirin-blink-lightning",
+        "node_type": "Wallet,Payment",
+        "entity": "Blink",
+        "role": "El Salvador & Global Retail Wallet"
+    },
+    {
+        "pub_key": "036d8b3498c8fddb3b15f4eca6841bdd2f9db6e8208685134ccb7bbf05f06d7c06",
+        "alias": "nicehash-ltd-ln1",
+        "node_type": "Exchange,Payment",
+        "entity": "NiceHash",
+        "role": "Mining Hashpower Marketplace"
+    },
+    {
+        "pub_key": "036e2dee0bcb08c5f731c7ba0ab590e7d3b6e7ce0cc8a8b12943c7bb3786a3e811",
+        "alias": "OrangePhoenix",
+        "node_type": "LSP",
+        "entity": "ACINQ",
+        "role": "Phoenix Core Routing & Infrastructure"
+    },
+    {
+        "pub_key": "036f4c561170f14947bcb5799fd4845c0acf529bdc6543bf0e5a0683e3867eb262",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "036f6128ce4077f23f21103b97117ba6ef519119e6ed86844bbc203e8bf4ea8bba",
+        "alias": "eligma-lnd-voltage-production",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "0371b0d164a00cbb1299e6cbfd4cff03e83967a1fbb477c1217d8b37934c135f9b",
+        "alias": "btcpay.mx gift cards",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "037213ed0fa8e67f9adf41fb734ec0b2dadf4a2a284cd8a2a0e2c74c23654a96c5",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "037292b8118c30742cb2b35e64b18a7057c3262fb1ce4f34d27f3a0650de07e4d1",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "03736d6a5a4c501e95ad122490d9cf509348a2178eb54814d4f057dd488dd3a417",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "0373d4785fd04463cee9e7e1d0c97135dc2f2d59777884a587ea7296edd3b9a374",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "0374e89ab7d02496e4e938fc717e84bda627a4ccabd927724d59cbdd97d25e84b1",
+        "alias": "LBbtcpay",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "0375a8fd1eadaaac6127ecc0e481732cb16b45ee9235159b7c45bae59b12c2dfae",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "0376b90dd5861a9de9821e3a212722db35c3ccc1e2766b64fd500771f141c3df2a",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "03778e05ff17369f17036f2efb1e0592f12be40044ca4b883cce1811913eb9eb75",
+        "alias": "b2phoenix",
+        "node_type": "LSP",
+        "entity": "ACINQ",
+        "role": "Phoenix Core Routing & Infrastructure"
+    },
+    {
+        "pub_key": "037798dfb8cab3e4ec94e630fe6fc472830f1084ab3939394076ae62979463982e",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "0377c140ce308e27e795a186870543ef9931142ea2d28a019fb8dc5377882d28d5",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "037d16cb55105a50fdf1432a3aaa0eb198ac72b406c9bd305817cc150377493c91",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "037fa4a9455b6ba7df5f663ee4ea585220437e18943ba58108ff4c0de7cf622bde",
+        "alias": "SparksLNvoltage",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "03808b1a698906bbf0457922aec66168a8edbfe98b1379249ace270b41ae0dde48",
+        "alias": "balbyBTCnode",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "0382a7037fe23814a722c1b0c61b4ca78b1d7ed91176a134e43d3e2c62e034c0e6",
+        "alias": "mainnet4-lnd.zaphq.io",
+        "node_type": "LSP,Payment",
+        "entity": "Zap / Strike",
+        "role": "Zap HQ Settlement Infrastructure"
+    },
+    {
+        "pub_key": "03874d9c9d9ce2188fa1cbeca321c1dcb89d946ddfe3a2252dd01a18b50f83700d",
+        "alias": "btcpay.lat",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "03874dc955fba789b08db50beb6839d41379071f4f4747ae8546329a14176e339a",
+        "alias": "FUNK-BTCPay",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "03886889de219866e7e9b29bcc2ee15a98769af7ace5647afbd0c50874a93a4254",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "0389ded261a174b5361e91cc430619878e479fc08a3bdf27a923299f240d54d4b9",
+        "alias": "Public LOOP Proxy - 250ppm",
+        "node_type": "LSP",
+        "entity": "Lightning Labs (Loop)",
+        "role": "Submarine Swaps & Pool Routing"
+    },
+    {
+        "pub_key": "038ba8f67ba8ff5c48764cdd3251c33598d55b203546d08a8f0ec9dcd9f27e3637",
+        "alias": "flashsats.xyz",
+        "node_type": "LSP,Payment",
+        "entity": "FlashSats",
+        "role": "Lightning Service Provider & Liquidity"
+    },
+    {
+        "pub_key": "03910da61c1b42e135f134ed92a537c758d1edac5436efbec5ee8cec1928e1a095",
+        "alias": "PiLN-Chiba\ud83c\udf33Magma Ready\ud83c\udf0b",
+        "node_type": "LSP,Routing",
+        "entity": "Amboss (Magma)",
+        "role": "Lightning Liquidity Marketplace"
+    },
+    {
+        "pub_key": "0391b71ac5d04454bfd2fe65ba3bb734781c93828632fa1d4c6981856f227b9231",
+        "alias": "pos.btcpayserver.it",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "0392cd116c9c6938dbdda49e1144996116d85c29cc51dd1b4fffae6634563d555d",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "039aebb11dbb986ce6d5ad3d66b43e93b3e483f78236619b92f4a576145dc19892",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "039b65c2965bc224d49df38af47272a5dc4737992c1520cebbd985b159d0c2c34a",
+        "alias": "Lightrunner-voltage",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "039c23b1b56fc806c5951ea60daf20a9eb5d79538d9fa90fc03a6aeb3b3a8eb66a",
+        "alias": "thePhoenix",
+        "node_type": "LSP",
+        "entity": "ACINQ",
+        "role": "Phoenix Core Routing & Infrastructure"
+    },
+    {
+        "pub_key": "03a0e685761ac7125ddae5f07d43e82b8c654469cd59c0ca784bff47b745a0ddad",
+        "alias": "rs-voltage",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "03a0fbf509a4c1f14647934988c7b484da8ab6090e81d015c6746ecd1134a37207",
+        "alias": "5ElementsBoltz",
+        "node_type": "LSP,Payment",
+        "entity": "Boltz",
+        "role": "Non-Custodial Submarine Swap Exchange"
+    },
+    {
+        "pub_key": "03a12caeaa1507fc72de5a614555d6c450be1998997b4fda1ed77f432d39704e46",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "03a13e849bc90a0187120198b9ab0fc55d97a3fa2368f04baedf667e82a5701ea5",
+        "alias": "allen-voltage-lightning-node",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "03a318166d9fb5722ce4e386ec60e10e5f885ee370686478448c53bcd8474be9b7",
+        "alias": "lorenzo-voltage",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "03a4a1aed885ad52113e0b45e9d10468423f06ee4b0fef7b4f7d0788697875a9fc",
+        "alias": "op1-voltage-node",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "03a4ffb9e2ee8effeb9056de22053961c792c5fb324e80d1fc26a1ef82988d9b9e",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "03a59ebd9a20f2b8d6c366473f6e2e36254aca0ed88d5d46e9b0a3a5276fe25ebf",
+        "alias": "BitDance LND1",
+        "node_type": "LSP,Routing",
+        "entity": "BitDance",
+        "role": "Lightning Liquidity Provider"
+    },
+    {
+        "pub_key": "03a7510e93c0c817fb4521d2c884e1a75cd3adc831e72a3609515325c51d705029",
+        "alias": "deezy clboss",
+        "node_type": "LSP,Payment",
+        "entity": "Deezy",
+        "role": "Submarine Swaps & Liquid Bridge"
+    },
+    {
+        "pub_key": "03a7c350de3b9a11313e93c1fc3f21a1d131547b71ac2dac5966545076f535bae7",
+        "alias": "DeviaVirStrikesTwice",
+        "node_type": "Wallet,Exchange,Payment",
+        "entity": "Strike",
+        "role": "Global Payments & Remittance"
+    },
+    {
+        "pub_key": "03a9364a1f954fc146fdea379957aa778273d641805299d18cae5621563d541851",
+        "alias": "BitGo",
+        "node_type": "Exchange,Payment",
+        "entity": "BitGo",
+        "role": "Institutional Custodial Settlement"
+    },
+    {
+        "pub_key": "03aae3f600d7355af542a368cecf67cdcb0e61c5503b7893f1c1c65f57740cd93e",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "03ab9dd5c008c8117f754b7cd59c08b4d53489a03fbd66dd9be8b108bd93599aa0",
+        "alias": "Sovereign Boltz",
+        "node_type": "LSP,Payment",
+        "entity": "Boltz",
+        "role": "Non-Custodial Submarine Swap Exchange"
+    },
+    {
+        "pub_key": "03ac2abafea57755b9487247b01234ca7c8e7511fd424f012ce24bf6d8836dcc45",
+        "alias": "speed6",
+        "node_type": "Payment,LSP",
+        "entity": "Speed",
+        "role": "Speed Payments Processor & LSP"
+    },
+    {
+        "pub_key": "03ac804b7268038bb9e99bc8c5c0c21f6145de8ef3aa3d2f91ae5a8fd803de919f",
+        "alias": "blackriver",
+        "node_type": "Exchange,LSP",
+        "entity": "River Financial",
+        "role": "Bitcoin Financial Services & Client Hub"
+    },
+    {
+        "pub_key": "03ac9d759d2dfbb67f723482d316955813a5750f7ade6d9872e4ad1139c17e7c08",
+        "alias": "btcpay.bitcoinpuertori.co",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "03ad12a72041c171d9db26638b43d19b4da32ce9012ff6563b70998e9d4cbdc298",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "03add4611d867f6e7e9a4f1a7ceeeed7d3f69a73aa03f88a9ace78d8ca09df2d4c",
+        "alias": "OpenNode.nl",
+        "node_type": "Payment,LSP",
+        "entity": "OpenNode",
+        "role": "Enterprise Lightning Payment Processor"
+    },
+    {
+        "pub_key": "03ae462d37481c56cd10f683638138fd7593f32be31b7ee77656110009f13673ec",
+        "alias": "personal-lnd-for-btcpay",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "03aec4a3dab35425259cf023de2ce0ab2de6d2ae555ef5ffb99d01a68936e77e84",
+        "alias": "NodesVoltage",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "03af9907b20acda85012d855de45176e1a204214d59c45b7173729a6b8379222b9",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "03b1880f56bbe6165e71209b261e0cb5d56b5ea1cf99bead663af1f1ac960cae51",
+        "alias": "coinos",
+        "node_type": "Wallet,Payment",
+        "entity": "CoinOS",
+        "role": "Web-Based Bitcoin & LN Wallet"
+    },
+    {
+        "pub_key": "03b428ba4b48b524f1fa929203ddc2f0971c2077c2b89bb5b22fd83ed82ac2f7e1",
+        "alias": "lndus1.zaphq.io",
+        "node_type": "LSP,Payment",
+        "entity": "Zap / Strike",
+        "role": "Zap HQ Settlement Infrastructure"
+    },
+    {
+        "pub_key": "03b55123d5f2454795c906d53f32590602dd27bf35000b2fb8e581e68c7843af21",
+        "alias": "SessionsVOLTAGE",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "03b5cc4ad17973b2d788b6cc3c6a62ef2ee25c838e94e444bb813bfbfdb1174c7d",
+        "alias": "BTCPayConsultora",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "03b665b4c52c736a3b262b98b303882223e85ae56edfe7b7edc29235af8a7bc974",
+        "alias": "node2voltage",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "03b6a8e3999574237d84b0a6d1a9789b320a8193a83be37bea3840ab280f7c75d1",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "03b6eb44799a5be859f6dca5eec39f2b27aff850289bee06705c6c61a5ff48e5db",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "03b83a81de6351ab0a0f60107a0800affa54d16fd56811e40bb7ff6e09b8533873",
+        "alias": "demo.btcpayserver.it",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "03b87ef2717c5aec3af49e2a1c2ca3646973c51f3825d3fe554793c1817b51c6ce",
+        "alias": "btcpayserver-mainnet",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "03b9ee8e4b4e74a3481213d4e8834ae8d5b8afe6c01ba3f311fe383afbbb1e1544",
+        "alias": "abvoltage",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "03bc290b26637eb8f25de69fca83c85c014796aa03d90bf0d4c03c18947e12127d",
+        "alias": "fountain.fm",
+        "node_type": "Podcasting,Payment",
+        "entity": "Fountain",
+        "role": "Value-for-Value Audio & Podcasting"
+    },
+    {
+        "pub_key": "03bddc1e44a9730a9e95097ebc4254c3b1eab3a65ec34db8afe7b4fc8ab20dbc84",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "03c046148c6aff2e4a479a4c36e923e9e5271f3b519465c2ac4e34995686f1acac",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "03c081e1c880f1cea7abe0308ae47ed0d56ed3e2f6935cd665b0d59424305fcb5f",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "03c0e80af71798776988383835a3310022bb3486aad26a14bfa7f8b489045b220e",
+        "alias": "CoinCorner.com",
+        "node_type": "Exchange,Payment",
+        "entity": "CoinCorner",
+        "role": "UK & European Exchange / NFC Card Payments"
+    },
+    {
+        "pub_key": "03c19c57ea31478f51ed0ce5d9bd64cce1bb6ca34ca6eb135725391bc3b67b0690",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "03c4360e8cd8f78974c3d5c3f6dfa2fb3e02df9e66b5555a7fdbdc77cd19f723d7",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "03c7ee50a8d530e68c068154807fa07e8b1e253b8bfff1fe32d690b6b2a223d6eb",
+        "alias": "btcpay.crypto-consulting.it",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "03c9f7a38b067d38d129456f0805ef7ec1d54cd6478b23552b0aef69dd3dff8ef0",
+        "alias": "btcpayproviderdundle",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "03caed33e53a413b406fc9a6cfa56129718d8879f97ad7ecc7cfe8e943a7c0c755",
+        "alias": "moonbreeze",
+        "node_type": "Wallet,LSP",
+        "entity": "Breez",
+        "role": "Non-Custodial Mobile Wallet & SDK Hub"
+    },
+    {
+        "pub_key": "03cc1d0932bb99b0697f5b5e5961b83ab7fd66f1efc4c9f5c7bad66c1bcbe78f02",
+        "alias": "stacker.news",
+        "node_type": "Social,Payment",
+        "entity": "Stacker News",
+        "role": "Bitcoin-Native Social Discussion Platform"
+    },
+    {
+        "pub_key": "03ce608cfee63749c9491f6b1aef29d6c60b5d3fa004fe6c5a8df32c49cb0a618c",
+        "alias": "cl-voltage-lite",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "03cffedc12ef514290e8f04485373061e0a0690bff2992ff081af09619d34359e5",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "03d01ae1548e4fc8168fdf85aebc8f36a7e361e26d44d1be35d087e3a5461814fb",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "03d05ce800bcaf66183062a32a46176c8a9def025b3820240d5a55e533649e98f3",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "03d26729e81cd72c0e95b1d7fbf5c9c6ab74175b860c1fca6699c9847e923be59d",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "03d2a44997a0fb6deee0a31c389d9d6bcb6f929f1dd0ba67201d195f2b3c76087c",
+        "alias": "http://mainnet.demo.btcpayserver",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "03d51a1ef33999f08756d9340254418e1b2b0c499c58ccefbde3021d05657f7f7f",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "03d67293bea1d531353a5026d752783628ef15f285fb00207b4eb72185674e9ec5",
+        "alias": "JaimeLoopz",
+        "node_type": "LSP",
+        "entity": "Lightning Labs (Loop)",
+        "role": "Submarine Swaps & Pool Routing"
+    },
+    {
+        "pub_key": "03d6f885d25f597de1ff41da9d0fbcd50be4fa0286083f32f2ee74bef09c0ed846",
+        "alias": "cryptoagile.btcpayserver.it",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "03d7081f524b4cfa704543e9d46f78924b0e6664ccb15d8cd81abfd25ebd667f9c",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "03d79d9fec1ba82b7ae7edbe1f73f4e058d10ed8f7c624d88b211d6d3252bc3225",
+        "alias": "MyVoltageRoutingNode",
+        "node_type": "LSP",
+        "entity": "Voltage",
+        "role": "Enterprise Lightning Cloud Infrastructure"
+    },
+    {
+        "pub_key": "03d8030d99b91d13728c2005121d3bffc3855b8674cd87319d116622f908fe8319",
+        "alias": "speed8",
+        "node_type": "Payment,LSP",
+        "entity": "Speed",
+        "role": "Speed Payments Processor & LSP"
+    },
+    {
+        "pub_key": "03d8e998bb2a76b223f2cc52071af4f59162782e94f954f7dcc9eeee4ae4d42e2b",
+        "alias": "Primal-Lightning",
+        "node_type": "Wallet,Social",
+        "entity": "Primal",
+        "role": "Nostr Client & Lightning Wallet Hub"
+    },
+    {
+        "pub_key": "03db068d42a67b4ee1e85e564307f02dcd0e467cc0f81091b59ce98f6998cd319b",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "03df3b998533a072aaf6296195610264738fbf0d9f85d6a7473ece9a80d31ea478",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "03df3f0a2fd6bea5429a596461ce784c922b2981ada1af89cfefcd9ccfb16c16a7",
+        "alias": "CryptoChill",
+        "node_type": "Payment",
+        "entity": "CryptoChill",
+        "role": "Merchant Crypto Payment Gateway"
+    },
+    {
+        "pub_key": "03e2c6b64bca3e820faae6f2271ab0a92f9ce210a304a2e6e98132e231a9fbbc3e",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "03e35a27fa8bfad8675aeb9e96530e7b00e6fa03b571d235f6b4e68cfb4ef9097c",
+        "alias": "ln1.generalbytes.com",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "03e87fb724c13fcd99e94190479b36214ce9ce8ff45658b87f22fd816453b16598",
+        "alias": "LiteStrikeBTC",
+        "node_type": "Wallet,Exchange,Payment",
+        "entity": "Strike",
+        "role": "Global Payments & Remittance"
+    },
+    {
+        "pub_key": "03e9c5157126b8049ad235bdade8db97a473b5760b34781b8c870bd2ba34dbfcf8",
+        "alias": "Boltz Mini",
+        "node_type": "LSP,Payment",
+        "entity": "Boltz",
+        "role": "Non-Custodial Submarine Swap Exchange"
+    },
+    {
+        "pub_key": "03ea99f62e78ec676858e8b5924ac3e27293125ea2569df90966dcd6490e530525",
+        "alias": "boltz-audit",
+        "node_type": "LSP,Payment",
+        "entity": "Boltz",
+        "role": "Non-Custodial Submarine Swap Exchange"
+    },
+    {
+        "pub_key": "03ebebea3b55b6acf81bca3a6ef3983bf7322825f4c7a98f8c981777d30d9494ba",
+        "alias": "southxchange.com",
+        "node_type": "Exchange",
+        "entity": "SouthXchange",
+        "role": "Latin American Crypto Exchange"
+    },
+    {
+        "pub_key": "03ecef675be448b615e6176424070673ef8284e0fd19d8be062a6cb5b130a0a0d1",
+        "alias": "Electrum Trampoline",
+        "node_type": "LSP,Wallet",
+        "entity": "Electrum",
+        "role": "Electrum Trampoline Routing Node"
+    },
+    {
+        "pub_key": "03ed61ea96b4072110e5a8efec8e2ff9654e1e7178c07a4486d32f268324d6e0ad",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "03edcf2358b9920ec2ecb28499a0f51629ef796d891504b5423ba4b5ad18cbfbf9",
+        "alias": "speed7",
+        "node_type": "Payment,LSP",
+        "entity": "Speed",
+        "role": "Speed Payments Processor & LSP"
+    },
+    {
+        "pub_key": "03ee866e1c5aa2de72200ee9e361007b69acdd6d0db612e64f53c67a643a261593",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "03ef944f2cb635c53a6f76ce0d87501cfb11374a4f5fdd7e990933940f782c5e9e",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "03f0a3d386542e6ac03bcc8a8e2cbaf590575fe8e87efe462dbdd78b917685d431",
+        "alias": "ZTGnodeAlby",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "03f13774f8ff88aaf351ef18c09bb1fef2fff3c4ae74fcf3beb4d2718b66afdbdb",
+        "alias": "mm_phoenix",
+        "node_type": "LSP",
+        "entity": "ACINQ",
+        "role": "Phoenix Core Routing & Infrastructure"
+    },
+    {
+        "pub_key": "03f542a58c73b5089f85c8cb5602dc8b59a923f30d571ade7ef6ea1ee9a0d3b5e9",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "03f6bcf55c39a071177d1f102fe57c3756e9345c6c4adda1f233ef68e1e68014b6",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "03f72aec4365513d06b0405cb81d75298009a532623e95b590bd794cb66db3ecc7",
+        "alias": "lightningnodebtcpayserver",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "03f80ac42485f24b4b41c58127572d4cfd70f7069dbb2765bfb36e51a0ec8b9c78",
+        "alias": "skybladephoenix1",
+        "node_type": "LSP",
+        "entity": "ACINQ",
+        "role": "Phoenix Core Routing & Infrastructure"
+    },
+    {
+        "pub_key": "03f8a5f510002b726b3aa8075e09e81d517119ea8a43205193f354176c98d35af4",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "03f952b51d03f20335f13e6dd4d14ffb91ea835a5d8e65b09785bf102133b494a7",
+        "alias": "Satoshi Strike",
+        "node_type": "Wallet,Exchange,Payment",
+        "entity": "Strike",
+        "role": "Global Payments & Remittance"
+    },
+    {
+        "pub_key": "03f99ec64852c8eb0239daacf207fddf69a27c45c2786a13d59d3cb57569202fea",
+        "alias": "btcpay.bitcoinservice.it",
+        "node_type": "Payment",
+        "entity": "BTCPay Server",
+        "role": "Self-Hosted Merchant Gateway"
+    },
+    {
+        "pub_key": "03fd3d50aa244f50221878f7226003ef6bd97577c4c9dbbc6ac246be2bf3c30c1a",
+        "alias": "Alby Hub",
+        "node_type": "Wallet,LSP",
+        "entity": "Alby",
+        "role": "Alby Hub & Browser Extension LSP"
+    },
+    {
+        "pub_key": "03b006c37dfb8681e5db9f513386d06c9d18bd514fae5d79a7ed2d5991c7d57330",
+        "alias": "YTMND",
+        "node_type": "Routing",
+        "entity": "Independent Routing Whale",
+        "role": "High-Capacity Community Routing Hub"
+    },
+    {
+        "pub_key": "0289b70b52a04e951446674bedb571336295a2890ca0079639ebc067076277d571",
+        "alias": "SCP-096",
+        "node_type": "Routing",
+        "entity": "Independent Routing Whale",
+        "role": "High-Capacity Community Routing Hub"
+    },
+    {
+        "pub_key": "033b74d74d6b7d96e89ebc9e135c4ffb0526fbe8293eb02c05f0c28146d078605d",
+        "alias": "033b74d74d6b7d96e89e",
+        "node_type": "Routing",
+        "entity": "Independent Routing Whale",
+        "role": "High-Capacity Community Routing Hub"
+    },
+    {
+        "pub_key": "0391904d140fdf88d19423513945a5fcc49c606521b65a85f6d6fe46ebdd1c7665",
+        "alias": "LifeIsGood",
+        "node_type": "Routing",
+        "entity": "Independent Routing Whale",
+        "role": "High-Capacity Community Routing Hub"
+    },
+    {
+        "pub_key": "027fa5d82ae86515412af3d361df8bc2c242d8fe92e6d488612964108c5797e5e4",
+        "alias": "HOPPINGMONKEY",
+        "node_type": "Routing",
+        "entity": "Independent Routing Whale",
+        "role": "High-Capacity Community Routing Hub"
+    },
+    {
+        "pub_key": "0324ba2392e25bff76abd0b1f7e4b53b5f82aa53fddc3419b051b6c801db9e2247",
+        "alias": "kappa",
+        "node_type": "Routing",
+        "entity": "Independent Routing Whale",
+        "role": "High-Capacity Community Routing Hub"
+    },
+    {
+        "pub_key": "02e9046555a9665145b0dbd7f135744598418df7d61d3660659641886ef1274844",
+        "alias": "SilentBob",
+        "node_type": "Routing",
+        "entity": "Independent Routing Whale",
+        "role": "High-Capacity Community Routing Hub"
+    },
+    {
+        "pub_key": "0298f6074a454a1f5345cb2a7c6f9fce206cd0bf675d177cdbf0ca7508dd28852f",
+        "alias": "BCash_Is_Trash",
+        "node_type": "Routing",
+        "entity": "Independent Routing Whale",
+        "role": "High-Capacity Community Routing Hub"
+    },
+    {
+        "pub_key": "03632f5c3e45832ddf045469f117b503764ad71866d961ae5ec8df2c4378ac019a",
+        "alias": "Julia\u26a1\ufe0fLND01",
+        "node_type": "Routing",
+        "entity": "Independent Routing Whale",
+        "role": "High-Capacity Community Routing Hub"
+    },
+    {
+        "pub_key": "02a98e8c590a1b5602049d6b21d8f4c8861970aa310762f42eae1b2be88372e924",
+        "alias": "ed528ad49bedd1f7a638a",
+        "node_type": "Routing",
+        "entity": "Independent Routing Whale",
+        "role": "High-Capacity Community Routing Hub"
+    },
+    {
+        "pub_key": "02b21730bc36061609cc1fe1bd7f5d3068e0a5e511aaf210a82c046b58020c4aa8",
+        "alias": "Tachyon",
+        "node_type": "Routing",
+        "entity": "Independent Routing Whale",
+        "role": "High-Capacity Community Routing Hub"
+    },
+    {
+        "pub_key": "02f31f23d87a366e5ed28f72546193f85cba1073b7386eafd53b0d349df79ee6f1",
+        "alias": "Uncle Jim's Node",
+        "node_type": "Routing",
+        "entity": "Independent Routing Whale",
+        "role": "High-Capacity Community Routing Hub"
+    },
+    {
+        "pub_key": "02e20917565c68c798687ab39d4cc0b3409ac079bd360f03e8bb18c8090da426a2",
+        "alias": "lndnode08",
+        "node_type": "Routing",
+        "entity": "Independent Routing Whale",
+        "role": "High-Capacity Community Routing Hub"
+    },
+    {
+        "pub_key": "02a0f17d3ddb81b3b0c048956baebdf68468c9d7c8b851e5d26354a64a54cff562",
+        "alias": "Goblin\u26a1Node",
+        "node_type": "Routing",
+        "entity": "Independent Routing Whale",
+        "role": "High-Capacity Community Routing Hub"
+    },
+    {
+        "pub_key": "02affc6db7e022acde224403e096b0dafc1a245547f67bb1123706d2ff130f038a",
+        "alias": "BitcoinVN 26",
+        "node_type": "Exchange,LSP",
+        "entity": "BitcoinVN",
+        "role": "Vietnam Bitcoin Exchange & Lightning Gateway"
+    },
+    {
+        "pub_key": "0379dbd35a22abe30d87f89664bad7aea31e4ba15a2e69ec4946113cfb9843c445",
+        "alias": "points-nexus",
+        "node_type": "Routing",
+        "entity": "Independent Routing Whale",
+        "role": "High-Capacity Community Routing Hub"
+    },
+    {
+        "pub_key": "02f9cdc8df3f142dcef499ce66464e2697f6e80e0db4b1d49c86f3e272931191c1",
+        "alias": "Porcino \ud83c\udf44\u200d\ud83d\udfeb",
+        "node_type": "Routing",
+        "entity": "Independent Routing Whale",
+        "role": "High-Capacity Community Routing Hub"
+    },
+    {
+        "pub_key": "0323a74fbd280d757cdd8c04513d302077089f3205db62963d0dea468c6424d231",
+        "alias": "LudwigTheAustrian",
+        "node_type": "Routing",
+        "entity": "Independent Routing Whale",
+        "role": "High-Capacity Community Routing Hub"
+    },
+    {
+        "pub_key": "0278f045df017c64c27bb8126c0dd52bbcd82021c0f89a913bf32a13d9e253f692",
+        "alias": "Common Bridge",
+        "node_type": "Routing",
+        "entity": "Independent Routing Whale",
+        "role": "High-Capacity Community Routing Hub"
+    },
+    {
+        "pub_key": "03072b17e8cccdc6537fa7d11fc9dd68e3b657006a25d080d8df8d9dbdb342a515",
+        "alias": "03072b17e8cccdc6537f",
+        "node_type": "Routing",
+        "entity": "Independent Routing Whale",
+        "role": "High-Capacity Community Routing Hub"
+    },
+    {
+        "pub_key": "033acb18b31498eb6503e06172dfd281b5b64df17b8a7cb6b2bcecfd89f275b755",
+        "alias": "T\ud83c\udf2eCO",
+        "node_type": "Routing",
+        "entity": "Independent Routing Whale",
+        "role": "High-Capacity Community Routing Hub"
+    },
+    {
+        "pub_key": "039174f846626c6053ba80f5443d0db33da384f1dde135bf7080ba1eec465019c3",
+        "alias": "e960fd8385a1603003727",
+        "node_type": "Routing",
+        "entity": "Independent Routing Whale",
+        "role": "High-Capacity Community Routing Hub"
+    },
+    {
+        "pub_key": "02763d8a6be55b52a6a352f417f6cf3a1680bcb6b9e9d3e3e369fbd2df0435e8e8",
+        "alias": "ride-the-lightning",
+        "node_type": "Routing",
+        "entity": "RTL",
+        "role": "Node Management Companion Gateway"
+    },
+    {
+        "pub_key": "020a919e4684a3678bd5d5fb21752ca19f9700214bf399abca72190c29664ad551",
+        "alias": "ln.mtpelerin.com",
+        "node_type": "Exchange,Payment",
+        "entity": "Mt Pelerin",
+        "role": "Swiss Crypto-Fiat Gateway & Non-Custodial Exchange"
+    },
+    {
+        "pub_key": "031800c296bc29a25c00986c16b752f9b01f8a08595ce92986df833a1701de58d5",
+        "alias": "031800c296bc29a25c00",
+        "node_type": "Routing",
+        "entity": "Independent Routing Whale",
+        "role": "High-Capacity Community Routing Hub"
+    },
+    {
+        "pub_key": "033967480e73bddc7ea62f8cbd338b0019a5393849962fc45035b76b0d9f0b6082",
+        "alias": "HyperForge",
+        "node_type": "Routing",
+        "entity": "Independent Routing Whale",
+        "role": "High-Capacity Community Routing Hub"
+    },
+    {
+        "pub_key": "037310ee65744f9c4a37cba7dae742a881f7bcc57f6be70b69a437860ffec410ee",
+        "alias": "HowlerNode",
+        "node_type": "Routing",
+        "entity": "Independent Routing Whale",
+        "role": "High-Capacity Community Routing Hub"
+    },
+    {
+        "pub_key": "0212fe9b6308e3156e2b66eea450c7b9ae4b61238614583e1cf6cd7766586f1d6e",
+        "alias": "SOMBERMOON",
+        "node_type": "Routing",
+        "entity": "Independent Routing Whale",
+        "role": "High-Capacity Community Routing Hub"
+    },
+    {
+        "pub_key": "0256ccca46170ff4b1ef54dd51a36ae309e5d139122dea89dfb64d07b8ad2f4b94",
+        "alias": "0256ccca46170ff4b1ef",
+        "node_type": "Routing",
+        "entity": "Independent Routing Whale",
+        "role": "High-Capacity Community Routing Hub"
+    },
+    {
+        "pub_key": "038a9e56512ec98da2b5789761f7af8f280baf98a09282360cd6ff1381b5e889bf",
+        "alias": "Megalith LSP",
+        "node_type": "LSP",
+        "entity": "Megalithic.me",
+        "role": "Lightning Service Provider & Inbound Liquidity"
+    },
+    {
+        "pub_key": "02e418fc0b63aed0e24285a9bc01d9e2cb459983828c060beadd16d7d3c82d3152",
+        "alias": "cc-03",
+        "node_type": "Routing",
+        "entity": "Independent Routing Whale",
+        "role": "High-Capacity Community Routing Hub"
+    },
+    {
+        "pub_key": "03c2abfa93eacec04721c019644584424aab2ba4dff3ac9bdab4e9c97007491dda",
+        "alias": "tippin.me",
+        "node_type": "Payment,Social",
+        "entity": "Tippin.me",
+        "role": "Web Tipping & Microtransaction Gateway"
+    },
+    {
+        "pub_key": "02d0e03736cbfc73f3c005bc3770327df0e84bd69bc8e557c279887344deb8bce2",
+        "alias": "Blockstream PeerSwap",
+        "node_type": "LSP,Routing",
+        "entity": "Blockstream",
+        "role": "Liquid & Lightning Submarine Swap Provider"
+    },
+    {
+        "pub_key": "03ba52b971ba42c179a55f3579fef8b64600213c72f14d7fab7946d38f964e98fd",
+        "alias": "03ba52b971ba42c179a5",
+        "node_type": "Routing",
+        "entity": "Independent Routing Whale",
+        "role": "High-Capacity Community Routing Hub"
+    },
+    {
+        "pub_key": "03c157946cc1cd376b929e36006e645fae490b1b1d4156b40db804e01b4bda48cd",
+        "alias": "The Continental",
+        "node_type": "Routing",
+        "entity": "Independent Routing Whale",
+        "role": "High-Capacity Community Routing Hub"
+    },
+    {
+        "pub_key": "03e03180e79d92337d6b5b511aa16a31adb559332cc208970d7bf69d7f3987b09d",
+        "alias": "naka-lnd",
+        "node_type": "Routing",
+        "entity": "Independent Routing Whale",
+        "role": "High-Capacity Community Routing Hub"
+    },
+    {
+        "pub_key": "03ae4b2ec2702284ad54d65d487da02d0d178d0dc533a4cf4e202f19411ab03dca",
+        "alias": "03ae4b2ec2702284ad54",
+        "node_type": "Routing",
+        "entity": "Independent Routing Whale",
+        "role": "High-Capacity Community Routing Hub"
+    },
+    {
+        "pub_key": "028c0b24915b87e2f433405be8e0df5988cd591d65d5c981feda24658fbc81bc28",
+        "alias": "Pear \ud83c\udf50",
+        "node_type": "Routing",
+        "entity": "Independent Routing Whale",
+        "role": "High-Capacity Community Routing Hub"
+    },
+    {
+        "pub_key": "03a5eafc05666ebe8329436311853b09db6d2462b40b7f06d001a7b9f086955c67",
+        "alias": "TBC",
+        "node_type": "Routing",
+        "entity": "Independent Routing Whale",
+        "role": "High-Capacity Community Routing Hub"
+    },
+    {
+        "pub_key": "025022f660d278b8d90415bdde1b385841b6caf179dc69569e4b55fd5aec70555f",
+        "alias": "\ud83d\ude80RocketNode\ud83d\ude80",
+        "node_type": "Routing",
+        "entity": "Independent Routing Whale",
+        "role": "High-Capacity Community Routing Hub"
+    },
+    {
+        "pub_key": "02cbdcbf587ad07f5fa938434ad16955239a5dea0b5c5187c7817cafb962a16d0f",
+        "alias": "lnd.lnfi.network",
+        "node_type": "DeFi,LSP",
+        "entity": "LNFi Network",
+        "role": "Lightning Asset Trading & Inbound Liquidity"
+    },
+    {
+        "pub_key": "03db294f69d3d382b5e022f8d86bb326d3c2cf16cd1efd0aa64628c155d4d7ab27",
+        "alias": "03db294f69d3d382b5e0",
+        "node_type": "Routing",
+        "entity": "Independent Routing Whale",
+        "role": "High-Capacity Community Routing Hub"
+    },
+    {
+        "pub_key": "03ce4c1a9a11910b8d6c1a8028b94b99d2dade8c9380736dce5c640997ff7e3d75",
+        "alias": "Black Magic Man",
+        "node_type": "Routing",
+        "entity": "Independent Routing Whale",
+        "role": "High-Capacity Community Routing Hub"
+    },
+    {
+        "pub_key": "03b62dd177f6a8bd72b29a4d4d2b2eaa7fce14384c1d05e78a569a27452f20162b",
+        "alias": "Nova",
+        "node_type": "Routing",
+        "entity": "Independent Routing Whale",
+        "role": "High-Capacity Community Routing Hub"
+    },
+    {
+        "pub_key": "0391c5b825b2b7719ddd2e843fc373b335919819fc3f44b31ddafd977a959faf3d",
+        "alias": "f605fb8eb1270abf39d3ef0e178c2f60",
+        "node_type": "Routing",
+        "entity": "Independent Routing Whale",
+        "role": "High-Capacity Community Routing Hub"
+    },
+    {
+        "pub_key": "02a6271419c97c6d81698751a11a4e0dc3312555b45b98f3ba4e61b34a6b683d2f",
+        "alias": "BV26_LSP_V",
+        "node_type": "Routing",
+        "entity": "Independent Routing Whale",
+        "role": "High-Capacity Community Routing Hub"
+    },
+    {
+        "pub_key": "02ba54585837609251865ba9835a32fbeb07f96abc20767dedaafeb17a2e5b8acf",
+        "alias": "\ud83d\udee1 Don Quixote Bank \ud83d\udea9",
+        "node_type": "Routing",
+        "entity": "Independent Routing Whale",
+        "role": "High-Capacity Community Routing Hub"
+    },
+    {
+        "pub_key": "03df258c786d0241cbbe38063e82a02f251b937fbe4fd2d53187a43157129b8e7e",
+        "alias": "Astrea",
+        "node_type": "Routing",
+        "entity": "Independent Routing Whale",
+        "role": "High-Capacity Community Routing Hub"
+    },
+    {
+        "pub_key": "033fc997c1622281b143fce0cce0711f18fdc8129684840b835d6a4c5ef9d49ddf",
+        "alias": "Buda.com",
+        "node_type": "Exchange",
+        "entity": "Buda.com",
+        "role": "Latin American Crypto Exchange"
+    },
+    {
+        "pub_key": "0236ee5d3e4bcea64309c37462244af4f13394e820303b190d875ab839080992a6",
+        "alias": "Uncle Ric's",
+        "node_type": "Routing",
+        "entity": "Independent Routing Whale",
+        "role": "High-Capacity Community Routing Hub"
+    },
+    {
+        "pub_key": "034f7596f74aea269aaa92218ade7161811c43435b595e7b83f683cc2f4d6fc191",
+        "alias": "bhodl-public-02",
+        "node_type": "Routing",
+        "entity": "Independent Routing Whale",
+        "role": "High-Capacity Community Routing Hub"
     }
 ]

@@ -190,6 +190,29 @@
     font-size: 0.75rem;
 }
 
+.btn-view-graph {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.25rem 0.75rem;
+    background: rgba(247, 147, 26, 0.1);
+    color: var(--primary);
+    border: 1px solid rgba(247, 147, 26, 0.3);
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.btn-view-graph:hover {
+    background: var(--primary);
+    color: #ffffff;
+    border-color: var(--primary);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(247, 147, 26, 0.25);
+}
+
 /* Quick Stats Grid */
 .quick-stats-grid {
     display: grid;

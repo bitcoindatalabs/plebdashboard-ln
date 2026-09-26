@@ -109,6 +109,8 @@ class NodeProfileManager {
                             const typeEntry = this.nodeTypes.find(t => t.pub_key === this.nodeData.pub_key);
                             if (typeEntry) {
                                 this.nodeData.node_type = typeEntry.node_type;
+                                if (typeEntry.entity) this.nodeData.entity = typeEntry.entity;
+                                if (typeEntry.role) this.nodeData.role = typeEntry.role;
                             }
                         }
                         if (!this.nodeData) {
@@ -153,6 +155,12 @@ class NodeProfileManager {
         safeSet('nodeAlias', node.alias || 'Unknown Node');
         safeSet('nodePubkey', node.pub_key || 'Unknown');
         safeSet('nodeType', node.node_type || 'Unknown');
+
+        // Link View in Graph button
+        const viewInGraphBtn = document.getElementById('viewInGraphBtn');
+        if (viewInGraphBtn && node.pub_key) {
+            viewInGraphBtn.href = `graph.html?highlight=${encodeURIComponent(node.pub_key)}`;
+        }
 
         // Build full connect address: pubkey@host:port
         let connectAddress = null;
