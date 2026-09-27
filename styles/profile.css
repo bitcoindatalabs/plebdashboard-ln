@@ -995,20 +995,19 @@ a.profile-action-btn:hover {
 }
 
 .radar-polygon {
-    fill: rgba(212, 115, 85, 0.25);
-    stroke: var(--primary, #D47355);
-    stroke-width: 2px;
+    fill: rgba(44, 86, 114, 0.12);
+    stroke: var(--ghibli-slate, #2C5672);
+    stroke-width: 1.5px;
     stroke-linejoin: round;
-    filter: drop-shadow(0 2px 6px rgba(212, 115, 85, 0.2));
     transition: all 0.3s ease;
 }
 
 .radar-polygon:hover {
-    fill: rgba(212, 115, 85, 0.4);
+    fill: rgba(44, 86, 114, 0.22);
 }
 
 .radar-dot {
-    fill: var(--primary-dark, #A95137);
+    fill: var(--ghibli-slate, #2C5672);
     stroke: #ffffff;
     stroke-width: 2px;
     cursor: pointer;
@@ -1017,7 +1016,7 @@ a.profile-action-btn:hover {
 
 .radar-dot:hover {
     r: 6;
-    fill: var(--primary, #D47355);
+    fill: var(--secondary, #242D38);
 }
 
 .radar-label {
@@ -1089,14 +1088,14 @@ a.profile-action-btn:hover {
     border-radius: 4px;
 }
 
-.pct-elite { background: var(--primary-light, #FBF2ED); color: var(--primary-dark, #A95137); border: 1px solid var(--primary-border, #ECCDC1); }
+.pct-elite { background: var(--ghibli-amber-bg, #FEF7EA); color: var(--ghibli-amber, #9A6715); border: 1px solid var(--ghibli-amber-border, #F5E2B8); }
 .pct-top { background: var(--ghibli-slate-bg, #EDF3F7); color: var(--ghibli-slate, #2C5672); border: 1px solid #D8E5EE; }
 .pct-core { background: var(--ghibli-sage-bg, #EDF5F0); color: var(--ghibli-sage, #2E7559); border: 1px solid var(--ghibli-sage-border, #D1E5D8); }
 .pct-standard { background: var(--bg-secondary); color: var(--text-secondary); border: 1px solid var(--border); }
 
 .progress-track {
     width: 100%;
-    height: 6px;
+    height: 4px;
     background: var(--bg-secondary);
     border-radius: 999px;
     overflow: hidden;
@@ -1104,7 +1103,7 @@ a.profile-action-btn:hover {
 
 .progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, var(--primary, #D47355), var(--primary-hover, #BF6245));
+    background: var(--ghibli-slate, #2C5672);
     border-radius: 999px;
     transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
