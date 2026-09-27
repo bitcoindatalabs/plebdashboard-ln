@@ -1,7 +1,7 @@
 /* ==========================================================================
    plebdashboard-ln: reports.css
    Warm Editorial Newspaper Styling for Lightning Weekly & Monthly Reports
-   Brand Palette: #F1F2DC (Bg), #E5E7CC (Card), #E8916B (Accent), #1A1D24 (Text)
+   Brand Palette: #F1F2DC (Bg), #E5E7CC (Card), #D47355 (Accent), #1A1D24 (Text)
    Typography: Newsreader (Headlines), Inter (Stats & UI)
    ========================================================================== */
 
@@ -9,8 +9,8 @@
     --bg-color: #F1F2DC;
     --card-bg: #E5E7CC;
     --card-border: #D8DAB8;
-    --accent-color: #E8916B;
-    --accent-light: #FCEFE9;
+    --accent-color: #D47355;
+    --accent-light: #F3E6DE;
     --text-primary: #1A1D24;
     --text-secondary: #555B66;
     --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;

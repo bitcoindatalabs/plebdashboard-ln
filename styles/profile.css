@@ -181,9 +181,9 @@
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
-    background: #e0f2fe;
-    color: #0369a1;
-    border: 1px solid #bae6fd;
+    background: var(--ghibli-slate-bg);
+    color: var(--ghibli-slate);
+    border: 1px solid var(--ghibli-slate-border);
     font-size: 0.8rem;
     font-weight: 700;
     padding: 0.2rem 0.65rem;
@@ -286,21 +286,21 @@ a.profile-action-btn:hover {
 }
 
 .cat-badge.cat-freeway {
-    background: #d1fae5;
-    color: #065f46;
-    border-color: #a7f3d0;
+    background: var(--cat-freeway-bg);
+    color: var(--cat-freeway);
+    border-color: var(--cat-freeway-border);
 }
 
 .cat-badge.cat-highway {
-    background: #fef3c7;
-    color: #92400e;
-    border-color: #fde68a;
+    background: var(--cat-highway-bg);
+    color: var(--cat-highway);
+    border-color: var(--cat-highway-border);
 }
 
 .cat-badge.cat-myway {
-    background: #f1f5f9;
-    color: #475569;
-    border-color: #e2e8f0;
+    background: var(--cat-myway-bg);
+    color: var(--cat-myway);
+    border-color: var(--cat-myway-border);
 }
 
 /* Right-Side Dedicated Node Vitals Cockpit */
@@ -664,7 +664,7 @@ a.profile-action-btn:hover {
 .spec-copy-btn:hover {
     color: var(--primary);
     border-color: var(--primary);
-    background: rgba(232, 145, 107, 0.08);
+    background: var(--primary-light);
 }
 
 /* Channel Details Tab */
@@ -906,9 +906,9 @@ a.profile-action-btn:hover {
     font-weight: 700;
     padding: 0.2rem 0.65rem;
     border-radius: 999px;
-    background: rgba(232, 145, 107, 0.12);
-    color: var(--primary);
-    border: 1px solid rgba(232, 145, 107, 0.3);
+    background: var(--primary-light, #FBF2ED);
+    color: var(--primary-dark, #A95137);
+    border: 1px solid var(--primary-border, #ECCDC1);
 }
 
 .profile-command-grid {
@@ -1297,8 +1297,9 @@ a.profile-action-btn:hover {
 
 .channel-view-btn.active {
     background: var(--surface);
-    color: var(--primary);
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    color: var(--secondary);
+    font-weight: 700;
+    box-shadow: 0 1px 4px rgba(42, 51, 66, 0.08);
 }
 
 @media (max-width: 992px) {

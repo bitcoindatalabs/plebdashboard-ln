@@ -94,11 +94,11 @@ th:not(.sortable),
 }
 
 .btn-primary:hover {
-    background: var(--primary-dark);
-    border-color: var(--primary-dark);
+    background: var(--primary-hover);
+    border-color: var(--primary-hover);
     color: #ffffff;
     transform: translateY(-1px);
-    box-shadow: 0 3px 8px rgba(212, 115, 85, 0.28);
+    box-shadow: 0 3px 8px rgba(212, 115, 85, 0.22);
 }
 
 .btn-secondary {
@@ -251,7 +251,7 @@ th:not(.sortable),
 .search-input:focus {
     outline: none;
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(232, 145, 107, 0.1);
+    box-shadow: 0 0 0 3px rgba(212, 115, 85, 0.15);
 }
 
 /* Standardized search icon positioning - RIGHT SIDE */
@@ -400,9 +400,9 @@ th:not(.sortable),
 }
 
 .pagination-btn:hover:not(:disabled) {
-    background: var(--primary);
-    color: var(--surface);
-    border-color: var(--primary);
+    background: var(--primary-light);
+    color: var(--primary-dark);
+    border-color: var(--primary-border);
     transform: translateY(-1px);
 }
 
@@ -415,9 +415,9 @@ th:not(.sortable),
 }
 
 .pagination-btn.active {
-    background: var(--primary);
-    color: var(--surface);
-    border-color: var(--primary);
+    background: var(--secondary);
+    color: #ffffff;
+    border-color: var(--secondary);
     font-weight: 600;
 }
 
@@ -448,16 +448,16 @@ th:not(.sortable),
 }
 
 .page-number:hover {
-    background: var(--primary);
-    color: var(--surface);
-    border-color: var(--primary);
+    background: var(--primary-light);
+    color: var(--primary-dark);
+    border-color: var(--primary-border);
     transform: translateY(-1px);
 }
 
 .page-number.active {
-    background: var(--primary);
-    color: var(--surface);
-    border-color: var(--primary);
+    background: var(--secondary);
+    color: #ffffff;
+    border-color: var(--secondary);
     font-weight: 600;
 }
 
@@ -604,7 +604,7 @@ th:not(.sortable),
 .form-control:focus {
     outline: none;
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(232, 145, 107, 0.1);
+    box-shadow: 0 0 0 3px rgba(212, 115, 85, 0.15);
 }
 
 .form-select {
@@ -679,7 +679,7 @@ th:not(.sortable),
 }
 
 .breadcrumb a:hover {
-    color: var(--bitcoin-orange, #f7931a);
+    color: var(--primary);
     background: var(--bg-secondary);
     text-decoration: underline;
 }
@@ -856,11 +856,11 @@ th:not(.sortable),
 }
 
 .nav-link-compact:hover {
-    background: var(--primary);
-    color: white;
-    border-color: var(--primary);
+    background: var(--primary-light);
+    color: var(--primary-dark);
+    border-color: var(--primary-border);
     transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(232, 145, 107, 0.25);
+    box-shadow: 0 2px 6px rgba(42, 51, 66, 0.08);
 }
 
 .nav-link-compact i {

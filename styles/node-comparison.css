@@ -212,17 +212,17 @@
 
 /* Node Card */
 .node-card {
-    background: var(--bg-primary);
-    border: 1px solid var(--bg-secondary);
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: 12px;
     padding: 1.5rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(42, 51, 66, 0.05);
 }
 
 .node-header {
     margin-bottom: 1.5rem;
     padding-bottom: 1rem;
-    border-bottom: 1px solid var(--bg-secondary);
+    border-bottom: 1px solid var(--border-subtle);
 }
 
 .node-header h3 {
@@ -251,7 +251,7 @@
     justify-content: space-between;
     align-items: flex-start;
     padding: 0.5rem 0;
-    border-bottom: 1px solid var(--bg-secondary);
+    border-bottom: 1px solid var(--border-subtle);
 }
 
 .detail-row:last-child {
@@ -284,12 +284,13 @@
 
 /* Chart Section */
 .chart-section {
-    background: var(--bg-primary);
-    border: 1px solid var(--bg-secondary);
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: 12px;
     padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    box-shadow: 0 2px 8px rgba(42, 51, 66, 0.05);
 }
 
 .chart-section h2 {

@@ -189,8 +189,8 @@
 
 .search-input:focus {
     outline: none;
-    border-color: var(--primary, #E8916B);
-    box-shadow: 0 0 0 3px rgba(232, 145, 107, 0.15);
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(212, 115, 85, 0.15);
 }
 
 .search-icon {
@@ -286,7 +286,7 @@
 }
 
 .leaderboard-table th.sortable:hover {
-    background: rgba(232, 145, 107, 0.1);
+    background: rgba(212, 115, 85, 0.06);
 }
 
 .th-content {
@@ -309,14 +309,14 @@
 
 .leaderboard-table th.sort-asc::after {
     content: " ▲";
-    color: var(--primary, #E8916B);
+    color: var(--primary);
     opacity: 1;
     font-weight: 800;
 }
 
 .leaderboard-table th.sort-desc::after {
     content: " ▼";
-    color: var(--primary, #E8916B);
+    color: var(--primary);
     opacity: 1;
     font-weight: 800;
 }
@@ -337,7 +337,7 @@
 }
 
 .tooltip-trigger-btn:hover {
-    color: var(--primary, #E8916B);
+    color: var(--primary);
     transform: scale(1.15);
 }
 
@@ -421,7 +421,7 @@
 }
 
 .leaderboard-table tbody tr:hover {
-    background-color: rgba(232, 145, 107, 0.05);
+    background-color: rgba(212, 115, 85, 0.04);
 }
 
 /* Top 3 Podium Accents */
@@ -487,34 +487,33 @@
 }
 
 .tier-badge.tier-elite {
-    background: linear-gradient(135deg, #fef3c7, #fde68a);
-    color: #92400e;
-    border: 1px solid #f59e0b;
-    box-shadow: 0 1px 4px rgba(245, 158, 11, 0.2);
+    background: var(--ghibli-amber-bg);
+    color: var(--ghibli-amber);
+    border: 1px solid var(--ghibli-amber-border);
 }
 
 .tier-badge.tier-top {
-    background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
-    color: #334155;
-    border: 1px solid #94a3b8;
+    background: #F2EFF5;
+    color: #4E5868;
+    border: 1px solid #DFDBE5;
 }
 
 .tier-badge.tier-core {
-    background: linear-gradient(135deg, #eff6ff, #dbeafe);
-    color: #1e40af;
-    border: 1px solid #60a5fa;
+    background: var(--ghibli-slate-bg);
+    color: var(--ghibli-slate);
+    border: 1px solid var(--ghibli-slate-border);
 }
 
 .tier-badge.tier-established {
-    background: #f3f4f6;
-    color: #4b5563;
-    border: 1px solid #d1d5db;
+    background: var(--ghibli-sage-bg);
+    color: var(--ghibli-sage);
+    border: 1px solid var(--ghibli-sage-border);
 }
 
 .tier-badge.tier-pleb {
-    background: #f8fafc;
-    color: #64748b;
-    border: 1px solid #e2e8f0;
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
 }
 
 /* 2. Alias & Entity Cell */
@@ -541,7 +540,7 @@
 }
 
 .alias-link:hover {
-    color: var(--primary, #E8916B);
+    color: var(--primary);
     text-decoration: underline;
 }
 
@@ -551,12 +550,12 @@
     gap: 0.3rem;
     font-size: 0.72rem;
     font-weight: 600;
-    color: #0369a1;
-    background: #f0f9ff;
+    color: var(--ghibli-slate);
+    background: var(--ghibli-slate-bg);
     padding: 0.1rem 0.45rem;
     border-radius: 4px;
     width: fit-content;
-    border: 1px solid #bae6fd;
+    border: 1px solid var(--ghibli-slate-border);
 }
 
 /* 3. Node Type Colored Pills */
@@ -588,45 +587,45 @@
 }
 
 .type-pill.pill-exchange {
-    background: #fef3c7;
-    color: #92400e;
-    border-color: #fde68a;
+    background: var(--ghibli-amber-bg);
+    color: var(--ghibli-amber);
+    border-color: var(--ghibli-amber-border);
 }
 
 .type-pill.pill-lsp {
-    background: #d1fae5;
-    color: #065f46;
-    border-color: #a7f3d0;
+    background: var(--ghibli-heather-bg);
+    color: var(--ghibli-heather);
+    border-color: var(--ghibli-heather-border);
 }
 
 .type-pill.pill-routing {
-    background: #ede9fe;
-    color: #5b21b6;
-    border-color: #ddd6fe;
+    background: var(--ghibli-slate-bg);
+    color: var(--ghibli-slate);
+    border-color: var(--ghibli-slate-border);
 }
 
 .type-pill.pill-wallet {
-    background: #e0f2fe;
-    color: #075985;
-    border-color: #bae6fd;
+    background: var(--ghibli-sage-bg);
+    color: var(--ghibli-sage);
+    border-color: var(--ghibli-sage-border);
 }
 
 .type-pill.pill-payment {
-    background: #ccfbf1;
-    color: #115e59;
-    border-color: #99f6e4;
+    background: var(--primary-light);
+    color: var(--primary-dark);
+    border-color: var(--primary-border);
 }
 
 .type-pill.pill-defi {
-    background: #fce7f3;
-    color: #9d174d;
-    border-color: #fbcfe8;
+    background: #F8EFF4;
+    color: #7A4065;
+    border-color: #ECDCE5;
 }
 
 .type-pill.pill-pleb {
-    background: #f1f5f9;
-    color: #475569;
-    border-color: #e2e8f0;
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    border-color: var(--border);
 }
 
 /* 4. Metric Cells (Capacity, Channels) */
@@ -747,7 +746,7 @@
 
 .empty-state-message i {
     font-size: 2.2rem;
-    color: var(--primary, #E8916B);
+    color: var(--primary);
     opacity: 0.8;
 }
 
@@ -766,7 +765,7 @@
 
 .loading-content i {
     font-size: 2rem;
-    color: var(--primary, #E8916B);
+    color: var(--primary);
     margin-bottom: 0.75rem;
     display: block;
 }

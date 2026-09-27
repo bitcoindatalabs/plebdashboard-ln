@@ -529,7 +529,7 @@ class NodeComparisonManager {
             });
 
             // Create series data with scaling that preserves shape differences
-            const colors = ['#4E79A7', '#F28E2C', '#E15759'];
+            const colors = ['#D47355', '#2E7559', '#2C5672']; // Terracotta, Sage, River Slate
             const seriesData = this.rankData.map((node, index) => {
                 // Store actual ranks for display
                 const actualRanks = [
@@ -599,7 +599,7 @@ class NodeComparisonManager {
                         },
                         fontSize: 11,
                         fontWeight: 600,
-                        color: '#000000'
+                        color: '#242D38'
                     },
                     labelLayout: {
                         hideOverlap: true
@@ -608,7 +608,7 @@ class NodeComparisonManager {
             });
 
             const option = {
-                backgroundColor: 'rgba(255, 250, 205, 0.2)', // Light yellowish Ghibli-inspired overlay
+                backgroundColor: 'transparent',
                 title: {
                     text: 'Ranking Comparison',
                     subtext: 'Scaled to show relative differences between selected nodes',
@@ -617,17 +617,17 @@ class NodeComparisonManager {
                     textStyle: {
                         fontSize: 20,
                         fontWeight: 600,
-                        color: 'var(--text-primary, #2c3e50)'
+                        color: 'var(--text-primary, #242D38)'
                     },
                     subtextStyle: {
                         fontSize: 14,
-                        color: 'var(--text-secondary, #7f8c8d)'
+                        color: 'var(--text-secondary, #5E6977)'
                     }
                 },
                 tooltip: {
                     trigger: 'item',
-                    backgroundColor: 'rgba(50, 50, 50, 0.95)',
-                    borderColor: '#555',
+                    backgroundColor: 'rgba(36, 45, 56, 0.95)',
+                    borderColor: 'var(--border, #E5DFD5)',
                     borderWidth: 1,
                     textStyle: {
                         color: '#fff',
@@ -787,7 +787,7 @@ class NodeComparisonManager {
         });
 
         const option = {
-            backgroundColor: 'rgba(255, 250, 205, 0.2)',
+            backgroundColor: 'transparent',
             title: {
                 text: 'Channel Size Distribution',
                 subtext: 'Stacked view of channel categories by node',
@@ -796,11 +796,11 @@ class NodeComparisonManager {
                 textStyle: {
                     fontSize: 18,
                     fontWeight: 600,
-                    color: 'var(--text-primary, #2c3e50)'
+                    color: 'var(--text-primary, #242D38)'
                 },
                 subtextStyle: {
                     fontSize: 12,
-                    color: 'var(--text-secondary, #7f8c8d)'
+                    color: 'var(--text-secondary, #5E6977)'
                 }
             },
             tooltip: {
@@ -910,7 +910,7 @@ class NodeComparisonManager {
         });
 
         const option = {
-            backgroundColor: 'rgba(255, 250, 205, 0.1)',
+            backgroundColor: 'transparent',
             title: {
                 text: 'Channel Size Distributions',
                 subtext: 'Combined view of channel size distributions for selected nodes',
@@ -919,11 +919,11 @@ class NodeComparisonManager {
                 textStyle: {
                     fontSize: 18,
                     fontWeight: 600,
-                    color: 'var(--text-primary, #2c3e50)'
+                    color: 'var(--text-primary, #242D38)'
                 },
                 subtextStyle: {
                     fontSize: 12,
-                    color: 'var(--text-secondary, #7f8c8d)'
+                    color: 'var(--text-secondary, #5E6977)'
                 }
             },
             tooltip: {
@@ -1012,17 +1012,17 @@ class NodeComparisonManager {
 
     // Helper method to get consistent colors for nodes
     getNodeColor(index) {
-        const colors = ['#4E79A7', '#F28E2C', '#E15759'];
+        const colors = ['#D47355', '#2E7559', '#2C5672'];
         return colors[index] || colors[0];
     }
 
     // Helper method to get colors for channel categories
     getCategoryColor(category) {
         const colorMap = {
-            'freeway': '#8CB369',  // soft sage green
-            'highway': '#D4A574',  // warm beige/tan
-            'myway': '#A8DADC',    // pale cyan
-            'default': '#76B7B2'   // Teal for unknown categories
+            'freeway': '#2E7559',  // Ghibli Sage
+            'highway': '#9A6715',  // Ghibli Amber
+            'myway': '#2C5672',    // Ghibli River Slate
+            'default': '#5E6977'   // Neutral slate for unknown categories
         };
         return colorMap[category.toLowerCase()] || colorMap.default;
     }

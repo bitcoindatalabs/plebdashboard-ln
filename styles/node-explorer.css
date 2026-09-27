@@ -62,8 +62,8 @@
     align-items: center;
     gap: 0.5rem;
     padding: 0.75rem 1rem;
-    background: rgba(232, 145, 107, 0.1);
-    border: 1px solid rgba(232, 145, 107, 0.3);
+    background: var(--primary-light, #FBF2ED);
+    border: 1px solid var(--primary-border, #ECCDC1);
     border-radius: 8px;
     margin-bottom: 1rem;
     font-size: 0.9rem;
@@ -115,8 +115,10 @@
 }
 
 .view-btn.active {
-    background: var(--primary);
-    color: var(--surface);
+    background: var(--surface);
+    color: var(--secondary);
+    font-weight: 700;
+    box-shadow: 0 1px 3px rgba(42, 51, 66, 0.08);
 }
 
 /* Filter Group */
@@ -292,7 +294,9 @@
 }
 
 .filter-preset:hover {
-    background: var(--primary-dark);
+    background: var(--primary-light);
+    color: var(--primary-dark);
+    border-color: var(--primary-border);
     transform: translateY(-1px);
 }
 
@@ -347,8 +351,8 @@
 }
 
 .toggle-filters:hover {
-    background: rgba(232, 145, 107, 0.1);
-    color: var(--primary);
+    background: var(--primary-light);
+    color: var(--primary-dark);
 }
 
 .advanced-filters-section.expanded .toggle-filters i {
@@ -447,12 +451,12 @@
 .range-inputs input:focus {
     outline: none;
     border-color: var(--primary);
-    box-shadow: 0 0 0 2px rgba(232, 145, 107, 0.1);
+    box-shadow: 0 0 0 2px rgba(212, 115, 85, 0.15);
 }
 
 .range-inputs input:not(:placeholder-shown) {
     border-color: var(--primary);
-    background: rgba(232, 145, 107, 0.05);
+    background: rgba(212, 115, 85, 0.04);
 }
 
 .range-separator {

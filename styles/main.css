@@ -5,6 +5,7 @@
     --primary-dark: #A95137;        /* Hearth Terracotta */
     --primary-light: #FBF2ED;       /* Whisper Terracotta Tint */
     --primary-border: #ECCDC1;      /* Soft Terracotta Border */
+    --primary-wash-hover: #F3E6DE;  /* Elevated Warm Wash on Hover */
     --accent-color: #D47355;
 
     /* Deep Ink & Slate (Authoritative, Literary Anthropic Structure) */
@@ -14,8 +15,8 @@
 
     /* Canvas & Surfaces (Warm Rice Paper, Ivory & Parchment) */
     --bg-primary: #FAF8F5;          /* Warm Alabaster Canvas */
-    --bg-secondary: #F3EFEA;        /* Soft Warm Oatmeal */
-    --bg-tertiary: #EAE4DC;         /* Muted Warm Stone */
+    --bg-secondary: #F3EFEA;        /* Soft Warm Oatmeal Track */
+    --bg-tertiary: #EAE4DC;         /* Muted Warm Stone Track */
     --surface: #FFFFFF;             /* Crisp Parchment Card */
     --surface-hover: #FDFCF9;       /* Card Hover Tint */
 
@@ -38,14 +39,34 @@
     --ghibli-amber: #9A6715;         /* Warm Harvest Straw / Gold (Rank 1 / Exchange) */
     --ghibli-amber-bg: #FEF7EA;
     --ghibli-amber-border: #F5E2B8;
-    --ghibli-slate: #2C5672;         /* Twilight River Slate (Routing / Tech) */
+    --ghibli-slate: #2C5672;         /* Twilight River Slate (Routing / Tech / Bridge) */
     --ghibli-slate-bg: #EDF3F7;
+    --ghibli-slate-border: #D8E5EE;
     --ghibli-heather: #583F7A;       /* Heather Purple (LSP / Protocol) */
     --ghibli-heather-bg: #F2EEF8;
+    --ghibli-heather-border: #E2D9EE;
 
-    /* Semantic Status */
+    /* Semantic Status & Missing Variable Resolution */
     --error-color: var(--ghibli-madder);
     --success-color: var(--ghibli-sage);
+    --accent-cool: var(--ghibli-slate);
+    --bitcoin-orange: #D47355;
+
+    /* Unified Channel Category Tokens (Freeway / Highway / My Way) */
+    --cat-freeway: var(--ghibli-sage);
+    --cat-freeway-bg: var(--ghibli-sage-bg);
+    --cat-freeway-border: var(--ghibli-sage-border);
+    --cat-highway: var(--ghibli-amber);
+    --cat-highway-bg: var(--ghibli-amber-bg);
+    --cat-highway-border: var(--ghibli-amber-border);
+    --cat-myway: var(--ghibli-slate);
+    --cat-myway-bg: var(--ghibli-slate-bg);
+    --cat-myway-border: var(--ghibli-slate-border);
+
+    /* Interaction & Control Tokens */
+    --focus-ring: rgba(212, 115, 85, 0.2);
+    --card-shadow-sm: 0 1px 3px rgba(42, 51, 66, 0.06);
+    --card-shadow-md: 0 2px 8px rgba(42, 51, 66, 0.06);
 
     /* Container widths */
     --container-width: 90%;
@@ -169,7 +190,7 @@ div:not(.btn):not(.button):not([role="button"]) {
     transform: translateX(-50%);
     width: 600px;
     height: 300px;
-    background: radial-gradient(circle at 50% 30%, rgba(232, 145, 107, 0.1) 0%, rgba(244, 194, 161, 0) 70%);
+    background: radial-gradient(circle at 50% 30%, rgba(212, 115, 85, 0.08) 0%, rgba(244, 194, 161, 0) 70%);
     opacity: 0.5;
     z-index: 0;
     pointer-events: none;
@@ -423,11 +444,11 @@ div:not(.btn):not(.button):not([role="button"]) {
 }
 
 .search-button:hover {
-    background: var(--primary);
-    color: #ffffff;
+    background: var(--primary-wash-hover);
+    color: var(--primary-dark);
     border-color: var(--primary);
     transform: translateX(1px);
-    box-shadow: 0 2px 6px rgba(212, 115, 85, 0.25);
+    box-shadow: 0 2px 6px rgba(42, 51, 66, 0.08);
 }
 
 /* Quick Jump Tags */
@@ -602,8 +623,8 @@ div:not(.btn):not(.button):not([role="button"]) {
     grid-template-columns: 1.4fr 1fr;
     gap: 1.35rem;
     max-width: 1200px;
-    margin: 0 auto;
-    padding: 0.2rem 1rem 2.5rem 1rem;
+    margin: 0 auto 2.5rem auto;
+    padding: 0.2rem 1rem 2rem 1rem;
     align-items: flex-start;
 }
 
@@ -611,11 +632,13 @@ div:not(.btn):not(.button):not([role="button"]) {
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
+    align-self: flex-start;
 }
 
 /* Leaderboard Preview Card Styles */
 .home-leaderboard-card {
-    min-height: 100%;
+    height: fit-content;
+    align-self: flex-start;
 }
 
 .leaderboard-tabs-bar {
@@ -680,6 +703,10 @@ div:not(.btn):not(.button):not([role="button"]) {
     color: var(--secondary);
     vertical-align: middle;
     transition: background 0.15s ease;
+}
+
+.home-leaderboard-table tr:last-child td {
+    border-bottom: none;
 }
 
 .home-leaderboard-row {
@@ -861,8 +888,9 @@ div:not(.btn):not(.button):not([role="button"]) {
 }
 
 .card-action-link:hover {
-    background: #F3E6DE;
+    background: var(--primary-wash-hover);
     color: var(--primary-dark);
+    border-color: var(--primary);
 }
 
 /* 1. Macro Velocity Badges Row (Streamlined) */
@@ -1005,7 +1033,7 @@ div:not(.btn):not(.button):not([role="button"]) {
 }
 
 .velocity-bar:hover {
-    fill: rgba(212, 115, 85, 0.85);
+    fill: rgba(212, 115, 85, 0.65);
     opacity: 0.95;
 }
 
@@ -1282,11 +1310,11 @@ div:not(.btn):not(.button):not([role="button"]) {
 }
 
 .spotlight-btn-primary:hover {
-    background: var(--primary);
-    color: #ffffff;
+    background: var(--primary-wash-hover);
+    color: var(--primary-dark);
     border-color: var(--primary);
     transform: translateY(-1px);
-    box-shadow: 0 2px 6px rgba(212, 115, 85, 0.25);
+    box-shadow: 0 2px 6px rgba(42, 51, 66, 0.08);
 }
 
 .spotlight-btn-secondary {
@@ -1393,7 +1421,7 @@ div:not(.btn):not(.button):not([role="button"]) {
 
 .node-card:hover {
     transform: translateY(-3px) scale(1.015);
-    box-shadow: 0 8px 32px rgba(232, 145, 107, 0.10);
+    box-shadow: 0 8px 32px rgba(212, 115, 85, 0.10);
     border-color: var(--primary);
 }
 
@@ -1529,7 +1557,7 @@ div:not(.btn):not(.button):not([role="button"]) {
 .feature-link:hover,
 .feature-link:focus {
     background: var(--bg-secondary);
-    box-shadow: 0 2px 12px rgba(232, 145, 107, 0.07);
+    box-shadow: 0 2px 12px rgba(212, 115, 85, 0.07);
     color: var(--primary);
     transform: translateY(-2px) scale(1.03);
 }

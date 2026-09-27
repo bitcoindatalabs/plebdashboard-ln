@@ -162,11 +162,11 @@ const CLUSTER_COLORS = {
 // Bridge node highlighting
 const BRIDGE_NODE_CONFIG = {
     IMPORTANT_BRIDGE: {
-        borderColor: '#EF4444',
+        borderColor: '#A93E3B', // Ghibli Madder
         borderWidth: 3
     },
     REGULAR_BRIDGE: {
-        borderColor: '#FB923C',
+        borderColor: '#D47355', // Terracotta
         borderWidth: 2
     }
 };
@@ -864,9 +864,9 @@ function createTooltipManager(tooltipElement) {
         let bridgeInfo = '';
         
         if (attrs.isImportantBridgeNode) {
-            bridgeInfo = '<div style="color: #EF4444; font-weight: bold;">🌉 Critical Bridge Node</div>';
+            bridgeInfo = '<div style="color: var(--ghibli-madder, #A93E3B); font-weight: bold;">🌉 Critical Bridge Node</div>';
         } else if (attrs.isBridgeNode) {
-            bridgeInfo = '<div style="color: #FB923C; font-weight: bold;">🌉 Bridge Node</div>';
+            bridgeInfo = '<div style="color: var(--primary, #D47355); font-weight: bold;">🌉 Bridge Node</div>';
         }
                 
         return `
@@ -980,16 +980,16 @@ function createSidebarManager() {
         let bridgeInfo = '';
         if (attrs.isImportantBridgeNode) {
             bridgeInfo = `
-                <div style="margin-top: 10px; padding: 10px; background: rgba(239, 68, 68, 0.1); border-left: 3px solid #EF4444;">
-                    <div style="font-weight: bold; color: #EF4444;">🌉 Critical Bridge Node</div>
+                <div style="margin-top: 10px; padding: 10px; background: var(--ghibli-madder-bg, #FBEFEF); border-left: 3px solid var(--ghibli-madder, #A93E3B); border-radius: 0 6px 6px 0;">
+                    <div style="font-weight: bold; color: var(--ghibli-madder, #A93E3B);">🌉 Critical Bridge Node</div>
                     <div><span class="info-label">Bridges Clusters:</span> ${attrs.bridgesClusters || 'N/A'}</div>
                     <div><span class="info-label">Cluster Connections:</span> ${attrs.clusterConnections || 'N/A'}</div>
                 </div>
             `;
         } else if (attrs.isBridgeNode) {
             bridgeInfo = `
-                <div style="margin-top: 10px; padding: 10px; background: rgba(251, 146, 60, 0.1); border-left: 3px solid #FB923C;">
-                    <div style="font-weight: bold; color: #FB923C;">🌉 Bridge Node</div>
+                <div style="margin-top: 10px; padding: 10px; background: var(--primary-light, #FBF2ED); border-left: 3px solid var(--primary, #D47355); border-radius: 0 6px 6px 0;">
+                    <div style="font-weight: bold; color: var(--primary-dark, #A95137);">🌉 Bridge Node</div>
                     <div><span class="info-label">Bridges Clusters:</span> ${attrs.bridgesClusters || 'N/A'}</div>
                     <div><span class="info-label">Cluster Connections:</span> ${attrs.clusterConnections || 'N/A'}</div>
                 </div>
@@ -1011,7 +1011,7 @@ function createSidebarManager() {
         // Entity & Role information (available in ghigh and gfree)
         let entityInfo = '';
         if (attrs.entity) {
-            entityInfo = `<div><span class="info-label">Entity:</span> <strong style="color: #F7931A;">${attrs.entity}</strong></div>`;
+            entityInfo = `<div><span class="info-label">Entity:</span> <strong style="color: var(--ghibli-slate, #2C5672);">${attrs.entity}</strong></div>`;
         }
         let roleInfo = '';
         if (attrs.role) {
@@ -1027,7 +1027,7 @@ function createSidebarManager() {
             <div class="info-content">
                 ${pubKey ? `
                 <div class="node-profile-action" style="margin-bottom: 14px;">
-                    <a href="${profileLink}" class="btn-profile-link" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 8px 12px; background: #F7931A; color: #ffffff; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 13px; box-sizing: border-box; transition: background 0.2s; box-shadow: 0 2px 4px rgba(247, 147, 26, 0.25);">
+                    <a href="${profileLink}" class="btn-profile-link">
                         <i class="fas fa-external-link-alt"></i> View Full Node Profile
                     </a>
                 </div>` : ''}

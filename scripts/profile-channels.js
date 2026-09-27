@@ -134,7 +134,7 @@ class ChannelsTreemapManager {
                 levels: [
                     {
                         itemStyle: { borderColor: '#fff', borderWidth: 2 },
-                        color: ['#1976d2', '#ff9800', '#43a047'], // Freeway, Highway, My Way base colors
+                        color: ['#2E7559', '#9A6715', '#2C5672'], // Freeway (Sage), Highway (Amber), My Way (River Slate) base colors
                     },
                     {
                         colorSaturation: [0.35, 0.85],

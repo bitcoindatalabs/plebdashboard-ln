@@ -73,6 +73,24 @@ class HomepageManager {
                 }
             }
             
+            // Index by entity (if exists)
+            if (node.entity) {
+                const entityKey = String(node.entity).toLowerCase();
+                if (!this.searchIndex.has(entityKey)) {
+                    this.searchIndex.set(entityKey, []);
+                }
+                this.searchIndex.get(entityKey).push(node);
+                
+                // Also index partial entity matches for better search
+                for (let i = 2; i <= entityKey.length; i++) {
+                    const partial = entityKey.substring(0, i);
+                    if (!this.searchIndex.has(partial)) {
+                        this.searchIndex.set(partial, []);
+                    }
+                    this.searchIndex.get(partial).push(node);
+                }
+            }
+            
             // Index by pubkey
             if (node.pub_key) {
                 const pubkeyKey = String(node.pub_key).toLowerCase();
@@ -134,8 +152,13 @@ class HomepageManager {
         document.querySelectorAll('.quick-tag-chip').forEach(chip => {
             chip.addEventListener('click', (e) => {
                 const alias = e.currentTarget.getAttribute('data-alias');
+                const pubkey = e.currentTarget.getAttribute('data-pubkey');
                 if (searchInput && alias) {
                     searchInput.value = alias;
+                }
+                if (pubkey) {
+                    this.navigateToProfile(pubkey);
+                } else if (alias) {
                     this.performSearch(alias);
                 }
             });
@@ -320,28 +343,51 @@ class HomepageManager {
     }
 
     performSearch(searchTerm) {
-        if (!searchTerm.trim()) return;
+        if (!searchTerm || !searchTerm.trim()) return;
 
         const searchLower = searchTerm.toLowerCase().trim();
+        const searchNorm = searchLower.replace(/[\s\-_.]/g, '');
         
-        // Try exact matches first
-        let match = this.nodeData.find(node => {
+        // 1. Try exact matches first on alias, entity, or pubkey
+        let matches = this.nodeData.filter(node => {
             const alias = (node.alias || '').toLowerCase();
+            const entity = (node.entity || '').toLowerCase();
             const pubkey = (node.pub_key || '').toLowerCase();
-            return alias === searchLower || pubkey === searchLower;
+            return alias === searchLower || entity === searchLower || pubkey === searchLower;
         });
 
-        // If no exact match, try partial matches
-        if (!match) {
-            match = this.nodeData.find(node => {
-                const alias = (node.alias || '').toLowerCase();
-                const pubkey = (node.pub_key || '').toLowerCase();
-                return alias.includes(searchLower) || pubkey.startsWith(searchLower);
+        // 2. Normalized match (ignores spaces, hyphens, periods)
+        if (matches.length === 0 && searchNorm.length > 0) {
+            matches = this.nodeData.filter(node => {
+                const aliasNorm = (node.alias || '').toLowerCase().replace(/[\s\-_.]/g, '');
+                const entityNorm = (node.entity || '').toLowerCase().replace(/[\s\-_.]/g, '');
+                return aliasNorm === searchNorm || entityNorm === searchNorm;
             });
         }
 
-        if (match) {
-            this.navigateToProfile(match.pub_key);
+        // 3. Substring match on alias, entity, or pubkey start
+        if (matches.length === 0) {
+            matches = this.nodeData.filter(node => {
+                const alias = (node.alias || '').toLowerCase();
+                const entity = (node.entity || '').toLowerCase();
+                const pubkey = (node.pub_key || '').toLowerCase();
+                return alias.includes(searchLower) || entity.includes(searchLower) || pubkey.startsWith(searchLower);
+            });
+        }
+
+        // 4. Normalized substring match (e.g. "walletofsatoshi" in "walletofsatoshicom")
+        if (matches.length === 0 && searchNorm.length >= 3) {
+            matches = this.nodeData.filter(node => {
+                const aliasNorm = (node.alias || '').toLowerCase().replace(/[\s\-_.]/g, '');
+                const entityNorm = (node.entity || '').toLowerCase().replace(/[\s\-_.]/g, '');
+                return aliasNorm.includes(searchNorm) || entityNorm.includes(searchNorm);
+            });
+        }
+
+        if (matches.length > 0) {
+            // Prefer lower pleb_rank (more authoritative / primary node)
+            matches.sort((a, b) => (Number(a.pleb_rank) || 999999) - (Number(b.pleb_rank) || 999999));
+            this.navigateToProfile(matches[0].pub_key);
         } else {
             this.showSearchError(searchTerm);
         }
