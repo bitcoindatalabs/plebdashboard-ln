@@ -10,15 +10,15 @@
     "active_nodes": 12542,
     "delta_nodes_7d": 63,
     "active_channels": 33549,
-    "delta_channels_7d": 200,
+    "delta_channels_7d": 185,
     "total_capacity_sats": 373592741259,
-    "delta_capacity_btc_7d": 108.01,
+    "delta_capacity_btc_7d": 107.36,
     "median_channel_capacity_sats": 2000000,
     "new_nodes_7d": 63,
     "new_channels_7d": 1253,
     "new_capacity_sats_7d": 47780814394,
-    "closed_channels_7d": 1053,
-    "closed_capacity_sats_7d": 36979375630,
+    "closed_channels_7d": 1068,
+    "closed_capacity_sats_7d": 37044924750,
     "has_closed_data": true,
     "tor_pct": 46.3,
     "bridge_nodes_count": 1949
@@ -30,9 +30,9 @@
       "new_nodes": 9,
       "new_channels": 173,
       "capacity_added_btc": 68.95,
-      "closed_channels": 121,
-      "capacity_closed_btc": 57.1,
-      "net_capacity_btc": 11.85
+      "closed_channels": 136,
+      "capacity_closed_btc": 57.76,
+      "net_capacity_btc": 11.19
     },
     {
       "date": "2026-09-25",
