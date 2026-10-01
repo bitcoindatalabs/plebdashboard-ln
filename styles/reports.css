@@ -1,22 +1,22 @@
 /* ==========================================================================
    plebdashboard-ln: reports.css
-   Warm Editorial Newspaper Styling for Lightning Weekly & Monthly Reports
-   Brand Palette: #F1F2DC (Bg), #E5E7CC (Card), #D47355 (Accent), #1A1D24 (Text)
+   Modern Editorial Styling for Lightning Network Weekly Wrap
+   Brand Palette: Royal Cobalt (#1D4ED8), Crisp Slate (#F8FAFC), Card (#EDF2F7)
    Typography: Newsreader (Headlines), Inter (Stats & UI)
    ========================================================================== */
 
 :root {
-    --bg-color: #F1F2DC;
-    --card-bg: #E5E7CC;
-    --card-border: #D8DAB8;
-    --accent-color: #D47355;
-    --accent-light: #F3E6DE;
-    --text-primary: #1A1D24;
-    --text-secondary: #555B66;
+    --bg-color: #F8FAFC;
+    --card-bg: #EDF2F7;
+    --card-border: #D7DFE9;
+    --accent-color: #1D4ED8;
+    --accent-light: #DBEAFE;
+    --text-primary: #0F172A;
+    --text-secondary: #475569;
     --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --success-green: #2E7559;
-    --danger-red: #A93E3B;
+    --success-green: #16A34A;
+    --danger-red: #DC2626;
 }
 
 * {
@@ -26,7 +26,7 @@
 }
 
 body {
-    background-color: #DFE2C8;
+    background-color: #E2E8F0;
     color: var(--text-primary);
     font-family: var(--font-sans);
     padding: 30px 20px;
@@ -278,7 +278,7 @@ body {
 .daily-bar-container {
     flex-grow: 1;
     margin: 0 16px;
-    background: #F1F2DC;
+    background: #E2E8F0;
     border-radius: 4px;
     height: 14px;
     overflow: hidden;
@@ -317,7 +317,7 @@ body {
 }
 
 .velocity-card.highlight {
-    background-color: #E2E5C4;
+    background-color: var(--accent-light);
     border: 1px solid var(--accent-color);
 }
 

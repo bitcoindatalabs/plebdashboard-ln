@@ -603,13 +603,13 @@ class HomepageManager {
                     <div class="pulse-stat-item">
                         <span class="pulse-stat-num">${activeChannels}</span>
                         <span class="pulse-stat-label">Channels</span>
-                        <span class="pulse-stat-delta ${channelsClass}">${channelsDeltaStr}</span>
+                        <span class="pulse-stat-delta ${channelsClass}" title="Net channel change over trailing 7 days (${(metrics.new_channels_7d || 0).toLocaleString()} opened - ${(metrics.closed_channels_7d || 0).toLocaleString()} closed)">${channelsDeltaStr}</span>
                     </div>
                     <span class="pulse-divider">|</span>
                     <div class="pulse-stat-item">
                         <span class="pulse-stat-num">${capBtc} BTC</span>
                         <span class="pulse-stat-label">Capacity</span>
-                        <span class="pulse-stat-delta ${capClass}">${capDeltaStr}</span>
+                        <span class="pulse-stat-delta ${capClass}" title="Net capacity change over trailing 7 days accounting for closed channels: ${deltaCapBtc >= 0 ? '+' : ''}${deltaCapBtc.toFixed(1)} BTC (+${((metrics.new_capacity_sats_7d || 0) / 1e8).toFixed(1)} BTC opened, -${((metrics.closed_capacity_sats_7d || 0) / 1e8).toFixed(1)} BTC closed)">${capDeltaStr}</span>
                     </div>
                     <span class="pulse-divider">|</span>
                     <div class="pulse-stat-item">
@@ -714,16 +714,21 @@ class HomepageManager {
             const dotY = padTop + chartH - ((btc / maxBtc) * chartH);
             points.push(`${cx},${dotY}`);
 
+            const closedCh = day.closed_channels || 0;
+            const netBtc = day.net_capacity_btc !== undefined ? day.net_capacity_btc : btc;
+
             barsSvg += `
                 <rect class="velocity-bar" 
                       x="${barX}" y="${barY}" width="${barWidth}" height="${barH}" 
-                      data-date="${day.date_formatted}" data-channels="${ch}" data-btc="${btc.toFixed(1)}" />
+                      data-date="${day.date_formatted}" data-channels="${ch}" data-btc="${btc.toFixed(1)}"
+                      data-closed="${closedCh}" data-netbtc="${netBtc}" />
                 <text class="velocity-axis-text" x="${cx}" y="${height - 4}">${day.date_formatted}</text>
             `;
 
             dotsSvg += `
                 <circle class="velocity-dot" cx="${cx}" cy="${dotY}" r="4" 
-                        data-date="${day.date_formatted}" data-channels="${ch}" data-btc="${btc.toFixed(1)}" />
+                        data-date="${day.date_formatted}" data-channels="${ch}" data-btc="${btc.toFixed(1)}"
+                        data-closed="${closedCh}" data-netbtc="${netBtc}" />
             `;
         });
 
@@ -746,7 +751,19 @@ class HomepageManager {
                     const date = item.getAttribute('data-date');
                     const ch = item.getAttribute('data-channels');
                     const btc = item.getAttribute('data-btc');
-                    tooltip.innerHTML = `<strong>${date}</strong>: +${ch} channels • +${btc} BTC added`;
+                    const closed = item.getAttribute('data-closed');
+                    const netBtc = item.getAttribute('data-netbtc');
+
+                    let tip = `<strong>${date}</strong>: +${ch} opened`;
+                    if (closed && Number(closed) > 0) {
+                        tip += ` (${closed} closed)`;
+                    }
+                    tip += ` • +${btc} BTC added`;
+                    if (netBtc && netBtc !== btc) {
+                        const netNum = Number(netBtc);
+                        tip += ` (net: ${netNum >= 0 ? '+' : ''}${netNum.toFixed(1)} BTC)`;
+                    }
+                    tooltip.innerHTML = tip;
                     tooltip.style.display = 'block';
 
                     const rect = container.getBoundingClientRect();
