@@ -1,5 +1,19 @@
 [
   {
+    "date": "2026-10-02",
+    "day": "Friday",
+    "criterion": "Capacity Whale",
+    "alias": "Binance",
+    "pub_key": "03a1f3afd646d77bdaf545cceaf079bab6057eae52c6319b63b5803d0989d6a72f",
+    "pleb_rank": 101,
+    "total_capacity_sats": 35593189513,
+    "total_channels": 154,
+    "node_type": "Exchange,Payment",
+    "entity": "Binance",
+    "role": "",
+    "rationale": "Largest liquidity deployment on Lightning, locking 356 BTC in capital."
+  },
+  {
     "date": "2026-10-01",
     "day": "Thursday",
     "criterion": "Centrality Bridge",
