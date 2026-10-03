@@ -1,5 +1,19 @@
 [
   {
+    "date": "2026-10-03",
+    "day": "Saturday",
+    "criterion": "Hidden Gem",
+    "alias": "\u26a1RBlitzOne\u26a1",
+    "pub_key": "02a7311555b28f6851698999c8045de5dd3a355feae444e6ca1300bb52cceb1e7b",
+    "pleb_rank": 138,
+    "total_capacity_sats": 258364724,
+    "total_channels": 53,
+    "node_type": "Lightning Peer",
+    "entity": "",
+    "role": "",
+    "rationale": "High-performing mid-tier router providing resilient community connectivity."
+  },
+  {
     "date": "2026-10-02",
     "day": "Friday",
     "criterion": "Capacity Whale",
