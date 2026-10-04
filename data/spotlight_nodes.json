@@ -1,5 +1,19 @@
 [
   {
+    "date": "2026-10-04",
+    "day": "Sunday",
+    "criterion": "Capacity-Weighted Leader",
+    "alias": "CoinGate",
+    "pub_key": "0242a4ae0c5bef18048fbecf995094b74bfb0f7391418d71ed394784373f41e4f3",
+    "pleb_rank": 8,
+    "total_capacity_sats": 1798265032,
+    "total_channels": 1323,
+    "node_type": "Payment",
+    "entity": "CoinGate",
+    "role": "",
+    "rationale": "Top capacity-weighted routing hub, anchoring high-throughput payment transit."
+  },
+  {
     "date": "2026-10-03",
     "day": "Saturday",
     "criterion": "Hidden Gem",
