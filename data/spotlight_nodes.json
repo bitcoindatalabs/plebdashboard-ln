@@ -1,5 +1,19 @@
 [
   {
+    "date": "2026-10-05",
+    "day": "Monday",
+    "criterion": "Highest PlebRank",
+    "alias": "LNBiG [Hub-1]",
+    "pub_key": "034ea80f8b148c750463546bd999bf7321a0e6dfc60aaf84bd0400a2e8d376c0d5",
+    "pleb_rank": 4,
+    "total_capacity_sats": 20717495070,
+    "total_channels": 458,
+    "node_type": "LSP",
+    "entity": "LNBIG",
+    "role": "",
+    "rationale": "Ranked #1 globally in overall network topology and routing stability."
+  },
+  {
     "date": "2026-10-04",
     "day": "Sunday",
     "criterion": "Capacity-Weighted Leader",
