@@ -1,5 +1,19 @@
 [
   {
+    "date": "2026-10-06",
+    "day": "Tuesday",
+    "criterion": "Biggest New Node",
+    "alias": "odroid-xu4",
+    "pub_key": "0278bf80ef0c488a23c1417d92920948deb8c2e401744d17ec3e20416aeb2a5ac4",
+    "pleb_rank": 418,
+    "total_capacity_sats": 28403000,
+    "total_channels": 14,
+    "node_type": "Lightning Peer",
+    "entity": "",
+    "role": "",
+    "rationale": "Largest new routing node discovered this week, committing 28.4M sats to Lightning."
+  },
+  {
     "date": "2026-10-05",
     "day": "Monday",
     "criterion": "Highest PlebRank",
