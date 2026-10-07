@@ -1,5 +1,19 @@
 [
   {
+    "date": "2026-10-07",
+    "day": "Wednesday",
+    "criterion": "Channel Momentum",
+    "alias": "okx",
+    "pub_key": "0294ac3e099def03c12a37e30fe5364b1223fd60069869142ef96580c8439c2e0a",
+    "pleb_rank": 17,
+    "total_capacity_sats": 17199067307,
+    "total_channels": 313,
+    "node_type": "Exchange,Payment",
+    "entity": "OKX",
+    "role": "",
+    "rationale": "Opened 131 new channels this week\u2014leading all nodes in network edge growth."
+  },
+  {
     "date": "2026-10-06",
     "day": "Tuesday",
     "criterion": "Biggest New Node",
