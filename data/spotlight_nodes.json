@@ -1,5 +1,19 @@
 [
   {
+    "date": "2026-10-08",
+    "day": "Thursday",
+    "criterion": "Centrality Bridge",
+    "alias": "LNT.chengdu",
+    "pub_key": "02c953421bc7f07be6052920e46843d11e6d3ffc9986177c91f140d76c6ed3a3d4",
+    "pleb_rank": 201,
+    "total_capacity_sats": 44247321,
+    "total_channels": 798,
+    "node_type": "Lightning Peer",
+    "entity": "",
+    "role": "",
+    "rationale": "Vital routing junction bridging traffic between separate network clusters."
+  },
+  {
     "date": "2026-10-07",
     "day": "Wednesday",
     "criterion": "Channel Momentum",
