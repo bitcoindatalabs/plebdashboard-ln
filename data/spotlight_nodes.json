@@ -1,5 +1,19 @@
 [
   {
+    "date": "2026-10-09",
+    "day": "Friday",
+    "criterion": "Capacity Whale",
+    "alias": "LNBiG [Hub-2]",
+    "pub_key": "033e9ce4e8f0e68f7db49ffb6b9eecc10605f3f3fcb3c630545887749ab515b9c7",
+    "pleb_rank": 5,
+    "total_capacity_sats": 22339968301,
+    "total_channels": 401,
+    "node_type": "LSP",
+    "entity": "LNBIG",
+    "role": "",
+    "rationale": "Largest liquidity deployment on Lightning, locking 223 BTC in capital."
+  },
+  {
     "date": "2026-10-08",
     "day": "Thursday",
     "criterion": "Centrality Bridge",
