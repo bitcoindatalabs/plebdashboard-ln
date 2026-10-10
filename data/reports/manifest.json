@@ -1,0 +1,13 @@
+{
+ "schema": 1,
+ "weekly": [
+  {
+   "id": "2026-10-04",
+   "label": "Sep 28 – Oct 04, 2026",
+   "headline": "Net +13.56 BTC this week: first net inflow since the week ending Sep 13",
+   "path": "data/reports/weekly/2026-10-04.json",
+   "pdf": "https://raw.githubusercontent.com/bitcoindatalabs/bdl-report-assets/main/lightning/ln_weekly_20261004.pdf"
+  }
+ ],
+ "monthly": []
+}
