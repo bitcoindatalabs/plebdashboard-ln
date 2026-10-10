@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1200">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Lightning Report Card | Plebdashboard</title>
+    <!-- Local files only (no CDN), so a capture never depends on the network -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/ln-reports.css?v=2">
+    <link rel="stylesheet" href="styles/ln-report-card.css?v=1">
+    <script src="scripts/vendor/echarts-5.5.0.min.js"></script>
+</head>
+
+<!--
+    Screenshot canvas for the LN Weekly / LN Monthly social images. Not linked from the site.
+    Captured locally (before anything is pushed) by python/automation/shared/lightning/report_cards.py:
+        report-card.html?weekly=<week-end YYYY-MM-DD> | report-card.html?monthly=<YYYY-MM>
+    Each .card-slide is one 1200x675 image. Same renderer as reports.html (scripts/ln-report-render.js).
+-->
+<body class="card-canvas" data-loaded="false">
+    <main id="cards"></main>
+    <script type="module" src="scripts/ln-report-card.js?v=1"></script>
+</body>
+
+</html>

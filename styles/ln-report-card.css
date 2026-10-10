@@ -1,0 +1,85 @@
+/* report-card.html: fixed 1200x675 slides for the LN Weekly / LN Monthly social images.
+   Same blocks as reports.html (ln-reports.css), tightened for a fixed frame. Local fonts only. */
+
+body.card-canvas {
+    margin: 0;
+    background: var(--bg-primary);
+    font-family: 'Segoe UI', 'Inter', Arial, sans-serif;
+    color: var(--text-primary);
+}
+
+#cards { display: flex; flex-direction: column; gap: 24px; padding: 0; }
+
+.card-slide {
+    width: 1200px;
+    height: 675px;
+    box-sizing: border-box;
+    padding: 30px 40px 44px;
+    position: relative;
+    background: var(--bg-primary);
+    overflow: hidden;
+}
+
+.card-body { height: 100%; display: flex; flex-direction: column; gap: 12px; overflow: hidden; }
+
+.card-head { display: flex; flex-direction: column; gap: 2px; }
+.card-head .card-eyebrow { font-size: 13px; }
+.card-title {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 27px;
+    line-height: 1.2;
+    margin: 2px 0 4px;
+    color: var(--secondary);
+    letter-spacing: -0.3px;
+}
+.card-head .rpt-baseline { margin-top: 4px; padding: 7px 12px; font-size: 14px; }
+
+.card-foot {
+    position: absolute;
+    left: 40px;
+    right: 40px;
+    bottom: 14px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-muted);
+}
+
+/* No icon font in the canvas */
+.card-slide i.fas, .card-slide i.fa-solid { display: none; }
+
+/* Links read as plain names in an image */
+.card-slide a, .card-slide .rpt-node { color: inherit; border-bottom: none; text-decoration: none; }
+.card-slide .rpt-web-only { display: none; }
+.card-slide .rpt-list + .rpt-note { margin-top: 8px; }
+
+/* Tighter blocks */
+.card-slide .home-card { padding: 14px 18px; border-radius: 12px; box-shadow: none; }
+.card-slide .card-section-header { margin-bottom: 8px; padding-bottom: 6px; }
+.card-slide .card-section-header h2 { font-size: 17px; }
+.card-slide .rpt-tiles { gap: 12px; }
+.card-slide .rpt-tile { padding: 10px 14px 6px; }
+.card-slide .rpt-tile-value { font-size: 26px; }
+.card-slide .rpt-spark { height: 30px; }
+.card-slide .rpt-note { margin: -6px 0 0; font-size: 12px; }
+.card-slide .rpt-grid-2 { gap: 14px; }
+.card-slide .rpt-chart { height: 205px; }
+.card-slide .rpt-table { font-size: 14px; }
+.card-slide .rpt-table td { padding: 5px 6px; }
+.card-slide .rpt-table th { padding: 3px 6px; }
+.card-slide .rpt-facts { font-size: 14px; }
+.card-slide .rpt-facts dt { margin-top: 6px; }
+.card-slide .rpt-dist { margin-top: 8px; font-size: 13px; gap: 3px; }
+
+/* Weekly slide 2: movers tables carry the detail line */
+.card-2 .card-body { gap: 9px; }
+.card-2 .rpt-movers td { padding: 3px 6px; }
+.card-2 .rpt-list { gap: 2px; }
+.card-2 .rpt-list + .rpt-note { margin-top: 5px; }
+
+/* Weekly slide 3: the slide title is the node name, so drop the card's own header and name line */
+.card-3 .rpt-notw > .card-section-header, .card-3 .rpt-notw-name { display: none; }
+.card-3 .rpt-notw { flex: 1; justify-content: center; }
+.card-3 .rpt-notw .rpt-tiles { margin: 8px 0 18px; }
+.card-3 .rpt-notw .rpt-grid-2 { font-size: 16px; }

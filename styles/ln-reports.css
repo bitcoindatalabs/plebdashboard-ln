@@ -178,6 +178,7 @@
 .rpt-channel-meta { margin: 0; color: var(--text-secondary); font-size: 0.86rem; }
 .rpt-channel-meta a { color: var(--primary-dark); font-weight: 600; text-decoration: none; }
 .rpt-arrow { color: var(--text-muted); margin: 0 0.25rem; }
+.rpt-list + .rpt-note { margin-top: 0.5rem; }
 .rpt-list { margin: 0; padding-left: 1.1rem; font-size: 0.88rem; display: grid; gap: 0.3rem; }
 
 /* Node of the week */
