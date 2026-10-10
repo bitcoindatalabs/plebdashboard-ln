@@ -23,24 +23,6 @@ function copyPubKey(pubKey, element) {
 }
 window.copyPubKey = copyPubKey;
 
-// Exact 45 columns from data/node_profile.parquet
-const NODE_PROFILE_COLUMNS = [
-    'pub_key', 'alias', 'address_1', 'address_2', 'last_seen', 'source', 'snapshot_date', 'update_dt', 
-    'closed_channels_count', 'node_type', 'entity', 'role', 'birth_tx', 
-    'birth_chan', 'birth_tx_active', 'birth_chan_active', 'first_seen_week', 'in_latest_gossip', 
-    'total_channels', 'channel_segment', 'category_counts', 'total_capacity', 
-    'node_cap_tier', 'capacity_segment', 'avg_chnl_size', 'med_chnl_size', 'mode_chnl_size', 'min_chnl_size', 'max_chnl_size', 
-    'betweenness_centrality_rank', 'eigenvector_centrality_rank', 'custom_pagerank_rank', 'capacity_weighted_degree_rank', 
-    'total_channels_rank', 'total_capacity_rank', 'pleb_rank', 'ftotal_capacity', 
-    'avg_base_fee', 'med_base_fee', 'max_base_fee', 'min_base_fee', 
-    'avg_fee_rate', 'med_fee_rate', 'max_fee_rate', 'min_fee_rate'
-];
-
-// Exact 10 columns from data/channel_profile.parquet
-const CHANNEL_PROFILE_COLUMNS = [
-    'node1_pub', 'node2_pub', 'capacity', 'node1_policy', 'node2_policy', 'alias_1', 'alias_2', 'birth_tx', 'channel_id', 'in_latest_gossip'
-];
-
 class UnifiedExplorer {
     constructor() {
         this.activeTab = 'nodes'; // 'nodes' or 'channels'
@@ -386,16 +368,13 @@ class UnifiedExplorer {
 
             await parquetRead({
                 file: buffer,
+                rowFormat: 'object',
                 onComplete: (rows) => {
                     if (!Array.isArray(rows) || rows.length === 0) {
                         throw new Error('No rows found in node_profile.parquet');
                     }
 
-                    this.allNodes = rows.map(r => {
-                        const node = {};
-                        NODE_PROFILE_COLUMNS.forEach((col, idx) => {
-                            node[col] = r[idx];
-                        });
+                    this.allNodes = rows.map(node => {
 
                         // Enrich from types map
                         const pk = node.pub_key;
@@ -803,16 +782,13 @@ class UnifiedExplorer {
 
             await parquetRead({
                 file: buffer,
+                rowFormat: 'object',
                 onComplete: (rows) => {
                     if (!Array.isArray(rows) || rows.length === 0) {
                         throw new Error('No rows found in channel_profile.parquet');
                     }
 
-                    this.allChannels = rows.map(r => {
-                        const chan = {};
-                        CHANNEL_PROFILE_COLUMNS.forEach((col, idx) => {
-                            chan[col] = r[idx];
-                        });
+                    this.allChannels = rows.map(chan => {
 
                         chan.capacity = Number(chan.capacity) || 0;
                         chan.alias_1 = chan.alias_1 || (chan.node1_pub ? `${chan.node1_pub.substring(0, 8)}...` : 'Node 1');

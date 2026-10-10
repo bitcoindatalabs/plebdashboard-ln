@@ -67,22 +67,10 @@ class NodeProfileManager {
         return new Promise((resolve) => {
             parquetRead({
                 file: arrayBuffer,
+                rowFormat: 'object',
                 onComplete: (result) => {
-                    const columns = this.getProfileColumns();
                     if (Array.isArray(result) && result.length > 0) {
-                        // Log the first raw row as read from Parquet
-                        console.log('First raw row from Parquet:', result[0]);
-                        // Map each row array to an object using columns
-                        const parsedData = result.map(row => {
-                            const obj = {};
-                            columns.forEach((col, i) => {
-                                obj[col] = row[i];
-                            });
-                            return obj;
-                        });
-                        // Log all columns and the first row for debugging
-                        console.log('Profile columns:', columns);
-                        console.log('First mapped row:', parsedData[0]);
+                        const parsedData = result;
                         // Debug: Try a few known pub_keys
                         const testPubKeys = [
                             '035e4ff418fc8b5554c5d9eea66396c227bd429a3251c8cbc711002ba215bfc226', // WalletOfSatoshi
@@ -94,8 +82,8 @@ class NodeProfileManager {
                             const found = parsedData.find(n => n.pub_key === pk);
                             if (found) {
                                 console.log(`Mapped row for pub_key ${pk}:`);
-                                columns.forEach(col => {
-                                    console.log(`  ${col}:`, found[col]);
+                                Object.entries(found).forEach(([col, val]) => {
+                                    console.log(`  ${col}:`, val);
                                 });
                             } else {
                                 console.log(`pub_key ${pk} not found in mapped data.`);
@@ -128,20 +116,6 @@ class NodeProfileManager {
                 }
             });
         });
-    }
-
-    getProfileColumns() {
-        return [
-            'pub_key', 'alias', 'address_1', 'address_2', 'last_seen', 'source', 'snapshot_date', 'update_dt', 
-            'closed_channels_count', 'node_type', 'entity', 'role', 'birth_tx', 
-            'birth_chan', 'birth_tx_active', 'birth_chan_active', 'first_seen_week', 'in_latest_gossip', 
-            'total_channels', 'channel_segment', 'category_counts', 'total_capacity', 
-            'node_cap_tier', 'capacity_segment', 'avg_chnl_size', 'med_chnl_size', 'mode_chnl_size', 'min_chnl_size', 'max_chnl_size', 
-            'betweenness_centrality_rank', 'eigenvector_centrality_rank', 'custom_pagerank_rank', 'capacity_weighted_degree_rank', 
-            'total_channels_rank', 'total_capacity_rank', 'pleb_rank', 'ftotal_capacity', 
-            'avg_base_fee', 'med_base_fee', 'max_base_fee', 'min_base_fee', 
-            'avg_fee_rate', 'med_fee_rate', 'max_fee_rate', 'min_fee_rate'
-        ];
     }
 
     populateProfile() {

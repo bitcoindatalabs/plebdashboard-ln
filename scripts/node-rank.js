@@ -42,26 +42,6 @@ function fallbackCopy(text, callback) {
 
 window.copyPubKey = copyPubKey;
 
-// Exact 16 columns matching data/node_rank.parquet
-const PARQUET_COLUMNS = [
-    'pleb_rank',
-    'total_channels_rank',
-    'total_capacity_rank',
-    'capacity_weighted_degree_rank',
-    'betweenness_centrality_rank',
-    'eigenvector_centrality_rank',
-    'custom_pagerank_rank',
-    'alias',
-    'node_type',
-    'entity',
-    'role',
-    'total_capacity',
-    'total_channels',
-    'last_seen',
-    'pub_key',
-    'ftotal_capacity'
-];
-
 // Rich interactive metadata for table headers and centrality metrics
 const COLUMN_METADATA = {
     'pleb_rank': {
@@ -313,18 +293,14 @@ class DataTableManager {
 
             await parquetRead({
                 file: arrayBuffer,
+                rowFormat: 'object',
                 onComplete: (result) => {
                     if (!Array.isArray(result) || result.length === 0) {
                         this.showError('No rows returned from node_rank.parquet.');
                         return;
                     }
 
-                    // Map each raw row to our precise 16-column schema
-                    this.allNodes = result.map(row => {
-                        const node = {};
-                        PARQUET_COLUMNS.forEach((col, idx) => {
-                            node[col] = row[idx];
-                        });
+                    this.allNodes = result.map(node => {
 
                         // Enrich from ln_node_types.json
                         const pubKey = node.pub_key;

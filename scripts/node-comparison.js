@@ -53,13 +53,9 @@ class NodeComparisonManager {
             
             await parquetRead({
                 file: arrayBuffer,
+                rowFormat: 'object',
                 onComplete: (result) => {
-                    const columns = this.getRankColumns();
-                    this.allNodesData = result.map(row => {
-                        const obj = {};
-                        columns.forEach((col, i) => obj[col] = this.safeConvertValue(row[i]));
-                        return obj;
-                    }).filter(node => node.pub_key);
+                    this.allNodesData = result.map(row => this.safeConvertValue(row)).filter(node => node.pub_key);
                     console.log('Loaded', this.allNodesData.length, 'nodes');
                     this.buildSearchIndex();
                     console.log('Search index built');
@@ -311,13 +307,9 @@ class NodeComparisonManager {
         return new Promise((resolve) => {
             parquetRead({
                 file: buffer,
+                rowFormat: 'object',
                 onComplete: (result) => {
-                    const columns = this.getProfileColumns();
-                    const parsedData = result.map(row => {
-                        const obj = {};
-                        columns.forEach((col, i) => obj[col] = this.safeConvertValue(row[i]));
-                        return obj;
-                    });
+                    const parsedData = result.map(row => this.safeConvertValue(row));
 
                     this.nodesData = this.selectedNodes.map(nodeId =>
                         parsedData.find(node =>
@@ -347,13 +339,9 @@ class NodeComparisonManager {
         return new Promise((resolve) => {
             parquetRead({
                 file: buffer,
+                rowFormat: 'object',
                 onComplete: (result) => {
-                    const columns = this.getRankColumns();
-                    const parsedData = result.map(row => {
-                        const obj = {};
-                        columns.forEach((col, i) => obj[col] = this.safeConvertValue(row[i]));
-                        return obj;
-                    });
+                    const parsedData = result.map(row => this.safeConvertValue(row));
 
                     this.rankData = this.selectedNodes.map(nodeId =>
                         parsedData.find(node =>
@@ -380,13 +368,9 @@ class NodeComparisonManager {
         return new Promise((resolve) => {
             parquetRead({
                 file: buffer,
+                rowFormat: 'object',
                 onComplete: (result) => {
-                    const columns = this.getChannelColumns();
-                    this.channelData = result.map(row => {
-                        const obj = {};
-                        columns.forEach((col, i) => obj[col] = this.safeConvertValue(row[i]));
-                        return obj;
-                    });
+                    this.channelData = result.map(row => this.safeConvertValue(row));
                     console.log('Loaded', this.channelData.length, 'channels');
                     resolve();
                 },
@@ -396,33 +380,6 @@ class NodeComparisonManager {
                 }
             });
         });
-    }
-
-    getProfileColumns() {
-        return [
-            'pub_key', 'alias', 'address_1', 'address_2', 'last_seen', 'source', 'snapshot_date', 'update_dt', 
-            'closed_channels_count', 'node_type', 'birth_tx', 
-            'birth_chan', 'birth_tx_active', 'birth_chan_active', 'first_seen_week', 'in_latest_gossip', 'total_channels', 'channel_segment', 'category_counts', 'total_capacity', 
-            'node_cap_tier', 'capacity_segment', 'avg_chnl_size', 'med_chnl_size', 'mode_chnl_size', 'min_chnl_size', 'max_chnl_size', 
-            'betweenness_centrality_rank', 'eigenvector_centrality_rank', 'custom_pagerank_rank', 'capacity_weighted_degree_rank', 
-            'total_channels_rank', 'total_capacity_rank', 'pleb_rank', 'ftotal_capacity', 'avg_base_fee', 'med_base_fee', 'max_base_fee',
-            'min_base_fee', 'avg_fee_rate', 'med_fee_rate', 'max_fee_rate', 'min_fee_rate'
-        ];
-    }
-
-    getRankColumns() {
-        return [
-            'pleb_rank', 'channels_rank', 'capacity_rank', 'weighted_degree_rank',
-            'betweenness_rank', 'eigenvector_rank', 'pagerank', 'alias',
-            'node_type', 'total_capacity', 'num_channels', 'last_seen', 'pub_key'
-        ];
-    }
-
-    getChannelColumns() {
-        return [
-            'node1_pub', 'node2_pub', 'capacity', 'node1_policy', 'node2_policy', 
-            'alias_1', 'alias_2', 'birth_tx', 'channel_id', 'in_latest_gossip'
-        ];
     }
 
     renderComparison() {
@@ -507,7 +464,7 @@ class NodeComparisonManager {
 
             // Dynamic scaling: scale based on actual ranks being compared
             const metricNames = ['Overall Rank (PRank)', 'Channel Count', 'Total Capacity', 'Social Butterfly (Degree)', 'Crossroads (Betweenness)', 'Star Power (Eigenvector)'];
-            const metricKeys = ['pleb_rank', 'channels_rank', 'capacity_rank', 'weighted_degree_rank', 'betweenness_rank', 'eigenvector_rank'];
+            const metricKeys = ['pleb_rank', 'total_channels_rank', 'total_capacity_rank', 'capacity_weighted_degree_rank', 'betweenness_centrality_rank', 'eigenvector_centrality_rank'];
             
             // Collect all actual ranks for each dimension
             const allRanksByDimension = metricKeys.map(key => 
@@ -534,11 +491,11 @@ class NodeComparisonManager {
                 // Store actual ranks for display
                 const actualRanks = [
                     node.pleb_rank || 10000,
-                    node.channels_rank || 10000,
-                    node.capacity_rank || 10000,
-                    node.weighted_degree_rank || 10000,
-                    node.betweenness_rank || 10000,
-                    node.eigenvector_rank || 10000
+                    node.total_channels_rank || 10000,
+                    node.total_capacity_rank || 10000,
+                    node.capacity_weighted_degree_rank || 10000,
+                    node.betweenness_centrality_rank || 10000,
+                    node.eigenvector_centrality_rank || 10000
                 ];
                 
                 // Adaptive linear scaling per dimension: lower rank = better = larger value

@@ -36,20 +36,11 @@ class ChannelsTreemapManager {
         return new Promise((resolve, reject) => {
             parquetRead({
                 file: arrayBuffer,
+                rowFormat: 'object',
                 onComplete: (result) => {
                     try {
-                        // Find columns
-                        const columns = [
-                            'node1_pub', 'node2_pub', 'capacity', 'node1_policy', 'node2_policy', 'alias_1', 'alias_2'
-                        ];
-                        const channels = result.map(row => {
-                            const obj = {};
-                            columns.forEach((col, i) => obj[col] = row[i]);
-                            return obj;
-                        });
-                        
                         // Filter channels for this node
-                        const nodeChannels = channels.filter(
+                        const nodeChannels = result.filter(
                             ch => ch.node1_pub === nodePubKey || ch.node2_pub === nodePubKey
                         );
                         

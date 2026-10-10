@@ -31,17 +31,10 @@ class HomepageManager {
             
             await parquetRead({
                 file: arrayBuffer,
+                rowFormat: 'object',
                 onComplete: (result) => {
-                    const columns = [
-                        'pleb_rank', 'total_channels_rank', 'total_capacity_rank', 'capacity_weighted_degree_rank',
-                        'betweenness_centrality_rank', 'eigenvector_centrality_rank', 'custom_pagerank_rank', 'alias',
-                        'node_type', 'entity', 'role', 'total_capacity', 'total_channels', 'last_seen', 'pub_key', 'ftotal_capacity'
-                    ];
-                    
                     if (Array.isArray(result) && result.length > 0) {
-                        this.nodeData = result.map(row =>
-                            Object.fromEntries(columns.map((col, i) => [col, row[i]]))
-                        ).filter(node => node.pub_key && String(node.pub_key).length > 20); // Only include valid pubkeys
+                        this.nodeData = result.filter(node => node.pub_key && String(node.pub_key).length > 20); // Only include valid pubkeys
                     }
                 },
                 onError: (error) => console.error('Error loading node data:', error)

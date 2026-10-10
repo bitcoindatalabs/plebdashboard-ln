@@ -154,15 +154,10 @@ class ChannelExplorerManager {
             
             await parquetRead({
                 file: arrayBuffer,
+                rowFormat: 'object',
                 onComplete: (result) => {
-                    const parquetColumns = [
-                        'node1_pub', 'node2_pub', 'capacity', 'node1_policy', 'node2_policy', 'alias_1', 'alias_2', 'birth_tx', 'channel_id', 'in_latest_gossip'
-                    ];
-                    
                     if (Array.isArray(result) && result.length > 0) {
-                        this.allChannels = result.map(row =>
-                            Object.fromEntries(parquetColumns.map((col, i) => [col, row[i]]))
-                        ).filter(channel => channel.capacity && (channel.alias_1 || channel.alias_2)).map(channel => {
+                        this.allChannels = result.filter(channel => channel.capacity && (channel.alias_1 || channel.alias_2)).map(channel => {
                             const alias1 = channel.alias_1 || (channel.node1_pub ? channel.node1_pub.substring(0, 10) + '...' : 'Unknown');
                             const alias2 = channel.alias_2 || (channel.node2_pub ? channel.node2_pub.substring(0, 10) + '...' : 'Unknown');
                             return {

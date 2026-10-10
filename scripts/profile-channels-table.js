@@ -40,23 +40,16 @@ class ChannelsTableManager {
             return new Promise((resolve, reject) => {
                 parquetRead({
                     file: arrayBuffer,
+                    rowFormat: 'object',
                     onComplete: (result) => {
                         try {
                             console.log('ChannelsTableManager: Parquet parsing complete, rows:', result.length);
                             
-                            // Map the parquet data to objects
-                            const columns = this.getChannelColumns();
-                            
                             const allChannels = result.map(row => {
-                                const obj = {};
-                                columns.forEach((col, i) => {
-                                    let val = row[i];
-                                    if (col.includes('pub') || col.includes('alias')) {
-                                        val = val ? String(val).trim() : '';
-                                    }
-                                    obj[col] = val;
-                                });
-                                return obj;
+                                for (const col of ['node1_pub', 'node2_pub', 'alias_1', 'alias_2']) {
+                                    row[col] = row[col] ? String(row[col]).trim() : '';
+                                }
+                                return row;
                             });
                             
                             // Filter channels for this node
@@ -117,12 +110,6 @@ class ChannelsTableManager {
             this.showError('Failed to load channel data: ' + error.message);
             throw error;
         }
-    }
-
-    getChannelColumns() {
-        return [
-            'node1_pub', 'node2_pub', 'capacity', 'node1_policy', 'node2_policy', 'alias_1', 'alias_2', 'birth_tx', 'channel_id'
-        ];
     }
 
     parsePolicy(policyStr) {
