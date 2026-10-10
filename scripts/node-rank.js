@@ -6,7 +6,7 @@ function copyPubKey(pubKey, element) {
     
     const handleSuccess = () => {
         const originalContent = element.innerHTML;
-        element.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        element.innerHTML = element.classList.contains('pk-copy') ? '<i class="fas fa-check"></i>' : '<i class="fas fa-check"></i> Copied!';
         element.classList.add('copied');
 
         setTimeout(() => {
@@ -45,54 +45,49 @@ window.copyPubKey = copyPubKey;
 // Rich interactive metadata for table headers and centrality metrics
 const COLUMN_METADATA = {
     'pleb_rank': {
-        short: 'PLEB<br>RANK',
-        title: 'PlebRank Power Score',
-        desc: 'Unified composite topology metric synthesizing routing betweenness, eigenvector hub influence, channel distribution, and committed capacity. Rank #1 represents the most central backbone node in the network.'
+        short: 'RANK',
+        title: 'PlebRank',
+        desc: 'Combined rank across capacity, channels, betweenness, weighted degree, eigenvector and PageRank. #1 is the most central node.'
     },
     'alias': {
-        short: 'NODE / OPERATOR',
-        title: 'Node Alias & Entity',
-        desc: 'Public gossip alias along with the verified corporate or community entity operating the infrastructure.'
+        short: 'NODE',
+        title: 'Node and operator',
+        desc: 'Alias from gossip. Grey text below is the operator, where known.'
     },
     'node_type': {
         short: 'TYPE',
-        title: 'Ecosystem Classification',
-        desc: 'Operational category derived from network telemetry and verified profiles: Exchange, LSP, Routing Hub, Wallet, Payment Provider, or Pleb Node.'
+        title: 'Node type',
+        desc: 'Exchange, LSP, wallet, payment provider, routing or individual (pleb) node, from our curated list of known nodes.'
     },
     'total_capacity': {
-        short: 'TOTAL<br>CAPACITY',
-        title: 'Committed Bitcoin Capacity',
-        desc: 'Aggregate Bitcoin committed across all active public channels, shown with network-wide capacity percentile rank.'
+        short: 'CAPACITY',
+        title: 'Capacity',
+        desc: 'Bitcoin in public channels. Grey number: rank by capacity.'
     },
     'total_channels': {
-        short: 'PUBLIC<br>CHANNELS',
-        title: 'Verified Active Channels',
-        desc: 'Total count of open public routing channels advertised on the Lightning gossip protocol, with channel count rank.'
+        short: 'CHANNELS',
+        title: 'Public channels',
+        desc: 'Open public channels. Grey number: rank by channel count.'
     },
     'capacity_weighted_degree_rank': {
-        short: 'W-DEG<br>RANK',
-        title: 'Capacity-Weighted Degree Rank',
-        desc: 'Evaluates connectivity by weighting channel count with actual committed Bitcoin liquidity. Rewards high-capital deployment over empty channel spam.'
+        short: 'WEIGHTED<br>DEGREE',
+        title: 'Capacity-weighted degree rank',
+        desc: 'Connections weighted by channel size: many large channels rank higher than many small ones.'
     },
     'betweenness_centrality_rank': {
-        short: 'BETW<br>RANK',
-        title: 'Betweenness Centrality Rank',
-        desc: 'Measures how frequently this node sits on the most optimal payment paths between any two random nodes. High betweenness nodes are the indispensable bridge routers of Lightning.'
+        short: 'BETWEEN-<br>NESS',
+        title: 'Betweenness rank',
+        desc: 'How often the node lies on shortest paths between other nodes.'
     },
     'eigenvector_centrality_rank': {
-        short: 'EIG<br>RANK',
-        title: 'Eigenvector Centrality Rank',
-        desc: 'Measures the strategic quality of connections. Nodes connected to well-connected, high-reputation routing hubs score far higher than peripheral nodes.'
+        short: 'EIGEN-<br>VECTOR',
+        title: 'Eigenvector rank',
+        desc: 'Connected to nodes that are themselves well connected.'
     },
     'custom_pagerank_rank': {
-        short: 'PAGE<br>RANK',
-        title: 'Custom PageRank Rank',
-        desc: 'Simulates random payment traversal walks across the channel graph to evaluate structural authority, reliability, and recursive routing importance.'
-    },
-    'pub_key': {
-        short: 'PUBKEY',
-        title: 'Public Key',
-        desc: 'Compressed 33-byte secp256k1 public key used for node addressing, gossip signatures, and channel establishment.'
+        short: 'PAGE-<br>RANK',
+        title: 'PageRank rank',
+        desc: 'Importance from random walks over the channel graph, weighted by capacity.'
     }
 };
 
@@ -106,8 +101,7 @@ class DataTableManager {
         'capacity_weighted_degree_rank',
         'betweenness_centrality_rank',
         'eigenvector_centrality_rank',
-        'custom_pagerank_rank',
-        'pub_key'
+        'custom_pagerank_rank'
     ];
 
     constructor() {
@@ -356,7 +350,7 @@ class DataTableManager {
         const totalNodes = this.allNodes.length;
         const summaryHeaderTitle = document.getElementById('summaryHeaderTitle');
         if (summaryHeaderTitle) {
-            summaryHeaderTitle.innerHTML = `Ranking <strong>${totalNodes.toLocaleString()}</strong> active Lightning nodes by PlebRank &mdash; evaluating routing betweenness, eigenvector hub influence, channel distribution, and deployed capital weight.`;
+            summaryHeaderTitle.innerHTML = `<strong>${totalNodes.toLocaleString()}</strong> public nodes in the latest gossip, ranked by a combined score of capacity, channels, betweenness, weighted degree, eigenvector and PageRank. Lower is better on every rank column.`;
         }
     }
 
@@ -478,51 +472,6 @@ class DataTableManager {
         }
     }
 
-    getTierInfo(rank) {
-        const r = Number(rank);
-        if (r >= 1 && r <= 10) {
-            return {
-                tier: 'elite',
-                label: 'Elite',
-                icon: 'fa-crown',
-                className: 'tier-elite',
-                tooltip: 'Elite Tier: Top 10 Backbone Router'
-            };
-        } else if (r <= 50) {
-            return {
-                tier: 'top',
-                label: 'Top Tier',
-                icon: 'fa-star',
-                className: 'tier-top',
-                tooltip: 'Top Tier: Top 50 High-Volume Router'
-            };
-        } else if (r <= 100) {
-            return {
-                tier: 'core',
-                label: 'Core',
-                icon: 'fa-network-wired',
-                className: 'tier-core',
-                tooltip: 'Core Router: Top 100 Strategic Hub'
-            };
-        } else if (r <= 500) {
-            return {
-                tier: 'established',
-                label: 'Established',
-                icon: 'fa-shield-halved',
-                className: 'tier-established',
-                tooltip: 'Established Router: Ranks 101–500'
-            };
-        } else {
-            return {
-                tier: 'pleb',
-                label: 'Pleb',
-                icon: 'fa-user-astronaut',
-                className: 'tier-pleb',
-                tooltip: 'Active Community Routing Node'
-            };
-        }
-    }
-
     renderNodeTypePills(nodeTypeString) {
         if (!nodeTypeString || typeof nodeTypeString !== 'string' || !nodeTypeString.trim()) {
             return `<span class="type-pill pill-pleb" title="Community / Pleb routing node"><i class="fas fa-user-astronaut"></i> Pleb</span>`;
@@ -641,12 +590,6 @@ class DataTableManager {
 
         pageData.forEach(node => {
             const tr = document.createElement('tr');
-            const tier = this.getTierInfo(node.pleb_rank);
-            
-            // Add top 3 podium accent row classes
-            if (node.pleb_rank === 1) tr.classList.add('row-gold');
-            else if (node.pleb_rank === 2) tr.classList.add('row-silver');
-            else if (node.pleb_rank === 3) tr.classList.add('row-bronze');
 
             this.visibleColumns.forEach(col => {
                 const td = document.createElement('td');
@@ -655,19 +598,7 @@ class DataTableManager {
                 switch (col) {
                     case 'pleb_rank': {
                         td.classList.add('rank-cell');
-                        let podiumIcon = '';
-                        if (node.pleb_rank === 1) podiumIcon = '<span class="podium-icon gold">🥇</span>';
-                        else if (node.pleb_rank === 2) podiumIcon = '<span class="podium-icon silver">🥈</span>';
-                        else if (node.pleb_rank === 3) podiumIcon = '<span class="podium-icon bronze">🥉</span>';
-
-                        td.innerHTML = `
-                            <div class="rank-container">
-                                <span class="rank-number-text">${podiumIcon}#${node.pleb_rank.toLocaleString()}</span>
-                                <span class="tier-badge ${tier.className}" title="${tier.tooltip}">
-                                    <i class="fas ${tier.icon}"></i> ${tier.label}
-                                </span>
-                            </div>
-                        `;
+                        td.innerHTML = `<span class="rank-num">#${node.pleb_rank.toLocaleString()}</span>`;
                         break;
                     }
 
@@ -675,17 +606,15 @@ class DataTableManager {
                         td.classList.add('alias-cell');
                         const aliasText = node.alias || (node.pub_key ? node.pub_key.substring(0, 10) + '...' : 'Unknown');
                         const hasEntity = node.entity && node.entity.trim() !== '' && node.entity.toLowerCase() !== aliasText.toLowerCase();
+                        const pk = node.pub_key || '';
 
                         td.innerHTML = `
                             <div class="alias-wrapper">
-                                <a href="profile.html?node=${encodeURIComponent(node.pub_key)}" class="alias-link" title="Inspect ${aliasText}">
-                                    ${aliasText}
-                                </a>
-                                ${hasEntity ? `
-                                    <span class="entity-sublabel" title="Verified Operator Entity: ${node.entity}">
-                                        <i class="fas fa-building"></i> ${node.entity}
-                                    </span>
-                                ` : ''}
+                                <div class="alias-line">
+                                    <a href="profile.html?node=${encodeURIComponent(pk)}" class="alias-link" title="Open node page">${aliasText}</a>
+                                    ${pk ? `<button type="button" class="pk-copy" onclick="copyPubKey('${pk}', this)" title="Copy pubkey ${pk}"><i class="far fa-copy"></i></button>` : ''}
+                                </div>
+                                ${hasEntity ? `<span class="entity-sublabel" title="Operator">${node.entity}</span>` : ''}
                             </div>
                         `;
                         break;
@@ -700,27 +629,13 @@ class DataTableManager {
                     case 'total_capacity': {
                         td.classList.add('capacity-cell');
                         const formattedCap = this.formatCapacity(node.total_capacity);
-                        td.innerHTML = `
-                            <div class="metric-cell-wrapper">
-                                <span class="metric-primary">${formattedCap}</span>
-                                <span class="sub-rank-tag" title="Capacity Rank: #${node.total_capacity_rank.toLocaleString()}">
-                                    #${node.total_capacity_rank.toLocaleString()}
-                                </span>
-                            </div>
-                        `;
+                        td.innerHTML = `<span class="metric-primary">${formattedCap}</span><span class="sub-rank" title="Rank by capacity">#${node.total_capacity_rank.toLocaleString()}</span>`;
                         break;
                     }
 
                     case 'total_channels': {
                         td.classList.add('channels-cell');
-                        td.innerHTML = `
-                            <div class="metric-cell-wrapper">
-                                <span class="metric-primary">${Number(node.total_channels).toLocaleString()}</span>
-                                <span class="sub-rank-tag" title="Channels Rank: #${node.total_channels_rank.toLocaleString()}">
-                                    #${node.total_channels_rank.toLocaleString()}
-                                </span>
-                            </div>
-                        `;
+                        td.innerHTML = `<span class="metric-primary">${Number(node.total_channels).toLocaleString()}</span><span class="sub-rank" title="Rank by channel count">#${node.total_channels_rank.toLocaleString()}</span>`;
                         break;
                     }
 
@@ -729,14 +644,7 @@ class DataTableManager {
                     case 'eigenvector_centrality_rank':
                     case 'custom_pagerank_rank': {
                         td.classList.add('centrality-rank-cell');
-                        const rankVal = Number(val);
-                        let rankPillClass = 'rank-high';
-                        if (rankVal <= 10) rankPillClass = 'rank-elite';
-                        else if (rankVal <= 50) rankPillClass = 'rank-top';
-                        else if (rankVal <= 100) rankPillClass = 'rank-core';
-                        else if (rankVal <= 500) rankPillClass = 'rank-mid';
-
-                        td.innerHTML = `<span class="centrality-num ${rankPillClass}">#${rankVal.toLocaleString()}</span>`;
+                        td.textContent = `#${Number(val).toLocaleString()}`;
                         break;
                     }
 

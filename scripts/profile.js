@@ -1,5 +1,21 @@
 import { parquetRead } from 'https://cdn.jsdelivr.net/npm/hyparquet@1.17.1/+esm';
 
+// The six rank measures on the node page (radar and list, same order). Ranks come from ln_bdl_tables_upsert.py.
+const RANK_MEASURES = [
+    { key: 'pleb_rank', short: 'Overall', name: 'Overall (PlebRank)', icon: 'fa-trophy',
+      desc: 'Combined score of the five measures below plus PageRank' },
+    { key: 'total_capacity_rank', short: 'Capacity', name: 'Capacity', icon: 'fa-coins',
+      desc: 'Bitcoin locked in public channels' },
+    { key: 'total_channels_rank', short: 'Channels', name: 'Channels', icon: 'fa-network-wired',
+      desc: 'Number of public channels' },
+    { key: 'betweenness_centrality_rank', short: 'Betweenness', name: 'Betweenness', icon: 'fa-project-diagram',
+      desc: 'How often the node lies on shortest paths between other nodes' },
+    { key: 'capacity_weighted_degree_rank', short: 'Weighted degree', name: 'Weighted degree', icon: 'fa-share-alt',
+      desc: 'Connections weighted by channel size' },
+    { key: 'eigenvector_centrality_rank', short: 'Eigenvector', name: 'Eigenvector', icon: 'fa-star',
+      desc: 'Connected to nodes that are themselves well connected' }
+];
+
 class NodeProfileManager {
     constructor() {
         this.nodeData = null;
@@ -71,6 +87,7 @@ class NodeProfileManager {
                 onComplete: (result) => {
                     if (Array.isArray(result) && result.length > 0) {
                         const parsedData = result;
+                        this.rankTotal = parsedData.reduce((mx, n) => Math.max(mx, Number(n.pleb_rank) || 0), 0) || 10000;
                         // Debug: Try a few known pub_keys
                         const testPubKeys = [
                             '035e4ff418fc8b5554c5d9eea66396c227bd429a3251c8cbc711002ba215bfc226', // WalletOfSatoshi
@@ -133,10 +150,15 @@ class NodeProfileManager {
         
         // Node Type Badges
         const nodeTypeBadgeEl = document.getElementById('nodeTypeBadge');
-        if (nodeTypeBadgeEl) {
-            nodeTypeBadgeEl.innerHTML = this.renderNodeTypePills(node.node_type);
-        } else {
-            safeSet('nodeType', node.node_type || 'Unknown');
+        if (nodeTypeBadgeEl) nodeTypeBadgeEl.innerHTML = this.renderNodeTypePills(node.node_type);
+
+        // First seen (first channel's block date, YYYYMMDD)
+        const sinceEl = document.getElementById('nodeSince');
+        const fsw = node.first_seen_week ? String(node.first_seen_week) : '';
+        if (sinceEl && /^\d{8}$/.test(fsw)) {
+            const d = new Date(Date.UTC(+fsw.slice(0, 4), +fsw.slice(4, 6) - 1, 1));
+            sinceEl.textContent = `Since ${d.toLocaleString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' })}`;
+            sinceEl.style.display = 'inline-flex';
         }
 
         // Entity badge & Role description (Step 3.4 Requirement)
@@ -147,6 +169,30 @@ class NodeProfileManager {
                 entityBadge.style.display = 'inline-flex';
             } else {
                 entityBadge.style.display = 'none';
+            }
+        }
+
+        // Client badge and software line: published node_client labels, shown as given (no label logic here)
+        const clientSlot = document.getElementById('nodeClientBadge');
+        if (clientSlot) {
+            const badge = window.createClientBadge ? window.createClientBadge(node) : null;
+            clientSlot.replaceChildren(...(badge ? [badge] : []));
+            clientSlot.style.display = badge ? 'inline-flex' : 'none';
+        }
+
+        const softwareLine = document.getElementById('nodeSoftwareLine');
+        if (softwareLine) {
+            if (node.version_display) {
+                safeSet('nodeSoftwareVersion', node.version_display);
+                const info = document.getElementById('nodeSoftwareInfo');
+                if (info) {
+                    info.title = [node.version_basis,
+                        "What anyone can read from this node's public announcement. Release line only, never the patch version."]
+                        .filter(Boolean).join('\n');
+                }
+                softwareLine.style.display = 'block';
+            } else {
+                softwareLine.style.display = 'none';
             }
         }
 
@@ -172,11 +218,6 @@ class NodeProfileManager {
             viewInGraphBtn.href = `graph.html?highlight=${encodeURIComponent(node.pub_key)}`;
         }
 
-        const viewAllChannelsBtn = document.getElementById('viewAllChannelsBtn');
-        if (viewAllChannelsBtn && node.pub_key) {
-            viewAllChannelsBtn.href = `explorer.html?tab=channels&node1=${encodeURIComponent(node.pub_key)}`;
-        }
-
         // Build full connect address: pubkey@host:port
         let connectAddress = null;
         const addr1 = node.address_1;
@@ -197,9 +238,18 @@ class NodeProfileManager {
 
         // Quick stats
         safeSet('overallRank', this.formatRank(node.pleb_rank));
+        if (this.rankTotal) safeSet('overallRankSub', `of ${this.rankTotal.toLocaleString()} public nodes`);
+        const gossipStatus = document.getElementById('gossipStatus');
+        if (gossipStatus) {
+            const seen = node.in_latest_gossip === true || node.in_latest_gossip === 'true';
+            safeSet('gossipStatusText', seen ? 'In latest gossip' : 'Not in latest gossip');
+            gossipStatus.classList.toggle('is-stale', !seen);
+        }
         safeSet('totalCapacity', node.ftotal_capacity || 'Unknown');
         safeSet('channelCount', this.formatNumber(node.total_channels));
         safeSet('medianChannelSize', this.formatCapacity(node.med_chnl_size));
+        if (node.avg_chnl_size) safeSet('avgChannelSub', `Average ${this.formatCapacity(node.avg_chnl_size)}`);
+        if (node.node_cap_tier) safeSet('capacityTierSub', `${node.node_cap_tier} tier`);
 
         // Infrastructure & Specs
         const birthTxEl = document.getElementById('birthTx');
@@ -213,8 +263,6 @@ class NodeProfileManager {
         }
         safeSet('address1', node.address_1 || '-');
         safeSet('address2', node.address_2 || '-');
-        safeSet('connectAddress', this.connectAddress || '-');
-        safeSet('nodeCapTier', node.node_cap_tier || '-');
 
         // Copy buttons visibility under Network Diagnostics
         const copyAddr1 = document.getElementById('copyAddress1Btn');
@@ -223,8 +271,6 @@ class NodeProfileManager {
         const copyAddr2 = document.getElementById('copyAddress2Btn');
         if (copyAddr2) copyAddr2.style.display = (node.address_2 && node.address_2 !== '-') ? 'inline-flex' : 'none';
 
-        const copyConn = document.getElementById('copyConnectAddrBtn');
-        if (copyConn) copyConn.style.display = this.connectAddress ? 'inline-flex' : 'none';
 
         // Category Counts formatting with colored badges
         const categoryCountsEl = document.getElementById('categoryCounts');
@@ -243,15 +289,18 @@ class NodeProfileManager {
             }
 
             if (catObj && typeof catObj === 'object') {
-                const freeway = catObj['Freeway'] || 0;
-                const highway = catObj['Highway'] || 0;
-                const myway = catObj['My Way'] || catObj['MyWay'] || 0;
-
+                const cats = [
+                    { cls: 'freeway', name: 'Freeway', range: '≥ 1 BTC', n: Number(catObj['Freeway'] || 0) },
+                    { cls: 'highway', name: 'Highway', range: '1M–100M sats', n: Number(catObj['Highway'] || 0) },
+                    { cls: 'myway', name: 'My Way', range: '< 1M sats', n: Number(catObj['My Way'] || catObj['MyWay'] || 0) }
+                ];
+                const total = cats.reduce((s, c) => s + c.n, 0) || 1;
                 categoryCountsEl.innerHTML = `
-                    <div class="category-badges-group">
-                        <span class="cat-badge cat-freeway" title="Freeway: > 1 BTC capacity"><i class="fas fa-road"></i> Freeway: <strong>${Number(freeway).toLocaleString()}</strong></span>
-                        <span class="cat-badge cat-highway" title="Highway: 1M - 100M sats"><i class="fas fa-car-side"></i> Highway: <strong>${Number(highway).toLocaleString()}</strong></span>
-                        <span class="cat-badge cat-myway" title="My Way: < 1M sats"><i class="fas fa-bicycle"></i> My Way: <strong>${Number(myway).toLocaleString()}</strong></span>
+                    <div class="np-sizebar">
+                        ${cats.filter(c => c.n > 0).map(c => `<span class="np-seg np-seg-${c.cls}" style="flex: ${c.n}" title="${c.name} (${c.range}): ${c.n.toLocaleString()} channels"></span>`).join('')}
+                    </div>
+                    <div class="np-size-legend">
+                        ${cats.map(c => `<span><i class="np-dot np-seg-${c.cls}"></i>${c.name} <span class="np-muted">${c.range}</span> <strong>${c.n.toLocaleString()}</strong> <span class="np-muted">(${Math.round(c.n / total * 100)}%)</span></span>`).join('')}
                     </div>
                 `;
             } else {
@@ -451,6 +500,9 @@ class NodeProfileManager {
             try {
                 const targetKey = this.nodeData ? this.nodeData.pub_key : this.nodeId;
                 await this.channelsTableManager.loadAndRenderTable(targetKey);
+                const peers = this.channelsTableManager.peerGroupsData ? this.channelsTableManager.peerGroupsData.length : 0;
+                const peerEl = document.getElementById('peerCountSub');
+                if (peers && peerEl) peerEl.textContent = `with ${peers.toLocaleString()} peers`;
             } catch (error) {
                 console.error('Failed to load channels table:', error);
             }
@@ -484,86 +536,68 @@ class NodeProfileManager {
         }
     }
 
+    // Position on the rank axes: log scale, so #1 / #10 / #100 / #1,000 are evenly spaced.
+    // A linear scale puts every top-100 node on the outer ring and hides the differences between measures.
+    rankScore(rank) {
+        const r = Number(rank);
+        if (!r || isNaN(r) || r < 1) return null;
+        const n = Math.max(this.rankTotal || 10000, 2);
+        return Math.max(0.04, Math.min(1, 1 - Math.log10(r) / Math.log10(n)));
+    }
+
+    topPercent(rank) {
+        const pct = (Number(rank) / (this.rankTotal || 10000)) * 100;
+        return pct < 1 ? `Top ${Math.max(0.1, pct).toFixed(1)}%` : `Top ${Math.ceil(pct)}%`;
+    }
+
     renderTopologicalRadar(node) {
         const svg = document.getElementById('radarSvg');
         const tooltip = document.getElementById('radarTooltip');
         if (!svg) return;
 
-        const cx = 160;
-        const cy = 125;
-        const radius = 80;
+        const cx = 180;
+        const cy = 140;
+        const radius = 88;
+        const n = this.rankTotal || 10000;
+        const angleOf = i => -Math.PI / 2 + (i * Math.PI / 3);
+        const point = (factor, i) => [cx + radius * factor * Math.cos(angleOf(i)), cy + radius * factor * Math.sin(angleOf(i))];
 
-        // 4 concentric polygon rings
+        // Rings at rank #1,000 / #100 / #10 / #1 (outer); inner rings labelled along the top spoke
         let gridHtml = '';
-        [0.25, 0.5, 0.75, 1.0].forEach(factor => {
-            const pts = [];
-            for (let i = 0; i < 6; i++) {
-                const angle = -Math.PI / 2 + (i * Math.PI / 3);
-                const x = cx + radius * factor * Math.cos(angle);
-                const y = cy + radius * factor * Math.sin(angle);
-                pts.push(`${x.toFixed(1)},${y.toFixed(1)}`);
-            }
+        [1000, 100, 10, 1].filter(r => r < n).forEach(r => {
+            const factor = 1 - Math.log10(r) / Math.log10(n);
+            const pts = [0, 1, 2, 3, 4, 5].map(i => point(factor, i).map(v => v.toFixed(1)).join(','));
             gridHtml += `<polygon points="${pts.join(' ')}" class="radar-grid-polygon" />`;
+            if (r === 1) return;   // outer ring is #1; its label would sit on the top point
+            const [lx, ly] = point(factor, 0);
+            gridHtml += `<text x="${(lx + 4).toFixed(1)}" y="${(ly + 10).toFixed(1)}" class="radar-ring-label">#${r.toLocaleString()}</text>`;
         });
 
-        // 6 spokes
         let spokesHtml = '';
         for (let i = 0; i < 6; i++) {
-            const angle = -Math.PI / 2 + (i * Math.PI / 3);
-            const x = cx + radius * Math.cos(angle);
-            const y = cy + radius * Math.sin(angle);
+            const [x, y] = point(1, i);
             spokesHtml += `<line x1="${cx}" y1="${cy}" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}" class="radar-spoke" />`;
         }
 
-        // Labels
-        const labelsData = [
-            { text: 'PlebRank', ox: 0, oy: -12 },
-            { text: 'Capacity', ox: 14, oy: -4 },
-            { text: 'Channels', ox: 14, oy: 12 },
-            { text: 'Betweenness', ox: 0, oy: 18 },
-            { text: 'W-Degree', ox: -14, oy: 12 },
-            { text: 'Eigenvector', ox: -14, oy: -4 }
-        ];
-
-        let labelsHtml = '';
-        labelsData.forEach((lbl, i) => {
-            const angle = -Math.PI / 2 + (i * Math.PI / 3);
-            const lx = cx + (radius + 14) * Math.cos(angle) + lbl.ox;
-            const ly = cy + (radius + 14) * Math.sin(angle) + lbl.oy;
-            labelsHtml += `<text x="${lx.toFixed(1)}" y="${ly.toFixed(1)}" class="radar-label">${lbl.text}</text>`;
-        });
-
-        // Data Polygon & Dots
-        const axes = [
-            { name: 'PlebRank Power', rank: node.pleb_rank },
-            { name: 'Capacity Weight', rank: node.total_capacity_rank },
-            { name: 'Active Channels', rank: node.total_channels_rank },
-            { name: 'Betweenness Routing', rank: node.betweenness_centrality_rank },
-            { name: 'Weighted Degree', rank: node.capacity_weighted_degree_rank },
-            { name: 'Eigenvector Hub Authority', rank: node.eigenvector_centrality_rank }
-        ];
-
         const dataPts = [];
         const dots = [];
-
-        axes.forEach((axis, i) => {
-            const angle = -Math.PI / 2 + (i * Math.PI / 3);
-            let score = 0.08;
-            const rankNum = Number(axis.rank);
-            if (axis.rank && !isNaN(rankNum) && rankNum > 0) {
-                // Rank 1 -> 0.98, Rank 10000 -> 0.08
-                score = Math.max(0.08, Math.min(0.98, 1 - (rankNum - 1) / 10000));
-            }
-            const px = cx + radius * score * Math.cos(angle);
-            const py = cy + radius * score * Math.sin(angle);
+        let labelsHtml = '';
+        RANK_MEASURES.forEach((m, i) => {
+            const rank = node[m.key];
+            const score = this.rankScore(rank) ?? 0.04;
+            const [px, py] = point(score, i);
             dataPts.push(`${px.toFixed(1)},${py.toFixed(1)}`);
-            const rankStr = axis.rank ? `#${Number(axis.rank).toLocaleString()}` : 'Unranked';
-            const pctStr = axis.rank ? `Top ${Math.max(0.1, (rankNum / 100)).toFixed(1)}%` : 'N/A';
-            dots.push(`
-                <circle class="radar-dot" cx="${px.toFixed(1)}" cy="${py.toFixed(1)}" r="4.5"
-                    data-metric="${axis.name}" data-rank="${rankStr}" data-pct="${pctStr}">
-                </circle>
-            `);
+            const rankStr = this.rankScore(rank) !== null ? `#${Number(rank).toLocaleString()}` : 'Unranked';
+            dots.push(`<circle class="radar-dot" cx="${px.toFixed(1)}" cy="${py.toFixed(1)}" r="4.5" data-idx="${i}"></circle>`);
+
+            // Axis label with the rank underneath
+            const [lx, ly] = point(1.17, i);
+            const cos = Math.cos(angleOf(i));
+            const anchor = Math.abs(cos) < 0.1 ? 'middle' : (cos > 0 ? 'start' : 'end');
+            const dy = i === 0 ? -14 : (i === 3 ? 6 : -4);
+            labelsHtml += `<text x="${lx.toFixed(1)}" y="${(ly + dy).toFixed(1)}" class="radar-label" text-anchor="${anchor}">` +
+                `<tspan x="${lx.toFixed(1)}">${m.short}</tspan>` +
+                `<tspan x="${lx.toFixed(1)}" dy="13" class="radar-label-rank">${rankStr}</tspan></text>`;
         });
 
         svg.innerHTML = `
@@ -574,30 +608,24 @@ class NodeProfileManager {
             ${labelsHtml}
         `;
 
-        // Tooltip interaction
         if (tooltip) {
             const container = document.getElementById('topologicalRadarContainer');
             svg.querySelectorAll('.radar-dot').forEach(dot => {
                 dot.addEventListener('mouseenter', () => {
-                    const metric = dot.getAttribute('data-metric');
-                    const rank = dot.getAttribute('data-rank');
-                    const pct = dot.getAttribute('data-pct');
-                    tooltip.innerHTML = `<strong>${metric}</strong>: ${rank} (${pct})`;
+                    const m = RANK_MEASURES[Number(dot.dataset.idx)];
+                    const rank = node[m.key];
+                    tooltip.textContent = this.rankScore(rank) !== null
+                        ? `${m.name}: #${Number(rank).toLocaleString()} of ${n.toLocaleString()} (${this.topPercent(rank)})`
+                        : `${m.name}: unranked`;
                     tooltip.style.opacity = '1';
-
                     if (container) {
                         const rect = container.getBoundingClientRect();
                         const dotRect = dot.getBoundingClientRect();
-                        const left = dotRect.left - rect.left + dotRect.width / 2;
-                        const top = dotRect.top - rect.top;
-                        tooltip.style.left = `${left}px`;
-                        tooltip.style.top = `${top}px`;
+                        tooltip.style.left = `${dotRect.left - rect.left + dotRect.width / 2}px`;
+                        tooltip.style.top = `${dotRect.top - rect.top}px`;
                     }
                 });
-
-                dot.addEventListener('mouseleave', () => {
-                    tooltip.style.opacity = '0';
-                });
+                dot.addEventListener('mouseleave', () => { tooltip.style.opacity = '0'; });
             });
         }
     }
@@ -606,53 +634,28 @@ class NodeProfileManager {
         const container = document.getElementById('centralityProgressList');
         if (!container) return;
 
-        const dimensions = [
-            { label: 'PlebRank Power', rank: node.pleb_rank, icon: 'fa-trophy' },
-            { label: 'Capacity Weight', rank: node.total_capacity_rank, icon: 'fa-coins' },
-            { label: 'Active Channels', rank: node.total_channels_rank, icon: 'fa-network-wired' },
-            { label: 'Betweenness Routing', rank: node.betweenness_centrality_rank, icon: 'fa-project-diagram' },
-            { label: 'Weighted Degree', rank: node.capacity_weighted_degree_rank, icon: 'fa-share-alt' },
-            { label: 'Eigenvector Hub Authority', rank: node.eigenvector_centrality_rank, icon: 'fa-star' }
-        ];
-
-        container.innerHTML = dimensions.map(d => {
-            const rankNum = Number(d.rank);
-            const hasRank = d.rank && !isNaN(rankNum) && rankNum > 0;
-            const rankStr = hasRank ? `#${rankNum.toLocaleString()}` : 'N/A';
-            
-            let pctLabel = 'Standard';
+        container.innerHTML = RANK_MEASURES.map(m => {
+            const rank = node[m.key];
+            const score = this.rankScore(rank);
+            const hasRank = score !== null;
+            const pct = hasRank ? (Number(rank) / (this.rankTotal || 10000)) * 100 : null;
             let pctClass = 'pct-standard';
-            let fillWidth = 5;
-
-            if (hasRank) {
-                const pct = Math.max(0.1, (rankNum / 100)).toFixed(1);
-                fillWidth = Math.max(5, Math.min(100, 100 - (rankNum / 100)));
-                if (rankNum <= 100) {
-                    pctLabel = `Elite Top ${pct}%`;
-                    pctClass = 'pct-elite';
-                } else if (rankNum <= 500) {
-                    pctLabel = `Top ${pct}%`;
-                    pctClass = 'pct-top';
-                } else if (rankNum <= 2000) {
-                    pctLabel = `Core Top ${pct}%`;
-                    pctClass = 'pct-core';
-                } else {
-                    pctLabel = `Pleb Tier (${pct}%)`;
-                    pctClass = 'pct-standard';
-                }
-            }
+            if (hasRank && pct <= 1) pctClass = 'pct-elite';
+            else if (hasRank && pct <= 5) pctClass = 'pct-top';
+            else if (hasRank && pct <= 20) pctClass = 'pct-core';
 
             return `
                 <div class="centrality-progress-row">
                     <div class="progress-label-row">
-                        <span class="metric-name"><i class="fas ${d.icon}"></i> ${d.label}</span>
+                        <span class="metric-name"><i class="fas ${m.icon}"></i> ${m.name}</span>
                         <div class="metric-rank-group">
-                            <span class="metric-rank-val">${rankStr}</span>
-                            <span class="metric-pct-pill ${pctClass}">${pctLabel}</span>
+                            <span class="metric-rank-val">${hasRank ? `#${Number(rank).toLocaleString()}` : 'Unranked'}</span>
+                            ${hasRank ? `<span class="metric-pct-pill ${pctClass}">${this.topPercent(rank)}</span>` : ''}
                         </div>
                     </div>
+                    <div class="metric-desc">${m.desc}</div>
                     <div class="progress-track">
-                        <div class="progress-fill" style="width: ${fillWidth}%;"></div>
+                        <div class="progress-fill" style="width: ${hasRank ? Math.round(score * 100) : 0}%;"></div>
                     </div>
                 </div>
             `;
@@ -665,35 +668,29 @@ class NodeProfileManager {
         const plebRank = Number(node.pleb_rank) || 99999;
         const nodeType = (node.node_type || '').toLowerCase();
 
-        let title = 'Sovereign Pleb Router';
-        let desc = 'Autonomous node operator strengthening network decentralization and alternative peer routing path resilience.';
-        let badgeText = '🧑‍🚀 Pleb Router';
+        let title = 'Independent node';
+        let desc = 'Outside the top 500 overall. Most public nodes are in this group.';
 
         if (betwRank <= 150 && capRank <= 150) {
-            title = '⚡ Tier-1 Routing Backbone';
-            desc = 'Critical liquidity artery and short-path transit bridge with exceptional betweenness and capital weight across the global Lightning graph.';
-            badgeText = '⚡ Tier-1 Backbone';
+            title = 'Major routing hub';
+            desc = 'Top 150 by both capacity and betweenness: a large share of shortest payment paths can run through this node.';
         } else if (betwRank <= 250) {
-            title = '🌉 Centrality Bridge';
-            desc = 'High betweenness routing hub facilitating cross-cluster multi-hop payment routing between disparate sub-networks.';
-            badgeText = '🌉 Centrality Bridge';
+            title = 'Routing bridge';
+            desc = 'Top 250 by betweenness: sits on many shortest paths between otherwise distant parts of the network.';
         } else if (capRank <= 200) {
-            title = '🐋 Liquidity Reservoir';
-            desc = 'Massive capital sink providing high-volume channel depth and absorption capacity for large-value payments.';
-            badgeText = '🐋 Liquidity Whale';
+            title = 'Large liquidity provider';
+            desc = 'Top 200 by capacity: deep channels that can carry large payments.';
         } else if (nodeType.includes('lsp')) {
-            title = '⚡ Lightning Service Provider (LSP)';
-            desc = 'Specialized client onboarding provider optimizing just-in-time inbound liquidity and end-user routing channels.';
-            badgeText = '⚡ LSP Gateway';
+            title = 'Lightning service provider';
+            desc = 'Opens channels to end users and provides inbound liquidity.';
         } else if (nodeType.includes('exchange')) {
-            title = '🏦 Institutional Gateway';
-            desc = 'High-throughput custodial terminal connecting exchange deposit/withdrawal liquidity to public routing channels.';
-            badgeText = '🏦 Exchange Gateway';
+            title = 'Exchange node';
+            desc = 'Connects an exchange\'s Lightning deposits and withdrawals to the public network.';
         } else if (plebRank <= 500) {
-            title = '⭐ Core Network Router';
-            desc = 'High-reliability routing node with balanced liquidity distribution and consistent gossip presence.';
-            badgeText = '⭐ Core Router';
+            title = 'Well-connected router';
+            desc = 'Top 500 overall on the combined rank.';
         }
+        const badgeText = title;
 
         const personaTitleEl = document.getElementById('personaTitle');
         const personaDescEl = document.getElementById('personaDesc');
@@ -703,6 +700,7 @@ class NodeProfileManager {
         if (personaDescEl) personaDescEl.textContent = desc;
         if (personaBadgeEl) {
             personaBadgeEl.textContent = badgeText;
+            personaBadgeEl.title = desc;
             personaBadgeEl.style.display = 'inline-flex';
         }
 
@@ -716,18 +714,19 @@ class NodeProfileManager {
 
         if (medFee !== null && !isNaN(medFee)) {
             if (medFeeRateEl) medFeeRateEl.textContent = `${medFee.toLocaleString()} ppm`;
-            if (baseFeeEl) baseFeeEl.textContent = `${(baseFee || 0).toLocaleString()} msat`;
+            if (baseFeeEl) baseFeeEl.textContent = `+ ${(baseFee || 0).toLocaleString()} msat base`;
 
             if (feePillEl) {
+                feePillEl.title = 'Low: under 150 ppm · Mid: 150–500 ppm · High: over 500 ppm';
                 if (medFee < 150) {
                     feePillEl.className = 'fee-benchmark-pill fee-low';
-                    feePillEl.textContent = 'Low Fee Router';
+                    feePillEl.textContent = 'Low';
                 } else if (medFee <= 500) {
                     feePillEl.className = 'fee-benchmark-pill fee-comp';
-                    feePillEl.textContent = 'Competitive Policy';
+                    feePillEl.textContent = 'Mid';
                 } else {
                     feePillEl.className = 'fee-benchmark-pill fee-high';
-                    feePillEl.textContent = 'Premium Fee Margin';
+                    feePillEl.textContent = 'High';
                 }
             }
         } else {
@@ -735,7 +734,7 @@ class NodeProfileManager {
             if (baseFeeEl) baseFeeEl.textContent = 'N/A';
             if (feePillEl) {
                 feePillEl.className = 'fee-benchmark-pill fee-comp';
-                feePillEl.textContent = 'Standard Policy';
+                feePillEl.textContent = '';
             }
         }
     }
@@ -753,7 +752,7 @@ class NodeProfileManager {
     async loadChannelsTableManager() {
         try {
             console.log('NodeProfileManager: Importing profile-channels-table.js...');
-            const { default: ChannelsTableManager } = await import('./profile-channels-table.js');
+            const { default: ChannelsTableManager } = await import('./profile-channels-table.js?v=4.0');
             console.log('NodeProfileManager: ChannelsTableManager imported successfully');
             const manager = new ChannelsTableManager();
             console.log('NodeProfileManager: ChannelsTableManager instance created');

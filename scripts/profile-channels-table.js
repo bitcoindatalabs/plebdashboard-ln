@@ -24,6 +24,7 @@ class ChannelsTableManager {
 
     async loadAndRenderTable(nodePubKey) {
         console.log('ChannelsTableManager: Starting to load table for node:', nodePubKey);
+        this.nodePubKey = nodePubKey;
         
         try {
             // Clear any existing table
@@ -90,6 +91,9 @@ class ChannelsTableManager {
                             this.peerGroupsData = Object.values(peerGroups);
 
                             this.filteredData = [...this.peerGroupsData];
+                            this.sortColumn = 'capacity';
+                            this.sortDirection = 'desc';
+                            this.applySort();
                             this.renderTable(nodePubKey);
                             resolve();
                         } catch (error) {
@@ -168,21 +172,45 @@ class ChannelsTableManager {
         return Number(ppm).toLocaleString();
     }
 
-    formatPolicyCompact(policy) {
-        if (policy.disabled) {
-            return '<span class="disabled-text">Channel Disabled</span>';
+    // Outbound fee on one line; inbound only when set; HTLC limits and CLTV delta on hover.
+    formatFee(policy) {
+        if (policy.disabled) return '<span class="chan-disabled">Disabled</span>';
+        let html = `<span class="chan-fee">${this.formatPPM(policy.fee_rate_milli_msat)} ppm + ${this.formatPPM(policy.fee_base_msat)} msat</span>`;
+        if (policy.inbound_fee_rate_milli_msat || policy.inbound_fee_base_msat) {
+            html += `<span class="chan-fee-inbound">inbound ${this.formatPPM(policy.inbound_fee_rate_milli_msat)} ppm + ${this.formatPPM(policy.inbound_fee_base_msat)} msat</span>`;
         }
+        const tip = `HTLC ${this.formatMsat(policy.min_htlc)}–${this.formatMsat(policy.max_htlc_msat)} msat · CLTV delta ${policy.time_lock_delta || 0}`;
+        return `<div class="chan-fee-cell" title="${tip}">${html}</div>`;
+    }
+
+    formatStatus(myPolicy, peerPolicy) {
+        if (!myPolicy.disabled && !peerPolicy.disabled) return '<span class="chan-status ok">Active</span>';
+        if (myPolicy.disabled && peerPolicy.disabled) return '<span class="chan-status off">Disabled</span>';
+        return myPolicy.disabled
+            ? '<span class="chan-status warn">Disabled by this node</span>'
+            : '<span class="chan-status warn">Disabled by peer</span>';
+    }
+
+    channelCells(channel, nodePubKey) {
+        const isNode1 = channel.node1_pub === nodePubKey;
+        const myPolicy = this.parsePolicy(isNode1 ? channel.node1_policy : channel.node2_policy);
+        const peerPolicy = this.parsePolicy(isNode1 ? channel.node2_policy : channel.node1_policy);
+        const chanLink = channel.channel_id
+            ? `<a href="https://mempool.space/lightning/channel/${channel.channel_id}" target="_blank" rel="noopener noreferrer" title="Open on mempool.space">${channel.birth_tx || channel.channel_id}</a>`
+            : (channel.birth_tx || '-');
         return `
-            <div class="fee-breakdown">
-                <div class="fee-row"><span class="fee-label">Base:</span><span class="fee-value">${this.formatMsat(policy.fee_base_msat)} msat</span></div>
-                <div class="fee-row"><span class="fee-label">Rate:</span><span class="fee-value">${this.formatPPM(policy.fee_rate_milli_msat)} ppm</span></div>
-                <div class="fee-row"><span class="fee-label">Inbound Base:</span><span class="fee-value">${this.formatMsat(policy.inbound_fee_base_msat)} msat</span></div>
-                <div class="fee-row"><span class="fee-label">Inbound Rate:</span><span class="fee-value">${this.formatPPM(policy.inbound_fee_rate_milli_msat)} ppm</span></div>
-                <div class="fee-row"><span class="fee-label">Min HTLC:</span><span class="fee-value">${this.formatMsat(policy.min_htlc)} msat</span></div>
-                <div class="fee-row"><span class="fee-label">Max HTLC:</span><span class="fee-value">${this.formatMsat(policy.max_htlc_msat)} msat</span></div>
-                <div class="fee-row"><span class="fee-label">Timelock Δ:</span><span class="fee-value">${policy.time_lock_delta || 0}</span></div>
-            </div>
+            <td class="capacity-cell">${this.formatCapacity(channel.capacity)}</td>
+            <td class="birth-tx-cell">${chanLink}</td>
+            <td>${this.formatFee(myPolicy)}</td>
+            <td>${this.formatFee(peerPolicy)}</td>
+            <td>${this.formatStatus(myPolicy, peerPolicy)}</td>
         `;
+    }
+
+    peerCell(group) {
+        return group.peerPubkey
+            ? `<a href="profile.html?node=${encodeURIComponent(group.peerPubkey)}" class="peer-link" title="Open this peer's profile">${group.peerAlias}</a>`
+            : group.peerAlias;
     }
 
     renderTable(nodePubKey) {
@@ -194,18 +222,16 @@ class ChannelsTableManager {
         const controlsHTML = `
             <div class="table-controls">
                 <div class="search-container">
-                    <input type="text" id="channelsSearch" placeholder="Search by alias or pubkey..." class="search-input">
                     <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="channelsSearch" placeholder="Search peers by alias or pubkey" class="search-input">
                 </div>
-                <div class="pagination-controls">
-                    <select id="pageSizeSelect" class="page-size-select">
+                <div class="table-meta">
+                    <span><strong id="channelsCount">${this.filteredData.length.toLocaleString()}</strong> peers · ${this.channelsData.length.toLocaleString()} channels</span>
+                    <select id="pageSizeSelect" class="page-size-select" aria-label="Rows per page">
                         <option value="25" ${this.pageSize === 25 ? 'selected' : ''}>25 per page</option>
                         <option value="50" ${this.pageSize === 50 ? 'selected' : ''}>50 per page</option>
                         <option value="100" ${this.pageSize === 100 ? 'selected' : ''}>100 per page</option>
                     </select>
-                </div>
-                <div class="table-info">
-                    <span id="channelsCount">${this.filteredData.length}</span> peers
                 </div>
             </div>
         `;
@@ -222,10 +248,10 @@ class ChannelsTableManager {
             <tr>
                 <th data-sort="peer_alias" class="sortable">Peer <i class="fas fa-sort"></i></th>
                 <th data-sort="capacity" class="sortable">Capacity <i class="fas fa-sort"></i></th>
-                <th data-sort="birth_tx" class="sortable">Birth TX <i class="fas fa-sort"></i></th>
-                <th class="fees-column">My Policy</th>
-                <th class="fees-column">Peer Policy</th>
-                <th class="status-column">Status</th>
+                <th data-sort="birth_tx" class="sortable" title="Short channel ID (block x transaction x output), oldest first">Channel <i class="fas fa-sort"></i></th>
+                <th title="Fee this node charges to forward through the channel">This node's fee</th>
+                <th title="Fee the peer charges in the other direction">Peer's fee</th>
+                <th>Status</th>
             </tr>
         `;
         table.appendChild(thead);
@@ -245,48 +271,17 @@ class ChannelsTableManager {
         container.appendChild(tableWrapper);
         container.insertAdjacentHTML('beforeend', this.generatePaginationControls());
 
+        this.updateSortIcons();
         this.setupEventListeners();
     }
 
     generateTableRows(nodePubKey) {
         return this.paginatedData.map((group, index) => {
-            const peerPubkey = group.peerPubkey;
-            const peerAlias = group.peerAlias;
-            
             if (group.channelCount === 1) {
-                const channel = group.channels[0];
-                const isNode1 = channel.node1_pub === nodePubKey;
-                const myPolicy = this.parsePolicy(isNode1 ? channel.node1_policy : channel.node2_policy);
-                const peerPolicy = this.parsePolicy(isNode1 ? channel.node2_policy : channel.node1_policy);
-
-                const myStatus = myPolicy.disabled ? 'Disabled' : 'Active';
-                const peerStatus = peerPolicy.disabled ? 'Disabled' : 'Active';
-                
                 return `
                     <tr class="channel-row">
-                        <td>
-                            <div class="peer-info-compact" style="display:inline-block; vertical-align: middle;">
-                                ${peerPubkey ? `<a href="profile.html?node=${encodeURIComponent(peerPubkey)}" class="peer-link" title="View profile">${peerAlias}</a>` : peerAlias}
-                            </div>
-                        </td>
-                        <td class="capacity-cell">${this.formatCapacity(channel.capacity)}</td>
-                        <td class="birth-tx-cell">
-                            ${channel.channel_id ? `<a href="https://mempool.space/lightning/channel/${channel.channel_id}" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">${channel.birth_tx || 'N/A'}</a>` : channel.birth_tx || 'N/A'}
-                        </td>
-                        <td class="fees-cell">${this.formatPolicyCompact(myPolicy)}</td>
-                        <td class="fees-cell">${this.formatPolicyCompact(peerPolicy)}</td>
-                        <td class="status-cell">
-                            <div class="status-breakdown">
-                                <div class="status-row ${myPolicy.disabled ? 'disabled' : 'active'}">
-                                    <span class="status-label">Me:</span>
-                                    <span class="status-value">${myStatus}</span>
-                                </div>
-                                <div class="status-row ${peerPolicy.disabled ? 'disabled' : 'active'}">
-                                    <span class="status-label">Peer:</span>
-                                    <span class="status-value">${peerStatus}</span>
-                                </div>
-                            </div>
-                        </td>
+                        <td>${this.peerCell(group)}</td>
+                        ${this.channelCells(group.channels[0], nodePubKey)}
                     </tr>
                 `;
             }
@@ -294,50 +289,14 @@ class ChannelsTableManager {
             const masterRow = `
                 <tr class="peer-group-row" data-group-index="${index}">
                     <td>
-                        <i class="fas fa-chevron-right expand-icon"></i>
-                        <div class="peer-info-compact" style="display:inline-block; vertical-align: middle;">
-                            ${peerPubkey ? `<a href="profile.html?node=${encodeURIComponent(peerPubkey)}" class="peer-link" title="View profile">${peerAlias}</a>` : peerAlias}
-                            <span class="badge" style="font-size: 0.75rem; background: var(--bg-secondary); padding: 2px 6px; border-radius: 10px; margin-left: 5px; color: var(--text-secondary);">${group.channelCount}</span>
-                        </div>
+                        <i class="fas fa-chevron-right expand-icon"></i>${this.peerCell(group)}
                     </td>
                     <td class="capacity-cell">${this.formatCapacity(group.totalCapacity)}</td>
-                    <td class="birth-tx-cell" colspan="4" style="color: var(--text-secondary); font-style: italic;">
-                        Click to view ${group.channelCount} channels
-                    </td>
+                    <td class="group-summary" colspan="4">${group.channelCount} channels · click to show</td>
                 </tr>
             `;
 
-            const channelsHtml = group.channels.map(channel => {
-                const isNode1 = channel.node1_pub === nodePubKey;
-                const myPolicy = this.parsePolicy(isNode1 ? channel.node1_policy : channel.node2_policy);
-                const peerPolicy = this.parsePolicy(isNode1 ? channel.node2_policy : channel.node1_policy);
-
-                const myStatus = myPolicy.disabled ? 'Disabled' : 'Active';
-                const peerStatus = peerPolicy.disabled ? 'Disabled' : 'Active';
-                
-                return `
-                    <tr>
-                        <td class="capacity-cell">${this.formatCapacity(channel.capacity)}</td>
-                        <td class="birth-tx-cell">
-                            ${channel.channel_id ? `<a href="https://mempool.space/lightning/channel/${channel.channel_id}" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">${channel.birth_tx || 'N/A'}</a>` : channel.birth_tx || 'N/A'}
-                        </td>
-                        <td class="fees-cell">${this.formatPolicyCompact(myPolicy)}</td>
-                        <td class="fees-cell">${this.formatPolicyCompact(peerPolicy)}</td>
-                        <td class="status-cell">
-                            <div class="status-breakdown">
-                                <div class="status-row ${myPolicy.disabled ? 'disabled' : 'active'}">
-                                    <span class="status-label">Me:</span>
-                                    <span class="status-value">${myStatus}</span>
-                                </div>
-                                <div class="status-row ${peerPolicy.disabled ? 'disabled' : 'active'}">
-                                    <span class="status-label">Peer:</span>
-                                    <span class="status-value">${peerStatus}</span>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                `;
-            }).join('');
+            const channelsHtml = group.channels.map(channel => `<tr>${this.channelCells(channel, nodePubKey)}</tr>`).join('');
 
             const detailRow = `
                 <tr class="channel-details-row" id="group-details-${index}" style="display: none;">
@@ -347,9 +306,9 @@ class ChannelsTableManager {
                                 <thead>
                                     <tr>
                                         <th>Capacity</th>
-                                        <th>Birth TX</th>
-                                        <th>My Policy</th>
-                                        <th>Peer Policy</th>
+                                        <th>Channel</th>
+                                        <th>This node's fee</th>
+                                        <th>Peer's fee</th>
                                         <th>Status</th>
                                     </tr>
                                 </thead>
@@ -501,6 +460,7 @@ class ChannelsTableManager {
             });
         }
         
+        this.applySort();
         this.updatePagination();
         this.updateTable();
     }
@@ -510,9 +470,17 @@ class ChannelsTableManager {
             this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
         } else {
             this.sortColumn = column;
-            this.sortDirection = 'asc';
+            this.sortDirection = column === 'capacity' ? 'desc' : 'asc';
         }
+        this.applySort();
+        this.updateSortIcons();
+        this.updatePagination();
+        this.updateTable();
+    }
 
+    applySort() {
+        const column = this.sortColumn;
+        if (!column) return;
         const multiplier = this.sortDirection === 'desc' ? -1 : 1;
 
         this.filteredData.sort((a, b) => {
@@ -542,10 +510,6 @@ class ChannelsTableManager {
 
             return result * multiplier;
         });
-
-        this.updateSortIcons();
-        this.updatePagination();
-        this.updateTable();
     }
 
     updateSortIcons() {
@@ -572,7 +536,7 @@ class ChannelsTableManager {
         }
         
         if (countEl) {
-            countEl.textContent = this.filteredData.length;
+            countEl.textContent = this.filteredData.length.toLocaleString();
         }
 
         if (paginationContainer) {
@@ -581,8 +545,7 @@ class ChannelsTableManager {
     }
 
     getStoredNodeId() {
-        const urlParams = new URLSearchParams(window.location.search);
-        return urlParams.get('node');
+        return this.nodePubKey;
     }
 
     showError(message) {

@@ -429,11 +429,17 @@ class NodeComparisonManager {
                         <span class="value">${node.ftotal_capacity || this.formatCapacity(node.total_capacity)}</span>
                     </div>
                     <div class="detail-row">
-                        <span class="label">Overall Rank:</span>
+                        <span class="label">PlebRank:</span>
                         <span class="value">${this.formatRank(node.pleb_rank)}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="label">Implementation:</span>
+                        <span class="value client-value">-</span>
                     </div>
                 </div>
             `;
+            const badge = window.createClientBadge ? window.createClientBadge(node) : null;
+            if (badge) card.querySelector('.client-value').replaceChildren(badge);
             grid.appendChild(card);
         });
 
@@ -463,7 +469,7 @@ class NodeComparisonManager {
             this.radarChart = echarts.init(chartDom);
 
             // Dynamic scaling: scale based on actual ranks being compared
-            const metricNames = ['Overall Rank (PRank)', 'Channel Count', 'Total Capacity', 'Social Butterfly (Degree)', 'Crossroads (Betweenness)', 'Star Power (Eigenvector)'];
+            const metricNames = ['PlebRank', 'Channels', 'Capacity', 'Weighted degree', 'Betweenness', 'Eigenvector'];
             const metricKeys = ['pleb_rank', 'total_channels_rank', 'total_capacity_rank', 'capacity_weighted_degree_rank', 'betweenness_centrality_rank', 'eigenvector_centrality_rank'];
             
             // Collect all actual ranks for each dimension

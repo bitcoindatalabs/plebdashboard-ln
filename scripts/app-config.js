@@ -36,6 +36,24 @@ function sanitizeNavLinks() {
     }
 }
 
+// Lightning implementation badge. Text and tooltip are the published node_client labels, shown as given:
+// labels are decided in python/automation (client_fingerprint.py), never here. No label -> null (hide the badge).
+function createClientBadge(node, withTooltip = true) {
+    if (!node || !node.client_display) return null;
+    const el = document.createElement('span');
+    const client = String(node.client || 'unknown').toLowerCase().replace(/[^a-z]/g, '');
+    el.className = `client-badge client-${client}`;
+    if (node.client_confidence === 'medium' || node.client_confidence === 'low') el.classList.add('client-likely');
+    el.textContent = node.client_display;
+    if (withTooltip) {
+        const parts = [node.client_reason, 'Inferred from public gossip (feature bits) or a known operator · public nodes only'];
+        if (node.client_rules_version) parts.push(`rules ${node.client_rules_version}`);
+        el.title = parts.filter(Boolean).join(' · ');
+    }
+    return el;
+}
+window.createClientBadge = createClientBadge;
+
 function initAppConfig() {
     if (typeof BitcoinLabsApp !== 'undefined') {
         BitcoinLabsApp.init({

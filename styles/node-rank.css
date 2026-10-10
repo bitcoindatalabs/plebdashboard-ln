@@ -906,3 +906,154 @@
         justify-content: center;
     }
 }
+/* ==========================================================================
+   COMPACT LEADERBOARD (2026-10-10): one line per value, no tier badges or colour
+   tiers, operator as plain text, pubkey copy next to the alias. Fits 1200px.
+   ========================================================================== */
+.leaderboard-table td {
+    padding: 0.55rem 0.75rem;
+}
+
+.leaderboard-table th {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
+.leaderboard-table .rank-cell {
+    min-width: 0;
+    width: 64px;
+}
+
+.rank-num {
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: var(--text-primary);
+    font-variant-numeric: tabular-nums;
+}
+
+.leaderboard-table .alias-cell {
+    max-width: 280px;
+}
+
+.alias-wrapper {
+    gap: 0.05rem;
+}
+
+.alias-line {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    min-width: 0;
+}
+
+.alias-line .alias-link {
+    min-width: 0;
+}
+
+.pk-copy {
+    flex: none;
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    padding: 0.1rem 0.2rem;
+    font-size: 0.75rem;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.12s ease, color 0.12s ease;
+}
+
+.leaderboard-table tbody tr:hover .pk-copy,
+.pk-copy:focus-visible,
+.pk-copy.copied {
+    opacity: 1;
+}
+
+.pk-copy:hover,
+.pk-copy.copied {
+    color: var(--primary);
+}
+
+@media (hover: none) {
+    .pk-copy { opacity: 1; }
+}
+
+.leaderboard-table .entity-sublabel {
+    display: block;
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 0.76rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.leaderboard-table .node-type-cell {
+    min-width: 0;
+}
+
+.leaderboard-table .pill-group {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+}
+
+.leaderboard-table .type-pill {
+    font-size: 0.7rem;
+    padding: 0.1rem 0.45rem;
+}
+
+.leaderboard-table .capacity-cell,
+.leaderboard-table .channels-cell {
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+}
+
+.leaderboard-table .sub-rank {
+    margin-left: 0.45rem;
+    font-size: 0.74rem;
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+}
+
+.leaderboard-table .centrality-rank-cell {
+    font-variant-numeric: tabular-nums;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+.leaderboard-table th {
+    padding: 0.7rem 0.6rem;
+    font-size: 0.72rem;
+}
+
+.leaderboard-table td {
+    padding: 0.55rem 0.6rem;
+}
+
+/* sort arrow only on the sorted column, or on hover */
+.leaderboard-table th.sortable:not(.sort-asc):not(.sort-desc)::after {
+    content: none;
+}
+
+.leaderboard-table th.sortable:not(.sort-asc):not(.sort-desc):hover::after {
+    content: " ⇅";
+}
+
+.leaderboard-table .alias-cell {
+    max-width: 240px;
+}
+
+.leaderboard-table .node-type-cell {
+    max-width: 180px;
+}
+
+.leaderboard-table .pill-group {
+    flex-wrap: wrap;
+}
+
+.leaderboard-table .type-pill i {
+    display: none;
+}

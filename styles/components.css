@@ -1006,3 +1006,28 @@ th:not(.sortable),
         font-size: 0.9rem;
     }
 }
+/* Lightning implementation (client) badge: createClientBadge() in app-config.js.
+   Same colours as the client deep dive and paper 01; dashed outline = "(likely)" (medium/low confidence). */
+.client-badge {
+    --client-color: #6b7280;
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.78rem;
+    font-weight: 700;
+    line-height: 1.3;
+    padding: 0.2rem 0.65rem;
+    border-radius: 999px;
+    color: var(--client-color);
+    background: color-mix(in srgb, var(--client-color) 12%, #ffffff);
+    border: 1px solid var(--client-color);
+    white-space: nowrap;
+    cursor: default;
+}
+.client-badge.client-likely {
+    background: #ffffff;
+    border-style: dashed;
+}
+.client-badge.client-lnd { --client-color: #2a78d6; }
+.client-badge.client-cln { --client-color: #D4603A; }
+.client-badge.client-eclair { --client-color: #1a9e6e; }
+.client-badge.client-ldk { --client-color: #4a3aa7; }

@@ -421,7 +421,7 @@ class HomepageManager {
         if (!this.nodeData || !this.nodeData.length) {
             tbody.innerHTML = `
                 <tr>
-                    <td colspan="5" class="lead-table-loading">
+                    <td colspan="4" class="lead-table-loading">
                         <i class="fas fa-spinner fa-spin"></i> Loading PlebRank leaders...
                     </td>
                 </tr>
@@ -460,7 +460,7 @@ class HomepageManager {
         if (topNodes.length === 0) {
             tbody.innerHTML = `
                 <tr>
-                    <td colspan="5" class="lead-table-loading">
+                    <td colspan="4" class="lead-table-loading">
                         No nodes found in this category.
                     </td>
                 </tr>
@@ -495,14 +495,6 @@ class HomepageManager {
                 ? Number(node.total_channels).toLocaleString()
                 : '-';
 
-            let centralityStr = 'Top 1%';
-            if (typeof rankNum === 'number') {
-                if (rankNum <= 10) centralityStr = 'Top 0.1%';
-                else if (rankNum <= 100) centralityStr = 'Top 1%';
-                else if (rankNum <= 500) centralityStr = 'Top 5%';
-                else centralityStr = 'Top 10%';
-            }
-
             return `
                 <tr class="home-leaderboard-row" data-pubkey="${this.escapeHtml(node.pub_key || '')}">
                     <td><span class="${rankClass}">#${rankNum}</span></td>
@@ -519,7 +511,6 @@ class HomepageManager {
                     </td>
                     <td class="lead-cap-val">${capStr}</td>
                     <td class="lead-chan-val">${chCount}</td>
-                    <td style="text-align: center;"><span class="lead-centrality-pill">${centralityStr}</span></td>
                 </tr>
             `;
         }).join('');
@@ -867,7 +858,7 @@ class HomepageManager {
         // Render Recent History Chips
         const chipsContainer = document.getElementById('recentSpotlightsChips');
         if (chipsContainer) {
-            chipsContainer.innerHTML = this.spotlightNodes.map((item, idx) => `
+            chipsContainer.innerHTML = this.spotlightNodes.slice(0, 7).map((item, idx) => `
                 <button type="button" class="spotlight-chip ${idx === this.activeSpotlightIndex ? 'active' : ''}" data-idx="${idx}">
                     <span class="spotlight-chip-day">${item.day.slice(0, 3)}:</span> ${this.escapeHtml(item.alias)}
                 </button>
