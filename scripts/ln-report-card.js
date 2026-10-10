@@ -3,7 +3,7 @@
 // renderer as reports.html (ln-report-render.js), so the website and the images are one design.
 // Requires ?weekly=<week-end> or ?monthly=<YYYY-MM> (never "latest"). body[data-report-id] + data-loaded="true" are
 // set only after that exact report rendered and every slide fits; otherwise data-loaded="error". No fallback data.
-import { esc, weeklySections, monthlySections, mountCharts } from './ln-report-render.js?v=1';
+import { esc, weeklySections, monthlySections, mountCharts } from './ln-report-render.js?v=2';
 
 const slide = (n, body) => `<section class="card-slide card-${n}" data-slide="${n}">
     <div class="card-body">${body}</div>
@@ -25,8 +25,8 @@ function weeklyCards(s) {
 function monthlyCards(s) {
     const x = monthlySections(s);
     return slide(1, head(x.eyebrow, x.headline, x.baseline) + x.tiles + x.flows)
-        + slide(2, head(x.eyebrow, `Channel closures on-chain in ${s.label}`) + `<div class="rpt-grid-2">${x.closures}${x.force}</div>`)
-        + slide(3, head(x.eyebrow, 'Channel and node size tiers') + `<div class="rpt-grid-2">${x.channelTiers}${x.nodeTiers}</div>` + x.largest);
+        + slide(2, head(x.eyebrow, 'Channel closures on-chain', `<p class="card-sub">${x.closuresSub}</p>`) + `<div class="rpt-grid-2">${x.closures}${x.force}</div>`)
+        + slide(3, head(x.eyebrow, 'Channel and node size tiers', x.baseline) + `<div class="rpt-grid-2">${x.tierFlow}${x.nodeConc}</div>`);
 }
 
 async function init() {
@@ -42,7 +42,9 @@ async function init() {
         const snap = await res.json();
         if (snap.type !== type || snap.id !== id) throw new Error(`${path} holds ${snap.type} ${snap.id}, expected ${type} ${id}`);
 
-        document.getElementById('cards').innerHTML = type === 'weekly' ? weeklyCards(snap) : monthlyCards(snap);
+        const cards = document.getElementById('cards');
+        cards.dataset.type = type;
+        cards.innerHTML = type === 'weekly' ? weeklyCards(snap) : monthlyCards(snap);
         mountCharts();
         if (document.fonts && document.fonts.ready) await document.fonts.ready;
 

@@ -1,7 +1,7 @@
 // Lightning Reports page (reports.html): LN Weekly + LN Monthly, latest report and archive.
 // Reads data/reports/manifest.json + data/reports/{weekly,monthly}/<id>.json; drawing is in ln-report-render.js.
 // No fallback data: a load failure shows an error. body[data-loaded] / [data-report-id] mark what rendered.
-import { esc, renderWeekly, renderMonthly, mountCharts, disposeCharts, resizeCharts } from './ln-report-render.js?v=1';
+import { esc, renderWeekly, renderMonthly, mountCharts, disposeCharts, resizeCharts } from './ln-report-render.js?v=2';
 
 const BASE = 'data/reports/';
 const TYPES = ['weekly', 'monthly'];

@@ -126,6 +126,43 @@ function barsOption(labels, series, C, { stackSign = false } = {}) {
     };
 }
 
+/** Paired bars on two y-axes (net BTC left, net channels right) with both zero lines at the same height. */
+function tierNetOption(labels, btc, chans, C) {
+    const extent = (v) => { const lo = Math.min(0, ...v), hi = Math.max(0, ...v), pad = (hi - lo || 1) * 0.25; return [lo - pad, hi + pad]; };
+    let [l1, h1] = extent(btc), [l2, h2] = extent(chans);
+    const below = Math.max(-l1 / (h1 - l1), -l2 / (h2 - l2));
+    const fit = (lo, hi) => { const h = Math.max(below > 0 ? -lo / below : 0, below < 1 ? hi / (1 - below) : 0); return [-below * h, (1 - below) * h]; };
+    [l1, h1] = fit(l1, h1); [l2, h2] = fit(l2, h2);
+    const lab = (f) => ({ show: true, fontSize: 10, color: C.text, formatter: (p) => f(p.value), position: 'top' });
+    return {
+        grid: { left: 8, right: 8, top: 30, bottom: 40 },
+        legend: { top: 0, right: 0, textStyle: { color: C.text, fontSize: 11 } },
+        xAxis: { type: 'category', data: labels, axisTick: { show: false }, axisLabel: { color: C.text, fontSize: 10, lineHeight: 13 }, axisLine: { lineStyle: { color: C.grid } } },
+        yAxis: [{ type: 'value', min: l1, max: h1, show: false }, { type: 'value', min: l2, max: h2, show: false }],
+        series: [
+            { type: 'bar', name: 'Net BTC', yAxisIndex: 0, barMaxWidth: 34, itemStyle: { color: C.accent },
+              data: btc.map((v) => ({ value: v, label: { ...lab((x) => fmt.sbtc(x, 1).replace(' BTC', '')), position: v < 0 ? 'bottom' : 'top' } })) },
+            { type: 'bar', name: 'Net channels', yAxisIndex: 1, barMaxWidth: 34, itemStyle: { color: C.text },
+              data: chans.map((v) => ({ value: v, label: { ...lab((x) => (x === 0 ? '0' : fmt.sint(x))), position: v < 0 ? 'bottom' : 'top' } })) },
+        ],
+    };
+}
+
+/** Paired percentage bars: share of capacity vs share of nodes per tier. */
+function pairedPctOption(labels, capPct, nodePct, C) {
+    const lab = { show: true, position: 'top', fontSize: 10, color: C.text, formatter: (p) => `${nf(p.value, 1)}%` };
+    return {
+        grid: { left: 8, right: 8, top: 30, bottom: 40 },
+        legend: { top: 0, right: 0, textStyle: { color: C.text, fontSize: 11 } },
+        xAxis: { type: 'category', data: labels, axisTick: { show: false }, axisLabel: { color: C.text, fontSize: 10, lineHeight: 13 }, axisLine: { lineStyle: { color: C.grid } } },
+        yAxis: { type: 'value', max: 118, show: false },
+        series: [
+            { type: 'bar', name: '% of capacity', data: capPct, barMaxWidth: 34, itemStyle: { color: C.accent }, label: lab },
+            { type: 'bar', name: '% of nodes', data: nodePct, barMaxWidth: 34, itemStyle: { color: C.text }, label: lab },
+        ],
+    };
+}
+
 // ---------------------------------------------------------------------------
 // Shared blocks
 // ---------------------------------------------------------------------------
@@ -266,17 +303,23 @@ export function monthlySections(s) {
     const headline = `Net ${fmt.sbtc(t.net_btc)} in ${s.label} (${fmt.sint(t.net_channels)} channels)`;
 
     const tiles = `<div class="rpt-tiles">
-        ${tile('Net flow', fmt.sbtc(t.net_btc), `${fmt.sint(t.net_channels)} channels net`, `Prior month ${fmt.sbtc(s.prior_month.net_btc)}`, sparkline('spMNet', s.trailing_6m.map((m) => m.net_btc), 'accent', true), signClass(t.net_btc))}
+        ${tile('Net flow', fmt.sbtc(t.net_btc), `${fmt.sint(t.net_channels)} channels net`, `Prior month ${fmt.sbtc(s.prior_month.net_btc)} (${fmt.sint(s.prior_month.net_channels)} channels)`, sparkline('spMNet', s.trailing_6m.map((m) => m.net_btc), 'accent', true), signClass(t.net_btc))}
         ${tile('Opened', fmt.int(t.opened), `+${fmt.btc(t.opened_btc)}`, t.median_new_channel_sats ? `Median new channel ${fmt.satsOrBtc(t.median_new_channel_sats)}` : '', '')}
-        ${tile('Closed', fmt.int(t.closed), `-${fmt.btc(t.closed_btc)}`, '', '')}
+        ${tile('Closed', fmt.int(t.closed), `-${fmt.btc(t.closed_btc)}`, t.closed ? `Avg channel closed ${fmt.satsOrBtc(t.closed_btc * 1e8 / t.closed)}` : '', '')}
         ${tile('Change vs prior month', fmt.sbtc(s.mom_net_shift_btc), 'in net flow', '', '', signClass(s.mom_net_shift_btc))}
     </div>`;
 
+    const df = s.daily_flow;
+    const mon = new Date(s.period.start).toLocaleString('en-US', { month: 'short', timeZone: 'UTC' });
+    const peak = Math.max(...df.closed);
+    const peakDay = df.days[df.closed.indexOf(peak)];
+    const dailyNote = df.days.length ? `<p class="rpt-note">Daily peak close: <strong>${mon} ${Number(peakDay)}</strong> (-${fmt.int(peak)})
+        • Daily mean: +${fmt.int(Math.round(t.opened / df.days.length))} / -${fmt.int(Math.round(t.closed / df.days.length))} channels</p>` : '';
     const flows = `<div class="rpt-grid-2 rpt-grid-wide">
         ${card('<i class="fas fa-chart-column"></i> By day', 'Channels opened vs closed',
-            mount('chMDaily', (C) => ({ ...barsOption(s.daily_flow.days, [
-                { name: 'Opened', data: s.daily_flow.opened, color: C.open },
-                { name: 'Closed', data: s.daily_flow.closed, color: C.close }], C) })))}
+            mount('chMDaily', (C) => ({ ...barsOption(df.days, [
+                { name: 'Opened', data: df.opened, color: C.open },
+                { name: 'Closed', data: df.closed, color: C.close }], C) })) + dailyNote)}
         ${card('<i class="fas fa-chart-simple"></i> Trend', '6-month net flow (BTC)',
             mount('chM6', (C) => barsOption(s.trailing_6m.map((m) => m.label), [
                 { name: 'Net BTC', data: s.trailing_6m.map((m) => m.net_btc), labels: (p) => fmt.sbtc(p.value, 1).replace(' BTC', '') }], C, { stackSign: true }))
@@ -289,14 +332,16 @@ export function monthlySections(s) {
     const closures = card('<i class="fas fa-link-slash"></i> Closures', 'How channels closed',
         closeTypes(s.close_types, `<dt>Lifespan of closed channels</dt><dd>${lt.median_days === null ? 'Unavailable'
             : `Median ${fmt.int(lt.median_days)} days from funding to close; ${fmt.pct(lt.more_than_180d_pct)} open more than 180 days`}</dd>`)
-        + (distRows ? `<ul class="rpt-dist">${distRows}</ul>` : ''));
+        + (distRows ? `<ul class="rpt-dist">${distRows}</ul>` : '')
+        + (dist.lt_14d && dist.gt_180d ? `<p class="rpt-life-counts"><span class="rpt-neg">Closed within 14 days of funding: <strong>${fmt.int(dist.lt_14d.count)}</strong> (${fmt.pct(dist.lt_14d.pct)})</span>
+            <span class="rpt-pos">Open longer than 180 days: <strong>${fmt.int(dist.gt_180d.count)}</strong> (${fmt.pct(dist.gt_180d.pct)})</span></p>` : ''));
 
     const fcRows = fc.available ? `<dl class="rpt-facts">
             ${fc.htlc_pct !== null ? `<dt>HTLCs in flight at close</dt><dd>${fmt.pct(fc.htlc_pct)} of force closes</dd>` : ''}
             ${fc.anchor_pct !== null ? `<dt>Anchor outputs</dt><dd>${fmt.pct(fc.anchor_pct)} (fee bumping via CPFP)</dd>` : ''}
             ${fc.median_sweep_blocks !== null ? `<dt>Time to sweep</dt><dd>Closer's balance swept a median ${fmt.int(fc.median_sweep_blocks)} blocks (~${nf(fc.median_sweep_blocks / 144, 1)} days) later</dd>` : ''}
             ${fc.median_fee_force_sats !== null ? `<dt>Median close fee</dt><dd>${fmt.int(fc.median_fee_mutual_sats)} sats mutual vs ${fmt.int(fc.median_fee_force_sats)} sats force</dd>` : ''}
-            ${tr.available && tr.active_taproot !== null ? `<dt>Taproot (P2TR)</dt><dd>${fmt.int(tr.active_taproot)} of ${fmt.int(tr.active_checked)} public channels fund to a Taproot output</dd>` : ''}
+            ${tr.available && tr.active_taproot !== null ? `<dt>Taproot (P2TR)</dt><dd>${fmt.int(tr.active_taproot)} of ${fmt.int(tr.active_checked)} public channels fund to a Taproot output${tr.closes_since ? `; ${fmt.int(tr.taproot_closes_since)} of ${fmt.int(tr.closes_since)} closes since ${fmt.date(tr.since)} spent one` : ''}</dd>` : ''}
         </dl>` : '<p class="rpt-muted">Force-close detail unavailable.</p>';
     const force = card('<i class="fas fa-bolt-lightning"></i> Force closes', 'Share of closes that were unilateral',
         (fc.available && fc.trend.length ? mount('chMForce', (C) => barsOption(fc.trend.map((m) => m.label), [
@@ -318,10 +363,47 @@ export function monthlySections(s) {
             <td class="num">${fmt.pct(nt[k].count_pct)}</td><td class="num">${fmt.pct(nt[k].capacity_pct)}</td></tr>`).join('')}
         </tbody></table></div><p class="rpt-note">${fmt.int(nt.monthly_new_nodes)} nodes first seen in gossip this month.</p>`;
 
+    // Tier net change (paired: net BTC on the left axis, net channels on the right, zero lines aligned)
+    const TK = ['freeway', 'highway', 'my_way'];
+    const netBtc = TK.map((k) => ct[k].monthly_net_btc), netCh = TK.map((k) => ct[k].monthly_net_count);
+    const small = { btc: ct.highway.monthly_net_btc + ct.my_way.monthly_net_btc, n: ct.highway.monthly_net_count + ct.my_way.monthly_net_count };
+    const tierChart = mount('chMTiers', (C) => tierNetOption(TK.map((k) => `${tierNames[k][0]}\n(${tierNames[k][1]})`), netBtc, netCh, C));
+    const grew = (v) => (v >= 0 ? 'grew' : 'shrank');
+    const tierFlow = `<div class="rpt-chart-sm">${tierChart}</div>
+        <dl class="rpt-facts">
+            <dt>Freeway channels (&gt; 1 BTC)</dt><dd><strong>${pm(ct.freeway.monthly_net_count, ct.freeway.monthly_net_count > 0 ? '+' : '', fmt.int)} channels net (${fmt.sbtc(ct.freeway.monthly_net_btc, 1)})</strong>
+                • ${fmt.int(ct.freeway.count)} open, ${Math.round(ct.freeway.capacity_pct)}% of capacity • opened ${fmt.int(ct.freeway.monthly_opened_count)}, closed ${fmt.int(ct.freeway.monthly_closed_count)}</dd>
+            <dt>Smaller channels (1 BTC or less)</dt><dd><strong>${fmt.sint(small.n)} channels net (${fmt.sbtc(small.btc, 1)})</strong>
+                • Highway ${fmt.sint(ct.highway.monthly_net_count)} (${fmt.sbtc(ct.highway.monthly_net_btc, 1)}) • My Way ${fmt.sint(ct.my_way.monthly_net_count)} (${fmt.sbtc(ct.my_way.monthly_net_btc, 1)})</dd>
+        </dl>
+        <div class="rpt-callout"><span class="card-eyebrow">Where capacity moved</span>
+            <p>Channels over 1 BTC ${grew(ct.freeway.monthly_net_btc)} by <strong>${fmt.btc(ct.freeway.monthly_net_btc, 1)}</strong> net;
+            channels of 1 BTC or less ${grew(small.btc)} by <strong>${fmt.btc(small.btc, 1)}</strong> net.</p></div>`;
+
+    // Node concentration (share of capacity vs share of node count per tier)
+    const NK = ['powerhouses', 'pillars', 'plebs'];
+    const nodeChart = mount('chMNodes', (C) => pairedPctOption(NK.map((k) => `${nodeNames[k][0]}\n(${nodeNames[k][1]})`),
+        NK.map((k) => nt[k].capacity_pct), NK.map((k) => nt[k].count_pct), C));
+    const core = { n: nt.powerhouses.count + nt.pillars.count, nPct: nt.powerhouses.count_pct + nt.pillars.count_pct, cap: nt.powerhouses.capacity_pct + nt.pillars.capacity_pct };
+    const nodeConc = `<div class="rpt-chart-sm">${nodeChart}</div>
+        <dl class="rpt-facts">
+            <dt>Powerhouses &amp; Pillars (over 0.1 BTC)</dt><dd><strong>${fmt.int(core.n)} nodes (${fmt.pct(core.nPct)}) hold ${fmt.pct(core.cap)} of capacity</strong>
+                • Powerhouses (&gt; 5 BTC): ${fmt.int(nt.powerhouses.count)} nodes, ${fmt.pct(nt.powerhouses.capacity_pct)} • Pillars: ${fmt.int(nt.pillars.count)} nodes, ${fmt.pct(nt.pillars.capacity_pct)}</dd>
+            <dt>Plebs (0.1 BTC or less)</dt><dd><strong>${fmt.int(nt.plebs.count)} nodes (${fmt.pct(nt.plebs.count_pct)}) hold ${fmt.pct(nt.plebs.capacity_pct)} of capacity</strong>
+                • ${fmt.int(nt.monthly_new_nodes)} nodes first seen in gossip this month (all tiers)</dd>
+        </dl>
+        <div class="rpt-callout"><span class="card-eyebrow">Concentration</span>
+            <p><strong>${fmt.int(nt.powerhouses.count)} nodes (${fmt.pct(nt.powerhouses.count_pct)})</strong> hold <strong>${fmt.pct(nt.powerhouses.capacity_pct)}</strong> of public capacity;
+            ${fmt.int(nt.plebs.count)} nodes (${fmt.pct(nt.plebs.count_pct)}) hold ${fmt.pct(nt.plebs.capacity_pct)}.</p></div>`;
+
+    const ct0 = s.close_types;
     return {
         eyebrow: `<i class="fas fa-calendar"></i> LN Monthly • ${esc(s.label)}`, headline,
         baseline: baselineLine(s.baseline, 'now'), tiles, flows,
+        closuresSub: `${fmt.int(t.closed)} channels closed in ${esc(s.label)}${ct0.available ? ` • ${ct0.mutual_pct}% mutual` : ''}${lt.median_days !== null ? ` • median lifespan ${fmt.int(lt.median_days)} days` : ''}`,
         closures, force,
+        tierFlow: card('<i class="fas fa-road"></i> Channel sizes', 'Channels by size: net change', `<p class="rpt-muted">Opened minus closed this month, by channel capacity tier</p>${tierFlow}`),
+        nodeConc: card('<i class="fas fa-server"></i> Node sizes', 'Nodes by size', `<p class="rpt-muted">Share of nodes vs share of public channel capacity</p>${nodeConc}`),
         channelTiers: card('<i class="fas fa-road"></i> Channel sizes', 'Channels by size tier', chanTable),
         nodeTiers: card('<i class="fas fa-server"></i> Node sizes', 'Nodes by capacity tier', nodeTable),
         largest: card('<i class="fas fa-bolt"></i> Notable', 'Largest channel opened', channelLinks(s.largest_channel)),
@@ -332,6 +414,7 @@ export function renderMonthly(s) {
     const x = monthlySections(s);
     return reportHeader(s, x.eyebrow, x.headline) + x.baseline + x.tiles + x.flows
         + `<div class="rpt-grid-2">${x.closures}${x.force}</div>`
+        + `<div class="rpt-grid-2">${x.tierFlow}${x.nodeConc}</div>`
         + `<div class="rpt-grid-2">${x.channelTiers}${x.nodeTiers}</div>` + x.largest;
 }
 

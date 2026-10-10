@@ -81,5 +81,14 @@ body.card-canvas {
 /* Weekly slide 3: the slide title is the node name, so drop the card's own header and name line */
 .card-3 .rpt-notw > .card-section-header, .card-3 .rpt-notw-name { display: none; }
 .card-3 .rpt-notw { flex: 1; justify-content: center; }
+.card-sub { margin: 2px 0 0; font-size: 15px; font-weight: 600; color: var(--text-secondary); }
+.card-slide .rpt-chart-sm .rpt-chart { height: 168px; }
+.card-slide .rpt-callout { margin-top: 8px; padding: 7px 12px; }
+.card-slide .rpt-callout p { font-size: 13px; }
+.card-slide .rpt-life-counts { margin-top: 6px; font-size: 13px; }
 .card-3 .rpt-notw .rpt-tiles { margin: 8px 0 18px; }
 .card-3 .rpt-notw .rpt-grid-2 { font-size: 16px; }
+
+/* Monthly slide 2 (closures + force closes) is the densest frame */
+[data-type="monthly"] .card-2 .rpt-chart { height: 165px; }
+[data-type="monthly"] .card-2 .rpt-facts dt { margin-top: 4px; }
