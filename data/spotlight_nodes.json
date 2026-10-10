@@ -1,5 +1,22 @@
 [
   {
+    "date": "2026-10-10",
+    "day": "Saturday",
+    "criterion": "Hidden Gem",
+    "alias": "Umbasa",
+    "pub_key": "02dd4a9cf224e290851f6af83072e2496479bdf4b65e1733e92e24d42a0ba89a75",
+    "pleb_rank": 160,
+    "total_capacity_sats": 216836842,
+    "total_channels": 44,
+    "total_capacity_rank": 319,
+    "total_channels_rank": 222,
+    "node_type": "",
+    "entity": "",
+    "role": "",
+    "rationale": "Drawn from PlebRank #50–#200: PlebRank #160, with 2.17 BTC across 44 channels.",
+    "rationale_version": 2
+  },
+  {
     "date": "2026-10-09",
     "day": "Friday",
     "criterion": "Capacity Whale",
@@ -11,7 +28,8 @@
     "node_type": "LSP",
     "entity": "LNBIG",
     "role": "",
-    "rationale": "Largest liquidity deployment on Lightning, locking 223 BTC in capital."
+    "rationale": "Selected under Friday's Capacity Whale rotation: PlebRank #5, 223 BTC across 401 channels.",
+    "rationale_version": 2
   },
   {
     "date": "2026-10-08",
@@ -25,7 +43,8 @@
     "node_type": "Lightning Peer",
     "entity": "",
     "role": "",
-    "rationale": "Vital routing junction bridging traffic between separate network clusters."
+    "rationale": "Selected under Thursday's Centrality Bridge rotation: PlebRank #201, 44.2M sats across 798 channels.",
+    "rationale_version": 2
   },
   {
     "date": "2026-10-07",
@@ -39,7 +58,8 @@
     "node_type": "Exchange,Payment",
     "entity": "OKX",
     "role": "",
-    "rationale": "Opened 131 new channels this week\u2014leading all nodes in network edge growth."
+    "rationale": "Selected under Wednesday's Channel Momentum rotation: PlebRank #17, 172 BTC across 313 channels.",
+    "rationale_version": 2
   },
   {
     "date": "2026-10-06",
@@ -53,7 +73,8 @@
     "node_type": "Lightning Peer",
     "entity": "",
     "role": "",
-    "rationale": "Largest new routing node discovered this week, committing 28.4M sats to Lightning."
+    "rationale": "Selected under Tuesday's Biggest New Node rotation: PlebRank #418, 28.4M sats across 14 channels.",
+    "rationale_version": 2
   },
   {
     "date": "2026-10-05",
@@ -67,12 +88,13 @@
     "node_type": "LSP",
     "entity": "LNBIG",
     "role": "",
-    "rationale": "Ranked #1 globally in overall network topology and routing stability."
+    "rationale": "Selected under Monday's Highest PlebRank rotation: PlebRank #4, 207 BTC across 458 channels.",
+    "rationale_version": 2
   },
   {
     "date": "2026-10-04",
     "day": "Sunday",
-    "criterion": "Capacity-Weighted Leader",
+    "criterion": "Capacity-Weighted Degree",
     "alias": "CoinGate",
     "pub_key": "0242a4ae0c5bef18048fbecf995094b74bfb0f7391418d71ed394784373f41e4f3",
     "pleb_rank": 8,
@@ -81,13 +103,14 @@
     "node_type": "Payment",
     "entity": "CoinGate",
     "role": "",
-    "rationale": "Top capacity-weighted routing hub, anchoring high-throughput payment transit."
+    "rationale": "Selected under Sunday's Capacity-Weighted Degree rotation: PlebRank #8, 18 BTC across 1,323 channels.",
+    "rationale_version": 2
   },
   {
     "date": "2026-10-03",
     "day": "Saturday",
     "criterion": "Hidden Gem",
-    "alias": "\u26a1RBlitzOne\u26a1",
+    "alias": "⚡RBlitzOne⚡",
     "pub_key": "02a7311555b28f6851698999c8045de5dd3a355feae444e6ca1300bb52cceb1e7b",
     "pleb_rank": 138,
     "total_capacity_sats": 258364724,
@@ -95,7 +118,8 @@
     "node_type": "Lightning Peer",
     "entity": "",
     "role": "",
-    "rationale": "High-performing mid-tier router providing resilient community connectivity."
+    "rationale": "Selected under Saturday's Hidden Gem rotation: PlebRank #138, 2.58 BTC across 53 channels.",
+    "rationale_version": 2
   },
   {
     "date": "2026-10-02",
@@ -109,7 +133,8 @@
     "node_type": "Exchange,Payment",
     "entity": "Binance",
     "role": "",
-    "rationale": "Largest liquidity deployment on Lightning, locking 356 BTC in capital."
+    "rationale": "Selected under Friday's Capacity Whale rotation: PlebRank #101, 356 BTC across 154 channels.",
+    "rationale_version": 2
   },
   {
     "date": "2026-10-01",
@@ -123,7 +148,8 @@
     "node_type": "Lightning Peer",
     "entity": "",
     "role": "",
-    "rationale": "Vital routing junction bridging traffic between separate network clusters."
+    "rationale": "Selected under Thursday's Centrality Bridge rotation: PlebRank #290, 32.6M sats across 1,199 channels.",
+    "rationale_version": 2
   },
   {
     "date": "2026-09-30",
@@ -137,7 +163,8 @@
     "node_type": "LSP,Routing",
     "entity": "Block / Spiral",
     "role": "",
-    "rationale": "Opened 302 new channels this week\u2014leading all nodes in network edge growth."
+    "rationale": "Selected under Wednesday's Channel Momentum rotation: PlebRank #11, 289 BTC across 613 channels.",
+    "rationale_version": 2
   },
   {
     "date": "2026-09-29",
@@ -151,7 +178,8 @@
     "node_type": "Lightning Peer",
     "entity": "",
     "role": "",
-    "rationale": "Largest new routing node discovered this week, committing 20M sats to Lightning."
+    "rationale": "Selected under Tuesday's Biggest New Node rotation: PlebRank #3,022, 20M sats across 2 channels.",
+    "rationale_version": 2
   },
   {
     "date": "2026-09-28",
@@ -165,7 +193,8 @@
     "node_type": "Exchange",
     "entity": "Bitfinex",
     "role": "",
-    "rationale": "Ranked #1 globally in overall network topology and routing stability."
+    "rationale": "Selected under Monday's Highest PlebRank rotation: PlebRank #2, 277 BTC across 522 channels.",
+    "rationale_version": 2
   },
   {
     "date": "2026-09-26",
@@ -179,7 +208,8 @@
     "node_type": "Routing Hub",
     "entity": "Community Router",
     "role": "Resilient Mid-Tier Community Routing",
-    "rationale": "High-performing mid-tier router providing resilient community connectivity and diversified channel balance."
+    "rationale": "Selected under Saturday's Hidden Gem rotation: PlebRank #168, 2.03 BTC across 51 channels.",
+    "rationale_version": 2
   },
   {
     "date": "2026-09-25",
@@ -193,7 +223,8 @@
     "node_type": "Exchange,Payment",
     "entity": "Bitfinex",
     "role": "High-Throughput Exchange Settlement",
-    "rationale": "Largest institutional liquidity deployment on Lightning, locking over 377 BTC in capital across 570+ channels."
+    "rationale": "Selected under Friday's Capacity Whale rotation: PlebRank #3, 378 BTC across 578 channels.",
+    "rationale_version": 2
   },
   {
     "date": "2026-09-24",
@@ -207,6 +238,7 @@
     "node_type": "Infrastructure",
     "entity": "1ML",
     "role": "Historic Network Centrality Bridge",
-    "rationale": "Vital routing junction maintaining top-tier betweenness centrality and interconnecting over 1,600 peers across the network."
+    "rationale": "Selected under Thursday's Centrality Bridge rotation: PlebRank #35, 7.59 BTC across 1,662 channels.",
+    "rationale_version": 2
   }
 ]
