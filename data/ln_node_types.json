@@ -3734,98 +3734,98 @@
         "pub_key": "03b006c37dfb8681e5db9f513386d06c9d18bd514fae5d79a7ed2d5991c7d57330",
         "alias": "YTMND",
         "node_type": "Routing",
-        "entity": "Independent Routing Whale",
+        "entity": "",
         "role": "High-Capacity Community Routing Hub"
     },
     {
         "pub_key": "0289b70b52a04e951446674bedb571336295a2890ca0079639ebc067076277d571",
         "alias": "SCP-096",
         "node_type": "Routing",
-        "entity": "Independent Routing Whale",
+        "entity": "",
         "role": "High-Capacity Community Routing Hub"
     },
     {
         "pub_key": "033b74d74d6b7d96e89ebc9e135c4ffb0526fbe8293eb02c05f0c28146d078605d",
         "alias": "033b74d74d6b7d96e89e",
         "node_type": "Routing",
-        "entity": "Independent Routing Whale",
+        "entity": "",
         "role": "High-Capacity Community Routing Hub"
     },
     {
         "pub_key": "0391904d140fdf88d19423513945a5fcc49c606521b65a85f6d6fe46ebdd1c7665",
         "alias": "LifeIsGood",
         "node_type": "Routing",
-        "entity": "Independent Routing Whale",
+        "entity": "",
         "role": "High-Capacity Community Routing Hub"
     },
     {
         "pub_key": "027fa5d82ae86515412af3d361df8bc2c242d8fe92e6d488612964108c5797e5e4",
         "alias": "HOPPINGMONKEY",
         "node_type": "Routing",
-        "entity": "Independent Routing Whale",
+        "entity": "",
         "role": "High-Capacity Community Routing Hub"
     },
     {
         "pub_key": "0324ba2392e25bff76abd0b1f7e4b53b5f82aa53fddc3419b051b6c801db9e2247",
         "alias": "kappa",
         "node_type": "Routing",
-        "entity": "Independent Routing Whale",
+        "entity": "",
         "role": "High-Capacity Community Routing Hub"
     },
     {
         "pub_key": "02e9046555a9665145b0dbd7f135744598418df7d61d3660659641886ef1274844",
         "alias": "SilentBob",
         "node_type": "Routing",
-        "entity": "Independent Routing Whale",
+        "entity": "",
         "role": "High-Capacity Community Routing Hub"
     },
     {
         "pub_key": "0298f6074a454a1f5345cb2a7c6f9fce206cd0bf675d177cdbf0ca7508dd28852f",
         "alias": "BCash_Is_Trash",
         "node_type": "Routing",
-        "entity": "Independent Routing Whale",
+        "entity": "",
         "role": "High-Capacity Community Routing Hub"
     },
     {
         "pub_key": "03632f5c3e45832ddf045469f117b503764ad71866d961ae5ec8df2c4378ac019a",
         "alias": "Julia\u26a1\ufe0fLND01",
         "node_type": "Routing",
-        "entity": "Independent Routing Whale",
+        "entity": "",
         "role": "High-Capacity Community Routing Hub"
     },
     {
         "pub_key": "02a98e8c590a1b5602049d6b21d8f4c8861970aa310762f42eae1b2be88372e924",
         "alias": "ed528ad49bedd1f7a638a",
         "node_type": "Routing",
-        "entity": "Independent Routing Whale",
+        "entity": "",
         "role": "High-Capacity Community Routing Hub"
     },
     {
         "pub_key": "02b21730bc36061609cc1fe1bd7f5d3068e0a5e511aaf210a82c046b58020c4aa8",
         "alias": "Tachyon",
         "node_type": "Routing",
-        "entity": "Independent Routing Whale",
+        "entity": "",
         "role": "High-Capacity Community Routing Hub"
     },
     {
         "pub_key": "02f31f23d87a366e5ed28f72546193f85cba1073b7386eafd53b0d349df79ee6f1",
         "alias": "Uncle Jim's Node",
         "node_type": "Routing",
-        "entity": "Independent Routing Whale",
+        "entity": "",
         "role": "High-Capacity Community Routing Hub"
     },
     {
         "pub_key": "02e20917565c68c798687ab39d4cc0b3409ac079bd360f03e8bb18c8090da426a2",
         "alias": "lndnode08",
         "node_type": "Routing",
-        "entity": "Independent Routing Whale",
+        "entity": "",
         "role": "High-Capacity Community Routing Hub"
     },
     {
         "pub_key": "02a0f17d3ddb81b3b0c048956baebdf68468c9d7c8b851e5d26354a64a54cff562",
         "alias": "Goblin\u26a1Node",
         "node_type": "Routing",
-        "entity": "Independent Routing Whale",
+        "entity": "",
         "role": "High-Capacity Community Routing Hub"
     },
     {
@@ -3839,49 +3839,49 @@
         "pub_key": "0379dbd35a22abe30d87f89664bad7aea31e4ba15a2e69ec4946113cfb9843c445",
         "alias": "points-nexus",
         "node_type": "Routing",
-        "entity": "Independent Routing Whale",
+        "entity": "",
         "role": "High-Capacity Community Routing Hub"
     },
     {
         "pub_key": "02f9cdc8df3f142dcef499ce66464e2697f6e80e0db4b1d49c86f3e272931191c1",
         "alias": "Porcino \ud83c\udf44\u200d\ud83d\udfeb",
         "node_type": "Routing",
-        "entity": "Independent Routing Whale",
+        "entity": "",
         "role": "High-Capacity Community Routing Hub"
     },
     {
         "pub_key": "0323a74fbd280d757cdd8c04513d302077089f3205db62963d0dea468c6424d231",
         "alias": "LudwigTheAustrian",
         "node_type": "Routing",
-        "entity": "Independent Routing Whale",
+        "entity": "",
         "role": "High-Capacity Community Routing Hub"
     },
     {
         "pub_key": "0278f045df017c64c27bb8126c0dd52bbcd82021c0f89a913bf32a13d9e253f692",
         "alias": "Common Bridge",
         "node_type": "Routing",
-        "entity": "Independent Routing Whale",
+        "entity": "",
         "role": "High-Capacity Community Routing Hub"
     },
     {
         "pub_key": "03072b17e8cccdc6537fa7d11fc9dd68e3b657006a25d080d8df8d9dbdb342a515",
         "alias": "03072b17e8cccdc6537f",
         "node_type": "Routing",
-        "entity": "Independent Routing Whale",
+        "entity": "",
         "role": "High-Capacity Community Routing Hub"
     },
     {
         "pub_key": "033acb18b31498eb6503e06172dfd281b5b64df17b8a7cb6b2bcecfd89f275b755",
         "alias": "T\ud83c\udf2eCO",
         "node_type": "Routing",
-        "entity": "Independent Routing Whale",
+        "entity": "",
         "role": "High-Capacity Community Routing Hub"
     },
     {
         "pub_key": "039174f846626c6053ba80f5443d0db33da384f1dde135bf7080ba1eec465019c3",
         "alias": "e960fd8385a1603003727",
         "node_type": "Routing",
-        "entity": "Independent Routing Whale",
+        "entity": "",
         "role": "High-Capacity Community Routing Hub"
     },
     {
@@ -3902,35 +3902,35 @@
         "pub_key": "031800c296bc29a25c00986c16b752f9b01f8a08595ce92986df833a1701de58d5",
         "alias": "031800c296bc29a25c00",
         "node_type": "Routing",
-        "entity": "Independent Routing Whale",
+        "entity": "",
         "role": "High-Capacity Community Routing Hub"
     },
     {
         "pub_key": "033967480e73bddc7ea62f8cbd338b0019a5393849962fc45035b76b0d9f0b6082",
         "alias": "HyperForge",
         "node_type": "Routing",
-        "entity": "Independent Routing Whale",
+        "entity": "",
         "role": "High-Capacity Community Routing Hub"
     },
     {
         "pub_key": "037310ee65744f9c4a37cba7dae742a881f7bcc57f6be70b69a437860ffec410ee",
         "alias": "HowlerNode",
         "node_type": "Routing",
-        "entity": "Independent Routing Whale",
+        "entity": "",
         "role": "High-Capacity Community Routing Hub"
     },
     {
         "pub_key": "0212fe9b6308e3156e2b66eea450c7b9ae4b61238614583e1cf6cd7766586f1d6e",
         "alias": "SOMBERMOON",
         "node_type": "Routing",
-        "entity": "Independent Routing Whale",
+        "entity": "",
         "role": "High-Capacity Community Routing Hub"
     },
     {
         "pub_key": "0256ccca46170ff4b1ef54dd51a36ae309e5d139122dea89dfb64d07b8ad2f4b94",
         "alias": "0256ccca46170ff4b1ef",
         "node_type": "Routing",
-        "entity": "Independent Routing Whale",
+        "entity": "",
         "role": "High-Capacity Community Routing Hub"
     },
     {
@@ -3944,7 +3944,7 @@
         "pub_key": "02e418fc0b63aed0e24285a9bc01d9e2cb459983828c060beadd16d7d3c82d3152",
         "alias": "cc-03",
         "node_type": "Routing",
-        "entity": "Independent Routing Whale",
+        "entity": "",
         "role": "High-Capacity Community Routing Hub"
     },
     {
@@ -3965,49 +3965,49 @@
         "pub_key": "03ba52b971ba42c179a55f3579fef8b64600213c72f14d7fab7946d38f964e98fd",
         "alias": "03ba52b971ba42c179a5",
         "node_type": "Routing",
-        "entity": "Independent Routing Whale",
+        "entity": "",
         "role": "High-Capacity Community Routing Hub"
     },
     {
         "pub_key": "03c157946cc1cd376b929e36006e645fae490b1b1d4156b40db804e01b4bda48cd",
         "alias": "The Continental",
         "node_type": "Routing",
-        "entity": "Independent Routing Whale",
+        "entity": "",
         "role": "High-Capacity Community Routing Hub"
     },
     {
         "pub_key": "03e03180e79d92337d6b5b511aa16a31adb559332cc208970d7bf69d7f3987b09d",
         "alias": "naka-lnd",
         "node_type": "Routing",
-        "entity": "Independent Routing Whale",
+        "entity": "",
         "role": "High-Capacity Community Routing Hub"
     },
     {
         "pub_key": "03ae4b2ec2702284ad54d65d487da02d0d178d0dc533a4cf4e202f19411ab03dca",
         "alias": "03ae4b2ec2702284ad54",
         "node_type": "Routing",
-        "entity": "Independent Routing Whale",
+        "entity": "",
         "role": "High-Capacity Community Routing Hub"
     },
     {
         "pub_key": "028c0b24915b87e2f433405be8e0df5988cd591d65d5c981feda24658fbc81bc28",
         "alias": "Pear \ud83c\udf50",
         "node_type": "Routing",
-        "entity": "Independent Routing Whale",
+        "entity": "",
         "role": "High-Capacity Community Routing Hub"
     },
     {
         "pub_key": "03a5eafc05666ebe8329436311853b09db6d2462b40b7f06d001a7b9f086955c67",
         "alias": "TBC",
         "node_type": "Routing",
-        "entity": "Independent Routing Whale",
+        "entity": "",
         "role": "High-Capacity Community Routing Hub"
     },
     {
         "pub_key": "025022f660d278b8d90415bdde1b385841b6caf179dc69569e4b55fd5aec70555f",
         "alias": "\ud83d\ude80RocketNode\ud83d\ude80",
         "node_type": "Routing",
-        "entity": "Independent Routing Whale",
+        "entity": "",
         "role": "High-Capacity Community Routing Hub"
     },
     {
@@ -4021,49 +4021,49 @@
         "pub_key": "03db294f69d3d382b5e022f8d86bb326d3c2cf16cd1efd0aa64628c155d4d7ab27",
         "alias": "03db294f69d3d382b5e0",
         "node_type": "Routing",
-        "entity": "Independent Routing Whale",
+        "entity": "",
         "role": "High-Capacity Community Routing Hub"
     },
     {
         "pub_key": "03ce4c1a9a11910b8d6c1a8028b94b99d2dade8c9380736dce5c640997ff7e3d75",
         "alias": "Black Magic Man",
         "node_type": "Routing",
-        "entity": "Independent Routing Whale",
+        "entity": "",
         "role": "High-Capacity Community Routing Hub"
     },
     {
         "pub_key": "03b62dd177f6a8bd72b29a4d4d2b2eaa7fce14384c1d05e78a569a27452f20162b",
         "alias": "Nova",
         "node_type": "Routing",
-        "entity": "Independent Routing Whale",
+        "entity": "",
         "role": "High-Capacity Community Routing Hub"
     },
     {
         "pub_key": "0391c5b825b2b7719ddd2e843fc373b335919819fc3f44b31ddafd977a959faf3d",
         "alias": "f605fb8eb1270abf39d3ef0e178c2f60",
         "node_type": "Routing",
-        "entity": "Independent Routing Whale",
+        "entity": "",
         "role": "High-Capacity Community Routing Hub"
     },
     {
         "pub_key": "02a6271419c97c6d81698751a11a4e0dc3312555b45b98f3ba4e61b34a6b683d2f",
         "alias": "BV26_LSP_V",
         "node_type": "Routing",
-        "entity": "Independent Routing Whale",
+        "entity": "",
         "role": "High-Capacity Community Routing Hub"
     },
     {
         "pub_key": "02ba54585837609251865ba9835a32fbeb07f96abc20767dedaafeb17a2e5b8acf",
         "alias": "\ud83d\udee1 Don Quixote Bank \ud83d\udea9",
         "node_type": "Routing",
-        "entity": "Independent Routing Whale",
+        "entity": "",
         "role": "High-Capacity Community Routing Hub"
     },
     {
         "pub_key": "03df258c786d0241cbbe38063e82a02f251b937fbe4fd2d53187a43157129b8e7e",
         "alias": "Astrea",
         "node_type": "Routing",
-        "entity": "Independent Routing Whale",
+        "entity": "",
         "role": "High-Capacity Community Routing Hub"
     },
     {
@@ -4077,14 +4077,14 @@
         "pub_key": "0236ee5d3e4bcea64309c37462244af4f13394e820303b190d875ab839080992a6",
         "alias": "Uncle Ric's",
         "node_type": "Routing",
-        "entity": "Independent Routing Whale",
+        "entity": "",
         "role": "High-Capacity Community Routing Hub"
     },
     {
         "pub_key": "034f7596f74aea269aaa92218ade7161811c43435b595e7b83f683cc2f4d6fc191",
         "alias": "bhodl-public-02",
         "node_type": "Routing",
-        "entity": "Independent Routing Whale",
+        "entity": "",
         "role": "High-Capacity Community Routing Hub"
     }
 ]

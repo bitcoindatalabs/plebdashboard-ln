@@ -805,7 +805,15 @@ class HomepageManager {
 
         const alias = node.alias || 'Lightning Node';
         const plebRank = node.pleb_rank ? `#${Number(node.pleb_rank).toLocaleString()}` : 'Top Node';
-        const channels = node.total_channels ? `${Number(node.total_channels).toLocaleString()} ch` : 'Active';
+        const channels = node.total_channels ? Number(node.total_channels).toLocaleString() : '-';
+
+        // Average channel size (the criterion is already the card title, so it isn't repeated here)
+        let avgStr = '-';
+        const capSats = Number(node.total_capacity_sats), chCount = Number(node.total_channels);
+        if (capSats > 0 && chCount > 0) {
+            const avg = capSats / chCount;
+            avgStr = avg >= 1e8 ? `${(avg / 1e8).toFixed(2)} BTC` : avg >= 1e6 ? `${(avg / 1e6).toFixed(1)}M sats` : `${Math.round(avg / 1e3)}k sats`;
+        }
 
         if (body) {
             body.innerHTML = `
@@ -837,8 +845,8 @@ class HomepageManager {
                         <div class="spotlight-stat-lbl">Channels</div>
                     </div>
                     <div class="spotlight-stat-item">
-                        <div class="spotlight-stat-val">${this.escapeHtml(node.criterion)}</div>
-                        <div class="spotlight-stat-lbl">Role Tier</div>
+                        <div class="spotlight-stat-val">${avgStr}</div>
+                        <div class="spotlight-stat-lbl">Avg channel</div>
                     </div>
                 </div>
 
