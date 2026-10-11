@@ -1,5 +1,22 @@
 [
   {
+    "date": "2026-10-11",
+    "day": "Sunday",
+    "criterion": "Capacity-Weighted Degree",
+    "alias": "BCash_Is_Trash",
+    "pub_key": "0298f6074a454a1f5345cb2a7c6f9fce206cd0bf675d177cdbf0ca7508dd28852f",
+    "pleb_rank": 4,
+    "total_capacity_sats": 4580414129,
+    "total_channels": 442,
+    "total_capacity_rank": 27,
+    "total_channels_rank": 10,
+    "node_type": "Routing",
+    "entity": "",
+    "role": "",
+    "rationale": "#6 by capacity-weighted degree (channel count weighted by size), with 46 BTC across 442 channels.",
+    "rationale_version": 2
+  },
+  {
     "date": "2026-10-10",
     "day": "Saturday",
     "criterion": "Hidden Gem",
