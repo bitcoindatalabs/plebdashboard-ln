@@ -1,5 +1,22 @@
 [
   {
+    "date": "2026-10-12",
+    "day": "Monday",
+    "criterion": "Highest PlebRank",
+    "alias": "cyberdyne.sh",
+    "pub_key": "03a93b87bf9f052b8e862d51ebbac4ce5e97b5f4137563cd5128548d7f5978dda9",
+    "pleb_rank": 7,
+    "total_capacity_sats": 13226877503,
+    "total_channels": 286,
+    "total_capacity_rank": 12,
+    "total_channels_rank": 21,
+    "node_type": "Routing",
+    "entity": "cyberdyne.sh",
+    "role": "",
+    "rationale": "PlebRank #7, with 132 BTC across 286 channels.",
+    "rationale_version": 2
+  },
+  {
     "date": "2026-10-11",
     "day": "Sunday",
     "criterion": "Capacity-Weighted Degree",
