@@ -1,5 +1,22 @@
 [
   {
+    "date": "2026-10-13",
+    "day": "Tuesday",
+    "criterion": "Biggest New Node",
+    "alias": "SatsRouting",
+    "pub_key": "035fbe13dfd89d086e3e7a1bcecee4de2e24e02ef8aee2644502f20876dfd4d0eb",
+    "pleb_rank": 768,
+    "total_capacity_sats": 289004100,
+    "total_channels": 7,
+    "total_capacity_rank": 258,
+    "total_channels_rank": 1052,
+    "node_type": "",
+    "entity": "",
+    "role": "",
+    "rationale": "#1 by capacity among 48 nodes first seen in the last 7 days (Oct 11): 2.89 BTC across 7 channels.",
+    "rationale_version": 2
+  },
+  {
     "date": "2026-10-12",
     "day": "Monday",
     "criterion": "Highest PlebRank",
