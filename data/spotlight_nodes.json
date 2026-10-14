@@ -1,5 +1,22 @@
 [
   {
+    "date": "2026-10-14",
+    "day": "Wednesday",
+    "criterion": "Channel Momentum",
+    "alias": "Kraken 🐙⚡",
+    "pub_key": "02437c00ef5de2686a6bd60f8acb5c83d17010916010a15f479d5ef84c04f04485",
+    "pleb_rank": 13,
+    "total_capacity_sats": 13343040365,
+    "total_channels": 412,
+    "total_capacity_rank": 11,
+    "total_channels_rank": 12,
+    "node_type": "Exchange",
+    "entity": "Kraken",
+    "role": "",
+    "rationale": "Endpoint of 48 still-open channels funded in the last 7 days, #4 across the network.",
+    "rationale_version": 2
+  },
+  {
     "date": "2026-10-13",
     "day": "Tuesday",
     "criterion": "Biggest New Node",
