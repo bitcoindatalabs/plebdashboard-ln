@@ -1,5 +1,22 @@
 [
   {
+    "date": "2026-10-16",
+    "day": "Friday",
+    "criterion": "Capacity Whale",
+    "alias": "fixedfloat.com",
+    "pub_key": "037f990e61acee8a7697966afd29dd88f3b1f8a7b14d625c4f8742bd952003a590",
+    "pleb_rank": 47,
+    "total_capacity_sats": 21985202045,
+    "total_channels": 184,
+    "total_capacity_rank": 6,
+    "total_channels_rank": 33,
+    "node_type": "Exchange",
+    "entity": "fixedfloat.com",
+    "role": "",
+    "rationale": "#6 by capacity, with 220 BTC across 184 channels.",
+    "rationale_version": 2
+  },
+  {
     "date": "2026-10-15",
     "day": "Thursday",
     "criterion": "Centrality Bridge",
