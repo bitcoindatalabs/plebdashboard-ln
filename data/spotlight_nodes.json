@@ -1,5 +1,22 @@
 [
   {
+    "date": "2026-10-17",
+    "day": "Saturday",
+    "criterion": "Hidden Gem",
+    "alias": "Volarte⚡",
+    "pub_key": "026b33a83311adebb7915427734e483787ef57d856f5c792ea6f866cfea7e58908",
+    "pleb_rank": 62,
+    "total_capacity_sats": 297084580,
+    "total_channels": 109,
+    "total_capacity_rank": 251,
+    "total_channels_rank": 73,
+    "node_type": "",
+    "entity": "",
+    "role": "",
+    "rationale": "Drawn from PlebRank #50–#200: PlebRank #62, with 2.97 BTC across 109 channels.",
+    "rationale_version": 2
+  },
+  {
     "date": "2026-10-16",
     "day": "Friday",
     "criterion": "Capacity Whale",
