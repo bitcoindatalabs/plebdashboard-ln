@@ -1,5 +1,22 @@
 [
   {
+    "date": "2026-10-18",
+    "day": "Sunday",
+    "criterion": "Capacity-Weighted Degree",
+    "alias": "kappa",
+    "pub_key": "0324ba2392e25bff76abd0b1f7e4b53b5f82aa53fddc3419b051b6c801db9e2247",
+    "pleb_rank": 5,
+    "total_capacity_sats": 3483699681,
+    "total_channels": 463,
+    "total_capacity_rank": 37,
+    "total_channels_rank": 9,
+    "node_type": "Routing",
+    "entity": "",
+    "role": "",
+    "rationale": "#8 by capacity-weighted degree (channel count weighted by size), with 35 BTC across 463 channels.",
+    "rationale_version": 2
+  },
+  {
     "date": "2026-10-17",
     "day": "Saturday",
     "criterion": "Hidden Gem",
