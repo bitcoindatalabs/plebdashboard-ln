@@ -1,5 +1,22 @@
 [
   {
+    "date": "2026-10-19",
+    "day": "Monday",
+    "criterion": "Highest PlebRank",
+    "alias": "nicehash-ln1",
+    "pub_key": "037659a0ac8eb3b8d0a720114efc861d3a940382dcfa1403746b4f8f6b2e8810ba",
+    "pleb_rank": 8,
+    "total_capacity_sats": 7462510412,
+    "total_channels": 389,
+    "total_capacity_rank": 18,
+    "total_channels_rank": 13,
+    "node_type": "Payment",
+    "entity": "nicehash-ln1",
+    "role": "",
+    "rationale": "PlebRank #8, with 75 BTC across 389 channels.",
+    "rationale_version": 2
+  },
+  {
     "date": "2026-10-18",
     "day": "Sunday",
     "criterion": "Capacity-Weighted Degree",
