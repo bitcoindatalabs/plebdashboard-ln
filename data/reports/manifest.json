@@ -2,6 +2,13 @@
  "schema": 1,
  "weekly": [
   {
+   "id": "2026-10-18",
+   "label": "Oct 12 – Oct 18, 2026",
+   "headline": "Net -79.77 BTC this week, below the 8-week median of -22.71 BTC",
+   "path": "data/reports/weekly/2026-10-18.json",
+   "pdf": "https://raw.githubusercontent.com/bitcoindatalabs/bdl-report-assets/main/lightning/ln_weekly_20261018.pdf"
+  },
+  {
    "id": "2026-10-11",
    "label": "Oct 05 – Oct 11, 2026",
    "headline": "Net -118.20 BTC this week: first net outflow since the week ending Sep 27",
