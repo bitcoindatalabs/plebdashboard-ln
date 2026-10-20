@@ -1,5 +1,22 @@
 [
   {
+    "date": "2026-10-20",
+    "day": "Tuesday",
+    "criterion": "Biggest New Node",
+    "alias": "027e085ee342…",
+    "pub_key": "027e085ee342dde7c09f6419c9901e2c70a7e82a3340f5641aa1021c9108482705",
+    "pleb_rank": 1412,
+    "total_capacity_sats": 225980590,
+    "total_channels": 13,
+    "total_capacity_rank": 301,
+    "total_channels_rank": 642,
+    "node_type": "",
+    "entity": "",
+    "role": "",
+    "rationale": "#1 by capacity among 30 nodes first seen in the last 7 days (Oct 19): 2.26 BTC across 13 channels.",
+    "rationale_version": 2
+  },
+  {
     "date": "2026-10-19",
     "day": "Monday",
     "criterion": "Highest PlebRank",
