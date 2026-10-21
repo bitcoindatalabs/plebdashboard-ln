@@ -1,5 +1,22 @@
 [
   {
+    "date": "2026-10-21",
+    "day": "Wednesday",
+    "criterion": "Channel Momentum",
+    "alias": "039174f84662…",
+    "pub_key": "039174f846626c6053ba80f5443d0db33da384f1dde135bf7080ba1eec465019c3",
+    "pleb_rank": 20,
+    "total_capacity_sats": 11988019477,
+    "total_channels": 224,
+    "total_capacity_rank": 12,
+    "total_channels_rank": 27,
+    "node_type": "Routing",
+    "entity": "",
+    "role": "",
+    "rationale": "Endpoint of 33 still-open channels funded in the last 7 days, #4 across the network.",
+    "rationale_version": 2
+  },
+  {
     "date": "2026-10-20",
     "day": "Tuesday",
     "criterion": "Biggest New Node",
