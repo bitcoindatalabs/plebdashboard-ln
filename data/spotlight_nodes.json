@@ -1,5 +1,22 @@
 [
   {
+    "date": "2026-10-22",
+    "day": "Thursday",
+    "criterion": "Centrality Bridge",
+    "alias": "steviewonder",
+    "pub_key": "02f736ac7101aeec2900e6b010e8f420b3779a07e120f2d83dca51ad1f9a55a66d",
+    "pleb_rank": 981,
+    "total_capacity_sats": 1706873,
+    "total_channels": 12,
+    "total_capacity_rank": 3279,
+    "total_channels_rank": 732,
+    "node_type": "",
+    "entity": "",
+    "role": "",
+    "rationale": "Betweenness centrality rank #8: lies on many shortest payment paths between other nodes.",
+    "rationale_version": 2
+  },
+  {
     "date": "2026-10-21",
     "day": "Wednesday",
     "criterion": "Channel Momentum",
