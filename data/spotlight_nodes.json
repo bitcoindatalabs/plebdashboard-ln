@@ -1,5 +1,22 @@
 [
   {
+    "date": "2026-10-23",
+    "day": "Friday",
+    "criterion": "Capacity Whale",
+    "alias": "Strike",
+    "pub_key": "03c8e5f583585cac1de2b7503a6ccd3c12ba477cfd139cd4905be504c2f48e86bd",
+    "pleb_rank": 13,
+    "total_capacity_sats": 15011498865,
+    "total_channels": 326,
+    "total_capacity_rank": 9,
+    "total_channels_rank": 18,
+    "node_type": "Wallet,Exchange,Payment",
+    "entity": "Strike",
+    "role": "",
+    "rationale": "#9 by capacity, with 150 BTC across 326 channels.",
+    "rationale_version": 2
+  },
+  {
     "date": "2026-10-22",
     "day": "Thursday",
     "criterion": "Centrality Bridge",
