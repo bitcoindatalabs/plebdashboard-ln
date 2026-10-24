@@ -1,5 +1,22 @@
 [
   {
+    "date": "2026-10-24",
+    "day": "Saturday",
+    "criterion": "Hidden Gem",
+    "alias": "♥",
+    "pub_key": "03cfea6e01d8735d29863d0ecc0f637e5da25c3afb1894e6cb1c25cc9c52dbceef",
+    "pleb_rank": 168,
+    "total_capacity_sats": 260447568,
+    "total_channels": 42,
+    "total_capacity_rank": 268,
+    "total_channels_rank": 227,
+    "node_type": "",
+    "entity": "",
+    "role": "",
+    "rationale": "Drawn from PlebRank #50–#200: PlebRank #168, with 2.6 BTC across 42 channels.",
+    "rationale_version": 2
+  },
+  {
     "date": "2026-10-23",
     "day": "Friday",
     "criterion": "Capacity Whale",
