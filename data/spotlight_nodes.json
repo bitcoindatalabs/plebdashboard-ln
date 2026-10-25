@@ -1,5 +1,22 @@
 [
   {
+    "date": "2026-10-25",
+    "day": "Sunday",
+    "criterion": "Capacity-Weighted Degree",
+    "alias": "Sunny Sarah ☀️",
+    "pub_key": "03423790614f023e3c0cdaa654a3578e919947e4c3a14bf5044e7c787ebd11af1a",
+    "pleb_rank": 14,
+    "total_capacity_sats": 4355397335,
+    "total_channels": 353,
+    "total_capacity_rank": 31,
+    "total_channels_rank": 15,
+    "node_type": "Routing",
+    "entity": "Sunny Sarah ☀️",
+    "role": "",
+    "rationale": "#10 by capacity-weighted degree (channel count weighted by size), with 44 BTC across 353 channels.",
+    "rationale_version": 2
+  },
+  {
     "date": "2026-10-24",
     "day": "Saturday",
     "criterion": "Hidden Gem",
@@ -462,21 +479,6 @@
     "entity": "Bitfinex",
     "role": "High-Throughput Exchange Settlement",
     "rationale": "Selected under Friday's Capacity Whale rotation: PlebRank #3, 378 BTC across 578 channels.",
-    "rationale_version": 2
-  },
-  {
-    "date": "2026-09-24",
-    "day": "Thursday",
-    "criterion": "Centrality Bridge",
-    "alias": "1ML.com node ALPHA",
-    "pub_key": "0217890e3aad8d35bc054f43acc00084b25229ecff0ab68debd82883ad65ee8266",
-    "pleb_rank": 35,
-    "total_capacity_sats": 758792773,
-    "total_channels": 1662,
-    "node_type": "Infrastructure",
-    "entity": "1ML",
-    "role": "Historic Network Centrality Bridge",
-    "rationale": "Selected under Thursday's Centrality Bridge rotation: PlebRank #35, 7.59 BTC across 1,662 channels.",
     "rationale_version": 2
   }
 ]
