@@ -1,5 +1,22 @@
 [
   {
+    "date": "2026-10-26",
+    "day": "Monday",
+    "criterion": "Highest PlebRank",
+    "alias": "02a98e8c590a…",
+    "pub_key": "02a98e8c590a1b5602049d6b21d8f4c8861970aa310762f42eae1b2be88372e924",
+    "pleb_rank": 15,
+    "total_capacity_sats": 12662730028,
+    "total_channels": 236,
+    "total_capacity_rank": 11,
+    "total_channels_rank": 24,
+    "node_type": "Routing",
+    "entity": "",
+    "role": "",
+    "rationale": "PlebRank #15, with 127 BTC across 236 channels.",
+    "rationale_version": 2
+  },
+  {
     "date": "2026-10-25",
     "day": "Sunday",
     "criterion": "Capacity-Weighted Degree",
@@ -464,21 +481,6 @@
     "entity": "Community Router",
     "role": "Resilient Mid-Tier Community Routing",
     "rationale": "Selected under Saturday's Hidden Gem rotation: PlebRank #168, 2.03 BTC across 51 channels.",
-    "rationale_version": 2
-  },
-  {
-    "date": "2026-09-25",
-    "day": "Friday",
-    "criterion": "Capacity Whale",
-    "alias": "bfx-lnd0",
-    "pub_key": "033d8656219478701227199cbd6f670335c8d408a92ae88b962c49d4dc0e83e025",
-    "pleb_rank": 3,
-    "total_capacity_sats": 37776801470,
-    "total_channels": 578,
-    "node_type": "Exchange,Payment",
-    "entity": "Bitfinex",
-    "role": "High-Throughput Exchange Settlement",
-    "rationale": "Selected under Friday's Capacity Whale rotation: PlebRank #3, 378 BTC across 578 channels.",
     "rationale_version": 2
   }
 ]
