@@ -1,5 +1,22 @@
 [
   {
+    "date": "2026-10-27",
+    "day": "Tuesday",
+    "criterion": "Biggest New Node",
+    "alias": "0357bd63443d…",
+    "pub_key": "0357bd63443d00a78fa06115ccb1565fdf68dfdd11739e4bd46ec12aa7259d67ea",
+    "pleb_rank": 754,
+    "total_capacity_sats": 139658441,
+    "total_channels": 10,
+    "total_capacity_rank": 404,
+    "total_channels_rank": 792,
+    "node_type": "",
+    "entity": "",
+    "role": "",
+    "rationale": "#1 by capacity among 43 nodes first seen in the last 7 days (Oct 25): 1.4 BTC across 10 channels.",
+    "rationale_version": 2
+  },
+  {
     "date": "2026-10-26",
     "day": "Monday",
     "criterion": "Highest PlebRank",
@@ -466,21 +483,6 @@
     "entity": "Bitfinex",
     "role": "",
     "rationale": "Selected under Monday's Highest PlebRank rotation: PlebRank #2, 277 BTC across 522 channels.",
-    "rationale_version": 2
-  },
-  {
-    "date": "2026-09-26",
-    "day": "Saturday",
-    "criterion": "Hidden Gem",
-    "alias": "hqq",
-    "pub_key": "023668d1fd35d0736b24a80ced02410e9a61365de695664017aa9417c500ddfb19",
-    "pleb_rank": 168,
-    "total_capacity_sats": 202682460,
-    "total_channels": 51,
-    "node_type": "Routing Hub",
-    "entity": "Community Router",
-    "role": "Resilient Mid-Tier Community Routing",
-    "rationale": "Selected under Saturday's Hidden Gem rotation: PlebRank #168, 2.03 BTC across 51 channels.",
     "rationale_version": 2
   }
 ]
