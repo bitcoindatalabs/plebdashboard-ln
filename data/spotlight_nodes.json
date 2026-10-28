@@ -1,5 +1,22 @@
 [
   {
+    "date": "2026-10-28",
+    "day": "Wednesday",
+    "criterion": "Channel Momentum",
+    "alias": "Coinduit",
+    "pub_key": "024c08d7cded0993167094b1b941ec58ff594951c94094e916220f26dc2055f5ea",
+    "pleb_rank": 33,
+    "total_capacity_sats": 1188423960,
+    "total_channels": 148,
+    "total_capacity_rank": 84,
+    "total_channels_rank": 47,
+    "node_type": "Routing,LSP",
+    "entity": "Coinduit",
+    "role": "",
+    "rationale": "Endpoint of 25 still-open channels funded in the last 7 days, #7 across the network.",
+    "rationale_version": 2
+  },
+  {
     "date": "2026-10-27",
     "day": "Tuesday",
     "criterion": "Biggest New Node",
@@ -468,21 +485,6 @@
     "entity": "",
     "role": "",
     "rationale": "Selected under Tuesday's Biggest New Node rotation: PlebRank #3,022, 20M sats across 2 channels.",
-    "rationale_version": 2
-  },
-  {
-    "date": "2026-09-28",
-    "day": "Monday",
-    "criterion": "Highest PlebRank",
-    "alias": "bfx-lnd1",
-    "pub_key": "03cde60a6323f7122d5178255766e38114b4722ede08f7c9e0c5df9b912cc201d6",
-    "pleb_rank": 2,
-    "total_capacity_sats": 27675912412,
-    "total_channels": 522,
-    "node_type": "Exchange",
-    "entity": "Bitfinex",
-    "role": "",
-    "rationale": "Selected under Monday's Highest PlebRank rotation: PlebRank #2, 277 BTC across 522 channels.",
     "rationale_version": 2
   }
 ]
