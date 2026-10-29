@@ -1,5 +1,22 @@
 [
   {
+    "date": "2026-10-29",
+    "day": "Thursday",
+    "criterion": "Centrality Bridge",
+    "alias": "020be4e9c776…",
+    "pub_key": "020be4e9c776298d42fe8ab2333f3b9e602d7b3399a8c1b8a23c4a6977825252ed",
+    "pleb_rank": 1910,
+    "total_capacity_sats": 246953,
+    "total_channels": 4,
+    "total_capacity_rank": 5675,
+    "total_channels_rank": 1864,
+    "node_type": "",
+    "entity": "",
+    "role": "",
+    "rationale": "Betweenness centrality rank #7: lies on many shortest payment paths between other nodes.",
+    "rationale_version": 2
+  },
+  {
     "date": "2026-10-28",
     "day": "Wednesday",
     "criterion": "Channel Momentum",
@@ -470,21 +487,6 @@
     "entity": "Block / Spiral",
     "role": "",
     "rationale": "Selected under Wednesday's Channel Momentum rotation: PlebRank #11, 289 BTC across 613 channels.",
-    "rationale_version": 2
-  },
-  {
-    "date": "2026-09-29",
-    "day": "Tuesday",
-    "criterion": "Biggest New Node",
-    "alias": "connect-to-this-new-node-please",
-    "pub_key": "02f1ceec8ca07ca8e1593a827c08d729d552e4eb07f7d154ad981340c54a0b5d36",
-    "pleb_rank": 3022,
-    "total_capacity_sats": 20000000,
-    "total_channels": 2,
-    "node_type": "Lightning Peer",
-    "entity": "",
-    "role": "",
-    "rationale": "Selected under Tuesday's Biggest New Node rotation: PlebRank #3,022, 20M sats across 2 channels.",
     "rationale_version": 2
   }
 ]
