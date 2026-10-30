@@ -1,5 +1,22 @@
 [
   {
+    "date": "2026-10-30",
+    "day": "Friday",
+    "criterion": "Capacity Whale",
+    "alias": "LNBiG [Hub-3]",
+    "pub_key": "02c91d6aa51aa940608b497b6beebcb1aec05be3c47704b682b3889424679ca490",
+    "pleb_rank": 16,
+    "total_capacity_sats": 8733600352,
+    "total_channels": 268,
+    "total_capacity_rank": 15,
+    "total_channels_rank": 22,
+    "node_type": "LSP",
+    "entity": "LNBIG",
+    "role": "",
+    "rationale": "#15 by capacity, with 87 BTC across 268 channels.",
+    "rationale_version": 2
+  },
+  {
     "date": "2026-10-29",
     "day": "Thursday",
     "criterion": "Centrality Bridge",
@@ -472,21 +489,6 @@
     "entity": "",
     "role": "",
     "rationale": "Selected under Thursday's Centrality Bridge rotation: PlebRank #290, 32.6M sats across 1,199 channels.",
-    "rationale_version": 2
-  },
-  {
-    "date": "2026-09-30",
-    "day": "Wednesday",
-    "criterion": "Channel Momentum",
-    "alias": "block-iad-1",
-    "pub_key": "027100442c3b79f606f80f322d98d499eefcb060599efc5d4ecb00209c2cb54190",
-    "pleb_rank": 11,
-    "total_capacity_sats": 28934271430,
-    "total_channels": 613,
-    "node_type": "LSP,Routing",
-    "entity": "Block / Spiral",
-    "role": "",
-    "rationale": "Selected under Wednesday's Channel Momentum rotation: PlebRank #11, 289 BTC across 613 channels.",
     "rationale_version": 2
   }
 ]
