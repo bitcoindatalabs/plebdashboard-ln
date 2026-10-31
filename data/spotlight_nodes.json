@@ -1,5 +1,22 @@
 [
   {
+    "date": "2026-10-31",
+    "day": "Saturday",
+    "criterion": "Hidden Gem",
+    "alias": "Absolem",
+    "pub_key": "021f1e6bdf336f7f4ebc7a585d7645ac90be3050e0dd5ab5e814d1d7bef8b897d4",
+    "pleb_rank": 108,
+    "total_capacity_sats": 130923677,
+    "total_channels": 83,
+    "total_capacity_rank": 406,
+    "total_channels_rank": 95,
+    "node_type": "",
+    "entity": "",
+    "role": "",
+    "rationale": "Drawn from PlebRank #50–#200: PlebRank #108, with 1.31 BTC across 83 channels.",
+    "rationale_version": 2
+  },
+  {
     "date": "2026-10-30",
     "day": "Friday",
     "criterion": "Capacity Whale",
@@ -474,21 +491,6 @@
     "entity": "Binance",
     "role": "",
     "rationale": "Selected under Friday's Capacity Whale rotation: PlebRank #101, 356 BTC across 154 channels.",
-    "rationale_version": 2
-  },
-  {
-    "date": "2026-10-01",
-    "day": "Thursday",
-    "criterion": "Centrality Bridge",
-    "alias": "LNT.Thailand",
-    "pub_key": "03ccc570ec6aaff08d5435b3413f4b4af8175728a1ed244e4710121c8f5af6ea07",
-    "pleb_rank": 290,
-    "total_capacity_sats": 32639442,
-    "total_channels": 1199,
-    "node_type": "Lightning Peer",
-    "entity": "",
-    "role": "",
-    "rationale": "Selected under Thursday's Centrality Bridge rotation: PlebRank #290, 32.6M sats across 1,199 channels.",
     "rationale_version": 2
   }
 ]
