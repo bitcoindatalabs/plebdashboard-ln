@@ -1,5 +1,22 @@
 [
   {
+    "date": "2026-11-01",
+    "day": "Sunday",
+    "criterion": "Capacity-Weighted Degree",
+    "alias": "🇨🇭Vix18",
+    "pub_key": "03d32e5618df518e911e2c0bf4686e9d236ae9ab0afd442f0a5de28b74d64338b3",
+    "pleb_rank": 16,
+    "total_capacity_sats": 1160701337,
+    "total_channels": 313,
+    "total_capacity_rank": 82,
+    "total_channels_rank": 19,
+    "node_type": "",
+    "entity": "",
+    "role": "",
+    "rationale": "#16 by capacity-weighted degree (channel count weighted by size), with 12 BTC across 313 channels.",
+    "rationale_version": 2
+  },
+  {
     "date": "2026-10-31",
     "day": "Saturday",
     "criterion": "Hidden Gem",
@@ -476,21 +493,6 @@
     "entity": "",
     "role": "",
     "rationale": "Selected under Saturday's Hidden Gem rotation: PlebRank #138, 2.58 BTC across 53 channels.",
-    "rationale_version": 2
-  },
-  {
-    "date": "2026-10-02",
-    "day": "Friday",
-    "criterion": "Capacity Whale",
-    "alias": "Binance",
-    "pub_key": "03a1f3afd646d77bdaf545cceaf079bab6057eae52c6319b63b5803d0989d6a72f",
-    "pleb_rank": 101,
-    "total_capacity_sats": 35593189513,
-    "total_channels": 154,
-    "node_type": "Exchange,Payment",
-    "entity": "Binance",
-    "role": "",
-    "rationale": "Selected under Friday's Capacity Whale rotation: PlebRank #101, 356 BTC across 154 channels.",
     "rationale_version": 2
   }
 ]
