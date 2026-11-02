@@ -1,5 +1,22 @@
 [
   {
+    "date": "2026-11-02",
+    "day": "Monday",
+    "criterion": "Highest PlebRank",
+    "alias": "Babylon-4a",
+    "pub_key": "0340cfadaa3324e0dd176a9969be050114278f93260e1b6333bd2a2a2ea03c64a3",
+    "pleb_rank": 17,
+    "total_capacity_sats": 1694800305,
+    "total_channels": 287,
+    "total_capacity_rank": 60,
+    "total_channels_rank": 20,
+    "node_type": "",
+    "entity": "",
+    "role": "",
+    "rationale": "PlebRank #17, with 17 BTC across 287 channels.",
+    "rationale_version": 2
+  },
+  {
     "date": "2026-11-01",
     "day": "Sunday",
     "criterion": "Capacity-Weighted Degree",
@@ -478,21 +495,6 @@
     "entity": "CoinGate",
     "role": "",
     "rationale": "Selected under Sunday's Capacity-Weighted Degree rotation: PlebRank #8, 18 BTC across 1,323 channels.",
-    "rationale_version": 2
-  },
-  {
-    "date": "2026-10-03",
-    "day": "Saturday",
-    "criterion": "Hidden Gem",
-    "alias": "⚡RBlitzOne⚡",
-    "pub_key": "02a7311555b28f6851698999c8045de5dd3a355feae444e6ca1300bb52cceb1e7b",
-    "pleb_rank": 138,
-    "total_capacity_sats": 258364724,
-    "total_channels": 53,
-    "node_type": "Lightning Peer",
-    "entity": "",
-    "role": "",
-    "rationale": "Selected under Saturday's Hidden Gem rotation: PlebRank #138, 2.58 BTC across 53 channels.",
     "rationale_version": 2
   }
 ]
