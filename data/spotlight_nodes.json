@@ -1,5 +1,22 @@
 [
   {
+    "date": "2026-11-03",
+    "day": "Tuesday",
+    "criterion": "Biggest New Node",
+    "alias": "hermes-node-2",
+    "pub_key": "0257b14253bc9045181adaf9f32afd3f4087e413cdf0d7fc3e11548aacfd1fdb74",
+    "pleb_rank": 1805,
+    "total_capacity_sats": 21400000,
+    "total_channels": 3,
+    "total_capacity_rank": 1064,
+    "total_channels_rank": 1876,
+    "node_type": "",
+    "entity": "",
+    "role": "",
+    "rationale": "#1 by capacity among 45 nodes first seen in the last 7 days (Nov 02): 21.4M sats across 3 channels.",
+    "rationale_version": 2
+  },
+  {
     "date": "2026-11-02",
     "day": "Monday",
     "criterion": "Highest PlebRank",
@@ -480,21 +497,6 @@
     "entity": "LNBIG",
     "role": "",
     "rationale": "Selected under Monday's Highest PlebRank rotation: PlebRank #4, 207 BTC across 458 channels.",
-    "rationale_version": 2
-  },
-  {
-    "date": "2026-10-04",
-    "day": "Sunday",
-    "criterion": "Capacity-Weighted Degree",
-    "alias": "CoinGate",
-    "pub_key": "0242a4ae0c5bef18048fbecf995094b74bfb0f7391418d71ed394784373f41e4f3",
-    "pleb_rank": 8,
-    "total_capacity_sats": 1798265032,
-    "total_channels": 1323,
-    "node_type": "Payment",
-    "entity": "CoinGate",
-    "role": "",
-    "rationale": "Selected under Sunday's Capacity-Weighted Degree rotation: PlebRank #8, 18 BTC across 1,323 channels.",
     "rationale_version": 2
   }
 ]
