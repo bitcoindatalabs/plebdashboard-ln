@@ -1,5 +1,22 @@
 [
   {
+    "date": "2026-11-04",
+    "day": "Wednesday",
+    "criterion": "Channel Momentum",
+    "alias": "lndus0.zaphq.io",
+    "pub_key": "027cd974e47086291bb8a5b0160a889c738f2712a703b8ea939985fd16f3aae67e",
+    "pleb_rank": 496,
+    "total_capacity_sats": 3010828983,
+    "total_channels": 43,
+    "total_capacity_rank": 34,
+    "total_channels_rank": 213,
+    "node_type": "LSP,Payment",
+    "entity": "Zap / Strike",
+    "role": "",
+    "rationale": "Endpoint of 25 still-open channels funded in the last 7 days, #9 across the network.",
+    "rationale_version": 2
+  },
+  {
     "date": "2026-11-03",
     "day": "Tuesday",
     "criterion": "Biggest New Node",
@@ -482,21 +499,6 @@
     "entity": "",
     "role": "",
     "rationale": "Selected under Tuesday's Biggest New Node rotation: PlebRank #418, 28.4M sats across 14 channels.",
-    "rationale_version": 2
-  },
-  {
-    "date": "2026-10-05",
-    "day": "Monday",
-    "criterion": "Highest PlebRank",
-    "alias": "LNBiG [Hub-1]",
-    "pub_key": "034ea80f8b148c750463546bd999bf7321a0e6dfc60aaf84bd0400a2e8d376c0d5",
-    "pleb_rank": 4,
-    "total_capacity_sats": 20717495070,
-    "total_channels": 458,
-    "node_type": "LSP",
-    "entity": "LNBIG",
-    "role": "",
-    "rationale": "Selected under Monday's Highest PlebRank rotation: PlebRank #4, 207 BTC across 458 channels.",
     "rationale_version": 2
   }
 ]
