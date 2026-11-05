@@ -1,5 +1,22 @@
 [
   {
+    "date": "2026-11-05",
+    "day": "Thursday",
+    "criterion": "Centrality Bridge",
+    "alias": "wintermute",
+    "pub_key": "033cb44383ff35fa04035ad2fa6298a5d7f9e56e2d47c0d8d86692505397f24104",
+    "pleb_rank": 444,
+    "total_capacity_sats": 21663386,
+    "total_channels": 14,
+    "total_capacity_rank": 1060,
+    "total_channels_rank": 610,
+    "node_type": "",
+    "entity": "",
+    "role": "",
+    "rationale": "Betweenness centrality rank #8: lies on many shortest payment paths between other nodes.",
+    "rationale_version": 2
+  },
+  {
     "date": "2026-11-04",
     "day": "Wednesday",
     "criterion": "Channel Momentum",
@@ -484,21 +501,6 @@
     "entity": "OKX",
     "role": "",
     "rationale": "Selected under Wednesday's Channel Momentum rotation: PlebRank #17, 172 BTC across 313 channels.",
-    "rationale_version": 2
-  },
-  {
-    "date": "2026-10-06",
-    "day": "Tuesday",
-    "criterion": "Biggest New Node",
-    "alias": "odroid-xu4",
-    "pub_key": "0278bf80ef0c488a23c1417d92920948deb8c2e401744d17ec3e20416aeb2a5ac4",
-    "pleb_rank": 418,
-    "total_capacity_sats": 28403000,
-    "total_channels": 14,
-    "node_type": "Lightning Peer",
-    "entity": "",
-    "role": "",
-    "rationale": "Selected under Tuesday's Biggest New Node rotation: PlebRank #418, 28.4M sats across 14 channels.",
     "rationale_version": 2
   }
 ]
