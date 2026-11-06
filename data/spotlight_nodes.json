@@ -1,5 +1,22 @@
 [
   {
+    "date": "2026-11-06",
+    "day": "Friday",
+    "criterion": "Capacity Whale",
+    "alias": "1sats.com⚡️lsp.flashsats.xyz",
+    "pub_key": "02e4971e61a3f55718ae31e2eed19aaf2e32caf3eb5ef5ff03e01aa3ada8907e78",
+    "pleb_rank": 29,
+    "total_capacity_sats": 8518683996,
+    "total_channels": 176,
+    "total_capacity_rank": 15,
+    "total_channels_rank": 34,
+    "node_type": "LSP",
+    "entity": "1sats.com⚡️lsp.flashsats.xyz",
+    "role": "",
+    "rationale": "#15 by capacity, with 85 BTC across 176 channels.",
+    "rationale_version": 2
+  },
+  {
     "date": "2026-11-05",
     "day": "Thursday",
     "criterion": "Centrality Bridge",
@@ -486,21 +503,6 @@
     "entity": "",
     "role": "",
     "rationale": "Selected under Thursday's Centrality Bridge rotation: PlebRank #201, 44.2M sats across 798 channels.",
-    "rationale_version": 2
-  },
-  {
-    "date": "2026-10-07",
-    "day": "Wednesday",
-    "criterion": "Channel Momentum",
-    "alias": "okx",
-    "pub_key": "0294ac3e099def03c12a37e30fe5364b1223fd60069869142ef96580c8439c2e0a",
-    "pleb_rank": 17,
-    "total_capacity_sats": 17199067307,
-    "total_channels": 313,
-    "node_type": "Exchange,Payment",
-    "entity": "OKX",
-    "role": "",
-    "rationale": "Selected under Wednesday's Channel Momentum rotation: PlebRank #17, 172 BTC across 313 channels.",
     "rationale_version": 2
   }
 ]
