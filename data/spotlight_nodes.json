@@ -1,5 +1,22 @@
 [
   {
+    "date": "2026-11-07",
+    "day": "Saturday",
+    "criterion": "Hidden Gem",
+    "alias": "DeltaGap",
+    "pub_key": "029221ee9b72b7b1be2cb09610839bef2ea286ba1d7da9fc184731abb789a8fed0",
+    "pleb_rank": 132,
+    "total_capacity_sats": 230930138,
+    "total_channels": 44,
+    "total_capacity_rank": 282,
+    "total_channels_rank": 209,
+    "node_type": "",
+    "entity": "",
+    "role": "",
+    "rationale": "Drawn from PlebRank #50–#200: PlebRank #132, with 2.31 BTC across 44 channels.",
+    "rationale_version": 2
+  },
+  {
     "date": "2026-11-06",
     "day": "Friday",
     "criterion": "Capacity Whale",
@@ -488,21 +505,6 @@
     "entity": "LNBIG",
     "role": "",
     "rationale": "Selected under Friday's Capacity Whale rotation: PlebRank #5, 223 BTC across 401 channels.",
-    "rationale_version": 2
-  },
-  {
-    "date": "2026-10-08",
-    "day": "Thursday",
-    "criterion": "Centrality Bridge",
-    "alias": "LNT.chengdu",
-    "pub_key": "02c953421bc7f07be6052920e46843d11e6d3ffc9986177c91f140d76c6ed3a3d4",
-    "pleb_rank": 201,
-    "total_capacity_sats": 44247321,
-    "total_channels": 798,
-    "node_type": "Lightning Peer",
-    "entity": "",
-    "role": "",
-    "rationale": "Selected under Thursday's Centrality Bridge rotation: PlebRank #201, 44.2M sats across 798 channels.",
     "rationale_version": 2
   }
 ]
