@@ -1,5 +1,22 @@
 [
   {
+    "date": "2026-11-08",
+    "day": "Sunday",
+    "criterion": "Capacity-Weighted Degree",
+    "alias": "xmrk reloaded",
+    "pub_key": "02cad4ec4c8b0dc2c7035a1898f979c8c7169bdff74e01ad6ca7aea59d85c59e8b",
+    "pleb_rank": 20,
+    "total_capacity_sats": 1862299112,
+    "total_channels": 223,
+    "total_capacity_rank": 55,
+    "total_channels_rank": 25,
+    "node_type": "",
+    "entity": "",
+    "role": "",
+    "rationale": "#21 by capacity-weighted degree (channel count weighted by size), with 19 BTC across 223 channels.",
+    "rationale_version": 2
+  },
+  {
     "date": "2026-11-07",
     "day": "Saturday",
     "criterion": "Hidden Gem",
@@ -490,21 +507,6 @@
     "entity": "",
     "role": "",
     "rationale": "Drawn from PlebRank #50–#200: PlebRank #160, with 2.17 BTC across 44 channels.",
-    "rationale_version": 2
-  },
-  {
-    "date": "2026-10-09",
-    "day": "Friday",
-    "criterion": "Capacity Whale",
-    "alias": "LNBiG [Hub-2]",
-    "pub_key": "033e9ce4e8f0e68f7db49ffb6b9eecc10605f3f3fcb3c630545887749ab515b9c7",
-    "pleb_rank": 5,
-    "total_capacity_sats": 22339968301,
-    "total_channels": 401,
-    "node_type": "LSP",
-    "entity": "LNBIG",
-    "role": "",
-    "rationale": "Selected under Friday's Capacity Whale rotation: PlebRank #5, 223 BTC across 401 channels.",
     "rationale_version": 2
   }
 ]
