@@ -1,5 +1,22 @@
 [
   {
+    "date": "2026-11-09",
+    "day": "Monday",
+    "criterion": "Highest PlebRank",
+    "alias": "allNice | torq.co | second.tech",
+    "pub_key": "0326e692c455dd554c709bbb470b0ca7e0bb04152f777d1445fd0bf3709a2833a3",
+    "pleb_rank": 19,
+    "total_capacity_sats": 4630616525,
+    "total_channels": 219,
+    "total_capacity_rank": 26,
+    "total_channels_rank": 25,
+    "node_type": "LSP",
+    "entity": "Torq / allNice",
+    "role": "",
+    "rationale": "PlebRank #19, with 46 BTC across 219 channels.",
+    "rationale_version": 2
+  },
+  {
     "date": "2026-11-08",
     "day": "Sunday",
     "criterion": "Capacity-Weighted Degree",
@@ -490,23 +507,6 @@
     "entity": "",
     "role": "",
     "rationale": "#6 by capacity-weighted degree (channel count weighted by size), with 46 BTC across 442 channels.",
-    "rationale_version": 2
-  },
-  {
-    "date": "2026-10-10",
-    "day": "Saturday",
-    "criterion": "Hidden Gem",
-    "alias": "Umbasa",
-    "pub_key": "02dd4a9cf224e290851f6af83072e2496479bdf4b65e1733e92e24d42a0ba89a75",
-    "pleb_rank": 160,
-    "total_capacity_sats": 216836842,
-    "total_channels": 44,
-    "total_capacity_rank": 319,
-    "total_channels_rank": 222,
-    "node_type": "",
-    "entity": "",
-    "role": "",
-    "rationale": "Drawn from PlebRank #50–#200: PlebRank #160, with 2.17 BTC across 44 channels.",
     "rationale_version": 2
   }
 ]
