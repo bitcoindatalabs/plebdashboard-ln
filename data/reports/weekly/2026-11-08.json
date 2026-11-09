@@ -1,0 +1,454 @@
+{
+ "schema": 1,
+ "type": "weekly",
+ "id": "2026-11-08",
+ "label": "Nov 02 – Nov 08, 2026",
+ "headline": "Net -10.58 BTC this week: 5 straight weeks of net outflow",
+ "period": {
+  "start": "2026-11-02",
+  "end": "2026-11-08",
+  "timezone": "UTC"
+ },
+ "baseline": {
+  "as_of": "2026-11-08",
+  "channels": 36761,
+  "capacity_btc": 3239.45,
+  "nodes": 13898
+ },
+ "totals": {
+  "opened": 1228,
+  "opened_btc": 390.86,
+  "closed": 3244,
+  "closed_btc": 401.44,
+  "net_btc": -10.58,
+  "net_channels": -2016,
+  "median_new_channel_sats": 5614187,
+  "median_lifespan_days": 395
+ },
+ "close_types": {
+  "available": true,
+  "mutual": 1346,
+  "force": 1898,
+  "splice": 9,
+  "breach": 0,
+  "mutual_pct": 41,
+  "force_pct": 59
+ },
+ "kpis": {
+  "net_btc": {
+   "value": -10.58,
+   "median": -51.38,
+   "delta": 40.8
+  },
+  "opens": {
+   "value": 1228,
+   "median": 1224.5,
+   "delta": 3.5
+  },
+  "closes": {
+   "value": 3244,
+   "median": 1423.0,
+   "delta": 1821.0
+  },
+  "force_pct": {
+   "value": 58.5,
+   "median": 17.7,
+   "delta": 40.8
+  }
+ },
+ "baseline_weeks": 8,
+ "series": [
+  {
+   "week_end": "2026-08-16",
+   "label": "Aug 16",
+   "opens": 2195,
+   "opened_btc": 671.77,
+   "closes": 3025,
+   "closed_btc": 844.88,
+   "net_btc": -173.11,
+   "net_channels": -830,
+   "force_pct": 15.7
+  },
+  {
+   "week_end": "2026-08-23",
+   "label": "Aug 23",
+   "opens": 1534,
+   "opened_btc": 501.29,
+   "closes": 1440,
+   "closed_btc": 466.31,
+   "net_btc": 34.98,
+   "net_channels": 94,
+   "force_pct": 16.9
+  },
+  {
+   "week_end": "2026-08-30",
+   "label": "Aug 30",
+   "opens": 1241,
+   "opened_btc": 526.97,
+   "closes": 1902,
+   "closed_btc": 591.92,
+   "net_btc": -64.95,
+   "net_channels": -661,
+   "force_pct": 32.5
+  },
+  {
+   "week_end": "2026-09-06",
+   "label": "Sep 06",
+   "opens": 1372,
+   "opened_btc": 470.69,
+   "closes": 1963,
+   "closed_btc": 542.35,
+   "net_btc": -71.66,
+   "net_channels": -591,
+   "force_pct": 18.2
+  },
+  {
+   "week_end": "2026-09-13",
+   "label": "Sep 13",
+   "opens": 1314,
+   "opened_btc": 507.8,
+   "closes": 1380,
+   "closed_btc": 461.13,
+   "net_btc": 46.67,
+   "net_channels": -66,
+   "force_pct": 24.2
+  },
+  {
+   "week_end": "2026-09-20",
+   "label": "Sep 20",
+   "opens": 1142,
+   "opened_btc": 417.27,
+   "closes": 1326,
+   "closed_btc": 439.69,
+   "net_btc": -22.42,
+   "net_channels": -184,
+   "force_pct": 27.9
+  },
+  {
+   "week_end": "2026-09-27",
+   "label": "Sep 27",
+   "opens": 1064,
+   "opened_btc": 435.73,
+   "closes": 2172,
+   "closed_btc": 458.74,
+   "net_btc": -23.01,
+   "net_channels": -1108,
+   "force_pct": 19.5
+  },
+  {
+   "week_end": "2026-10-04",
+   "label": "Oct 04",
+   "opens": 1340,
+   "opened_btc": 504.98,
+   "closes": 1357,
+   "closed_btc": 491.49,
+   "net_btc": 13.49,
+   "net_channels": -17,
+   "force_pct": 17.8
+  },
+  {
+   "week_end": "2026-10-11",
+   "label": "Oct 11",
+   "opens": 1386,
+   "opened_btc": 583.43,
+   "closes": 1603,
+   "closed_btc": 701.63,
+   "net_btc": -118.2,
+   "net_channels": -217,
+   "force_pct": 17.2
+  },
+  {
+   "week_end": "2026-10-18",
+   "label": "Oct 18",
+   "opens": 1093,
+   "opened_btc": 454.22,
+   "closes": 1390,
+   "closed_btc": 533.97,
+   "net_btc": -79.75,
+   "net_channels": -297,
+   "force_pct": 15.1
+  },
+  {
+   "week_end": "2026-10-25",
+   "label": "Oct 25",
+   "opens": 1159,
+   "opened_btc": 550.96,
+   "closes": 1456,
+   "closed_btc": 645.28,
+   "net_btc": -94.32,
+   "net_channels": -297,
+   "force_pct": 16.4
+  },
+  {
+   "week_end": "2026-11-01",
+   "label": "Nov 01",
+   "opens": 1290,
+   "opened_btc": 547.56,
+   "closes": 2015,
+   "closed_btc": 768.63,
+   "net_btc": -221.07,
+   "net_channels": -725,
+   "force_pct": 17.6
+  },
+  {
+   "week_end": "2026-11-08",
+   "label": "Nov 08",
+   "opens": 1228,
+   "opened_btc": 390.86,
+   "closes": 3244,
+   "closed_btc": 401.44,
+   "net_btc": -10.58,
+   "net_channels": -2016,
+   "force_pct": 58.5
+  }
+ ],
+ "daily": {
+  "dates": [
+   "2026-11-02",
+   "2026-11-03",
+   "2026-11-04",
+   "2026-11-05",
+   "2026-11-06",
+   "2026-11-07",
+   "2026-11-08"
+  ],
+  "labels": [
+   "Mon 02",
+   "Tue 03",
+   "Wed 04",
+   "Thu 05",
+   "Fri 06",
+   "Sat 07",
+   "Sun 08"
+  ],
+  "opened": [
+   204,
+   154,
+   239,
+   171,
+   159,
+   173,
+   128
+  ],
+  "closed": [
+   226,
+   172,
+   166,
+   169,
+   147,
+   159,
+   2205
+  ]
+ },
+ "movers": {
+  "adders": [
+   {
+    "pub": "03a93b87bf9f052b8e862d51ebbac4ce5e97b5f4137563cd5128548d7f5978dda9",
+    "name": "cyberdyne.sh",
+    "named": true,
+    "net_btc": 55.46,
+    "net_n": 61,
+    "opened_n": 71,
+    "opened_btc": 77.24,
+    "closed_n": 10,
+    "closed_btc": 21.78,
+    "force_closed_n": 1
+   },
+   {
+    "pub": "033e9ce4e8f0e68f7db49ffb6b9eecc10605f3f3fcb3c630545887749ab515b9c7",
+    "name": "LNBiG [Hub-2]",
+    "named": true,
+    "net_btc": 9.26,
+    "net_n": 42,
+    "opened_n": 63,
+    "opened_btc": 18.4,
+    "closed_n": 21,
+    "closed_btc": 9.14,
+    "force_closed_n": 1
+   },
+   {
+    "pub": "02437c00ef5de2686a6bd60f8acb5c83d17010916010a15f479d5ef84c04f04485",
+    "name": "Kraken 🐙⚡",
+    "named": true,
+    "net_btc": 8.76,
+    "net_n": 16,
+    "opened_n": 25,
+    "opened_btc": 10.41,
+    "closed_n": 9,
+    "closed_btc": 1.65,
+    "force_closed_n": 0
+   },
+   {
+    "pub": "021c97a90a411ff2b10dc2a8e32de2f29d2fa49d41bfbb52bd416e460db0747d0d",
+    "name": "LOOP",
+    "named": true,
+    "net_btc": 8.55,
+    "net_n": 5,
+    "opened_n": 24,
+    "opened_btc": 32.66,
+    "closed_n": 19,
+    "closed_btc": 24.11,
+    "force_closed_n": 0
+   },
+   {
+    "pub": "02b21730bc36061609cc1fe1bd7f5d3068e0a5e511aaf210a82c046b58020c4aa8",
+    "name": "Tachyon",
+    "named": true,
+    "net_btc": 8.06,
+    "net_n": 7,
+    "opened_n": 9,
+    "opened_btc": 8.46,
+    "closed_n": 2,
+    "closed_btc": 0.4,
+    "force_closed_n": 1
+   }
+  ],
+  "reducers": [
+   {
+    "pub": "03864ef025fde8fb587d989186ce6a4a186895ee44a926bfc370e2c366597a3f8f",
+    "name": "ACINQ",
+    "named": true,
+    "net_btc": -43.59,
+    "net_n": -21,
+    "opened_n": 46,
+    "opened_btc": 14.23,
+    "closed_n": 67,
+    "closed_btc": 57.82,
+    "force_closed_n": 7
+   },
+   {
+    "pub": "03cde60a6323f7122d5178255766e38114b4722ede08f7c9e0c5df9b912cc201d6",
+    "name": "bfx-lnd1",
+    "named": true,
+    "net_btc": -35.95,
+    "net_n": -13,
+    "opened_n": 3,
+    "opened_btc": 2.32,
+    "closed_n": 16,
+    "closed_btc": 38.27,
+    "force_closed_n": 2
+   },
+   {
+    "pub": "03a1f3afd646d77bdaf545cceaf079bab6057eae52c6319b63b5803d0989d6a72f",
+    "name": "Binance",
+    "named": true,
+    "net_btc": -12.92,
+    "net_n": -4,
+    "opened_n": 0,
+    "opened_btc": 0.0,
+    "closed_n": 4,
+    "closed_btc": 12.92,
+    "force_closed_n": 4
+   },
+   {
+    "pub": "0391904d140fdf88d19423513945a5fcc49c606521b65a85f6d6fe46ebdd1c7665",
+    "name": "LifeIsGood",
+    "named": true,
+    "net_btc": -6.42,
+    "net_n": -3,
+    "opened_n": 7,
+    "opened_btc": 3.55,
+    "closed_n": 10,
+    "closed_btc": 9.97,
+    "force_closed_n": 1
+   },
+   {
+    "pub": "03c8e5f583585cac1de2b7503a6ccd3c12ba477cfd139cd4905be504c2f48e86bd",
+    "name": "Strike",
+    "named": true,
+    "net_btc": -5.33,
+    "net_n": 0,
+    "opened_n": 13,
+    "opened_btc": 13.89,
+    "closed_n": 13,
+    "closed_btc": 19.22,
+    "force_closed_n": 0
+   }
+  ]
+ },
+ "largest_channel": {
+  "short_channel_id": "974556x1443x0",
+  "capacity_sats": 800000000,
+  "node1": {
+   "pub": "021c97a90a411ff2b10dc2a8e32de2f29d2fa49d41bfbb52bd416e460db0747d0d",
+   "name": "LOOP"
+  },
+  "node2": {
+   "pub": "03a93b87bf9f052b8e862d51ebbac4ce5e97b5f4137563cd5128548d7f5978dda9",
+   "name": "cyberdyne.sh"
+  }
+ },
+ "mass_close_events": [
+  {
+   "date": "2026-11-08",
+   "pub": "03ccc570ec6aaff08d5435b3413f4b4af8175728a1ed244e4710121c8f5af6ea07",
+   "name": "LNT.Thailand",
+   "force_closes": 1036,
+   "btc": 0.21
+  },
+  {
+   "date": "2026-11-08",
+   "pub": "02c953421bc7f07be6052920e46843d11e6d3ffc9986177c91f140d76c6ed3a3d4",
+   "name": "LNT.chengdu",
+   "force_closes": 646,
+   "btc": 0.26
+  }
+ ],
+ "node_of_week": {
+  "pub": "03a93b87bf9f052b8e862d51ebbac4ce5e97b5f4137563cd5128548d7f5978dda9",
+  "name": "cyberdyne.sh",
+  "net_btc": 55.46,
+  "net_n": 61,
+  "opened_n": 71,
+  "opened_btc": 77.24,
+  "closed_n": 10,
+  "closed_btc": 21.78,
+  "closed_mutual_n": 9,
+  "closed_force_n": 1,
+  "open_channels": 69,
+  "open_capacity_btc": 61.46,
+  "tiers": {
+   "freeway": {
+    "count": 7,
+    "btc": 35.0
+   },
+   "highway": {
+    "count": 61,
+    "btc": 26.41
+   },
+   "my_way": {
+    "count": 1,
+    "btc": 0.05
+   }
+  },
+  "capacity_rank": 21,
+  "capacity_rank_week_ago": 149,
+  "client": "LND",
+  "top_new_peers": [
+   {
+    "pub": "02c91d6aa51aa940608b497b6beebcb1aec05be3c47704b682b3889424679ca490",
+    "name": "LNBiG [Hub-3]",
+    "btc": 10.0,
+    "channels": 2
+   },
+   {
+    "pub": "033e9ce4e8f0e68f7db49ffb6b9eecc10605f3f3fcb3c630545887749ab515b9c7",
+    "name": "LNBiG [Hub-2]",
+    "btc": 10.0,
+    "channels": 2
+   },
+   {
+    "pub": "034ea80f8b148c750463546bd999bf7321a0e6dfc60aaf84bd0400a2e8d376c0d5",
+    "name": "LNBϟG [Hub-1]",
+    "btc": 10.0,
+    "channels": 2
+   }
+  ],
+  "passed_over": [],
+  "rule": "Largest net capacity added among named nodes; no repeat within 12 weeks"
+ },
+ "assets": {
+  "pdf": "https://raw.githubusercontent.com/bitcoindatalabs/bdl-report-assets/main/lightning/ln_weekly_20261108.pdf"
+ },
+ "generated_at": "2026-11-09T13:00:17+00:00"
+}
