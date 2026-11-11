@@ -1,5 +1,22 @@
 [
   {
+    "date": "2026-11-11",
+    "day": "Wednesday",
+    "criterion": "Channel Momentum",
+    "alias": "routing.blinkbtc.com",
+    "pub_key": "02dfb4c1dd59216fa6a28d0f012e188516f63517db68c4e4b82c3af41343a05bc4",
+    "pleb_rank": 36,
+    "total_capacity_sats": 3511564214,
+    "total_channels": 133,
+    "total_capacity_rank": 34,
+    "total_channels_rank": 48,
+    "node_type": "Wallet,Payment",
+    "entity": "Blink",
+    "role": "",
+    "rationale": "Endpoint of 23 still-open channels funded in the last 7 days, #11 across the network.",
+    "rationale_version": 2
+  },
+  {
     "date": "2026-11-10",
     "day": "Tuesday",
     "criterion": "Biggest New Node",
@@ -490,23 +507,6 @@
     "entity": "",
     "role": "",
     "rationale": "#1 by capacity among 48 nodes first seen in the last 7 days (Oct 11): 2.89 BTC across 7 channels.",
-    "rationale_version": 2
-  },
-  {
-    "date": "2026-10-12",
-    "day": "Monday",
-    "criterion": "Highest PlebRank",
-    "alias": "cyberdyne.sh",
-    "pub_key": "03a93b87bf9f052b8e862d51ebbac4ce5e97b5f4137563cd5128548d7f5978dda9",
-    "pleb_rank": 7,
-    "total_capacity_sats": 13226877503,
-    "total_channels": 286,
-    "total_capacity_rank": 12,
-    "total_channels_rank": 21,
-    "node_type": "Routing",
-    "entity": "cyberdyne.sh",
-    "role": "",
-    "rationale": "PlebRank #7, with 132 BTC across 286 channels.",
     "rationale_version": 2
   }
 ]
