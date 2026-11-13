@@ -1,42 +1,33 @@
 {
   "schema": 1,
   "type": "daily_snapshot",
-  "target_date": "2026-11-10",
-  "as_of": "2026-11-10",
+  "target_date": "2026-11-11",
+  "as_of": "2026-11-11",
   "date_range": {
-    "start": "2026-11-04",
-    "end": "2026-11-10",
-    "start_formatted": "Nov 04",
-    "end_formatted": "Nov 10, 2026"
+    "start": "2026-11-05",
+    "end": "2026-11-11",
+    "start_formatted": "Nov 05",
+    "end_formatted": "Nov 11, 2026"
   },
   "metrics": {
-    "active_nodes": 13881,
-    "delta_nodes_7d": 50,
-    "delta_nodes_24h": 4,
-    "active_channels": 36757,
-    "delta_channels_7d": -1980,
-    "delta_channels_24h": -9,
-    "total_capacity_sats": 325830000000,
-    "total_capacity_btc": 3258.3,
-    "delta_capacity_btc_7d": 20.81,
-    "delta_capacity_btc_24h": 7.31,
+    "active_nodes": 13873,
+    "delta_nodes_7d": 43,
+    "delta_nodes_24h": 5,
+    "active_channels": 36730,
+    "delta_channels_7d": -2081,
+    "delta_channels_24h": -28,
+    "total_capacity_sats": 326263000000,
+    "total_capacity_btc": 3262.63,
+    "delta_capacity_btc_7d": -7.95,
+    "delta_capacity_btc_24h": 4.32,
     "median_channel_capacity_sats": 1000000,
-    "new_nodes_7d": 50,
-    "new_channels_7d": 1202,
-    "closed_channels_7d": 3182,
-    "new_channels_24h": 207,
-    "closed_channels_24h": 216
+    "new_nodes_7d": 43,
+    "new_channels_7d": 1099,
+    "closed_channels_7d": 3180,
+    "new_channels_24h": 136,
+    "closed_channels_24h": 164
   },
   "daily_breakdown": [
-    {
-      "date": "2026-11-04",
-      "date_formatted": "Nov 04",
-      "new_channels": 239,
-      "closed_channels": 166,
-      "capacity_added_btc": 84.92,
-      "capacity_closed_btc": 51.84,
-      "net_capacity_btc": 33.08
-    },
     {
       "date": "2026-11-05",
       "date_formatted": "Nov 05",
@@ -90,16 +81,33 @@
       "capacity_added_btc": 92.71,
       "capacity_closed_btc": 85.4,
       "net_capacity_btc": 7.31
+    },
+    {
+      "date": "2026-11-11",
+      "date_formatted": "Nov 11",
+      "new_channels": 136,
+      "closed_channels": 164,
+      "capacity_added_btc": 58.85,
+      "capacity_closed_btc": 54.53,
+      "net_capacity_btc": 4.32
     }
   ],
   "top_5_channels": [
     {
-      "node1_pub": "021c97a90a411ff2b10dc2a8e32de2f29d2fa49d41bfbb52bd416e460db0747d0d",
+      "node1_pub": "033e9ce4e8f0e68f7db49ffb6b9eecc10605f3f3fcb3c630545887749ab515b9c7",
       "node2_pub": "03a93b87bf9f052b8e862d51ebbac4ce5e97b5f4137563cd5128548d7f5978dda9",
-      "node1_alias": "LOOP",
+      "node1_alias": "LNBiG [Hub-2]",
       "node2_alias": "cyberdyne.sh",
-      "capacity": 800000000,
-      "block_tx_output_short_id": "974556x1443x0"
+      "capacity": 500000000,
+      "block_tx_output_short_id": "974714x1778x1"
+    },
+    {
+      "node1_pub": "021c97a90a411ff2b10dc2a8e32de2f29d2fa49d41bfbb52bd416e460db0747d0d",
+      "node2_pub": "03c8e5f583585cac1de2b7503a6ccd3c12ba477cfd139cd4905be504c2f48e86bd",
+      "node1_alias": "LOOP",
+      "node2_alias": "Strike",
+      "capacity": 500000000,
+      "block_tx_output_short_id": "975246x2129x1"
     },
     {
       "node1_pub": "02c91d6aa51aa940608b497b6beebcb1aec05be3c47704b682b3889424679ca490",
@@ -110,14 +118,6 @@
       "block_tx_output_short_id": "974714x1779x1"
     },
     {
-      "node1_pub": "033e9ce4e8f0e68f7db49ffb6b9eecc10605f3f3fcb3c630545887749ab515b9c7",
-      "node2_pub": "03a93b87bf9f052b8e862d51ebbac4ce5e97b5f4137563cd5128548d7f5978dda9",
-      "node1_alias": "LNBiG [Hub-2]",
-      "node2_alias": "cyberdyne.sh",
-      "capacity": 500000000,
-      "block_tx_output_short_id": "974806x1256x1"
-    },
-    {
       "node1_pub": "034ea80f8b148c750463546bd999bf7321a0e6dfc60aaf84bd0400a2e8d376c0d5",
       "node2_pub": "03a93b87bf9f052b8e862d51ebbac4ce5e97b5f4137563cd5128548d7f5978dda9",
       "node1_alias": "LNBϟG [Hub-1]",
@@ -126,13 +126,13 @@
       "block_tx_output_short_id": "974714x1801x1"
     },
     {
-      "node1_pub": "02437c00ef5de2686a6bd60f8acb5c83d17010916010a15f479d5ef84c04f04485",
-      "node2_pub": "03a93b87bf9f052b8e862d51ebbac4ce5e97b5f4137563cd5128548d7f5978dda9",
-      "node1_alias": "Kraken 🐙⚡",
-      "node2_alias": "cyberdyne.sh",
+      "node1_pub": "03864ef025fde8fb587d989186ce6a4a186895ee44a926bfc370e2c366597a3f8f",
+      "node2_pub": "038ba8f67ba8ff5c48764cdd3251c33598d55b203546d08a8f0ec9dcd9f27e3637",
+      "node1_alias": "ACINQ",
+      "node2_alias": "flashsats.xyz",
       "capacity": 500000000,
-      "block_tx_output_short_id": "974558x194x0"
+      "block_tx_output_short_id": "975285x2204x0"
     }
   ],
-  "generated_at": "2026-11-11T13:00:18+00:00"
+  "generated_at": "2026-11-12T13:00:18+00:00"
 }
