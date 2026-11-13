@@ -1,5 +1,22 @@
 [
   {
+    "date": "2026-11-13",
+    "day": "Friday",
+    "criterion": "Capacity Whale",
+    "alias": "LOOP",
+    "pub_key": "021c97a90a411ff2b10dc2a8e32de2f29d2fa49d41bfbb52bd416e460db0747d0d",
+    "pleb_rank": 296,
+    "total_capacity_sats": 8150069438,
+    "total_channels": 59,
+    "total_capacity_rank": 15,
+    "total_channels_rank": 143,
+    "node_type": "LSP",
+    "entity": "Lightning Labs (Loop)",
+    "role": "",
+    "rationale": "#15 by capacity, with 82 BTC across 59 channels.",
+    "rationale_version": 2
+  },
+  {
     "date": "2026-11-12",
     "day": "Thursday",
     "criterion": "Centrality Bridge",
@@ -490,23 +507,6 @@
     "entity": "",
     "role": "",
     "rationale": "Betweenness centrality rank #6: lies on many shortest payment paths between other nodes.",
-    "rationale_version": 2
-  },
-  {
-    "date": "2026-10-14",
-    "day": "Wednesday",
-    "criterion": "Channel Momentum",
-    "alias": "Kraken 🐙⚡",
-    "pub_key": "02437c00ef5de2686a6bd60f8acb5c83d17010916010a15f479d5ef84c04f04485",
-    "pleb_rank": 13,
-    "total_capacity_sats": 13343040365,
-    "total_channels": 412,
-    "total_capacity_rank": 11,
-    "total_channels_rank": 12,
-    "node_type": "Exchange",
-    "entity": "Kraken",
-    "role": "",
-    "rationale": "Endpoint of 48 still-open channels funded in the last 7 days, #4 across the network.",
     "rationale_version": 2
   }
 ]
