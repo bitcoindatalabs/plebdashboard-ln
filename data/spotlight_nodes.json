@@ -1,5 +1,22 @@
 [
   {
+    "date": "2026-11-14",
+    "day": "Saturday",
+    "criterion": "Hidden Gem",
+    "alias": "Blockstream Store",
+    "pub_key": "02df5ffe895c778e10f7742a6c5b8a0cefbe9465df58b92fadeb883752c8107c8f",
+    "pleb_rank": 122,
+    "total_capacity_sats": 486671190,
+    "total_channels": 42,
+    "total_capacity_rank": 177,
+    "total_channels_rank": 219,
+    "node_type": "",
+    "entity": "",
+    "role": "",
+    "rationale": "Drawn from PlebRank #50–#200: PlebRank #122, with 4.87 BTC across 42 channels.",
+    "rationale_version": 2
+  },
+  {
     "date": "2026-11-13",
     "day": "Friday",
     "criterion": "Capacity Whale",
@@ -490,23 +507,6 @@
     "entity": "fixedfloat.com",
     "role": "",
     "rationale": "#6 by capacity, with 220 BTC across 184 channels.",
-    "rationale_version": 2
-  },
-  {
-    "date": "2026-10-15",
-    "day": "Thursday",
-    "criterion": "Centrality Bridge",
-    "alias": "gameb_1",
-    "pub_key": "023d70f2f76d283c6c4e58109ee3a2816eb9d8feb40b23d62469060a2b2867b77f",
-    "pleb_rank": 59,
-    "total_capacity_sats": 321434451,
-    "total_channels": 422,
-    "total_capacity_rank": 234,
-    "total_channels_rank": 11,
-    "node_type": "",
-    "entity": "",
-    "role": "",
-    "rationale": "Betweenness centrality rank #6: lies on many shortest payment paths between other nodes.",
     "rationale_version": 2
   }
 ]
