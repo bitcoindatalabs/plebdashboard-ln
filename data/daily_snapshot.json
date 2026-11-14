@@ -1,42 +1,33 @@
 {
   "schema": 1,
   "type": "daily_snapshot",
-  "target_date": "2026-11-11",
-  "as_of": "2026-11-11",
+  "target_date": "2026-11-12",
+  "as_of": "2026-11-12",
   "date_range": {
-    "start": "2026-11-05",
-    "end": "2026-11-11",
-    "start_formatted": "Nov 05",
-    "end_formatted": "Nov 11, 2026"
+    "start": "2026-11-06",
+    "end": "2026-11-12",
+    "start_formatted": "Nov 06",
+    "end_formatted": "Nov 12, 2026"
   },
   "metrics": {
-    "active_nodes": 13873,
-    "delta_nodes_7d": 43,
-    "delta_nodes_24h": 5,
-    "active_channels": 36730,
-    "delta_channels_7d": -2081,
-    "delta_channels_24h": -28,
-    "total_capacity_sats": 326263000000,
-    "total_capacity_btc": 3262.63,
-    "delta_capacity_btc_7d": -7.95,
-    "delta_capacity_btc_24h": 4.32,
+    "active_nodes": 13863,
+    "delta_nodes_7d": 36,
+    "delta_nodes_24h": 3,
+    "active_channels": 36643,
+    "delta_channels_7d": -2170,
+    "delta_channels_24h": -89,
+    "total_capacity_sats": 320501000000,
+    "total_capacity_btc": 3205.01,
+    "delta_capacity_btc_7d": -69.69,
+    "delta_capacity_btc_24h": -57.86,
     "median_channel_capacity_sats": 1000000,
-    "new_nodes_7d": 43,
-    "new_channels_7d": 1099,
-    "closed_channels_7d": 3180,
-    "new_channels_24h": 136,
-    "closed_channels_24h": 164
+    "new_nodes_7d": 36,
+    "new_channels_7d": 1134,
+    "closed_channels_7d": 3304,
+    "new_channels_24h": 204,
+    "closed_channels_24h": 293
   },
   "daily_breakdown": [
-    {
-      "date": "2026-11-05",
-      "date_formatted": "Nov 05",
-      "new_channels": 171,
-      "closed_channels": 169,
-      "capacity_added_btc": 70.52,
-      "capacity_closed_btc": 66.4,
-      "net_capacity_btc": 4.12
-    },
     {
       "date": "2026-11-06",
       "date_formatted": "Nov 06",
@@ -76,7 +67,7 @@
     {
       "date": "2026-11-10",
       "date_formatted": "Nov 10",
-      "new_channels": 207,
+      "new_channels": 208,
       "closed_channels": 216,
       "capacity_added_btc": 92.71,
       "capacity_closed_btc": 85.4,
@@ -85,22 +76,23 @@
     {
       "date": "2026-11-11",
       "date_formatted": "Nov 11",
-      "new_channels": 136,
+      "new_channels": 137,
       "closed_channels": 164,
-      "capacity_added_btc": 58.85,
+      "capacity_added_btc": 59.1,
       "capacity_closed_btc": 54.53,
-      "net_capacity_btc": 4.32
+      "net_capacity_btc": 4.57
+    },
+    {
+      "date": "2026-11-12",
+      "date_formatted": "Nov 12",
+      "new_channels": 204,
+      "closed_channels": 293,
+      "capacity_added_btc": 70.83,
+      "capacity_closed_btc": 128.69,
+      "net_capacity_btc": -57.86
     }
   ],
   "top_5_channels": [
-    {
-      "node1_pub": "033e9ce4e8f0e68f7db49ffb6b9eecc10605f3f3fcb3c630545887749ab515b9c7",
-      "node2_pub": "03a93b87bf9f052b8e862d51ebbac4ce5e97b5f4137563cd5128548d7f5978dda9",
-      "node1_alias": "LNBiG [Hub-2]",
-      "node2_alias": "cyberdyne.sh",
-      "capacity": 500000000,
-      "block_tx_output_short_id": "974714x1778x1"
-    },
     {
       "node1_pub": "021c97a90a411ff2b10dc2a8e32de2f29d2fa49d41bfbb52bd416e460db0747d0d",
       "node2_pub": "03c8e5f583585cac1de2b7503a6ccd3c12ba477cfd139cd4905be504c2f48e86bd",
@@ -110,12 +102,12 @@
       "block_tx_output_short_id": "975246x2129x1"
     },
     {
-      "node1_pub": "02c91d6aa51aa940608b497b6beebcb1aec05be3c47704b682b3889424679ca490",
+      "node1_pub": "033e9ce4e8f0e68f7db49ffb6b9eecc10605f3f3fcb3c630545887749ab515b9c7",
       "node2_pub": "03a93b87bf9f052b8e862d51ebbac4ce5e97b5f4137563cd5128548d7f5978dda9",
-      "node1_alias": "LNBiG [Hub-3]",
+      "node1_alias": "LNBiG [Hub-2]",
       "node2_alias": "cyberdyne.sh",
       "capacity": 500000000,
-      "block_tx_output_short_id": "974714x1779x1"
+      "block_tx_output_short_id": "974806x1256x1"
     },
     {
       "node1_pub": "034ea80f8b148c750463546bd999bf7321a0e6dfc60aaf84bd0400a2e8d376c0d5",
@@ -123,7 +115,7 @@
       "node1_alias": "LNBϟG [Hub-1]",
       "node2_alias": "cyberdyne.sh",
       "capacity": 500000000,
-      "block_tx_output_short_id": "974714x1801x1"
+      "block_tx_output_short_id": "974806x1158x1"
     },
     {
       "node1_pub": "03864ef025fde8fb587d989186ce6a4a186895ee44a926bfc370e2c366597a3f8f",
@@ -132,7 +124,15 @@
       "node2_alias": "flashsats.xyz",
       "capacity": 500000000,
       "block_tx_output_short_id": "975285x2204x0"
+    },
+    {
+      "node1_pub": "02c91d6aa51aa940608b497b6beebcb1aec05be3c47704b682b3889424679ca490",
+      "node2_pub": "03a93b87bf9f052b8e862d51ebbac4ce5e97b5f4137563cd5128548d7f5978dda9",
+      "node1_alias": "LNBiG [Hub-3]",
+      "node2_alias": "cyberdyne.sh",
+      "capacity": 500000000,
+      "block_tx_output_short_id": "974807x1210x1"
     }
   ],
-  "generated_at": "2026-11-12T13:00:18+00:00"
+  "generated_at": "2026-11-13T13:00:18+00:00"
 }
