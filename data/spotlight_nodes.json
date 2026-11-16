@@ -1,5 +1,22 @@
 [
   {
+    "date": "2026-11-16",
+    "day": "Monday",
+    "criterion": "Highest PlebRank",
+    "alias": "BitGo Routing Node",
+    "pub_key": "02757afbc23eafd8c8ffb02fbf92c8ee6bcceb29fbff4d12087f8191a49dc57ef4",
+    "pleb_rank": 19,
+    "total_capacity_sats": 1530276627,
+    "total_channels": 190,
+    "total_capacity_rank": 65,
+    "total_channels_rank": 28,
+    "node_type": "Exchange,Payment",
+    "entity": "BitGo",
+    "role": "",
+    "rationale": "PlebRank #19, with 15 BTC across 190 channels.",
+    "rationale_version": 2
+  },
+  {
     "date": "2026-11-15",
     "day": "Sunday",
     "criterion": "Capacity-Weighted Degree",
@@ -490,23 +507,6 @@
     "entity": "",
     "role": "",
     "rationale": "#8 by capacity-weighted degree (channel count weighted by size), with 35 BTC across 463 channels.",
-    "rationale_version": 2
-  },
-  {
-    "date": "2026-10-17",
-    "day": "Saturday",
-    "criterion": "Hidden Gem",
-    "alias": "Volarte⚡",
-    "pub_key": "026b33a83311adebb7915427734e483787ef57d856f5c792ea6f866cfea7e58908",
-    "pleb_rank": 62,
-    "total_capacity_sats": 297084580,
-    "total_channels": 109,
-    "total_capacity_rank": 251,
-    "total_channels_rank": 73,
-    "node_type": "",
-    "entity": "",
-    "role": "",
-    "rationale": "Drawn from PlebRank #50–#200: PlebRank #62, with 2.97 BTC across 109 channels.",
     "rationale_version": 2
   }
 ]
