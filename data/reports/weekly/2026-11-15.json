@@ -1,0 +1,454 @@
+{
+ "schema": 1,
+ "type": "weekly",
+ "id": "2026-11-15",
+ "label": "Nov 09 – Nov 15, 2026",
+ "headline": "Net +6.59 BTC this week: first net inflow since the week ending Oct 04",
+ "period": {
+  "start": "2026-11-09",
+  "end": "2026-11-15",
+  "timezone": "UTC"
+ },
+ "baseline": {
+  "as_of": "2026-11-15",
+  "channels": 36663,
+  "capacity_btc": 3246.04,
+  "nodes": 13823
+ },
+ "totals": {
+  "opened": 1201,
+  "opened_btc": 505.31,
+  "closed": 1300,
+  "closed_btc": 498.72,
+  "net_btc": 6.59,
+  "net_channels": -99,
+  "median_new_channel_sats": 10000000,
+  "median_lifespan_days": 47
+ },
+ "close_types": {
+  "available": true,
+  "mutual": 1131,
+  "force": 169,
+  "splice": 3,
+  "breach": 0,
+  "mutual_pct": 87,
+  "force_pct": 13
+ },
+ "kpis": {
+  "net_btc": {
+   "value": 6.59,
+   "median": -51.38,
+   "delta": 57.97
+  },
+  "opens": {
+   "value": 1201,
+   "median": 1194.0,
+   "delta": 7.0
+  },
+  "closes": {
+   "value": 1300,
+   "median": 1529.5,
+   "delta": -229.5
+  },
+  "force_pct": {
+   "value": 13.0,
+   "median": 17.7,
+   "delta": -4.7
+  }
+ },
+ "baseline_weeks": 8,
+ "series": [
+  {
+   "week_end": "2026-08-23",
+   "label": "Aug 23",
+   "opens": 1534,
+   "opened_btc": 501.29,
+   "closes": 1440,
+   "closed_btc": 466.31,
+   "net_btc": 34.98,
+   "net_channels": 94,
+   "force_pct": 16.9
+  },
+  {
+   "week_end": "2026-08-30",
+   "label": "Aug 30",
+   "opens": 1241,
+   "opened_btc": 526.97,
+   "closes": 1902,
+   "closed_btc": 591.92,
+   "net_btc": -64.95,
+   "net_channels": -661,
+   "force_pct": 32.5
+  },
+  {
+   "week_end": "2026-09-06",
+   "label": "Sep 06",
+   "opens": 1372,
+   "opened_btc": 470.69,
+   "closes": 1963,
+   "closed_btc": 542.35,
+   "net_btc": -71.66,
+   "net_channels": -591,
+   "force_pct": 18.2
+  },
+  {
+   "week_end": "2026-09-13",
+   "label": "Sep 13",
+   "opens": 1314,
+   "opened_btc": 507.8,
+   "closes": 1380,
+   "closed_btc": 461.13,
+   "net_btc": 46.67,
+   "net_channels": -66,
+   "force_pct": 24.2
+  },
+  {
+   "week_end": "2026-09-20",
+   "label": "Sep 20",
+   "opens": 1142,
+   "opened_btc": 417.27,
+   "closes": 1326,
+   "closed_btc": 439.69,
+   "net_btc": -22.42,
+   "net_channels": -184,
+   "force_pct": 27.9
+  },
+  {
+   "week_end": "2026-09-27",
+   "label": "Sep 27",
+   "opens": 1064,
+   "opened_btc": 435.73,
+   "closes": 2172,
+   "closed_btc": 458.74,
+   "net_btc": -23.01,
+   "net_channels": -1108,
+   "force_pct": 19.5
+  },
+  {
+   "week_end": "2026-10-04",
+   "label": "Oct 04",
+   "opens": 1340,
+   "opened_btc": 504.98,
+   "closes": 1357,
+   "closed_btc": 491.49,
+   "net_btc": 13.49,
+   "net_channels": -17,
+   "force_pct": 17.8
+  },
+  {
+   "week_end": "2026-10-11",
+   "label": "Oct 11",
+   "opens": 1386,
+   "opened_btc": 583.43,
+   "closes": 1603,
+   "closed_btc": 701.63,
+   "net_btc": -118.2,
+   "net_channels": -217,
+   "force_pct": 17.2
+  },
+  {
+   "week_end": "2026-10-18",
+   "label": "Oct 18",
+   "opens": 1093,
+   "opened_btc": 454.22,
+   "closes": 1390,
+   "closed_btc": 533.97,
+   "net_btc": -79.75,
+   "net_channels": -297,
+   "force_pct": 15.1
+  },
+  {
+   "week_end": "2026-10-25",
+   "label": "Oct 25",
+   "opens": 1159,
+   "opened_btc": 550.96,
+   "closes": 1456,
+   "closed_btc": 645.28,
+   "net_btc": -94.32,
+   "net_channels": -297,
+   "force_pct": 16.4
+  },
+  {
+   "week_end": "2026-11-01",
+   "label": "Nov 01",
+   "opens": 1290,
+   "opened_btc": 547.56,
+   "closes": 2015,
+   "closed_btc": 768.63,
+   "net_btc": -221.07,
+   "net_channels": -725,
+   "force_pct": 17.6
+  },
+  {
+   "week_end": "2026-11-08",
+   "label": "Nov 08",
+   "opens": 1229,
+   "opened_btc": 390.86,
+   "closes": 3244,
+   "closed_btc": 401.44,
+   "net_btc": -10.58,
+   "net_channels": -2015,
+   "force_pct": 58.5
+  },
+  {
+   "week_end": "2026-11-15",
+   "label": "Nov 15",
+   "opens": 1201,
+   "opened_btc": 505.31,
+   "closes": 1300,
+   "closed_btc": 498.72,
+   "net_btc": 6.59,
+   "net_channels": -99,
+   "force_pct": 13.0
+  }
+ ],
+ "daily": {
+  "dates": [
+   "2026-11-09",
+   "2026-11-10",
+   "2026-11-11",
+   "2026-11-12",
+   "2026-11-13",
+   "2026-11-14",
+   "2026-11-15"
+  ],
+  "labels": [
+   "Mon 09",
+   "Tue 10",
+   "Wed 11",
+   "Thu 12",
+   "Fri 13",
+   "Sat 14",
+   "Sun 15"
+  ],
+  "opened": [
+   125,
+   208,
+   137,
+   204,
+   159,
+   172,
+   196
+  ],
+  "closed": [
+   120,
+   216,
+   164,
+   293,
+   166,
+   156,
+   185
+  ]
+ },
+ "movers": {
+  "adders": [
+   {
+    "pub": "03a93b87bf9f052b8e862d51ebbac4ce5e97b5f4137563cd5128548d7f5978dda9",
+    "name": "cyberdyne.sh",
+    "named": true,
+    "net_btc": 19.22,
+    "net_n": 42,
+    "opened_n": 51,
+    "opened_btc": 28.24,
+    "closed_n": 9,
+    "closed_btc": 9.02,
+    "force_closed_n": 0
+   },
+   {
+    "pub": "03864ef025fde8fb587d989186ce6a4a186895ee44a926bfc370e2c366597a3f8f",
+    "name": "ACINQ",
+    "named": true,
+    "net_btc": 13.47,
+    "net_n": -29,
+    "opened_n": 54,
+    "opened_btc": 25.16,
+    "closed_n": 83,
+    "closed_btc": 11.68,
+    "force_closed_n": 37
+   },
+   {
+    "pub": "027100442c3b79f606f80f322d98d499eefcb060599efc5d4ecb00209c2cb54190",
+    "name": "block-iad-1",
+    "named": true,
+    "net_btc": 12.83,
+    "net_n": 18,
+    "opened_n": 220,
+    "opened_btc": 179.7,
+    "closed_n": 202,
+    "closed_btc": 166.87,
+    "force_closed_n": 1
+   },
+   {
+    "pub": "0256ccca46170ff4b1ef54dd51a36ae309e5d139122dea89dfb64d07b8ad2f4b94",
+    "name": "Unnamed node",
+    "named": false,
+    "net_btc": 11.0,
+    "net_n": 1,
+    "opened_n": 23,
+    "opened_btc": 41.0,
+    "closed_n": 22,
+    "closed_btc": 30.0,
+    "force_closed_n": 0
+   },
+   {
+    "pub": "038ba8f67ba8ff5c48764cdd3251c33598d55b203546d08a8f0ec9dcd9f27e3637",
+    "name": "flashsats.xyz",
+    "named": true,
+    "net_btc": 10.76,
+    "net_n": -3,
+    "opened_n": 14,
+    "opened_btc": 15.15,
+    "closed_n": 17,
+    "closed_btc": 4.4,
+    "force_closed_n": 0
+   }
+  ],
+  "reducers": [
+   {
+    "pub": "03a1f3afd646d77bdaf545cceaf079bab6057eae52c6319b63b5803d0989d6a72f",
+    "name": "Binance",
+    "named": true,
+    "net_btc": -17.68,
+    "net_n": -7,
+    "opened_n": 5,
+    "opened_btc": 17.48,
+    "closed_n": 12,
+    "closed_btc": 35.16,
+    "force_closed_n": 6
+   },
+   {
+    "pub": "033e9ce4e8f0e68f7db49ffb6b9eecc10605f3f3fcb3c630545887749ab515b9c7",
+    "name": "LNBiG [Hub-2]",
+    "named": true,
+    "net_btc": -16.58,
+    "net_n": 12,
+    "opened_n": 44,
+    "opened_btc": 20.73,
+    "closed_n": 32,
+    "closed_btc": 37.3,
+    "force_closed_n": 5
+   },
+   {
+    "pub": "037f990e61acee8a7697966afd29dd88f3b1f8a7b14d625c4f8742bd952003a590",
+    "name": "fixedfloat.com",
+    "named": true,
+    "net_btc": -15.86,
+    "net_n": -12,
+    "opened_n": 23,
+    "opened_btc": 39.42,
+    "closed_n": 35,
+    "closed_btc": 55.29,
+    "force_closed_n": 0
+   },
+   {
+    "pub": "03632f5c3e45832ddf045469f117b503764ad71866d961ae5ec8df2c4378ac019a",
+    "name": "Julia⚡️LND01",
+    "named": true,
+    "net_btc": -13.16,
+    "net_n": -15,
+    "opened_n": 5,
+    "opened_btc": 4.58,
+    "closed_n": 20,
+    "closed_btc": 17.74,
+    "force_closed_n": 0
+   },
+   {
+    "pub": "03abf6f44c355dec0d5aa155bdbdd6e0c8fefe318eff402de65c6eb2e1be55dc3e",
+    "name": "OpenNode.com",
+    "named": true,
+    "net_btc": -10.07,
+    "net_n": -17,
+    "opened_n": 11,
+    "opened_btc": 6.0,
+    "closed_n": 28,
+    "closed_btc": 16.07,
+    "force_closed_n": 0
+   }
+  ]
+ },
+ "largest_channel": {
+  "short_channel_id": "975766x2662x0",
+  "capacity_sats": 573222109,
+  "node1": {
+   "pub": "027100442c3b79f606f80f322d98d499eefcb060599efc5d4ecb00209c2cb54190",
+   "name": "block-iad-1"
+  },
+  "node2": {
+   "pub": "034b3ecd8d87edf1e13aa23cb34c4f719d2faeeeae10010d44d91f5e432c8e4b5e",
+   "name": "PaidlyInteractive2⚡"
+  }
+ },
+ "mass_close_events": [
+  {
+   "date": "2026-11-13",
+   "pub": "03864ef025fde8fb587d989186ce6a4a186895ee44a926bfc370e2c366597a3f8f",
+   "name": "ACINQ",
+   "force_closes": 35,
+   "btc": 0.46
+  }
+ ],
+ "node_of_week": {
+  "pub": "03864ef025fde8fb587d989186ce6a4a186895ee44a926bfc370e2c366597a3f8f",
+  "name": "ACINQ",
+  "net_btc": 13.47,
+  "net_n": -29,
+  "opened_n": 54,
+  "opened_btc": 25.16,
+  "closed_n": 83,
+  "closed_btc": 11.68,
+  "closed_mutual_n": 46,
+  "closed_force_n": 37,
+  "open_channels": 1835,
+  "open_capacity_btc": 285.15,
+  "tiers": {
+   "freeway": {
+    "count": 59,
+    "btc": 168.88
+   },
+   "highway": {
+    "count": 451,
+    "btc": 95.93
+   },
+   "my_way": {
+    "count": 1325,
+    "btc": 20.34
+   }
+  },
+  "capacity_rank": 3,
+  "capacity_rank_week_ago": 3,
+  "client": "Eclair",
+  "top_new_peers": [
+   {
+    "pub": "038ba8f67ba8ff5c48764cdd3251c33598d55b203546d08a8f0ec9dcd9f27e3637",
+    "name": "flashsats.xyz",
+    "btc": 10.0,
+    "channels": 2
+   },
+   {
+    "pub": "02a98e8c590a1b5602049d6b21d8f4c8861970aa310762f42eae1b2be88372e924",
+    "name": "Unnamed node",
+    "btc": 5.49,
+    "channels": 2
+   },
+   {
+    "pub": "02dfb4c1dd59216fa6a28d0f012e188516f63517db68c4e4b82c3af41343a05bc4",
+    "name": "routing.blinkbtc.com",
+    "btc": 2.3,
+    "channels": 2
+   }
+  ],
+  "passed_over": [
+   {
+    "pub": "03a93b87bf9f052b8e862d51ebbac4ce5e97b5f4137563cd5128548d7f5978dda9",
+    "name": "cyberdyne.sh",
+    "net_btc": 19.22,
+    "reason": "featured in the last 12 weeks"
+   }
+  ],
+  "rule": "Largest net capacity added among named nodes; no repeat within 12 weeks"
+ },
+ "assets": {
+  "pdf": "https://raw.githubusercontent.com/bitcoindatalabs/bdl-report-assets/main/lightning/ln_weekly_20261115.pdf"
+ },
+ "generated_at": "2026-11-16T13:00:17+00:00"
+}

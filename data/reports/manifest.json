@@ -2,6 +2,13 @@
  "schema": 1,
  "weekly": [
   {
+   "id": "2026-11-15",
+   "label": "Nov 09 – Nov 15, 2026",
+   "headline": "Net +6.59 BTC this week: first net inflow since the week ending Oct 04",
+   "path": "data/reports/weekly/2026-11-15.json",
+   "pdf": "https://raw.githubusercontent.com/bitcoindatalabs/bdl-report-assets/main/lightning/ln_weekly_20261115.pdf"
+  },
+  {
    "id": "2026-11-08",
    "label": "Nov 02 – Nov 08, 2026",
    "headline": "Net -10.58 BTC this week: 5 straight weeks of net outflow",
