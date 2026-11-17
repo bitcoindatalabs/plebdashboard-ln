@@ -1,5 +1,22 @@
 [
   {
+    "date": "2026-11-17",
+    "day": "Tuesday",
+    "criterion": "Biggest New Node",
+    "alias": "02dac43a6387…",
+    "pub_key": "02dac43a63875b4165392d3f7f0782e97fd6ab2d30221d9a89abfa4ea337498d2e",
+    "pleb_rank": 2608,
+    "total_capacity_sats": 19960606,
+    "total_channels": 2,
+    "total_capacity_rank": 1087,
+    "total_channels_rank": 2400,
+    "node_type": "",
+    "entity": "",
+    "role": "",
+    "rationale": "#1 by capacity among 31 nodes first seen in the last 7 days (Nov 15): 20M sats across 2 channels.",
+    "rationale_version": 2
+  },
+  {
     "date": "2026-11-16",
     "day": "Monday",
     "criterion": "Highest PlebRank",
@@ -490,23 +507,6 @@
     "entity": "nicehash-ln1",
     "role": "",
     "rationale": "PlebRank #8, with 75 BTC across 389 channels.",
-    "rationale_version": 2
-  },
-  {
-    "date": "2026-10-18",
-    "day": "Sunday",
-    "criterion": "Capacity-Weighted Degree",
-    "alias": "kappa",
-    "pub_key": "0324ba2392e25bff76abd0b1f7e4b53b5f82aa53fddc3419b051b6c801db9e2247",
-    "pleb_rank": 5,
-    "total_capacity_sats": 3483699681,
-    "total_channels": 463,
-    "total_capacity_rank": 37,
-    "total_channels_rank": 9,
-    "node_type": "Routing",
-    "entity": "",
-    "role": "",
-    "rationale": "#8 by capacity-weighted degree (channel count weighted by size), with 35 BTC across 463 channels.",
     "rationale_version": 2
   }
 ]
