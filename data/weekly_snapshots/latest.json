@@ -1,42 +1,33 @@
 {
   "schema": 1,
   "type": "daily_snapshot",
-  "target_date": "2026-11-16",
-  "as_of": "2026-11-16",
+  "target_date": "2026-11-17",
+  "as_of": "2026-11-17",
   "date_range": {
-    "start": "2026-11-10",
-    "end": "2026-11-16",
-    "start_formatted": "Nov 10",
-    "end_formatted": "Nov 16, 2026"
+    "start": "2026-11-11",
+    "end": "2026-11-17",
+    "start_formatted": "Nov 11",
+    "end_formatted": "Nov 17, 2026"
   },
   "metrics": {
-    "active_nodes": 13819,
-    "delta_nodes_7d": 33,
-    "delta_nodes_24h": 3,
-    "active_channels": 36593,
-    "delta_channels_7d": -174,
-    "delta_channels_24h": -70,
-    "total_capacity_sats": 317827000000,
-    "total_capacity_btc": 3178.27,
-    "delta_capacity_btc_7d": -72.73,
-    "delta_capacity_btc_24h": -67.77,
+    "active_nodes": 13820,
+    "delta_nodes_7d": 35,
+    "delta_nodes_24h": 6,
+    "active_channels": 36554,
+    "delta_channels_7d": -205,
+    "delta_channels_24h": -39,
+    "total_capacity_sats": 314778000000,
+    "total_capacity_btc": 3147.78,
+    "delta_capacity_btc_7d": -110.53,
+    "delta_capacity_btc_24h": -30.48,
     "median_channel_capacity_sats": 1000000,
-    "new_nodes_7d": 33,
-    "new_channels_7d": 1238,
-    "closed_channels_7d": 1412,
-    "new_channels_24h": 162,
-    "closed_channels_24h": 232
+    "new_nodes_7d": 35,
+    "new_channels_7d": 1138,
+    "closed_channels_7d": 1343,
+    "new_channels_24h": 108,
+    "closed_channels_24h": 147
   },
   "daily_breakdown": [
-    {
-      "date": "2026-11-10",
-      "date_formatted": "Nov 10",
-      "new_channels": 208,
-      "closed_channels": 216,
-      "capacity_added_btc": 92.71,
-      "capacity_closed_btc": 85.4,
-      "net_capacity_btc": 7.31
-    },
     {
       "date": "2026-11-11",
       "date_formatted": "Nov 11",
@@ -90,6 +81,15 @@
       "capacity_added_btc": 61.4,
       "capacity_closed_btc": 129.17,
       "net_capacity_btc": -67.77
+    },
+    {
+      "date": "2026-11-17",
+      "date_formatted": "Nov 17",
+      "new_channels": 108,
+      "closed_channels": 147,
+      "capacity_added_btc": 52.04,
+      "capacity_closed_btc": 82.52,
+      "net_capacity_btc": -30.48
     }
   ],
   "top_5_channels": [
@@ -107,15 +107,7 @@
       "node1_alias": "ACINQ",
       "node2_alias": "flashsats.xyz",
       "capacity": 500000000,
-      "block_tx_output_short_id": "975285x2204x0"
-    },
-    {
-      "node1_pub": "021c97a90a411ff2b10dc2a8e32de2f29d2fa49d41bfbb52bd416e460db0747d0d",
-      "node2_pub": "03c8e5f583585cac1de2b7503a6ccd3c12ba477cfd139cd4905be504c2f48e86bd",
-      "node1_alias": "LOOP",
-      "node2_alias": "Strike",
-      "capacity": 500000000,
-      "block_tx_output_short_id": "975246x2129x1"
+      "block_tx_output_short_id": "975623x347x0"
     },
     {
       "node1_pub": "03a1f3afd646d77bdaf545cceaf079bab6057eae52c6319b63b5803d0989d6a72f",
@@ -132,7 +124,15 @@
       "node2_alias": "LNBiG [Hub-2]",
       "capacity": 462710896,
       "block_tx_output_short_id": "975459x65x1"
+    },
+    {
+      "node1_pub": "021c97a90a411ff2b10dc2a8e32de2f29d2fa49d41bfbb52bd416e460db0747d0d",
+      "node2_pub": "02ba0c09d94698745ebbda922c6d19d54437a89aab333f1539d8cfafb819173feb",
+      "node1_alias": "LOOP",
+      "node2_alias": "PaidlyInteractive⚡",
+      "capacity": 407345096,
+      "block_tx_output_short_id": "975653x3197x0"
     }
   ],
-  "generated_at": "2026-11-17T13:00:18+00:00"
+  "generated_at": "2026-11-18T13:00:18+00:00"
 }
