@@ -1,42 +1,33 @@
 {
   "schema": 1,
   "type": "daily_snapshot",
-  "target_date": "2026-11-17",
-  "as_of": "2026-11-17",
+  "target_date": "2026-11-18",
+  "as_of": "2026-11-18",
   "date_range": {
-    "start": "2026-11-11",
-    "end": "2026-11-17",
-    "start_formatted": "Nov 11",
-    "end_formatted": "Nov 17, 2026"
+    "start": "2026-11-12",
+    "end": "2026-11-18",
+    "start_formatted": "Nov 12",
+    "end_formatted": "Nov 18, 2026"
   },
   "metrics": {
-    "active_nodes": 13820,
-    "delta_nodes_7d": 35,
-    "delta_nodes_24h": 6,
-    "active_channels": 36554,
-    "delta_channels_7d": -205,
-    "delta_channels_24h": -39,
-    "total_capacity_sats": 314778000000,
-    "total_capacity_btc": 3147.78,
-    "delta_capacity_btc_7d": -110.53,
-    "delta_capacity_btc_24h": -30.48,
+    "active_nodes": 13801,
+    "delta_nodes_7d": 40,
+    "delta_nodes_24h": 10,
+    "active_channels": 36489,
+    "delta_channels_7d": -243,
+    "delta_channels_24h": -65,
+    "total_capacity_sats": 314155000000,
+    "total_capacity_btc": 3141.55,
+    "delta_capacity_btc_7d": -121.33,
+    "delta_capacity_btc_24h": -6.23,
     "median_channel_capacity_sats": 1000000,
-    "new_nodes_7d": 35,
-    "new_channels_7d": 1138,
-    "closed_channels_7d": 1343,
-    "new_channels_24h": 108,
-    "closed_channels_24h": 147
+    "new_nodes_7d": 40,
+    "new_channels_7d": 1148,
+    "closed_channels_7d": 1391,
+    "new_channels_24h": 147,
+    "closed_channels_24h": 212
   },
   "daily_breakdown": [
-    {
-      "date": "2026-11-11",
-      "date_formatted": "Nov 11",
-      "new_channels": 137,
-      "closed_channels": 164,
-      "capacity_added_btc": 59.1,
-      "capacity_closed_btc": 54.53,
-      "net_capacity_btc": 4.57
-    },
     {
       "date": "2026-11-12",
       "date_formatted": "Nov 12",
@@ -90,6 +81,15 @@
       "capacity_added_btc": 52.04,
       "capacity_closed_btc": 82.52,
       "net_capacity_btc": -30.48
+    },
+    {
+      "date": "2026-11-18",
+      "date_formatted": "Nov 18",
+      "new_channels": 147,
+      "closed_channels": 212,
+      "capacity_added_btc": 68.59,
+      "capacity_closed_btc": 74.82,
+      "net_capacity_btc": -6.23
     }
   ],
   "top_5_channels": [
@@ -102,14 +102,6 @@
       "block_tx_output_short_id": "975766x2662x0"
     },
     {
-      "node1_pub": "03864ef025fde8fb587d989186ce6a4a186895ee44a926bfc370e2c366597a3f8f",
-      "node2_pub": "038ba8f67ba8ff5c48764cdd3251c33598d55b203546d08a8f0ec9dcd9f27e3637",
-      "node1_alias": "ACINQ",
-      "node2_alias": "flashsats.xyz",
-      "capacity": 500000000,
-      "block_tx_output_short_id": "975623x347x0"
-    },
-    {
       "node1_pub": "03a1f3afd646d77bdaf545cceaf079bab6057eae52c6319b63b5803d0989d6a72f",
       "node2_pub": "03a59ebd9a20f2b8d6c366473f6e2e36254aca0ed88d5d46e9b0a3a5276fe25ebf",
       "node1_alias": "Binance",
@@ -118,21 +110,29 @@
       "block_tx_output_short_id": "975737x1629x1"
     },
     {
-      "node1_pub": "023caa4740199ae8f5f739f8d4a94587cdbb6166073156e5d8d4ad00869ace7ffe",
-      "node2_pub": "033e9ce4e8f0e68f7db49ffb6b9eecc10605f3f3fcb3c630545887749ab515b9c7",
-      "node1_alias": "statute",
-      "node2_alias": "LNBiG [Hub-2]",
-      "capacity": 462710896,
-      "block_tx_output_short_id": "975459x65x1"
+      "node1_pub": "02a98e8c590a1b5602049d6b21d8f4c8861970aa310762f42eae1b2be88372e924",
+      "node2_pub": "03c8e5f583585cac1de2b7503a6ccd3c12ba477cfd139cd4905be504c2f48e86bd",
+      "node1_alias": "02a98e8c59...",
+      "node2_alias": "Strike",
+      "capacity": 500000000,
+      "block_tx_output_short_id": "976453x2449x1"
+    },
+    {
+      "node1_pub": "03864ef025fde8fb587d989186ce6a4a186895ee44a926bfc370e2c366597a3f8f",
+      "node2_pub": "038ba8f67ba8ff5c48764cdd3251c33598d55b203546d08a8f0ec9dcd9f27e3637",
+      "node1_alias": "ACINQ",
+      "node2_alias": "flashsats.xyz",
+      "capacity": 500000000,
+      "block_tx_output_short_id": "975623x347x0"
     },
     {
       "node1_pub": "021c97a90a411ff2b10dc2a8e32de2f29d2fa49d41bfbb52bd416e460db0747d0d",
-      "node2_pub": "02ba0c09d94698745ebbda922c6d19d54437a89aab333f1539d8cfafb819173feb",
+      "node2_pub": "02f31f23d87a366e5ed28f72546193f85cba1073b7386eafd53b0d349df79ee6f1",
       "node1_alias": "LOOP",
-      "node2_alias": "PaidlyInteractive⚡",
-      "capacity": 407345096,
-      "block_tx_output_short_id": "975653x3197x0"
+      "node2_alias": "Uncle Jim's Node",
+      "capacity": 491892195,
+      "block_tx_output_short_id": "976475x378x1"
     }
   ],
-  "generated_at": "2026-11-18T13:00:18+00:00"
+  "generated_at": "2026-11-19T13:00:18+00:00"
 }
