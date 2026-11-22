@@ -1,5 +1,22 @@
 [
   {
+    "date": "2026-11-22",
+    "day": "Sunday",
+    "criterion": "Capacity-Weighted Degree",
+    "alias": "Socrates",
+    "pub_key": "0243bf62e9cbe219c1fc61c757e1b694774a377d9c6b97fc3df2352f975402f0dc",
+    "pleb_rank": 22,
+    "total_capacity_sats": 1111449712,
+    "total_channels": 217,
+    "total_capacity_rank": 86,
+    "total_channels_rank": 24,
+    "node_type": "",
+    "entity": "",
+    "role": "",
+    "rationale": "#22 by capacity-weighted degree (channel count weighted by size), with 11 BTC across 217 channels.",
+    "rationale_version": 2
+  },
+  {
     "date": "2026-11-21",
     "day": "Saturday",
     "criterion": "Hidden Gem",
@@ -490,23 +507,6 @@
     "entity": "",
     "role": "",
     "rationale": "Drawn from PlebRank #50–#200: PlebRank #168, with 2.6 BTC across 42 channels.",
-    "rationale_version": 2
-  },
-  {
-    "date": "2026-10-23",
-    "day": "Friday",
-    "criterion": "Capacity Whale",
-    "alias": "Strike",
-    "pub_key": "03c8e5f583585cac1de2b7503a6ccd3c12ba477cfd139cd4905be504c2f48e86bd",
-    "pleb_rank": 13,
-    "total_capacity_sats": 15011498865,
-    "total_channels": 326,
-    "total_capacity_rank": 9,
-    "total_channels_rank": 18,
-    "node_type": "Wallet,Exchange,Payment",
-    "entity": "Strike",
-    "role": "",
-    "rationale": "#9 by capacity, with 150 BTC across 326 channels.",
     "rationale_version": 2
   }
 ]
