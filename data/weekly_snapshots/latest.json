@@ -1,42 +1,33 @@
 {
   "schema": 1,
   "type": "daily_snapshot",
-  "target_date": "2026-11-19",
-  "as_of": "2026-11-19",
+  "target_date": "2026-11-20",
+  "as_of": "2026-11-20",
   "date_range": {
-    "start": "2026-11-13",
-    "end": "2026-11-19",
-    "start_formatted": "Nov 13",
-    "end_formatted": "Nov 19, 2026"
+    "start": "2026-11-14",
+    "end": "2026-11-20",
+    "start_formatted": "Nov 14",
+    "end_formatted": "Nov 20, 2026"
   },
   "metrics": {
-    "active_nodes": 13804,
+    "active_nodes": 13797,
     "delta_nodes_7d": 45,
-    "delta_nodes_24h": 8,
-    "active_channels": 36441,
-    "delta_channels_7d": -204,
-    "delta_channels_24h": -50,
-    "total_capacity_sats": 311752000000,
-    "total_capacity_btc": 3117.52,
-    "delta_capacity_btc_7d": -87.5,
-    "delta_capacity_btc_24h": -24.03,
+    "delta_nodes_24h": 5,
+    "active_channels": 36411,
+    "delta_channels_7d": -227,
+    "delta_channels_24h": -30,
+    "total_capacity_sats": 310515000000,
+    "total_capacity_btc": 3105.15,
+    "delta_capacity_btc_7d": -132.24,
+    "delta_capacity_btc_24h": -12.37,
     "median_channel_capacity_sats": 1000000,
     "new_nodes_7d": 45,
-    "new_channels_7d": 1098,
-    "closed_channels_7d": 1302,
-    "new_channels_24h": 154,
-    "closed_channels_24h": 204
+    "new_channels_7d": 1084,
+    "closed_channels_7d": 1311,
+    "new_channels_24h": 145,
+    "closed_channels_24h": 175
   },
   "daily_breakdown": [
-    {
-      "date": "2026-11-13",
-      "date_formatted": "Nov 13",
-      "new_channels": 159,
-      "closed_channels": 166,
-      "capacity_added_btc": 80.22,
-      "capacity_closed_btc": 47.84,
-      "net_capacity_btc": 32.38
-    },
     {
       "date": "2026-11-14",
       "date_formatted": "Nov 14",
@@ -90,6 +81,15 @@
       "capacity_added_btc": 59.97,
       "capacity_closed_btc": 84.0,
       "net_capacity_btc": -24.03
+    },
+    {
+      "date": "2026-11-20",
+      "date_formatted": "Nov 20",
+      "new_channels": 145,
+      "closed_channels": 175,
+      "capacity_added_btc": 61.15,
+      "capacity_closed_btc": 73.52,
+      "net_capacity_btc": -12.37
     }
   ],
   "top_5_channels": [
@@ -110,6 +110,14 @@
       "block_tx_output_short_id": "976637x560x0"
     },
     {
+      "node1_pub": "02a98e8c590a1b5602049d6b21d8f4c8861970aa310762f42eae1b2be88372e924",
+      "node2_pub": "03c8e5f583585cac1de2b7503a6ccd3c12ba477cfd139cd4905be504c2f48e86bd",
+      "node1_alias": "02a98e8c59...",
+      "node2_alias": "Strike",
+      "capacity": 500000000,
+      "block_tx_output_short_id": "976453x2449x1"
+    },
+    {
       "node1_pub": "03a1f3afd646d77bdaf545cceaf079bab6057eae52c6319b63b5803d0989d6a72f",
       "node2_pub": "03a59ebd9a20f2b8d6c366473f6e2e36254aca0ed88d5d46e9b0a3a5276fe25ebf",
       "node1_alias": "Binance",
@@ -118,21 +126,13 @@
       "block_tx_output_short_id": "975737x1629x1"
     },
     {
-      "node1_pub": "03864ef025fde8fb587d989186ce6a4a186895ee44a926bfc370e2c366597a3f8f",
-      "node2_pub": "038ba8f67ba8ff5c48764cdd3251c33598d55b203546d08a8f0ec9dcd9f27e3637",
-      "node1_alias": "ACINQ",
-      "node2_alias": "flashsats.xyz",
-      "capacity": 500000000,
-      "block_tx_output_short_id": "975623x347x0"
-    },
-    {
-      "node1_pub": "02a98e8c590a1b5602049d6b21d8f4c8861970aa310762f42eae1b2be88372e924",
-      "node2_pub": "03c8e5f583585cac1de2b7503a6ccd3c12ba477cfd139cd4905be504c2f48e86bd",
-      "node1_alias": "02a98e8c59...",
-      "node2_alias": "Strike",
-      "capacity": 500000000,
-      "block_tx_output_short_id": "976453x2449x1"
+      "node1_pub": "021c97a90a411ff2b10dc2a8e32de2f29d2fa49d41bfbb52bd416e460db0747d0d",
+      "node2_pub": "02f31f23d87a366e5ed28f72546193f85cba1073b7386eafd53b0d349df79ee6f1",
+      "node1_alias": "LOOP",
+      "node2_alias": "Uncle Jim's Node",
+      "capacity": 491892195,
+      "block_tx_output_short_id": "976475x378x1"
     }
   ],
-  "generated_at": "2026-11-20T13:00:18+00:00"
+  "generated_at": "2026-11-21T13:00:18+00:00"
 }
