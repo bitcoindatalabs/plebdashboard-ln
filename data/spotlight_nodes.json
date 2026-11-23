@@ -1,5 +1,22 @@
 [
   {
+    "date": "2026-11-23",
+    "day": "Monday",
+    "criterion": "Highest PlebRank",
+    "alias": "Garlic🧄",
+    "pub_key": "033b63e4a9931dc151037acbce12f4f8968c86f5655cf102bbfa85a26bd4adc6d9",
+    "pleb_rank": 24,
+    "total_capacity_sats": 2145763375,
+    "total_channels": 183,
+    "total_capacity_rank": 48,
+    "total_channels_rank": 29,
+    "node_type": "",
+    "entity": "",
+    "role": "",
+    "rationale": "PlebRank #24, with 21 BTC across 183 channels.",
+    "rationale_version": 2
+  },
+  {
     "date": "2026-11-22",
     "day": "Sunday",
     "criterion": "Capacity-Weighted Degree",
@@ -490,23 +507,6 @@
     "entity": "Sunny Sarah ☀️",
     "role": "",
     "rationale": "#10 by capacity-weighted degree (channel count weighted by size), with 44 BTC across 353 channels.",
-    "rationale_version": 2
-  },
-  {
-    "date": "2026-10-24",
-    "day": "Saturday",
-    "criterion": "Hidden Gem",
-    "alias": "♥",
-    "pub_key": "03cfea6e01d8735d29863d0ecc0f637e5da25c3afb1894e6cb1c25cc9c52dbceef",
-    "pleb_rank": 168,
-    "total_capacity_sats": 260447568,
-    "total_channels": 42,
-    "total_capacity_rank": 268,
-    "total_channels_rank": 227,
-    "node_type": "",
-    "entity": "",
-    "role": "",
-    "rationale": "Drawn from PlebRank #50–#200: PlebRank #168, with 2.6 BTC across 42 channels.",
     "rationale_version": 2
   }
 ]
