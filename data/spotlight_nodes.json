@@ -1,5 +1,22 @@
 [
   {
+    "date": "2026-11-24",
+    "day": "Tuesday",
+    "criterion": "Biggest New Node",
+    "alias": "Ripio 3.0",
+    "pub_key": "034f8381e438fb30aab66441aa5442757672289168c8f4e03286febdd69b91aadf",
+    "pleb_rank": 1459,
+    "total_capacity_sats": 54327525,
+    "total_channels": 6,
+    "total_capacity_rank": 658,
+    "total_channels_rank": 1124,
+    "node_type": "",
+    "entity": "",
+    "role": "",
+    "rationale": "#1 by capacity among 42 nodes first seen in the last 7 days (Nov 20): 54.3M sats across 6 channels.",
+    "rationale_version": 2
+  },
+  {
     "date": "2026-11-23",
     "day": "Monday",
     "criterion": "Highest PlebRank",
@@ -490,23 +507,6 @@
     "entity": "",
     "role": "",
     "rationale": "PlebRank #15, with 127 BTC across 236 channels.",
-    "rationale_version": 2
-  },
-  {
-    "date": "2026-10-25",
-    "day": "Sunday",
-    "criterion": "Capacity-Weighted Degree",
-    "alias": "Sunny Sarah ☀️",
-    "pub_key": "03423790614f023e3c0cdaa654a3578e919947e4c3a14bf5044e7c787ebd11af1a",
-    "pleb_rank": 14,
-    "total_capacity_sats": 4355397335,
-    "total_channels": 353,
-    "total_capacity_rank": 31,
-    "total_channels_rank": 15,
-    "node_type": "Routing",
-    "entity": "Sunny Sarah ☀️",
-    "role": "",
-    "rationale": "#10 by capacity-weighted degree (channel count weighted by size), with 44 BTC across 353 channels.",
     "rationale_version": 2
   }
 ]
