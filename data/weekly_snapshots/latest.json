@@ -1,51 +1,33 @@
 {
   "schema": 1,
   "type": "daily_snapshot",
-  "target_date": "2026-11-21",
-  "as_of": "2026-11-21",
+  "target_date": "2026-11-23",
+  "as_of": "2026-11-23",
   "date_range": {
-    "start": "2026-11-15",
-    "end": "2026-11-21",
-    "start_formatted": "Nov 15",
-    "end_formatted": "Nov 21, 2026"
+    "start": "2026-11-17",
+    "end": "2026-11-23",
+    "start_formatted": "Nov 17",
+    "end_formatted": "Nov 23, 2026"
   },
   "metrics": {
-    "active_nodes": 13786,
+    "active_nodes": 13784,
     "delta_nodes_7d": 44,
-    "delta_nodes_24h": 4,
-    "active_channels": 36327,
-    "delta_channels_7d": -327,
-    "delta_channels_24h": -85,
-    "total_capacity_sats": 308825000000,
-    "total_capacity_btc": 3088.25,
-    "delta_capacity_btc_7d": -165.59,
-    "delta_capacity_btc_24h": -16.91,
+    "delta_nodes_24h": 3,
+    "active_channels": 36325,
+    "delta_channels_7d": -270,
+    "delta_channels_24h": -22,
+    "total_capacity_sats": 308826000000,
+    "total_capacity_btc": 3088.26,
+    "delta_capacity_btc_7d": -90.0,
+    "delta_capacity_btc_24h": -12.74,
     "median_channel_capacity_sats": 1000000,
     "new_nodes_7d": 44,
-    "new_channels_7d": 1053,
-    "closed_channels_7d": 1380,
-    "new_channels_24h": 140,
-    "closed_channels_24h": 225
+    "new_channels_7d": 969,
+    "closed_channels_7d": 1239,
+    "new_channels_24h": 135,
+    "closed_channels_24h": 157
   },
   "daily_breakdown": [
-    {
-      "date": "2026-11-15",
-      "date_formatted": "Nov 15",
-      "new_channels": 196,
-      "closed_channels": 185,
-      "capacity_added_btc": 61.23,
-      "capacity_closed_btc": 69.03,
-      "net_capacity_btc": -7.8
-    },
-    {
-      "date": "2026-11-16",
-      "date_formatted": "Nov 16",
-      "new_channels": 162,
-      "closed_channels": 232,
-      "capacity_added_btc": 61.4,
-      "capacity_closed_btc": 129.17,
-      "net_capacity_btc": -67.77
-    },
     {
       "date": "2026-11-17",
       "date_formatted": "Nov 17",
@@ -90,6 +72,24 @@
       "capacity_added_btc": 63.84,
       "capacity_closed_btc": 80.75,
       "net_capacity_btc": -16.91
+    },
+    {
+      "date": "2026-11-22",
+      "date_formatted": "Nov 22",
+      "new_channels": 139,
+      "closed_channels": 119,
+      "capacity_added_btc": 52.77,
+      "capacity_closed_btc": 40.01,
+      "net_capacity_btc": 12.76
+    },
+    {
+      "date": "2026-11-23",
+      "date_formatted": "Nov 23",
+      "new_channels": 135,
+      "closed_channels": 157,
+      "capacity_added_btc": 43.67,
+      "capacity_closed_btc": 56.41,
+      "net_capacity_btc": -12.74
     }
   ],
   "top_5_channels": [
@@ -107,7 +107,7 @@
       "node1_alias": "02a98e8c59...",
       "node2_alias": "Strike",
       "capacity": 500000000,
-      "block_tx_output_short_id": "976453x2449x1"
+      "block_tx_output_short_id": "976620x2162x1"
     },
     {
       "node1_pub": "021c97a90a411ff2b10dc2a8e32de2f29d2fa49d41bfbb52bd416e460db0747d0d",
@@ -134,5 +134,5 @@
       "block_tx_output_short_id": "976915x1487x1"
     }
   ],
-  "generated_at": "2026-11-22T13:00:18+00:00"
+  "generated_at": "2026-11-24T13:00:18+00:00"
 }
