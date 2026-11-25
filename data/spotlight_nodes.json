@@ -1,5 +1,22 @@
 [
   {
+    "date": "2026-11-25",
+    "day": "Wednesday",
+    "criterion": "Channel Momentum",
+    "alias": "block-pdx-1",
+    "pub_key": "028a33a72ecb09967e67b08a04179fce74730bbc4cb2544c7d6876d20c6450c5eb",
+    "pleb_rank": 210,
+    "total_capacity_sats": 2947763464,
+    "total_channels": 52,
+    "total_capacity_rank": 39,
+    "total_channels_rank": 164,
+    "node_type": "LSP,Routing",
+    "entity": "Block / Spiral",
+    "role": "",
+    "rationale": "Endpoint of 42 still-open channels funded in the last 7 days, #2 across the network.",
+    "rationale_version": 2
+  },
+  {
     "date": "2026-11-24",
     "day": "Tuesday",
     "criterion": "Biggest New Node",
@@ -490,23 +507,6 @@
     "entity": "",
     "role": "",
     "rationale": "#1 by capacity among 43 nodes first seen in the last 7 days (Oct 25): 1.4 BTC across 10 channels.",
-    "rationale_version": 2
-  },
-  {
-    "date": "2026-10-26",
-    "day": "Monday",
-    "criterion": "Highest PlebRank",
-    "alias": "02a98e8c590a…",
-    "pub_key": "02a98e8c590a1b5602049d6b21d8f4c8861970aa310762f42eae1b2be88372e924",
-    "pleb_rank": 15,
-    "total_capacity_sats": 12662730028,
-    "total_channels": 236,
-    "total_capacity_rank": 11,
-    "total_channels_rank": 24,
-    "node_type": "Routing",
-    "entity": "",
-    "role": "",
-    "rationale": "PlebRank #15, with 127 BTC across 236 channels.",
     "rationale_version": 2
   }
 ]
