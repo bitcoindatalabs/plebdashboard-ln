@@ -1,42 +1,33 @@
 {
   "schema": 1,
   "type": "daily_snapshot",
-  "target_date": "2026-11-23",
-  "as_of": "2026-11-23",
+  "target_date": "2026-11-24",
+  "as_of": "2026-11-24",
   "date_range": {
-    "start": "2026-11-17",
-    "end": "2026-11-23",
-    "start_formatted": "Nov 17",
-    "end_formatted": "Nov 23, 2026"
+    "start": "2026-11-18",
+    "end": "2026-11-24",
+    "start_formatted": "Nov 18",
+    "end_formatted": "Nov 24, 2026"
   },
   "metrics": {
-    "active_nodes": 13784,
-    "delta_nodes_7d": 44,
-    "delta_nodes_24h": 3,
-    "active_channels": 36325,
-    "delta_channels_7d": -270,
-    "delta_channels_24h": -22,
-    "total_capacity_sats": 308826000000,
-    "total_capacity_btc": 3088.26,
-    "delta_capacity_btc_7d": -90.0,
-    "delta_capacity_btc_24h": -12.74,
+    "active_nodes": 13790,
+    "delta_nodes_7d": 45,
+    "delta_nodes_24h": 7,
+    "active_channels": 36322,
+    "delta_channels_7d": -234,
+    "delta_channels_24h": -3,
+    "total_capacity_sats": 309268000000,
+    "total_capacity_btc": 3092.68,
+    "delta_capacity_btc_7d": -55.1,
+    "delta_capacity_btc_24h": 4.42,
     "median_channel_capacity_sats": 1000000,
-    "new_nodes_7d": 44,
-    "new_channels_7d": 969,
-    "closed_channels_7d": 1239,
-    "new_channels_24h": 135,
-    "closed_channels_24h": 157
+    "new_nodes_7d": 45,
+    "new_channels_7d": 988,
+    "closed_channels_7d": 1222,
+    "new_channels_24h": 127,
+    "closed_channels_24h": 130
   },
   "daily_breakdown": [
-    {
-      "date": "2026-11-17",
-      "date_formatted": "Nov 17",
-      "new_channels": 108,
-      "closed_channels": 147,
-      "capacity_added_btc": 52.04,
-      "capacity_closed_btc": 82.52,
-      "net_capacity_btc": -30.48
-    },
     {
       "date": "2026-11-18",
       "date_formatted": "Nov 18",
@@ -90,9 +81,26 @@
       "capacity_added_btc": 43.67,
       "capacity_closed_btc": 56.41,
       "net_capacity_btc": -12.74
+    },
+    {
+      "date": "2026-11-24",
+      "date_formatted": "Nov 24",
+      "new_channels": 127,
+      "closed_channels": 130,
+      "capacity_added_btc": 67.49,
+      "capacity_closed_btc": 63.07,
+      "net_capacity_btc": 4.42
     }
   ],
   "top_5_channels": [
+    {
+      "node1_pub": "033e9ce4e8f0e68f7db49ffb6b9eecc10605f3f3fcb3c630545887749ab515b9c7",
+      "node2_pub": "036da580b507d05360ec76385b67641fbcfccb451cc23d1e37b6d77cd5853da723",
+      "node1_alias": "LNBiG [Hub-2]",
+      "node2_alias": "dinosaur-border",
+      "capacity": 562367726,
+      "block_tx_output_short_id": "977404x995x1"
+    },
     {
       "node1_pub": "023caa4740199ae8f5f739f8d4a94587cdbb6166073156e5d8d4ad00869ace7ffe",
       "node2_pub": "033e9ce4e8f0e68f7db49ffb6b9eecc10605f3f3fcb3c630545887749ab515b9c7",
@@ -107,7 +115,7 @@
       "node1_alias": "02a98e8c59...",
       "node2_alias": "Strike",
       "capacity": 500000000,
-      "block_tx_output_short_id": "976620x2162x1"
+      "block_tx_output_short_id": "976453x2449x1"
     },
     {
       "node1_pub": "021c97a90a411ff2b10dc2a8e32de2f29d2fa49d41bfbb52bd416e460db0747d0d",
@@ -124,15 +132,7 @@
       "node2_alias": "flashsats.xyz",
       "capacity": 406177640,
       "block_tx_output_short_id": "976865x234x1"
-    },
-    {
-      "node1_pub": "021c97a90a411ff2b10dc2a8e32de2f29d2fa49d41bfbb52bd416e460db0747d0d",
-      "node2_pub": "03c8e5f583585cac1de2b7503a6ccd3c12ba477cfd139cd4905be504c2f48e86bd",
-      "node1_alias": "LOOP",
-      "node2_alias": "Strike",
-      "capacity": 400000000,
-      "block_tx_output_short_id": "976915x1487x1"
     }
   ],
-  "generated_at": "2026-11-24T13:00:18+00:00"
+  "generated_at": "2026-11-25T13:00:18+00:00"
 }
