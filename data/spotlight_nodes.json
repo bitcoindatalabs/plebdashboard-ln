@@ -1,5 +1,22 @@
 [
   {
+    "date": "2026-11-26",
+    "day": "Thursday",
+    "criterion": "Centrality Bridge",
+    "alias": "Boltz",
+    "pub_key": "026165850492521f4ac8abd9bd8088123446d126f648ca35e60f88177dc149ceb2",
+    "pleb_rank": 612,
+    "total_capacity_sats": 113765720,
+    "total_channels": 115,
+    "total_capacity_rank": 421,
+    "total_channels_rank": 59,
+    "node_type": "Exchange",
+    "entity": "Boltz",
+    "role": "",
+    "rationale": "Betweenness centrality rank #10: lies on many shortest payment paths between other nodes.",
+    "rationale_version": 2
+  },
+  {
     "date": "2026-11-25",
     "day": "Wednesday",
     "criterion": "Channel Momentum",
@@ -490,23 +507,6 @@
     "entity": "Coinduit",
     "role": "",
     "rationale": "Endpoint of 25 still-open channels funded in the last 7 days, #7 across the network.",
-    "rationale_version": 2
-  },
-  {
-    "date": "2026-10-27",
-    "day": "Tuesday",
-    "criterion": "Biggest New Node",
-    "alias": "0357bd63443d…",
-    "pub_key": "0357bd63443d00a78fa06115ccb1565fdf68dfdd11739e4bd46ec12aa7259d67ea",
-    "pleb_rank": 754,
-    "total_capacity_sats": 139658441,
-    "total_channels": 10,
-    "total_capacity_rank": 404,
-    "total_channels_rank": 792,
-    "node_type": "",
-    "entity": "",
-    "role": "",
-    "rationale": "#1 by capacity among 43 nodes first seen in the last 7 days (Oct 25): 1.4 BTC across 10 channels.",
     "rationale_version": 2
   }
 ]
