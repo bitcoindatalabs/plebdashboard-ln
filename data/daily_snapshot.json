@@ -1,42 +1,33 @@
 {
   "schema": 1,
   "type": "daily_snapshot",
-  "target_date": "2026-11-24",
-  "as_of": "2026-11-24",
+  "target_date": "2026-11-25",
+  "as_of": "2026-11-25",
   "date_range": {
-    "start": "2026-11-18",
-    "end": "2026-11-24",
-    "start_formatted": "Nov 18",
-    "end_formatted": "Nov 24, 2026"
+    "start": "2026-11-19",
+    "end": "2026-11-25",
+    "start_formatted": "Nov 19",
+    "end_formatted": "Nov 25, 2026"
   },
   "metrics": {
-    "active_nodes": 13790,
-    "delta_nodes_7d": 45,
-    "delta_nodes_24h": 7,
-    "active_channels": 36322,
-    "delta_channels_7d": -234,
-    "delta_channels_24h": -3,
-    "total_capacity_sats": 309268000000,
-    "total_capacity_btc": 3092.68,
-    "delta_capacity_btc_7d": -55.1,
-    "delta_capacity_btc_24h": 4.42,
+    "active_nodes": 13783,
+    "delta_nodes_7d": 40,
+    "delta_nodes_24h": 5,
+    "active_channels": 36321,
+    "delta_channels_7d": -170,
+    "delta_channels_24h": -1,
+    "total_capacity_sats": 309599000000,
+    "total_capacity_btc": 3095.99,
+    "delta_capacity_btc_7d": -45.56,
+    "delta_capacity_btc_24h": 3.31,
     "median_channel_capacity_sats": 1000000,
-    "new_nodes_7d": 45,
-    "new_channels_7d": 988,
-    "closed_channels_7d": 1222,
-    "new_channels_24h": 127,
-    "closed_channels_24h": 130
+    "new_nodes_7d": 40,
+    "new_channels_7d": 1001,
+    "closed_channels_7d": 1171,
+    "new_channels_24h": 160,
+    "closed_channels_24h": 161
   },
   "daily_breakdown": [
-    {
-      "date": "2026-11-18",
-      "date_formatted": "Nov 18",
-      "new_channels": 147,
-      "closed_channels": 212,
-      "capacity_added_btc": 68.59,
-      "capacity_closed_btc": 74.82,
-      "net_capacity_btc": -6.23
-    },
     {
       "date": "2026-11-19",
       "date_formatted": "Nov 19",
@@ -90,6 +81,15 @@
       "capacity_added_btc": 67.49,
       "capacity_closed_btc": 63.07,
       "net_capacity_btc": 4.42
+    },
+    {
+      "date": "2026-11-25",
+      "date_formatted": "Nov 25",
+      "new_channels": 160,
+      "closed_channels": 161,
+      "capacity_added_btc": 65.48,
+      "capacity_closed_btc": 62.17,
+      "net_capacity_btc": 3.31
     }
   ],
   "top_5_channels": [
@@ -115,15 +115,7 @@
       "node1_alias": "02a98e8c59...",
       "node2_alias": "Strike",
       "capacity": 500000000,
-      "block_tx_output_short_id": "976453x2449x1"
-    },
-    {
-      "node1_pub": "021c97a90a411ff2b10dc2a8e32de2f29d2fa49d41bfbb52bd416e460db0747d0d",
-      "node2_pub": "02f31f23d87a366e5ed28f72546193f85cba1073b7386eafd53b0d349df79ee6f1",
-      "node1_alias": "LOOP",
-      "node2_alias": "Uncle Jim's Node",
-      "capacity": 491892195,
-      "block_tx_output_short_id": "976475x378x1"
+      "block_tx_output_short_id": "976620x2162x1"
     },
     {
       "node1_pub": "037f990e61acee8a7697966afd29dd88f3b1f8a7b14d625c4f8742bd952003a590",
@@ -132,7 +124,15 @@
       "node2_alias": "flashsats.xyz",
       "capacity": 406177640,
       "block_tx_output_short_id": "976865x234x1"
+    },
+    {
+      "node1_pub": "021c97a90a411ff2b10dc2a8e32de2f29d2fa49d41bfbb52bd416e460db0747d0d",
+      "node2_pub": "03c8e5f583585cac1de2b7503a6ccd3c12ba477cfd139cd4905be504c2f48e86bd",
+      "node1_alias": "LOOP",
+      "node2_alias": "Strike",
+      "capacity": 400000000,
+      "block_tx_output_short_id": "977288x161x1"
     }
   ],
-  "generated_at": "2026-11-25T13:00:18+00:00"
+  "generated_at": "2026-11-26T13:00:18+00:00"
 }
