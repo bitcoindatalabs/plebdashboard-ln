@@ -1,5 +1,22 @@
 [
   {
+    "date": "2026-11-27",
+    "day": "Friday",
+    "criterion": "Capacity Whale",
+    "alias": "LifeIsGood",
+    "pub_key": "0391904d140fdf88d19423513945a5fcc49c606521b65a85f6d6fe46ebdd1c7665",
+    "pleb_rank": 48,
+    "total_capacity_sats": 5927604110,
+    "total_channels": 133,
+    "total_capacity_rank": 20,
+    "total_channels_rank": 48,
+    "node_type": "Routing",
+    "entity": "",
+    "role": "",
+    "rationale": "#20 by capacity, with 59 BTC across 133 channels.",
+    "rationale_version": 2
+  },
+  {
     "date": "2026-11-26",
     "day": "Thursday",
     "criterion": "Centrality Bridge",
@@ -490,23 +507,6 @@
     "entity": "",
     "role": "",
     "rationale": "Betweenness centrality rank #7: lies on many shortest payment paths between other nodes.",
-    "rationale_version": 2
-  },
-  {
-    "date": "2026-10-28",
-    "day": "Wednesday",
-    "criterion": "Channel Momentum",
-    "alias": "Coinduit",
-    "pub_key": "024c08d7cded0993167094b1b941ec58ff594951c94094e916220f26dc2055f5ea",
-    "pleb_rank": 33,
-    "total_capacity_sats": 1188423960,
-    "total_channels": 148,
-    "total_capacity_rank": 84,
-    "total_channels_rank": 47,
-    "node_type": "Routing,LSP",
-    "entity": "Coinduit",
-    "role": "",
-    "rationale": "Endpoint of 25 still-open channels funded in the last 7 days, #7 across the network.",
     "rationale_version": 2
   }
 ]
