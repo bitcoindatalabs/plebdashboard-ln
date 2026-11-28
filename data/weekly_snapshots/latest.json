@@ -1,42 +1,33 @@
 {
   "schema": 1,
   "type": "daily_snapshot",
-  "target_date": "2026-11-25",
-  "as_of": "2026-11-25",
+  "target_date": "2026-11-26",
+  "as_of": "2026-11-26",
   "date_range": {
-    "start": "2026-11-19",
-    "end": "2026-11-25",
-    "start_formatted": "Nov 19",
-    "end_formatted": "Nov 25, 2026"
+    "start": "2026-11-20",
+    "end": "2026-11-26",
+    "start_formatted": "Nov 20",
+    "end_formatted": "Nov 26, 2026"
   },
   "metrics": {
-    "active_nodes": 13783,
-    "delta_nodes_7d": 40,
-    "delta_nodes_24h": 5,
-    "active_channels": 36321,
-    "delta_channels_7d": -170,
-    "delta_channels_24h": -1,
-    "total_capacity_sats": 309599000000,
-    "total_capacity_btc": 3095.99,
-    "delta_capacity_btc_7d": -45.56,
-    "delta_capacity_btc_24h": 3.31,
+    "active_nodes": 13775,
+    "delta_nodes_7d": 38,
+    "delta_nodes_24h": 6,
+    "active_channels": 36299,
+    "delta_channels_7d": -142,
+    "delta_channels_24h": -22,
+    "total_capacity_sats": 306686000000,
+    "total_capacity_btc": 3066.86,
+    "delta_capacity_btc_7d": -50.66,
+    "delta_capacity_btc_24h": -29.13,
     "median_channel_capacity_sats": 1000000,
-    "new_nodes_7d": 40,
-    "new_channels_7d": 1001,
-    "closed_channels_7d": 1171,
-    "new_channels_24h": 160,
-    "closed_channels_24h": 161
+    "new_nodes_7d": 38,
+    "new_channels_7d": 966,
+    "closed_channels_7d": 1108,
+    "new_channels_24h": 119,
+    "closed_channels_24h": 141
   },
   "daily_breakdown": [
-    {
-      "date": "2026-11-19",
-      "date_formatted": "Nov 19",
-      "new_channels": 154,
-      "closed_channels": 204,
-      "capacity_added_btc": 59.97,
-      "capacity_closed_btc": 84.0,
-      "net_capacity_btc": -24.03
-    },
     {
       "date": "2026-11-20",
       "date_formatted": "Nov 20",
@@ -90,6 +81,15 @@
       "capacity_added_btc": 65.48,
       "capacity_closed_btc": 62.17,
       "net_capacity_btc": 3.31
+    },
+    {
+      "date": "2026-11-26",
+      "date_formatted": "Nov 26",
+      "new_channels": 119,
+      "closed_channels": 141,
+      "capacity_added_btc": 55.62,
+      "capacity_closed_btc": 84.75,
+      "net_capacity_btc": -29.13
     }
   ],
   "top_5_channels": [
@@ -100,22 +100,6 @@
       "node2_alias": "dinosaur-border",
       "capacity": 562367726,
       "block_tx_output_short_id": "977404x995x1"
-    },
-    {
-      "node1_pub": "023caa4740199ae8f5f739f8d4a94587cdbb6166073156e5d8d4ad00869ace7ffe",
-      "node2_pub": "033e9ce4e8f0e68f7db49ffb6b9eecc10605f3f3fcb3c630545887749ab515b9c7",
-      "node1_alias": "statute",
-      "node2_alias": "LNBiG [Hub-2]",
-      "capacity": 512803882,
-      "block_tx_output_short_id": "976637x560x0"
-    },
-    {
-      "node1_pub": "02a98e8c590a1b5602049d6b21d8f4c8861970aa310762f42eae1b2be88372e924",
-      "node2_pub": "03c8e5f583585cac1de2b7503a6ccd3c12ba477cfd139cd4905be504c2f48e86bd",
-      "node1_alias": "02a98e8c59...",
-      "node2_alias": "Strike",
-      "capacity": 500000000,
-      "block_tx_output_short_id": "976620x2162x1"
     },
     {
       "node1_pub": "037f990e61acee8a7697966afd29dd88f3b1f8a7b14d625c4f8742bd952003a590",
@@ -131,8 +115,24 @@
       "node1_alias": "LOOP",
       "node2_alias": "Strike",
       "capacity": 400000000,
-      "block_tx_output_short_id": "977288x161x1"
+      "block_tx_output_short_id": "976915x1487x1"
+    },
+    {
+      "node1_pub": "027100442c3b79f606f80f322d98d499eefcb060599efc5d4ecb00209c2cb54190",
+      "node2_pub": "02ba0c09d94698745ebbda922c6d19d54437a89aab333f1539d8cfafb819173feb",
+      "node1_alias": "block-iad-1",
+      "node2_alias": "PaidlyInteractive⚡",
+      "capacity": 360801949,
+      "block_tx_output_short_id": "976681x1354x0"
+    },
+    {
+      "node1_pub": "027cd974e47086291bb8a5b0160a889c738f2712a703b8ea939985fd16f3aae67e",
+      "node2_pub": "03c8e5f583585cac1de2b7503a6ccd3c12ba477cfd139cd4905be504c2f48e86bd",
+      "node1_alias": "lndus0.zaphq.io",
+      "node2_alias": "Strike",
+      "capacity": 342418972,
+      "block_tx_output_short_id": "976857x1836x1"
     }
   ],
-  "generated_at": "2026-11-26T13:00:18+00:00"
+  "generated_at": "2026-11-27T13:00:18+00:00"
 }
