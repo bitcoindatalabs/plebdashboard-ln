@@ -1,5 +1,22 @@
 [
   {
+    "date": "2026-11-28",
+    "day": "Saturday",
+    "criterion": "Hidden Gem",
+    "alias": "BitcoinJungleCR",
+    "pub_key": "03797da684da0b6de8a813f9d7ebb0412c5d7504619b3fa5255861b991a7f86960",
+    "pleb_rank": 132,
+    "total_capacity_sats": 897835670,
+    "total_channels": 49,
+    "total_capacity_rank": 99,
+    "total_channels_rank": 179,
+    "node_type": "",
+    "entity": "",
+    "role": "",
+    "rationale": "Drawn from PlebRank #50–#200: PlebRank #132, with 8.98 BTC across 49 channels.",
+    "rationale_version": 2
+  },
+  {
     "date": "2026-11-27",
     "day": "Friday",
     "criterion": "Capacity Whale",
@@ -490,23 +507,6 @@
     "entity": "LNBIG",
     "role": "",
     "rationale": "#15 by capacity, with 87 BTC across 268 channels.",
-    "rationale_version": 2
-  },
-  {
-    "date": "2026-10-29",
-    "day": "Thursday",
-    "criterion": "Centrality Bridge",
-    "alias": "020be4e9c776…",
-    "pub_key": "020be4e9c776298d42fe8ab2333f3b9e602d7b3399a8c1b8a23c4a6977825252ed",
-    "pleb_rank": 1910,
-    "total_capacity_sats": 246953,
-    "total_channels": 4,
-    "total_capacity_rank": 5675,
-    "total_channels_rank": 1864,
-    "node_type": "",
-    "entity": "",
-    "role": "",
-    "rationale": "Betweenness centrality rank #7: lies on many shortest payment paths between other nodes.",
     "rationale_version": 2
   }
 ]
